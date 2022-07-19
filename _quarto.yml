@@ -1,6 +1,8 @@
 project:
   type: book
 
+execute:
+  freeze: auto
 book:
   title: "Scientific Computing"
   author: "Lance Nelson"
