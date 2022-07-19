@@ -114,7 +114,6 @@ c1 < c2 or ρ1 < ρ2
 
 ```
 
-
 ### Tests for Inclusion  
  
  You can check for inclusion using the Python `in` operator. This provides an easy way to see if a character (or word) is present in a long string.  Let's say you have a long string that contains the names of Jupyter's moons (there are 79 of them!!) and you want to see if a certain moon is included in the list. The `in` statement let's us quickly test to see if it is in the list. (see example below) 
