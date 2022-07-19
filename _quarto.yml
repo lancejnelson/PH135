@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Scientific Computing"
+  author: "Lance Nelson"
+  date: "7/16/2022"
+  chapters:
+    - index.qmd
+    - part: "Basic Python"
+      chapters:
+      - basicPythonI.qmd
+      - basicPythonII.qmd
+      - basicPythonIII.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: superhero
+  pdf:
+    documentclass: scrreprt
+
+
+
