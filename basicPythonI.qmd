@@ -1,0 +1,264 @@
+---
+format: html
+toc: true
+---
+
+# Variables and Numbers
+
+## Variables
+
+When performing mathematical operations, it is often desirable to store the values in *variables* for later use instead of manually typing them back in each time you need to use them.  This will reduce effort because small changes to variables can automatically propagate through your calculations.  
+
+Attaching a value to a variable is called *assignment* and is performed using the equal sign (=), as demonstrated in the cell below:
+
+```{python}
+a = 5.0
+b = 3
+c = a + b
+```
+
+### Variable naming convention
+
+There are some rules for allowed variable names in Python.  They are as follows:
+
+1. Variable names must begin with a letter or an underscore (`_`)
+2. Variables names must only contain letters, numbers, and underscores.
+3. Variable names cannot contain spaces.
+4. Variables names cannot be a word reserved by Python for something else.  These words are:
+
+|  | Python  | reserved |words | | 
+|-----|-----|-----|------|--------|
+|and | as |assert | break | class |
+|continue | def |del | elif | else |
+|except | False |finally | for | from |
+|global | if |import | in | is |
+|lambda | None |nonlocal | not | or |
+|pass | raise |return | True | try |
+|why | with |yield |  |  |
+
+
+The cell below contains some allowed variable names and some that are not allowed.
+
+
+>**_To Do:_**
+>
+>1. Determine which variable names are allowed and which are not in the cell below.
+>2. What does Python do if you try to define a variable using a name that is not allowed?
+
+```{python}
+#| echo: true
+#| eval: false
+my1variable = 3
+1stvariables = 2
+a big constant = 3
+a_big_constant = 1e8
+```
+
+It is also a good practice to make variable names meaningful. For example, in the cell below we calculate $E = mc^2$ using two choices for variable assignments. In one case, it is easy to determine what the calculation is and in the other it isn't.
+
+```{python}
+
+# Good Variable Names
+mass_kg = 1.6
+light_speed = 3.0e8
+E = mass_kg * light_speed**2
+
+
+# Poor Variable Names
+a = 1.6
+b = 3.0e8
+c = a * b**2
+
+
+```
+
+### Numbers: Integers and Floats
+
+There are two types of numbers in Python - floats and integers. *Floats*, short for "floating point numbers," are values with decimals in them.  They may be either whole or non-whole numbers such as 3.0 or 1.2, but there is always a decimal point. *Integers* are whole numbers with no decimal point such as 2 or 53.
+
+Mathematical operations that only use integers *and* evaluate to a whole number will generate an integers (except for division).  All other situations will generate a float.  See the example cell below.
+
+
+```{python}
+
+a = 24
+b = 6
+d = 0.3
+e = a + b # Produces an integer.
+f = a + d # Produces a float
+g = a * b # Produces a ???
+h = a / b # Produces a ???
+```
+
+Integers and floats can be interconverted to each other using the `int()` and `float()` functions.
+
+```{python}
+int(3.0)
+float(4)
+```
+
+The distinction between floats and ints is often a minor detail. Occasionally, a function will require that an argument be a float or an int but usually you won't have to worry about which one you use.
+
+Below you will find some other common mathematical operations that can be performed on numerical variables. 
+
+
+```{python}
+#| echo: true
+#| eval: false
+
+a = 20
+b = 10
+c = a + b 
+d = a/b  
+r = a//b
+r = a % b
+e = a * b
+f = c**4
+```
+
+
+>**To Do:**
+>
+>1. Use print statements to investigate what each operation does.  
+>2. Can you force each operation to produce a float and an integer?
+>3. Add comments next to each line (Use `#` to start a comment) explaining that operation. 
+
+
+
+
+### Augmented Assignment
+
+Augmented assignment is a shortened way to make a simple modification to a variable. For example, if we want to increase the value of a variable by 10, one way to do it would be like this.
+
+```{python}
+a = 5
+a = a + 10
+```
+
+This is certainly not difficult, but it does involve typing the variable twice which becomes cumbersome as your variable name gets longer.  Alternatively, we can accomplish the same thing with the `+=` operator.
+
+```{python}
+a = 5
+a += 10
+```
+
+Augmented assignment can be used with addition, subtraction, multiplication, and division as shown in the code cell below.
+
+
+>**_To Do:_**
+>
+>1. Predict what the final result of a will be in the code cell below.
+>2. Add an appropriately-place print statement to see if you were correct.
+>3. If you were wrong, pow-wow with your neighbor until you understand.
+
+```{python}
+a = 7
+a += 3
+a -= 1
+a *= 4
+a /= 3
+```
+
+### Compound Assignment
+
+At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it's own line of code, but if there are a lot of variables, this can begin to clutter your code a little.  An alternative is to assign multiple variables on a single line.  In the code below, we assign the atomic mass of the first three elements.
+
+```{python}
+H, He, Li = 1.01, 4.00, 5.39
+```
+
+
+
+>**_To Do:_**
+>
+>1. Use print statements to verify that each variable was assigned it's own value.
+>2. Add assignments for the atomic masses of the next three elements on the periodic table.
+
+### Large numbers
+
+Sometimes you find yourself working with large numbers in your calculation. Maybe your calculation involves the use of ten billion, which has 10 zeros in it.  It can be difficult to look at all of those zeros with no commas to help break it up.  In those cases, you can use an underscore (`_`) in place of the comma, as shown below.  
+
+```{python}
+myLargeNumber = 10000000000 # This is tough to look at.
+myLargeNumber = 10_000_000_000  # This is easy to read
+
+myLargeFloat = 5000000.6 # This is tough to read
+myLargeFloat = 5_000_000.6 # This is easy to read
+```
+
+### Very Large Numbers
+If your number is very large or very small ( $20-30$ zeros), you would probably rather not have to type all of the zeros at all, even if you can break it up with the underscores.  For example, the Boltzman constant, which comes up in thermodynamics, has a value equal to  
+
+$$ 1.38 \times 10^{-23}$$ 
+
+We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below)  This is super handy for very large and very small number.  (Numbers of both variety show up frequently in physics!)
+
+```{python}
+kB = 1.38e-23
+```
+
+### Python functions
+
+In addition to basic mathematical functions, python contains several mathematical *functions*.  As in mathematics, a function has a name (e.g. *f*) and the arguments are places inside of the parenthesis after the name.  The *argument* is any value or piece of information fed into the function.  In the case below, *f* requires a single argument *x*.
+$$f(x)$$
+
+In the cell below, you will find several useful math equations.
+
+```{python}
+abs(-5.5)
+float(2)
+int(5.6)
+print(1.26e-6)
+round(-5.51)
+str(3.2)
+```
+
+In addition to Python's native collection of mathematical functions, there is also a `math` module with more mathematical functions.  Think of a module as an add-on or tool pack for Python just like a library.  The `math` module comes with every installation of python and can be *imported* (i.e. activated) using the `import math` command. After the module has been imported, any function in the module is called using `math.function()` where `function` is the name of the function.  Here is a list of commonly-used function inside the `math module`:
+
+```{python}
+import math
+math.sqrt(4)
+math.ceil(4.3)
+math.cos(1.5)
+math.sin(1.5)
+math.degrees(6.28)
+math.e
+math.exp(5)
+math.factorial(4)
+math.log(200)
+math.log10(1000)
+math.radians(360)
+math.tan(3.14)
+math.pi
+math.pow(2,8)
+```
+
+
+
+>**_To Do:_**
+>
+>1. Use print statements to figure out what each function in the code cell above does.   Pay special attention to trigonometric function.  Do these functions expect the argument to be in radians or degrees? 
+>2. Add comments to remind yourself for later.
+
+
+There are other ways to import functions from modules. If you only wan to use a single function inside the module, you can selectively import it using `from`, as shown below.
+
+```{python}
+from math import radians
+radians(4)
+```
+
+## Exercises
+
+
+1. Calculate the distance from the origin to the point $(23,81)$ usign the `math.hypot()` function and then using the following distance equation:
+
+$$ d = \sqrt{\Delta x^2 + \Delta y^2}$$
+
+2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$.
+
+$$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
+
+(Optics Application) 3. When light encounters an interface between two different object, the light bends as it proceeds into the second material.  The index of refraction (n) determines how much bending happens. Bending is greater for materials with a bigger index of refraction.
+
+

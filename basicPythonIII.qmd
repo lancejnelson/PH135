@@ -1,0 +1,210 @@
+---
+jupyter: python3
+---
+
+# Boolean Variables and Conditionals
+
+## Boolean Variables
+
+We have learned about three types of variables in Python: ints, floats, and strings.  Another variable type is a boolean, which can only be one of two values: true or false.  You can assign a boolean variable in the same way that you assign numbers or string, using `=`
+
+```{python}
+myBool = True
+```
+
+`True` *must be* capitalized so don't try `true` or it won't be a boolean
+
+```{python}
+#| echo: true
+#| eval: false
+
+myBool = true
+```
+
+### Boolean Logic
+
+Often you will want to check to see if some condition is true.  For example, maybe you want to know if the radius of a certain satellite's orbit is bigger or smaller than Mercury's orbit.  To perform this check, there are several boolean operators that will return `True` or `False`.  Take note of the boolean operators shown in the cell below along with the comments added to explain what they do.
+
+```{python}
+r1 = 3.5e8
+r2 = 2.7e6
+
+r1 > r2 # Is r1 greater than r2
+r1 < r2 # Is r1 less than r2
+r1 >= r2 # Is r1 greater than or equal to r2
+r1 <= r2 # Is r1 less than or equal to r2
+r1 != r2 # Is r1 not equal to r2
+r1 == r2 # Is r1 equal to r2
+```
+
+The `==` operator is dangerous to use because two numbers are rarely identical due to the way computers store numbers. We recommend that you not use this operator to compare two numbers. The cell below illustrates what I mean.
+
+```{python}
+a = (25.4/10.0) * (1.0/2.54)
+b = ((25.4/10.0) * 1.0)/2.54
+
+print(a,b)
+
+a == b
+```
+
+Mathematically, these two numbers are identical, but in the computer these numbers are represented differently and therefore they are not recognized as identical. A better way to compare two numbers is to see if the absolute value of the difference of the two numbers is very small.
+
+```{python}
+a = (25.4/10.0) * (1.0/2.54)
+b = ((25.4/10.0) * 1.0)/2.54
+
+abs(a - b) < 1e-8
+```
+
+### Compound Comparisons (Logical Operators)
+
+Comparisons like those shown above can be chained together to make compound comparisons using the `and`, `or`, and `not` operators. 
+
+
+| Operator | Description |
+| -------- | ----------- |
+| and      | Tests for both being `True`|
+| or      | Tests for either being `True`|
+| not      | Tests for `False`|
+
+
+The `and` operator requires both inputs to be `True` in order to return `True` while the `or` operator requires only one input to be `True` in order to evaluate at `True`.  The `not` operator is different in that it only takes a single input value and returns `True` if and only if the input is `False`.  It is a test for `False`. 
+
+
+Truth tables are a good way to visualize the output from compound comparisons.
+
+| p | q| p and q| p or q|
+| -------- | --- | --- | ----------- |
+| `True`| `True`| `True`| `True` |
+| `True`| `False`| `False`| `True` |
+| `False`| `True`| `False`| `True` |
+| `False`| `False`| `False`| `False` |
+
+
+
+
+As a simple example, suppose you know the density ($\rho$) and speed of light (c) for two materials and you'd like to know if both values are bigger for material 1 or material 2.
+
+
+
+>**_To Do:_**
+>
+>1. Predict the output for each compound comparison given below.  Add your guess as a comment.
+>2. Now add appropriately-placed print statements to check your guesses.
+>3. Modify your guess as needed and discuss any questions with a neighbor.
+
+
+```{python}
+c1 = 2.5e8
+c2 = 2.48e8
+ρ1 = 450
+ρ2 = 580
+
+c1 > c2 and ρ1 > ρ2
+c1 < c2 and ρ1 < ρ2
+c1 > c2 and ρ1 < ρ2
+c1 < c2 and ρ1 > ρ2
+
+c1 > c2 and not ρ1 > ρ2
+c1 < c2 and not ρ1 < ρ2
+
+c1 > c2 or ρ1 > ρ2
+c1 < c2 or ρ1 < ρ2
+
+```
+
+
+### Tests for Inclusion  
+ 
+ You can check for inclusion using the Python `in` operator. This provides an easy way to see if a character (or word) is present in a long string.  Let's say you have a long string that contains the names of Jupyter's moons (there are 79 of them!!) and you want to see if a certain moon is included in the list. The `in` statement let's us quickly test to see if it is in the list. (see example below) 
+
+```{python}
+
+jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"
+
+"Cyllene" in jupytermoons
+```
+
+## Conditions
+
+
+*Conditions* allow the user to specify if and when certain lines or blocks of code are executed.  Specifically, when a condition is true, the block of *indented* code directly below it will run.
+
+
+### 'if' statement
+
+The `if` statement is used to control when a block of code runs.  It's usage is shown below ending in a colon and the block of code below indented with *four spaces*.  Using the **Tab** key will also produce four spaces.
+
+```{python}
+jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"
+
+if "Cyllene" in jupytermoons:
+    found = True
+    print("Found Cyllene in the list")
+    
+if "Matis" in jupytermoons:
+    found = True
+    print("Found Matis in the list")
+```
+
+If the boolean statement after `if` is true, the indented code below it will run.  If the statement is false, Python just skips the indented lines below.
+
+### `else` Statment
+
+Sometimes there will be an alternate block of code that you want to run if the `if` statement evaluates to `False`.  The `else` statement is used to specify this block of code, as shown below.
+
+```{python}
+jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"
+
+if "Cyllene" in jupytermoons:
+    found = True
+    print("Found Cyllene in the string")
+else:
+    found = False
+    print("Did not find Cyllene in the string")
+
+    
+if "Matis" in jupytermoons:
+    found = True
+    print("Found Matis in the string")
+else:
+    found = False
+    print("Did not find Matis in the string")
+```
+
+Notice that the `else` statement must be followed by a colon and the block of code to be executed is indented, just as in the `if` block.  
+
+
+There is an additional statement called the `elif` statement, short for "else if", which is used to add extra conditions below the initial `if` statement.  The block of code below the `elif` statement only runs if the `if` statement is false and the `elif` statement is true.  An example is given below.
+
+
+```{python}
+jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"
+
+if "Matis" in jupytermoons:
+    foundMatis = True
+    print("Found Matis in the string")
+elif "Cyllene" in jupytermoons:
+    foundCyllene = True
+    print("Found Cyllene in the string.")
+else:
+    foundCyl = False
+    foundMatis = False
+    print("Did not find Cyllene or Matis in the string")
+```
+
+It is worth noting that `else` statements are not required. If you leave the `else` statement off and the `if` statement is false, no code block will execute.
+
+# Exercises
+
+
+1. Removing file ext
+
+$$ d = \sqrt{\Delta x^2 + \Delta y^2}$$
+
+2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$.
+
+$$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
+
+
