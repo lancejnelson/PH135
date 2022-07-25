@@ -1,7 +1,6 @@
 ---
 jupyter: python3
 ---
-
 # Python and Jupyter Notebooks
 
 ## Python

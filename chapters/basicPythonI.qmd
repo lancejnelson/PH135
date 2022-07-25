@@ -248,6 +248,45 @@ from math import radians
 radians(4)
 ```
 
+## Displaying Results (The `print` Function).
+You have already been using the `print` function a little and you should have noticed that Python will not display the result of a calculation/operation unless you include a print statement.  In Python, you can pretty much `print()` anything and Python will just dump it to screen as it pleases. However, there are times when you may want to have a little more control over your print statements.  For example, maybe you'd like to print a sentence but with some numerical values inserted occasionally:
+
+```{python}
+age =22
+gpa = 3.58342
+c = 2.998e8
+print("Hi, I am Joe. I am", age," years old and my gpa is", gpa, " and the speed of light is", c,".")
+```
+
+This print statement is a little awkward and the numbers appearing probably have more digits than we'd like to see. We can improve upon this print statement using something called f-string (short for formatted strings).  To build an f-string, place an "f" immediately prior to the open quote and then everywhere you want a variable to appear, just enclose it in curly braces.
+
+```{python}
+age =22
+gpa = 3.5
+c = 2.998e8
+print(f"Hi, I am Joe. I am {age} years old and my gpa is {gpa} and the speed of light is {c}.")
+```
+
+That's a clever way to insert a numerical value into a string, but the last number is still displaying too many digits.  To control how the numbers are formatted, we can add a format code after the variable name:
+
+```{python}
+age =22
+gpa = 3.5
+c = 2.998e8
+print(f"Hi, I am Joe. I am {age:d} years old and my gpa is {gpa:5.2f} and the speed of light is {c:8.2e}.")
+```
+
+ The structure of the stuff inside of the curly braces is as follows: `variable:formatcode` The format code indicates how you would like the variable to be formatted when it is printed. The `:d` indicates that the varible should be displayed as an integer and `:f` indicates a float. The amount of space that is allocated to display a number can be specified by placing a number in front of the `:`. The 5.2 in the float formatting indicates that the number should be displayed with at least 5 total spaces while displaying only 2 numbers after the decimal. A selection of some available format statements is given below.
+
+| format code| explanation|
+|------------|------------|
+|`{variable}`        | Use the default format for the data type.|
+|`{variable:4d}`        | Display as an integer, allocating 4 spaces for it.|
+|`{variable:.4f}`        | Display as a float, with four numbers after the decimal being displayed.|
+|`{variable:8.4f}`        | Display as a float, allocating 8 total spaces and 4 numbers after the decimal place.|
+|`{variable:8.4e}`        | Display using scientific notation, allocating 8 total spaces and 4 numbers after the decimal place.|
+
+
 ## Exercises
 
 

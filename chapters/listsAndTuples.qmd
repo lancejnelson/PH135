@@ -1,0 +1,213 @@
+---
+jupyter: python3
+reference-location: margin
+citation-location: margin
+---
+
+# Lists and Tuples
+Up to this point, we have only worked with single numerical values or strings (multiple characters). Often we will want to work with collections of values (perhaps the orbital period of all of the planets in our solar system.) and it will be quite inconvenient to store each value into its own variable. Instead, the values can be stored in a list or tuple.  Lists and tuples are both collections of _elements_ , like numbers or strings.  The key difference between them is that tuples are _immutable_, which means they cannot be modified after their initial creation. On the other hand, lists are _mutable_, or able to be modified.
+
+
+## Creating Lists
+
+The easiest way to create a list is by putting the list elements inside of square
+brackets.  Below, we create a list containing the masses of all of the planets in our solar system.
+
+```{python}
+
+mass = [1.8986e27,5.6846e26,10.243e25,8.6810e25,5.9736e24,4.8685e24,6.4185e23,3.3022e23]
+
+```
+
+
+Note that square brackets (`[]`) must be used when creating the list. If you accidentally use parenthesis (`()`)[^list] or curly brackets (`{}`)[^dict] you’ll end up creating something other than a list.
+
+[^list]:Use parenthesis to create a tuple, which is just like a list but cannot be modified.
+
+[^dict]:Use curly brackets to create a dictionary, which is like a list but can be indexed on any data type, not just integers.
+
+
+Lists can contain any type of data and the type of data doesn't have to be the same for all of the elements.  Below, we create a list of the electron configurations for the first 10 elements on the periodic table.
+
+
+```{python}
+electrons = ["1s1","1s2", "1s2-2s1","1s2-2s2","1s2-2s2-2p1","1s2-2s2-2p2","1s2-2s2-2p3","1s2-2s2-2p4","1s2-2s2-2p5","1s2-2s2-2p6"]
+
+```
+
+
+Lists can contain mixed data types. Below we construct a list of the electrical conductivities of three metals.
+
+```{python}
+
+conductivity = ["Gold",4.10e7,"Copper",5.96e7,"Aluminum",3.5e7]
+```
+
+The elements of a list can be lists themselves.
+
+
+```{python}
+
+conductivity = [[],[],[]]
+```
+
+
+## Indexing and Slicing Lists
+
+_Indexing_ is used to access individual elements of a list, and it is similar to indexing strings.  The index is the position of the desired element in the list and the _index numbering starts at zero_.  Accessing an element of a list is done by placing the numerical index of the element we want in square brackets behind the list name.  For example, if we want the electron configuration of the first element in our list from above, we use `electrons[0]` and the electron configuration for the second element would be `electrons[1]` and so on.  Just as with string, negative indices can be used to access list elements counting from the back of the list forward.
+
+
+```{python}
+#| eval: false
+electrons = ["1s1","1s2", "1s2-2s1","1s2-2s2","1s2-2s2-2p1","1s2-2s2-2p2","1s2-2s2-2p3","1s2-2s2-2p4","1s2-2s2-2p5","1s2-2s2-2p6"]
+
+electrons[1]
+electrons[-2]
+electrons[5]
+```
+
+
+> **_To Do:_**
+>
+>1. Predict the output for each of the indexes performed in the cell above.
+>2. Use print statements to check your answers.
+>3. Discuss any misunderstandings with a peer.
+
+
+Since lists are _mutable_, we can modify the value of an element in a list using the `=` operator.
+
+```{python}
+conductivity = ["Gold",4.10e7,"Copper",5.96e7,"Aluminum",3.5e7]
+
+conductivity[1] = 4.15e7
+conductivity
+```
+
+
+>**_To Do:_**
+>
+> Use a print statement to verify that the `conductivity` list was indeed modified as expected.
+
+Multiple list elements can be retrieved at once (called _slicing_) by including the start and stop indices separated by a colon: `[start:stop:step]`.  A convention that occurs throughout python is that the first index is included in the slice but the second is _not_. (i.e. `[included: excluded: step]`)  Default values for the start location, stop location, and step sizes will be used if these values are omitted. Below we give some examples of slicing. 
+
+
+```{python}
+#| eval: false
+electrons = ["1s1","1s2", "1s2-2s1","1s2-2s2","1s2-2s2-2p1","1s2-2s2-2p2","1s2-2s2-2p3","1s2-2s2-2p4","1s2-2s2-2p5","1s2-2s2-2p6"]
+
+electrons[1:]
+electrons[1:3]
+electrons[:3]
+electrons[1:8:2]
+electrons[5:2:-1]
+```
+
+
+> **_To Do:_**
+>
+>1. Predict the output for the five slices in the cell above.
+>2. Use print statements to check your answers.
+>3. Discuss any misunderstandings with a peer.
+
+### List Methods
+
+List have a collection of methods (or functions) for accomplishing routine tasks.  Some of the more common list methods are given below.  All of the methods given will modify th e original list (except `copy()`).  As a reminder, methods only work on the object type that they were designed for (lists in this case) and they are called by appending the method name to the variable you want it to operate on. (i.e. `myList.clear()`) 
+
+
+| Method | Description|
+|--------|------------|
+| `append(element)`| Adds a single element to the end of the list.|
+| `clear()`| Removes all elements from a list.|
+| `copy()`| Creates an independent copy of the list.|
+| `count(element)`| Counts the number of occurences of `element` in the list.|
+| `extend(elements)`| Adds multiple elements to the end of the list.|
+| `index(element)`| Returns the index of the _first occurrence_ of `element`.|
+| `insert(index,element)`| Inserts the given `element` at the specified `index`.|
+| `pop(index)`| Removes and returns the element given at `index`.  If no index is provided, it defaults to the last element.|
+| `remove(element)`| Removes the first occurrence of `element` in the list.|
+| `reverse()`| Reverses the order of the entire list.|
+| `sort()`| Sorts the list in place.[^sort]|
+
+[^sort]: It modifies the original list. In contrast, the function  `sorted()` will leave the original list unchanged.
+
+
+```{python}
+
+a = [5,6,23,2,2,6]
+a.sort()
+```
+
+
+> **_To Do:_**
+>
+> 1. In the cell below, you will find a list of ...  
+>
+>
+>
+
+
+### Built-in functions for Lists
+Python has several built-in functions that will work with lists.  Functions are called by placing the arguments to the function in parenthesis and prepending the name of the function to the parenthesis.  Here are a few common functions that are used with lists:
+
+
+| Method | Description|
+|--------|------------|
+| `len(list)`| Returns the number of elements in the list.|
+| `max(list)`| Finds the largest element in the list.|
+| `min(list)`| Finds the smallest element in the list.|
+| `sum(list)`| Returns the sum of the elements in the list.[^sum]|
+| `listOne + listTwo`| Joins `listOne` with `listTwo` to form one list.|
+[^sum]: Only works if the list contains only ints and floats
+
+```{python}
+a = ["l","j","n"]
+b = ["r","s","t"]
+a + b
+#a=[5,6,2]
+#min(a)
+#print("l" + "j"+"n")
+```
+
+### The `range` function
+
+Often it will be necessary to generate a (possibly very long) list of integers.  Instead of constructing the list by typing these numbers one by one, Python has a built-in function called `range()` that will do it for you. The `range()` function requires at least one argument to tell it how high the range should be.
+
+```{python}
+a = range(10)  # Generate a list of integers up to 10
+a
+```
+
+
+
+This output probably wasn't what you expected. Instead of generating the full list of numbers, Python generates a `range` object that stands in place of it because it requires less memory. (Consider what might happen to your memory if you did `range(1000000000000)`.)  To force Python to generate the list, you can convert the `range` object using the `list()` function.
+
+
+```{python}
+a = range(10)  # Generate a list of integers up to 10
+list(a)
+```
+
+
+The `range` function can be called with up to three arguments: `range(start,end,stepsize)`. Consistent with indexing, the range includes the start value and excludes the end value. Below we generate a list of integers starting at 5, ending at 100 with a stepsize of 5.
+
+```{python}
+
+myList = range(5,100,5)
+list(myList)
+```
+
+
+
+## Tuples
+
+_Tuples_ are another object type similar to lists except that they are _immutable_... that is to say, they cannont be modified once created.  They look similar to lists except that they are created using parenthesis instead of brackets.  Because you can't change the elements of a tuple, they are often used so that you don't inadvertently modify (and lose) critical data.  You can think of it as locking a file on your computer to avoid indavertently modifying it and losing the original content.  
+
+Below is a tuple containing... Since there will be no need to change these values, it makes sense to store them in a tuple.  Indexing and slicing work exactly the same as with lists and strings, so we can still use the values inside of a tuple to perfrom simple calculations. There are only two methods associated with tuples: `count(element)` and `index(element)`. Their usage is identical to the list methods.
+
+
+```{python}
+
+energies = (5,7,2,4,3,2,3)
+energies.index(7)
+len(energies)
+```

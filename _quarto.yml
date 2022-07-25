@@ -7,19 +7,25 @@ book:
   title: "Scientific Computing"
   author: "Lance Nelson"
   date: "7/16/2022"
+  sidebar:
+    style: floating
   chapters:
-    - index.qmd
-    - part: "Basic Python"
+    - part: "Python - The Basics"
       chapters:
-      - basicPythonI.qmd
-      - basicPythonII.qmd
-      - basicPythonIII.qmd
-
+      - index.qmd
+      - chapters/basicPythonI.qmd
+      - chapters/basicPythonII.qmd
+      - chapters/basicPythonIII.qmd
+      - chapters/listsAndTuples.qmd
 bibliography: references.bib
 
 format:
   html:
-    theme: superhero
+    theme: 
+      light: cosmo  # simplex cosmo
+      dark: darkly
+    max-width: 1600px
+    margin: 10px 20px 30px 20px
   pdf:
     documentclass: scrreprt
 
