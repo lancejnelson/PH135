@@ -1,0 +1,201 @@
+---
+jupyter: python3
+reference-location: margin
+citation-location: margin
+---
+
+# Loops
+ _Loops_ allow programs to rerun the same block of code multiple times.  This is important because there are often
+
+
+## `for` loops
+
+ The `for` loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over.  Here is an example of of `for` loop that is used to add up the elements of a list.
+
+```{python}
+thesum = 0
+for i in [3,2,1,9.9]: 
+    thesum = thesum + i
+```
+
+
+ This would be equivalent to the following code:
+
+ ```{python}
+ thesum = 0
+
+ thesum = thesum + 3
+ thesum = thesum + 2
+ thesum = thesum + 1
+ thesum = thesum + 9.9
+ 
+ ```
+
+which isn't that much longer than using a loop.  However, as the list gets longer and/or the mathematical operations being performed get more complex the second method would get unreasonably long.
+The correct language is to say that we are _iterating_ over the list `[3,2,1,9.9]`.  This
+means that the loop variable (`i` in this case but you can choose it to be whatever you want) gets assigned
+the values of the list elements, one by one, until it reaches the end
+of the list.  You can use `for` loops to iterate over any multi-element object like lists or tuples.  Python uses indentation to indicate
+where the loop ends. In this case there was only one statement inside to loop, but if you wanted more than one each line should be indented.  
+
+
+You can iterate over `range` objects and strings using `for` loops.
+
+
+```{python}
+for i in ['Physics', 'is','so','fun']: # Iterate over a list of strings
+    print(i)
+```
+```{python}
+for i in range(5,50,3):  #Generates a list from 5 -> 50 with a step size of 3
+    print(i)
+```
+
+
+These examples are so simple that you might wonder when a loop might
+actually be useful to you.  Let's see if we can build a loop to
+calculate the following sum
+
+$$ \sum_{n=1}^{1000} {1\over n^2}$$ {#eq-sum}
+
+```{python}
+theSum = 0
+for n in range(1,1000):
+    theSum = theSum + 1/n**2
+print(theSum)
+```
+Here, `n` is being assigned the values
+`1,2,3,4....1000`, one by one, until it gets all the way to
+1000.  Each time through the loop, `n` is different
+and the expression `1/n**2` evaluates to a new value.  The
+variable `theSum` is updated each time through to be the
+running total of all calculations performed thus far.  Here's another
+example of a loop used to calculate the value of $20!$:
+```{python}
+theProduct = 1
+for n in range(1,21):
+    theProduct = theProduct * n #Multiply theProduct by n
+print(theProduct)
+```
+Remember that the range function creates a list starting at $1$, going
+up to $21$ but not including it. The math library has a function
+called `factorial` that does the same thing.  Let's use it to
+check our answer:
+
+```{python}
+from math import factorial
+factorial(20)
+```
+
+### Boolean Logic Inside Loops
+Often when using loops, we only want a block of code to execute when some condition is satisfied.
+We can use boolean logic inside of the loop to accomplish this. For example, let's write a loop to compute the following sum:
+
+$$ \sum_{{n\over 5} \in \text{ Int and } {n\over 3} \in \text{ Int}} {1\over n^2} $$
+
+which is similar to the one we did above, but this time  we only want to include terms where $n$ is a perfect multiple of both 5 and 3. To check to see if `n` is a perfect multiple of a number we can calculate the modulo (remainder after division) using the `%` operator and check that it is equal to zero.
+
+```{python}
+theSum = 0
+for n in range(1,1000):
+    if n % 5 == 0 and n % 3 == 0:
+        theSum = theSum + 1/n**2
+print(theSum)
+```
+
+
+
+
+
+
+## `while` Loops
+
+Logic can be combined with loops using something called a
+`while` loop.  A `while` loop is a good choice when you
+don't know beforehand exactly how many iterations of the loop will be
+executed but rather want the loop to continue to execute until some
+condition is met.  As an example, notice that in in equation (@eq-sum), the terms in the sum get progressively smaller as $n$ gets bigger.  It doesn't make sense to continue adding to the sum once the terms get very small.  Let's compute this sum
+by looping until the fraction ${1 \over n^2}$  become smaller than $1 \times 10^{-10}$.
+
+```{python}
+term = 1  # Load the first term in the sum
+s = term  # Initialize the sum
+n = 1     # Set a counter
+while term > 1e-10:  # Loop while term is bigger than 1e-10
+    n = n +  1        #Add 1 to n so that it will count: 2,3,4,5
+    term = 1./n**2    # Calculate the next term to add
+    s = s +  term     # Add 1/n^2 to the running total
+```
+
+This loop will continue to execute until `term<1e-10`. Note
+that unlike the `for` loop, here you have to do your own counting if you need to know how many iterations have been performed. Be
+careful about what value `n` starts at and when it is incremented
+(`n = n + 1`). Also notice that `term` must be assigned
+prior to the start of the loop.  If it wasn't the loop's first logical
+test would fail and the loop wouldn't execute at all.
+
+`while` loops should be used with caution because you can easily write a *faulty termination condition* and inadveratently write a loop that runs forever.  This happens because your termination condition was never met.  An example of this is given below.
+
+
+Warning: Do not execute the code block below!!
+```{python}
+#| eval: false
+x = 0
+
+while x != 10:
+    x = x + 3
+print("Done")
+
+```
+ The loop above is intended to end after a few interations when the value of x is equal to 10.  However, closer inspection reveals that the value of x will never be equal to 10.  After the first iteration x is equal to 3, then 6,9,12,15 and so on... but never 10.  This loop will run forever because the termination condition is never met (`x != 10` never produces a `False`)!!  If you choose to use a `while` loop, triple check your termination condition to make sure you haven't made a mental error.  Avoiding the use of `!=` or `==` in your termination condition will help too.  Use `<=` or `>=` instead.
+
+
+## `continue`, `break`, and `pass` Commands
+
+The `continue`, `break`, and `pass` commands are used to control the flow of code execution in loops.  Here is a description of their usage:
+
+
+| Operator | Description |
+| -------- | ----------- |
+| `break`      | Exits a `for`/`while` loop.|
+| `continue`      | Skips the remaining loop block and begins the next iteration.|
+| `pass`      | No action; code contiues on|
+
+ 
+ 
+  The `break` statement is useful when you want to completely stop a loop early.  Here is our sum loop rewritten with a `break` statement added to stop the loop after 1000 iterations.
+
+```{python}
+term = 1  # Load the first term in the sum
+s = term  # Initialize the sum
+n = 1     # Set a counter
+while term > 1e-10:  # Loop while term is bigger than 1e-10
+    n +=  1        #Add 1 to n so that it will count: 2,3,4,5
+    term = 1./n**2    # Calculate the next term to add
+    s += term     # Add 1/n^2 to the running total
+    if n > 1000:
+        print('This is taking too long. I''m outta here...')
+        break
+```
+
+The `continue` statement is similar to `break` except that instead of stopping the loop, it only stops the current iteration of the loop.  All code below the `continue` statement will be skipped and the next iteration will begin.
+For example, if you wanted to do
+the sum from equation ?? but only include those terms for
+which n is a multiple of 3, it could be done like this:
+
+```{python}
+term = 1  # Load the first term in the sum
+s = term  # Initialize the sum
+n = 1     # Set a counter
+while term > 1e-10:  # Loop while term is bigger than 1e-10
+    n +=  1        #Add 1 to n so that it will count: 2,3,4,5
+    if n % 3 != 0:
+        continue
+    term = 1./n**2    # Calculate the next term to add
+    s += term     # Add 1/n^2 to the running total
+```
+Now, when the value of `n` is not a multiple of 3, the sum will not be
+updated and the associated terms are effectively skipped.
+ 
+
+Finally, the `pass` statement does nothing.  Seriously!!  It is merely a place holder for code that has not bee written yet.  Usually, you'll use the `pass` statement to run and test code without errors due to missing code.  

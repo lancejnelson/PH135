@@ -91,6 +91,16 @@ print(f"There are {n:d} cars traveling side by side.  One car is traveling at {v
 
 As you can see, the formatting tag tells the print statement how the number should be printed.  For float variables, the formatting tag will have two numbers followed by an "f" (for float).  The first number indicates how many total spaces should be allocated to print the number and the second number specifies the number of decimal places that should be displayed.  For integer variables, use the formatting tag "g".  For bigger numbers, it is often useful to print the number in scientific notation.  To do this, use the ".2e" formatting tag.  The number after the decimal indicates how many numbers after the decimal should be displayed.
 
+A summary of common format tags are given in the table below.
+
+
+| format code| explanation|
+|------------|------------|
+|`{variable}`        | Use the default format for the data type.|
+|`{variable:4d}`        | Display as an integer, allocating 4 spaces for it.|
+|`{variable:.4f}`        | Display as a float, with four numbers after the decimal being displayed.|
+|`{variable:8.4f}`        | Display as a float, allocating 8 total spaces and 4 numbers after the decimal place.|
+|`{variable:8.4e}`        | Display using scientific notation, allocating 8 total spaces and 4 numbers after the decimal place.|
 
 >**_To Do:_**
 >

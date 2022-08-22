@@ -17,6 +17,8 @@ book:
       - chapters/basicPythonII.qmd
       - chapters/basicPythonIII.qmd
       - chapters/listsAndTuples.qmd
+      - chapters/loops.qmd
+      - chapters/functions.qmd
 bibliography: references.bib
 
 format:

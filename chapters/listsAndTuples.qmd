@@ -109,9 +109,31 @@ electrons[5:2:-1]
 >2. Use print statements to check your answers.
 >3. Discuss any misunderstandings with a peer.
 
+
+### Tests for Inclusion  
+ 
+ Just as with strings, the `in` operator can be used with lists to determine if a list element is present.  Suppose you have a list of all the known radioactive elements on the periodic table and you'd like to know if Iridium is in the list. The `in` statement let's us quickly test to see if it is in the list. (see example below)
+
+
+```{python}
+radioactiveElements = ["Technetium","Promethium","Polonium","Astatine","Radon","Francium","Radium", "Actinium", "Thorium", "Protactinium","Uranium","Neptunium","Plutonium","Americium","Curium","Berkelium","Californium","Einsteinium","Fermium","Mendelevium","Nobelium","Lawrencium","Rutherfordium","Dubnium","Seaborgium","Bohrium","Hassium","Meitnerium","Darmstadtium","Roentenium","Copernicium","Nihonium","Flerovium","Moscovium","Livermorium","Tennessine", "Oganesson"]
+
+"Iridium" in radioactiveElements
+```
+
+
+The `in` operator will work with numerical data as well.
+
+```{python}
+numbers = [5,6,3,1,2]
+
+4 in numbers
+```
+
+
 ### List Methods
 
-List have a collection of methods (or functions) for accomplishing routine tasks.  Some of the more common list methods are given below.  All of the methods given will modify th e original list (except `copy()`).  As a reminder, methods only work on the object type that they were designed for (lists in this case) and they are called by appending the method name to the variable you want it to operate on. (i.e. `myList.clear()`) 
+Lists have a collection of methods (or functions) for accomplishing routine tasks.  Some of the more common list methods are given below.  All of the methods given will modify the original list (except `copy()`).  As a reminder, methods only work on the object type that they were designed for (lists in this case) and they are called by appending the method name to the variable you want it to operate on. (i.e. `myList.clear()`) 
 
 
 | Method | Description|
@@ -157,6 +179,8 @@ Python has several built-in functions that will work with lists.  Functions are 
 | `min(list)`| Finds the smallest element in the list.|
 | `sum(list)`| Returns the sum of the elements in the list.[^sum]|
 | `listOne + listTwo`| Joins `listOne` with `listTwo` to form one list.|
+| `zip(listOne,listTwo)`| Zips two lists together. (Creates `[a1,b1,a2,b2...]` from `[a1,a2,a3...]` and `[b1,b2,b3...]`|
+
 [^sum]: Only works if the list contains only ints and floats
 
 ```{python}

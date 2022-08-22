@@ -241,7 +241,7 @@ math.pow(2,8)
 >2. Add comments to remind yourself for later.
 
 
-There are other ways to import functions from modules. If you only wan to use a single function inside the module, you can selectively import it using `from`, as shown below.
+There are other ways to import functions from modules. If you only want to use a single function inside the module, you can selectively import it using `from`, as shown below.
 
 ```{python}
 from math import radians

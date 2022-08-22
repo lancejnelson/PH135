@@ -1,0 +1,159 @@
+---
+jupyter: python3
+reference-location: margin
+citation-location: margin
+---
+
+# Functions
+We have already been using functions here and there but in this chapter we will introduce them formally and get into the details.  A function encapsulates a block of code designed to perform a specific task or set of tasks.  To perform the task correctly, most functions require that you provide some information (called arguments).  To call a function you type the name of the function followed by the needed arguments enclosed in parenthesis (`()`). 
+
+
+```
+functionName(argument1, argument2, argument3...)
+```
+
+The **number and type** of arguments allowed is different for every function.  As a first example, let's consider the `print` function, which is the simplest (and most familiar) function that we have used so far.  The number and type of arguments that can be passed to the `print` funcation can really be anything (not typical).  In the cell below, we call `print` with various types and number of arguments.
+
+
+```{python}
+print("print is a function")  #Single string argument
+print("print", "is", "a", "function") # Multiple string arguments
+print(5) # Single integer argument
+print(5,4) # Multiple integer argument
+print([5,4,2,5])  # Single list argument
+print() # No arguments
+```
+
+The `print` function is pretty flexible in what it allows for arguments;  the arguments can be any type of data (strings, ints, floats, and even lists) and the number of arguments can be anything.  Most functions are a little more strict on what they allow their arguments to be.  For example, the `factorial` function only allows one argument and that argument must be an integer.[^factorial]  If you attempt to call the factorial function with a float argument or with more than one argument, the result will be an error. 
+
+
+[^factorial]: The factorial of a float can be calculated, but the math library is not equipped to handle it.
+```{python}
+#| eval: false
+from math import factorial
+a = factorial(5.54)
+b = factorial(5,3)
+```
+
+
+>**_To Do:_**
+>
+>1. Run the code above and take note of the error message that results.  
+>2. Comment out the definition of `a` so you can also see the error message for the definition of `b`.
+
+
+
+Python functions generally fall into three groups: functions that come standard with Python (called native functions), functions that you can import into Python, and functions that you write yourself.
+
+
+## Native Functions
+
+There are a few functions that are always ready to go whenever you run Python. They are included with the programming language. We call these functions native functions. You have already been using some of them, like these
+
+
+```{python}
+myList = [5,6,2,1]
+a = len(myList)  # 'len' function is native.
+
+b = float(5) # 'float' function is native.
+
+c = str(67.3)  # 'str' function is native.
+```
+
+
+The `len`, `float` and `str` functions are all native and they all take **a single argument**.
+
+
+## Imported Functions
+
+Many times, you will need to go beyond what Python can do by itself[^notNative]. However, that doesn’t mean you have to create everything you need to do from scratch. Most likely, the function that you need has already been coded. Somebody else created the function and made it available to anyone who wants it. Groups of functions that perform similar tasks are typically bundled together into libraries ready to be imported so that the functions that they contain can be used.
+
+
+In order to use use a function correctly, you'll need to know what information(arguments) the function expects you to give it and what information the function intends to return to you as a result. This information can be found in the library’s documentation. Most libraries have great documentation with lists of the included functions, what the functions do, the expected arguments, and examples on how to use the most common ones. You can usually find the library documentation by searching the internet for the library’s name plus "Python documentation".
+
+Providing a complete list of all available libraries and function is not really to purpose of this book. Instead, we’ll illustrate how to import functions and use them. As you use Python more and more you should get in the habit of searching out the appropriate library to accomplish the task at hand. When faced with a task to accomplish, your first thought should be, “ I’ll bet somebody has already done that. I’m going to try to find that library.”
+
+Functions are imported using the `import` statement. You’ve already seen how to perform very simple mathematical calculations ($5/6$,$84$, etc..), but for more complex mathematical calculations like $\sin( {\pi \over 2} )$ or $\e^{2.5}$ , you’ll need to import these functions from a library.
+
+[^notNative]: For example, Python does not include $sin()$ or $cos()$ as Native functions.
+
+
+```{python}
+import math
+
+a = math.sqrt(5.2)
+b = math.sin(math.pi)
+c = math.e**2.5
+```
+
+
+The `math.` before each function is equivalent to telling Python "Use the `sqrt()` function that you will find in the `math` book I told you to grab." If you just type
+
+
+```{python}
+#| eval: false
+sqrt(5.2)
+
+```
+
+Python won't know where to find the `sqrt` function and an error message will result.  Sometimes the name of the module can be long and typing `module.` every time you want to use one of it's functions can be cumbersome.  One way around this is to rename the module to a shorter name using the `as` statement.
+
+```{python}
+import math as mt
+
+a = mt.sqrt(5.2)
+b = mt.sin(mt.pi)
+c = mt.e**2.5
+```
+
+Instead of importing an entire module, you can import only a selection of functions from that module using the `from` statement.  This can make your code even more succinct by eliminating the `module.` prefix altogether.  The trade-off is that it won't be as clear which function belongs to which module.
+
+```{python}
+from math  import sqrt, sin, pi, e
+
+a = sqrt(5.2)
+b = sin(pi)
+c = e**2.5
+```
+
+
+All of the functions belonging to a module can be imported at once using `*`.
+
+```{python}
+from math import *
+
+a = sqrt(5.2)
+b = sin(pi)
+c = e**2.5
+
+
+```
+
+
+## User-defined Functions
+
+After having programmed for a while, you will notice that certain tasks get repeated frequently.  For example, maybe in your research project you need to calculate the force exerted on one atom due to the many other nearby atoms.  You could copy and paste your force-calculation code every time it was needed, but that would likely result in lots of extra code and become very cumbersome to work with.   You can avoid this by creating your own function to calculate the force between any two atoms.  Then, every time you need to another force calculation, you simple call the function again.   You only write the force-calculation part of the code once and then you execute it as many times as you need to. 
+
+The syntax to create your own function is shown below.
+
+```{python}
+def functionName(arg1,arg2,arg3):
+    # Body of Function
+    # Body of Function
+    # Body of Function
+
+    return result
+
+
+```
+
+Every user-defined function must begin with the keyword `def` followed by the function name (you can choose it, but make it meaningful) and the required arguments enclosed in parenthesis.  **You must place a semicolon after the argument list.** Python does not use an end statement or anything like it to signal the end of a function. Instead, it looks for indentation to determine where the function ends; when it encounters code that is not indented it knows the function has ended.   Every function must have a `return` statment to specify what result the function will return.   Below you will find a function that has three 
+
+
+```{python}
+def distance(coords1,coords2):
+    c=a+b
+    d = 3.0 * c
+    f = 5.0 * d**4
+    return f
+```

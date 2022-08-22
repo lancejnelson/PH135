@@ -6,7 +6,7 @@ jupyter: python3
 
 ## Boolean Variables
 
-We have learned about three types of variables in Python: ints, floats, and strings.  Another variable type is a boolean, which can only be one of two values: true or false.  You can assign a boolean variable in the same way that you assign numbers or string, using `=`
+We have learned about three types of variables in Python: ints, floats, and strings.  Another variable type is a boolean, which can be one of two values: `True` or `False`.  You can assign a boolean variable in the same way that you assign numbers or string, using `=`
 
 ```{python}
 myBool = True
@@ -37,25 +37,50 @@ r1 != r2 # Is r1 not equal to r2
 r1 == r2 # Is r1 equal to r2
 ```
 
-The `==` operator is dangerous to use because two numbers are rarely identical due to the way computers store numbers. We recommend that you not use this operator to compare two numbers. The cell below illustrates what I mean.
+
+A word of caution about comparing Python floats using `==` is in order here.
+Python floats are stored as a 53-digit, base-2 binary number(that's a
+mouthful).  If you're interested in what that means, we can talk more.
+If you're not that interested, just know that when you define a float
+in Python, the number that is stored in the computer is not
+*exactly* the number that you think it is.  This can cause
+problems when you are comparing two numbers that you think should be
+equal but actually aren't equal in the computer.[^Decimal] The code below illustrates this problem.
+
+
+[^Decimal]: There is a
+  library called `Decimal` that will fix a lot of these
+  problems.  
 
 ```{python}
-a = (25.4/10.0) * (1.0/2.54)
-b = ((25.4/10.0) * 1.0)/2.54
-
-print(a,b)
-
-a == b
+a = 0.1
+b = 3 * a
+c = 0.3
+print(b==c)  # Are they the same number?  You would think they would
+             # be right?
+print(" {:.5f} ".format(b))     # It sure looks like they are the same.
+print(" {:.5f} ".format(c))     # It sure looks like they are the same.
+print(" {:.45f} ".format(b))  #b--- out to 45 decimal places
+print(" {:.45f} ".format(c))  #c--- out to 45 decimal places
 ```
-
-Mathematically, these two numbers are identical, but in the computer these numbers are represented differently and therefore they are not recognized as identical. A better way to compare two numbers is to see if the absolute value of the difference of the two numbers is very small.
-
+The first two print statements display the value of `b` and `c` to five
+decimal places. The second two print statements force Python
+to display the value of `b` and `c` out to 45 decimal
+places.  Notice that the true value of `b` is not _exactly_
+equal to 0.3.  This is why the statement `print(b==c)` returns
+`False`. The take home message here is that comparing two floats
+to see if they are equal **is always a bad idea.**  A better way to
+check to see if two floats are equal (or close enough that we can say
+they are equal) is to check if the absolute value of their difference
+is very small, like this:
 ```{python}
-a = (25.4/10.0) * (1.0/2.54)
-b = ((25.4/10.0) * 1.0)/2.54
-
-abs(a - b) < 1e-8
+a = 0.1
+b = 3 * a
+c = 0.3
+print(abs(b - c) < 1e-10)
 ```
+
+
 
 ### Compound Comparisons (Logical Operators)
 
@@ -131,7 +156,7 @@ jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themis
 *Conditions* allow the user to specify if and when certain lines or blocks of code are executed.  Specifically, when a condition is true, the block of *indented* code directly below it will run.
 
 
-### 'if' statement
+### `if` statement
 
 The `if` statement is used to control when a block of code runs.  It's usage is shown below ending in a colon and the block of code below indented with *four spaces*.  Using the **Tab** key will also produce four spaces.
 
