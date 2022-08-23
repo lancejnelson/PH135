@@ -1,0 +1,30 @@
+---
+jupyter: python3
+reference-location: margin
+citation-location: margin
+---
+
+# Basis Plotting
+Creating plots is an important task in science and engineering. The old addage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
+you do it right.  When making plots on a computer it is important to remember that computers don't plot functions, rather they plot individual points
+
+
+## Plotting Functions of a Single Variable
+
+
+Simple plots of x vs. y are done using a library called `matplotlib`. In order to make a plot, matplotlib needs lists of x and y points that are going to be plotted. It cannot generate these points on its own. To build an array x of x-values starting at x = 0, ending at x = 10, and having a step size of .01, you’ll need numpy’s arange function:
+
+```{python}
+from matplotlib import pyplot
+from numpy import arange,sin,pi,cos
+
+x = arange(0,2 * pi/5,.01)
+y = sin(5 * x)
+y2 = cos(5 * x)
+
+pyplot.figure()
+pyplot.plot(x,y)
+pyplot.plot(x,y2)
+pyplot.show()
+
+```

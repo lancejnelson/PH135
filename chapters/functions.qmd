@@ -5,14 +5,14 @@ citation-location: margin
 ---
 
 # Functions
-We have already been using functions here and there but in this chapter we will introduce them formally and get into the details.  A function encapsulates a block of code designed to perform a specific task or set of tasks.  To perform the task correctly, most functions require that you provide some information (called arguments).  To call a function you type the name of the function followed by the needed arguments enclosed in parenthesis (`()`). 
+We have already been using functions here and there but in this chapter we will introduce them formally and get into the details.  A function encapsulates a block of code designed to perform a specific task or set of tasks.  To perform the task correctly, most functions require that you provide some information (called arguments) when you call them.  To call a function you type the name of the function followed by the needed arguments enclosed in parenthesis (`()`). 
 
 
 ```
 functionName(argument1, argument2, argument3...)
 ```
 
-The **number and type** of arguments allowed is different for every function.  As a first example, let's consider the `print` function, which is the simplest (and most familiar) function that we have used so far.  The number and type of arguments that can be passed to the `print` funcation can really be anything (not typical).  In the cell below, we call `print` with various types and number of arguments.
+The **number and type** of arguments allowed is different for every function.  As a first example, let's consider the `print` function, which is the simplest (and most familiar) function that we have used so far.  
 
 
 ```{python}
@@ -24,7 +24,7 @@ print([5,4,2,5])  # Single list argument
 print() # No arguments
 ```
 
-The `print` function is pretty flexible in what it allows for arguments;  the arguments can be any type of data (strings, ints, floats, and even lists) and the number of arguments can be anything.  Most functions are a little more strict on what they allow their arguments to be.  For example, the `factorial` function only allows one argument and that argument must be an integer.[^factorial]  If you attempt to call the factorial function with a float argument or with more than one argument, the result will be an error. 
+The `print` function is pretty flexible in what it allows for arguments;  the arguments can be any type of data (strings, ints, floats, booleans, and even lists) and the number of arguments can be as large as you want.  Most functions are a little more strict on what they allow their arguments to be.  For example, the `factorial` function only allows one argument and that argument must be an integer.[^factorial]  If you attempt to call the factorial function with a float argument or with more than one argument, the result will be an error. 
 
 
 [^factorial]: The factorial of a float can be calculated, but the math library is not equipped to handle it.
@@ -61,7 +61,7 @@ c = str(67.3)  # 'str' function is native.
 ```
 
 
-The `len`, `float` and `str` functions are all native and they all take **a single argument**.
+The `len`, `float` and `str` functions are all native and they all take **a single argument**. Othere native function have been mentioned in previous chapters and others will be mentiond in the future.
 
 
 ## Imported Functions
@@ -71,11 +71,11 @@ Many times, you will need to go beyond what Python can do by itself[^notNative].
 
 In order to use use a function correctly, you'll need to know what information(arguments) the function expects you to give it and what information the function intends to return to you as a result. This information can be found in the library’s documentation. Most libraries have great documentation with lists of the included functions, what the functions do, the expected arguments, and examples on how to use the most common ones. You can usually find the library documentation by searching the internet for the library’s name plus "Python documentation".
 
-Providing a complete list of all available libraries and function is not really to purpose of this book. Instead, we’ll illustrate how to import functions and use them. As you use Python more and more you should get in the habit of searching out the appropriate library to accomplish the task at hand. When faced with a task to accomplish, your first thought should be, “ I’ll bet somebody has already done that. I’m going to try to find that library.”
+Providing a complete list of all available libraries and function is not really the purpose of this book. Instead, we’ll illustrate how to import functions and use them. As you use Python more and more you should get in the habit of searching out the appropriate library to accomplish the task at hand. When faced with a task to accomplish, your first thought should be, “ I’ll bet somebody has already done that. I’m going to try to find that library.”
 
-Functions are imported using the `import` statement. You’ve already seen how to perform very simple mathematical calculations ($5/6$,$84$, etc..), but for more complex mathematical calculations like $\sin( {\pi \over 2} )$ or $\e^{2.5}$ , you’ll need to import these functions from a library.
+Functions are imported using the `import` statement. You’ve already seen how to perform very simple mathematical calculations ($5/6$,$84$, etc..), but for more complex mathematical calculations like $\sin( {\pi \over 2} )$ or $e^{2.5}$ , you’ll need to import these functions from a library.
 
-[^notNative]: For example, Python does not include $sin()$ or $cos()$ as Native functions.
+[^notNative]: For example, Python does not include $\sin()$ or $\cos()$ as Native functions.
 
 
 ```{python}
@@ -132,28 +132,165 @@ c = e**2.5
 
 ## User-defined Functions
 
-After having programmed for a while, you will notice that certain tasks get repeated frequently.  For example, maybe in your research project you need to calculate the force exerted on one atom due to the many other nearby atoms.  You could copy and paste your force-calculation code every time it was needed, but that would likely result in lots of extra code and become very cumbersome to work with.   You can avoid this by creating your own function to calculate the force between any two atoms.  Then, every time you need to another force calculation, you simple call the function again.   You only write the force-calculation part of the code once and then you execute it as many times as you need to. 
+After having programmed for a while, you will notice that certain tasks get repeated frequently.  For example, maybe in your research project you need to calculate the force exerted on an atom due to many other nearby atoms.  You could copy and paste your force-calculation code every time it was needed, but that would likely result in lots of extra code and become very cumbersome to work with.   You can avoid this by creating your own function to calculate the force between any two atoms.  Then, every time you need another force calculation, you simple call the function again.   You only write the force-calculation part of the code once and then you execute it as many times as you need to. 
 
-The syntax to create your own function is shown below.
+
+To create your own function, you first need to name the function.  The name should be descriptive of what it does and makes sense to you and anyone else who might use it.  The first line of a function definition starts with the `def` statement (short for definition) followed by the name of the function with whatever information, called *arguments*, that needs to be fed into the function enclosed in parenthesis. **The last character in this line must be a colon.**  Everything inside the function is indented four spaces and placed directly below the first line.
 
 ```{python}
+
+#| eval: false
 def functionName(arg1,arg2,arg3):
     # Body of Function
     # Body of Function
     # Body of Function
 
-    return result
 
 
 ```
 
-Every user-defined function must begin with the keyword `def` followed by the function name (you can choose it, but make it meaningful) and the required arguments enclosed in parenthesis.  **You must place a semicolon after the argument list.** Python does not use an end statement or anything like it to signal the end of a function. Instead, it looks for indentation to determine where the function ends; when it encounters code that is not indented it knows the function has ended.   Every function must have a `return` statment to specify what result the function will return.   Below you will find a function that has three 
+As an example, let's construct a function that calculates the distance between two atoms.  The function will need to know the location of each atom, which means that there should be two arguments: the xyz coordinates of both atoms passed as a pair of lists or tuples.
 
 
 ```{python}
+import math
+
 def distance(coords1,coords2):
-    c=a+b
+
+    dx = coords1[0] - coords2[0]
+    dy = coords1[1] - coords2[1]
+    dz = coords1[2] - coords2[2]
+    d = math.sqrt(dx**2 + dy**2 + dz**2)
+    print(f"The distance is {d:5.4f}.")
+
+distance([1,2,3],[4,5,6])
+
+distance([4.2,9.6,4.8],[2.9,2.6,3.4])
+
+
+```
+
+This function works just fine with integers or floats for the coordinates.
+
+
+### The `return` statement
+
+The `distance` function prints out the value for the distance, but what if we want to use this distance in a subsequent calculation? Maybe we want to calculate the average distance between several pairs of atoms.  We can instruct the function to return the final distance using the `return` statement.  If the arguments to the function are the inputs, the `return` statement specifies what the output is.  Let's modify the function above to include a `return` statement.
+
+```{python}
+import math
+def distance(coords1,coords2):
+    dx = coords1[0] - coords2[0]
+    dy = coords1[1] - coords2[1]
+    dz = coords1[2] - coords2[2]
+    d = math.sqrt(dx**2 + dy**2 + dz**2)
+    return d
+
+distOne = distance([1,2,3],[4,5,6])
+
+distTwo = distance([4.2,9.6,4.8],[2.9,2.6,3.4])
+
+averageDistance = (distOne + distTwo)/2
+
+print(f"The average distance is {averageDistance:5.4f}.")
+
+```
+
+
+### Local vs Global Variable Scope
+
+Variables created inside of a function have *local scope*.  This means that they are not accessible outside of the function. In our `distance` function the variables `dx`,`dy`,`dz`, and `d` were all local variables that are used inside the function but have no value outside of it. This is convenient because we don't have to worry about overwriting a variable or using it twice. If someone sends you a function and you want to use it in your code, you don't have to worry about what variable he/she chose to use inside his function; they won't affect your code at all.    
+
+ 
+
+```{python}
+#| eval: false
+
+def distance(coords1,coords2):
+    dx = coords1[0] - coords2[0]
+    dy = coords1[1] - coords2[1]
+    dz = coords1[2] - coords2[2]
+    d = math.sqrt(dx**2 + dy**2 + dz**2)
+    return d
+
+distOne = distance([1,2,3],[4,5,6])
+
+print(dx)  # There is no value associated with this variable outside of the function.
+```
+
+
+The down side to all of this is that you don't have access to function variables unless you pass them out of the function using the `return` statement.  
+
+Any variables defined outside of a function is called a *global variable*, which means that Python remembers these assignments from anywere in your code including inside of functions.   Using globabl variables with the intention to use them inside of functions is usually considered bad form and confusing and is discouraged.  One notable exception to this rule are physical constants like $g = 9.8$ m/s$^2$ (acceleration due to gravity on Earth) or $k_B = 1.38 \times 10^{-23}$ (Boltzmann's constant which is used heavily in thermodynamics) because these values will never change and may be used repeatedly.  Generally speaking every variable that is used in a function ought to be either i) passed in as an argument or ii) defined inside of the function.  Below is an example of an appropriate use of a global variable.
+
+
+```{python}
+def myFunction(a,b):
+    c=a+g # <--- Notice the reference to 'g' here 
     d = 3.0 * c
     f = 5.0 * d**4
     return f
+
+#The variable below are global variables. 
+r = 10
+t = 15
+g = 9.8         #<--- g defined to be a global variable
+result = myFunction(r,t)
+
+
+```
+
+### Positional vs. Keyword Arguments
+
+
+The function arguments we have been using so far are called *positional arguments* because they are required to be in a specific position inside the parenthesis.  To see what I mean consider the example below.
+
+
+```{python}
+
+def example(a,b):
+    return a**b
+
+
+resultOne = example(5,2)
+resultTwo = example(2,5)
+
+print(resultOne, resultTwo)
+
+```
+
+In the first call to `example` the local variable `a` gets assigned to be 5 and the local variable `b` gets assigned 2.  In the second call the order of the arguments is switched and the subsequent assignments to `a` and `b` switch with it.  This produces a different result from the function.  Positional arguments are very common but the user must know what information goes where when calling the function.[^meaningfulNames]
+
+The other type of argument is the *keyword argument*.  These arguments are attached to a keyword inside of the parenthesis.  The advantage of a keyword argument is that the user does not need to be concerned about the location of the argument as long as it has the proper label.
+
+[^meaningfulNames]: This is another reason why you want to choose meaningful variable names for your arguments.
+
+
+```{python}
+
+def example(a=1,b=2):
+    return a**b
+
+
+resultOne = example(a=5,b=2)
+resultTwo = example(b=2,a=5)
+
+print(resultOne, resultTwo)
+
+```
+
+
+Another advantage to using keyword arguments is that a default value can be coded into the function. This means that we can call the function with some arguments missing and default values will be used for them.  In the example above, the default value of `b` is 2 and if the function is called without specifiying a value for that argument, the function will proceed as usual using the default value for `b`.
+
+
+```{python}
+
+def example(a=1,b=2):
+    return a**b
+
+
+result = example(a=5)
+
+print(result)
+
 ```
