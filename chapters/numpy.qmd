@@ -474,15 +474,6 @@ $$
 
 the operation would succeed because the first dimension of the first array is 1.
 
-```{python}
-from numpy import array
-
-a = array([1,2])
-b = array([[1,1,1],[2,2,2],[3,3,3]])
-c = a + b
-print(c)
-```
-
 
 ### Vectorizing user-defined functions
 
