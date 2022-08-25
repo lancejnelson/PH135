@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Scientific Computing - 8&nbsp; The numpy module</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/io.html" rel="next">
+<link href="../chapters/functions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Scientific Computing</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Python - The Basics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/strings.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/listsAndTuples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lists and Tuples</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Python - Intermediate Concepts</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basis Plotting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#numpy-arrays" id="toc-numpy-arrays" class="nav-link active" data-scroll-target="#numpy-arrays"> <span class="header-section-number">8.1</span> Numpy Arrays</a></li>
+  <li><a href="#array-creation" id="toc-array-creation" class="nav-link" data-scroll-target="#array-creation"> <span class="header-section-number">8.2</span> Array Creation</a>
+  <ul class="collapse">
+  <li><a href="#type-conversion-from-list" id="toc-type-conversion-from-list" class="nav-link" data-scroll-target="#type-conversion-from-list"> <span class="header-section-number">8.2.1</span> Type Conversion from List</a></li>
+  <li><a href="#the-arange-and-linspace-functions" id="toc-the-arange-and-linspace-functions" class="nav-link" data-scroll-target="#the-arange-and-linspace-functions"> <span class="header-section-number">8.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</a></li>
+  <li><a href="#arrays-from-functions" id="toc-arrays-from-functions" class="nav-link" data-scroll-target="#arrays-from-functions"> <span class="header-section-number">8.2.3</span> Arrays from Functions</a></li>
+  </ul></li>
+  <li><a href="#accessing-and-slicing-arrays" id="toc-accessing-and-slicing-arrays" class="nav-link" data-scroll-target="#accessing-and-slicing-arrays"> <span class="header-section-number">8.3</span> Accessing and Slicing Arrays</a>
+  <ul class="collapse">
+  <li><a href="#one-dimensional-arrays" id="toc-one-dimensional-arrays" class="nav-link" data-scroll-target="#one-dimensional-arrays"> <span class="header-section-number">8.3.1</span> One-dimensional Arrays</a></li>
+  <li><a href="#multi-dimensional-arrays" id="toc-multi-dimensional-arrays" class="nav-link" data-scroll-target="#multi-dimensional-arrays"> <span class="header-section-number">8.3.2</span> Multi-dimensional Arrays</a></li>
+  <li><a href="#accessing-multiple-elements" id="toc-accessing-multiple-elements" class="nav-link" data-scroll-target="#accessing-multiple-elements"> <span class="header-section-number">8.3.3</span> Accessing Multiple Elements</a></li>
+  </ul></li>
+  <li><a href="#slicing-arrays" id="toc-slicing-arrays" class="nav-link" data-scroll-target="#slicing-arrays"> <span class="header-section-number">8.4</span> Slicing Arrays</a>
+  <ul class="collapse">
+  <li><a href="#multi-dimensional-arrays-1" id="toc-multi-dimensional-arrays-1" class="nav-link" data-scroll-target="#multi-dimensional-arrays-1"> <span class="header-section-number">8.4.1</span> Multi-dimensional Arrays</a></li>
+  <li><a href="#boolean-slicing" id="toc-boolean-slicing" class="nav-link" data-scroll-target="#boolean-slicing"> <span class="header-section-number">8.4.2</span> Boolean Slicing</a></li>
+  </ul></li>
+  <li><a href="#vectorization-and-broadcasting" id="toc-vectorization-and-broadcasting" class="nav-link" data-scroll-target="#vectorization-and-broadcasting"> <span class="header-section-number">8.5</span> Vectorization and Broadcasting</a>
+  <ul class="collapse">
+  <li><a href="#numpy-functions" id="toc-numpy-functions" class="nav-link" data-scroll-target="#numpy-functions"> <span class="header-section-number">8.5.1</span> Numpy Functions</a></li>
+  <li><a href="#arrays-of-same-dimensions" id="toc-arrays-of-same-dimensions" class="nav-link" data-scroll-target="#arrays-of-same-dimensions"> <span class="header-section-number">8.5.2</span> Arrays of same Dimensions</a></li>
+  <li><a href="#arrays-of-different-dimensions" id="toc-arrays-of-different-dimensions" class="nav-link" data-scroll-target="#arrays-of-different-dimensions"> <span class="header-section-number">8.5.3</span> Arrays of Different Dimensions</a></li>
+  <li><a href="#vectorizing-user-defined-functions" id="toc-vectorizing-user-defined-functions" class="nav-link" data-scroll-target="#vectorizing-user-defined-functions"> <span class="header-section-number">8.5.4</span> Vectorizing user-defined functions</a></li>
+  </ul></li>
+  <li><a href="#manipulating-and-modifying-arrays" id="toc-manipulating-and-modifying-arrays" class="nav-link" data-scroll-target="#manipulating-and-modifying-arrays"> <span class="header-section-number">8.6</span> Manipulating and Modifying Arrays</a>
+  <ul class="collapse">
+  <li><a href="#reshaping-arrays" id="toc-reshaping-arrays" class="nav-link" data-scroll-target="#reshaping-arrays"> <span class="header-section-number">8.6.1</span> Reshaping Arrays</a></li>
+  <li><a href="#flattening-arrays" id="toc-flattening-arrays" class="nav-link" data-scroll-target="#flattening-arrays"> <span class="header-section-number">8.6.2</span> Flattening Arrays</a></li>
+  <li><a href="#transposing-arrays" id="toc-transposing-arrays" class="nav-link" data-scroll-target="#transposing-arrays"> <span class="header-section-number">8.6.3</span> Transposing Arrays</a></li>
+  <li><a href="#merging-arrays" id="toc-merging-arrays" class="nav-link" data-scroll-target="#merging-arrays"> <span class="header-section-number">8.6.4</span> Merging Arrays</a></li>
+  </ul></li>
+  <li><a href="#commonly-used-array-methods-and-functions" id="toc-commonly-used-array-methods-and-functions" class="nav-link" data-scroll-target="#commonly-used-array-methods-and-functions"> <span class="header-section-number">8.7</span> Commonly-used Array Methods and Functions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Numpy (pronounced “num”-“pie”) is a popular Python library that is heavily used in the scientific/mathematical community. So much so that numpy is typically included as part of the standard bundle of libraries that comes with your Python installation. The functions inside numpy will allow you to solve problems with less effort and will produce faster-executing code.</p>
+<section id="numpy-arrays" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="numpy-arrays"><span class="header-section-number">8.1</span> Numpy Arrays</h2>
+<p>You are already familiar with Python lists but may not have noticed that they are not suitable for mathematical calculations. For example, attempting to multiply a list by a scalar or evaluate a mathematical function like <span class="math inline">\(\sin()\)</span> on a list will <em>not</em> produce a mathematical result or may produce an error. For example, consider the following code.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>newList <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> myList</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[4, 5, 7, 4, 5, 7]</code></pre>
+</div>
+</div>
+<p>You probably expected <code>newList</code> to be <code>[8,10,14]</code> but multiplying a list by a number doesn’t do that. Instead it repeats the list and concatenates it to itself. To multiply each element of a list by a number you must use a <code>for</code> loop.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>newList <span class="op">=</span> []</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    newList.append(i<span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[8, 10, 14]</code></pre>
+</div>
+</div>
+<p>but this seems overly cumbersome for such a simple task. Numpy <em>ndarrays</em> (short for n-dimensional arrays) or just <em>arrays</em> make this task much simpler. Arrays are similar to lists or nested lists except that mathematical operations and <code>numpy</code> functions (but not <code>math</code> functions) automatically propogate to each element instead of requiring a <code>for</code> loop to iterate over it. Because of their power and convenience, arrays are the default object type for any operation performed with NumPy.</p>
+</section>
+<section id="array-creation" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="array-creation"><span class="header-section-number">8.2</span> Array Creation</h2>
+<section id="type-conversion-from-list" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="type-conversion-from-list"><span class="header-section-number">8.2.1</span> Type Conversion from List</h3>
+<p>You can create an array from a list using numpy’s <code>array</code> function. The list that is to be converted is the argument to the <code>array</code> function. Mathematical operations can then be performed on the array and that operation will propogate through to all of the elements.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>newArray <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> myArray </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 8 10 14]</code></pre>
+</div>
+</div>
+<p>Nested lists, or lists that contain lists as their elements, can be converted to multi-dimensional arrays using the <code>array</code> function.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]</code></pre>
+</div>
+</div>
+</section>
+<section id="the-arange-and-linspace-functions" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="the-arange-and-linspace-functions"><span class="header-section-number">8.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</h3>
+<p>Numpy has some sequence-generating functions that generate arrays by specifying start, stop, and stepsize values similar to the way <code>range</code> generates a list. The two most common ones are <code>arange</code> and <code>linspace</code>. The <code>arange</code> function behaves very similar to the native Python <code>range</code> function with a few notable exceptions:</p>
+<ol type="1">
+<li><code>arange</code> produces an array whereas <code>range</code> produces a list.</li>
+<li>The step size for <code>arange</code> does not need to be an integer.</li>
+<li><code>range</code> produces an iterator and <code>arange</code> generates a sequence of values immediately.</li>
+</ol>
+<p>The arguments to <code>arange</code> are similar to <code>range</code></p>
+<pre><code>arange(start,stop,step)</code></pre>
+<p>The <code>linspace</code> function is related to the <code>arange</code> function except that instead of specifying the step size of the sequence, the sequence is generated based on the number of equally-spaced points in the given span of numbers. Additionally, <code>arange</code> excludes the stop value while <code>linspace</code> includes it. The difference between these two functions is subtle and the use of one over the other often comes down to user preference or convenience.</p>
+<pre><code>linspace(start,stop,number of points)</code></pre>
+<p>Below is an example that shows the usage of <code>linspace</code> and <code>arange</code>.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,arange</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 0.          0.52631579  1.05263158  1.57894737  2.10526316  2.63157895
+  3.15789474  3.68421053  4.21052632  4.73684211  5.26315789  5.78947368
+  6.31578947  6.84210526  7.36842105  7.89473684  8.42105263  8.94736842
+  9.47368421 10.        ]
+[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5
+ 9.  9.5]</code></pre>
+</div>
+</div>
+<p>When using <code>linspace</code> you may still want to know what the sequence spacing is. You can request that <code>linspace</code> provide this information by adding the optional argument <code>retstep = True</code> to the argument list. With this addition, linspace not only returns the sequence to you, but also the stepsize.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,arange</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>myArray,mydx <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,retstep<span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mydx)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.5263157894736842
+[ 0.          0.52631579  1.05263158  1.57894737  2.10526316  2.63157895
+  3.15789474  3.68421053  4.21052632  4.73684211  5.26315789  5.78947368
+  6.31578947  6.84210526  7.36842105  7.89473684  8.42105263  8.94736842
+  9.47368421 10.        ]</code></pre>
+</div>
+</div>
+<p>Two other useful functions for generating arrays are <code>zeros</code> and <code>ones</code> which generate arrays populated with exculsively ones or zeros. The functions require shape arguments as a tuple or list to specify the shape of the array.</p>
+<pre><code>zeros((rows,columns))</code></pre>
+<p>If the array to be created is only one dimensional, the argument can be a single number instead of a tuple.</p>
+<pre><code>zeros(n)</code></pre>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> zeros,ones</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> zeros([<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> ones(<span class="dv">5</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
+[1. 1. 1. 1. 1.]</code></pre>
+</div>
+</div>
+<p>Arrays of any constant (not just one or zero) can then be easily generated by performing the needed math on the original array.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> zeros,ones</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> zeros([<span class="dv">3</span>,<span class="dv">4</span>]) <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> ones(<span class="dv">5</span>) <span class="op">*</span> <span class="dv">12</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[5. 5. 5. 5.]
+ [5. 5. 5. 5.]
+ [5. 5. 5. 5.]]
+[12. 12. 12. 12. 12.]</code></pre>
+</div>
+</div>
+</section>
+<section id="arrays-from-functions" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="arrays-from-functions"><span class="header-section-number">8.2.3</span> Arrays from Functions</h3>
+<p>A third approach is to generate an array from a function using the <code>fromfunction</code> function which generates an array of values using the array indices as the inputs. Ths function requires two arguments: the name of the function being used and the shape of the array being generated.</p>
+<pre><code>fromfunction(function, shape)</code></pre>
+<p>Let’s make a 3 x 3 array where each element is the product of the row and column indices:</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> fromfunction</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prod(x,y):</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> y</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> fromfunction(prod,(<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0. 0. 0.]
+ [0. 1. 2.]
+ [0. 2. 4.]]</code></pre>
+</div>
+</div>
+<p>The table below gives a summary of useful functions for creating numpy arrays. The required arguments are also described.</p>
+<table class="table">
+<caption>Common functions for generating arrays</caption>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>linspace(start,stop,n)</code></td>
+<td>Returns an array of <code>n</code> evenly-spaced points begining at <code>start</code> and ending at <code>stop</code>.</td>
+</tr>
+<tr class="even">
+<td><code>arange(start,stop,dx)</code></td>
+<td>Returns an array begining at <code>start</code>,ending at <code>stop</code> with a step size of <code>dx</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>empty(dims)</code></td>
+<td>Returns an empty array with dimensions <code>dim</code>.</td>
+</tr>
+<tr class="even">
+<td><code>zeros(dims)</code></td>
+<td>Returns an array of zeros with dimensions <code>dim</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>ones(dims)</code></td>
+<td>Returns an array of ones with dimensions <code>dim</code>.</td>
+</tr>
+<tr class="even">
+<td><code>zeros_like(arr)</code></td>
+<td>Returns an array of zeros with dimensions that match the dimensions of <code>arr</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>fromfunction(function,dims)</code></td>
+<td>Returns an array of numbers generated by evaluating <code>function</code> on the indices of an array with dimensions <code>dims</code>.</td>
+</tr>
+<tr class="even">
+<td><code>copy(arr)</code></td>
+<td>Creates a copy of array <code>arr</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>genfromtext(file)</code></td>
+<td>Reads <code>file</code> and loads the text into an array (file must only contain numbers).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="accessing-and-slicing-arrays" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="accessing-and-slicing-arrays"><span class="header-section-number">8.3</span> Accessing and Slicing Arrays</h2>
+<p>Accessing and slicing arrays can be done in exactly the same way as is done with lists. However, there is some additional functionality for accessing and slicing arrays that do not apply to lists.</p>
+<section id="one-dimensional-arrays" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="one-dimensional-arrays"><span class="header-section-number">8.3.1</span> One-dimensional Arrays</h3>
+<p>Elements from a one-dimensional array can be extracted using square brackets (<code>[]</code>) just like we have done with lists.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">8</span>])</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7</code></pre>
+</div>
+</div>
+</section>
+<section id="multi-dimensional-arrays" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="multi-dimensional-arrays"><span class="header-section-number">8.3.2</span> Multi-dimensional Arrays</h3>
+<p>Multi-dimensional array can be indexed in a similar fashion to nested lists, but because we often encounter multi-dimensional arrays there is a shortcut that makes the syntax simpler and more convenient. Let’s consider a two-dimensional array as an example. To access the entire second row of the array, provide the row index in square brackets just as with one-dimesional arrays.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[4 5 6]</code></pre>
+</div>
+</div>
+<p>To access the second element <em>in the second row</em>, we can add another set of square brackets with the appropriate index inside, just as we did with nested lists. However, for convenience the second set of square brackets can be omitted and the row and column indices can be placed next to each other and separted by a comma.</p>
+<pre><code>array_name[row,column]</code></pre>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>][<span class="dv">1</span>])  <span class="co"># This works, but is a bit hard on the eyes</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>,<span class="dv">1</span>])  <span class="co"># This works also and is easier to look at.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+5</code></pre>
+</div>
+</div>
+</section>
+<section id="accessing-multiple-elements" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="accessing-multiple-elements"><span class="header-section-number">8.3.3</span> Accessing Multiple Elements</h3>
+<p>Multiple elements of an array can be accessed using a list for the index instead of a single number.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>])</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">2</span>])  <span class="co"># Extract element 2</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[ [<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>] ])  <span class="co"># Extract elements 3, 6, and 9.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3
+[ 4  7 10]</code></pre>
+</div>
+</div>
+<p>This can even be done with multi-dimensional arrays. If the index is a single list, the corresponding rows will be extract. If the corresponding list of columns is added to the index list, individual elements will be extracted.</p>
+<pre><code>array_name[[rows]]  # Access set of rows</code></pre>
+<pre><code>array_name[[rows], [columns]]  # Access set of elements</code></pre>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[[<span class="dv">0</span>,<span class="dv">1</span>]]) <span class="co"># Extract rows 0 and 1.</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>]])   <span class="co"># Extract elements (1,0), (2,2), and (0,2)  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]
+[4 9 3]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="slicing-arrays" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="slicing-arrays"><span class="header-section-number">8.4</span> Slicing Arrays</h2>
+<section id="multi-dimensional-arrays-1" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="multi-dimensional-arrays-1"><span class="header-section-number">8.4.1</span> Multi-dimensional Arrays</h3>
+<p>We’ve already shown you how to slice a list using the : operator. The same can be done with arrays. However, for 2D (and higher) arrays the slicing is more powerful (intuitive). It can be helpful to visualize an array as a matrix, even if it is not being treated that way Mathematically. For example, let’s say that you define the following array:</p>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>which can be visualized as the following matrix:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;2&amp;3\\
+4&amp;5&amp;6\\
+7&amp;8&amp;9\\
+\end{pmatrix}
+\]</span></p>
+<p>To slice out the following <span class="math inline">\(2\)</span> x <span class="math inline">\(2\)</span> sub matrix:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+5&amp;6\\
+8&amp;9\\
+\end{pmatrix}
+\]</span></p>
+<p>we could do</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[5 6]
+ [8 9]]</code></pre>
+</div>
+</div>
+<p>To include all of the elements in a given dimension, use the <code>:</code> alone with no numbers surrounding it.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[:,<span class="dv">1</span>:<span class="dv">3</span>])  <span class="co"># Extract all rows with columns 1 and 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[2 3]
+ [5 6]
+ [8 9]]</code></pre>
+</div>
+</div>
+</section>
+<section id="boolean-slicing" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="boolean-slicing"><span class="header-section-number">8.4.2</span> Boolean Slicing</h3>
+<p>Boolean operations can be evaluated on arrays to produce corrsponding arrays of booleans. The boolean array can then be used to index the original array and extract elements that meet some criteria.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>boolArray <span class="op">=</span> a <span class="op">&gt;</span> <span class="dv">2</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(boolArray)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a[boolArray])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[False False  True  True  True  True]
+[3 4 5 6]</code></pre>
+</div>
+</div>
+<p>This also works on multi-dimensional arrays although the result is always one-dimensional regardless of the shape of the original array.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[myArray<span class="op">&gt;</span><span class="dv">2</span>]) <span class="co"># Extract elements that are greater than 2.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[3 4 5 6 7 8 9]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="vectorization-and-broadcasting" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="vectorization-and-broadcasting"><span class="header-section-number">8.5</span> Vectorization and Broadcasting</h2>
+<p>A major advantage of numpy arrays over lists is that operations <em>vectorize</em> across the arrays. This means that mathematical operations propogate through the array instead of requiring a <code>for</code> loop. This speeds up the calculation and makes code easier to write and read. Simple mathematical operations like adding, subtracting, etc can be performed on arrays as you would expect and the operation propogates through to all elements.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> b</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="dv">2</span><span class="op">/</span>b</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> a <span class="op">*</span> b</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c,d,e,f,g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[5 7 9] [1 4 9] [ 8 10 12] [0.5        0.4        0.33333333] [ 4 10 18]</code></pre>
+</div>
+</div>
+<p>All of the common mathematical operations that you learned for numbers now apply to arrays. Cool!</p>
+<section id="numpy-functions" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="numpy-functions"><span class="header-section-number">8.5.1</span> Numpy Functions</h3>
+<p>The numpy library has a massive collection of vectorized mathematical functions and these functions should be used instead of similar functions from other libraries that are not vectorized (like <code>math</code>).</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> sqrt <span class="im">as</span> nsqrt</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> mathsqrt</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>])</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nsqrt(squares))</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co">#print(mathsqrt(squares))  #This will fail because it wasn't a numpy function.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1. 2. 3. 4. 5.]</code></pre>
+</div>
+</div>
+</section>
+<section id="arrays-of-same-dimensions" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="arrays-of-same-dimensions"><span class="header-section-number">8.5.2</span> Arrays of same Dimensions</h3>
+<p>If a mathematical operation is performed between two arrays of the same dimensions, the mathematical operation is performed between corresponding elements in the two arrays. For example, if two <span class="math inline">\(2\)</span> x <span class="math inline">\(2\)</span> arrays are added together, element (0,0) of the first array gets added to the corresponding element in the second and so forth for all elements:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;2\\
+3&amp;4\\
+\end{pmatrix}+
+\begin{pmatrix}
+5&amp;6\\
+7&amp;8\\
+\end{pmatrix}=
+\begin{pmatrix}
+6&amp;8\\
+10&amp;12\\
+\end{pmatrix}
+\]</span></p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]])</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b  <span class="co"># Add the elements of the arrays together.</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">*</span> b  <span class="co"># Multiply the elements of the arrays together.</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[ 6  8]
+ [10 12]]
+[[ 5 12]
+ [21 32]]</code></pre>
+</div>
+</div>
+</section>
+<section id="arrays-of-different-dimensions" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="arrays-of-different-dimensions"><span class="header-section-number">8.5.3</span> Arrays of Different Dimensions</h3>
+<p>When a mathematical operation between two arrays of different dimensions is attempted, Python has to figure out how to make them have the same shape before performing the operation. <em>Broadcasting</em> refers to the set of rules used for operations like this. To handled arrays with different dimensions, NumPy pads or clones the array with fewer dimensions to make it have the same dimensions as the larger array. For example, what would happen if you attempted this operation:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;2\\
+3&amp;4\\
+\end{pmatrix}+
+\begin{pmatrix}
+2&amp;2\\
+\end{pmatrix}
+\]</span></p>
+<p>One array is <span class="math inline">\(2\)</span> x <span class="math inline">\(2\)</span> and the other is <span class="math inline">\(1\)</span> x <span class="math inline">\(2\)</span>. Before the addition can take place, NumPy clones the smaller array and repeats it until it has the same size as the bigger array.</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;2\\
+3&amp;4\\
+\end{pmatrix}+
+\begin{pmatrix}
+2&amp;2\\
+2&amp;2\\
+\end{pmatrix}
+\]</span></p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[3 4]
+ [5 6]]</code></pre>
+</div>
+</div>
+<p>There are some cases where NumPy simply cannot figure out how to broadcast one of the arrays appropriately and an error results. When broadcasting, NumPy must verify that all dimensions are compatible with each other. Two dimensions are compatible when i) they are equal or ii) one of the dimensions is 1. For example, if we tried to perform the following mathematical operation, broadcasting would fail because the first dimension of the first array is 2 and the first dimension of the second array is 3.</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;2&amp;3\\
+3&amp;4&amp;5\\
+\end{pmatrix}+
+\begin{pmatrix}
+1&amp;1&amp;1\\
+2&amp;2&amp;2\\
+3&amp;3&amp;3\\
+\end{pmatrix}
+\]</span></p>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>]])</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>but if we attempted</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;2&amp;3\\
+\end{pmatrix}+
+\begin{pmatrix}
+1&amp;1&amp;1\\
+2&amp;2&amp;2\\
+3&amp;3&amp;3\\
+\end{pmatrix}
+\]</span></p>
+<p>the operation would succeed because the first dimension of the first array is 1 and the second dimension of both arrays are 3.</p>
+</section>
+<section id="vectorizing-user-defined-functions" class="level3" data-number="8.5.4">
+<h3 data-number="8.5.4" class="anchored" data-anchor-id="vectorizing-user-defined-functions"><span class="header-section-number">8.5.4</span> Vectorizing user-defined functions</h3>
+<p>Standard Python functions are often designed to perform a single calculation rather than iterate over a list to perform many calculations. For example, here is a function to calculate the average acceleration of an object given its final velocity and time of travel.</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,<span class="fl">5.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9.392857142857144</code></pre>
+</div>
+</div>
+<p>Now what if I have a list of many times that I’d like to feed into this function and get an acceleration value for each one.</p>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>]</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,times))  <span class="co"># Produces an error because you can't divide by a list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>An error results here because Python does not know how to divide by a list. We can NumPy-ify this function using a function called <code>vectorize</code>. The resulting function will behave just like the other functions from the NumPy library, vectorizing across the list of times.</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> vectorize</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>]</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>vaccel <span class="op">=</span> vectorize(accel)  <span class="co"># Vectorize the function!</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vaccel(<span class="fl">52.6</span>,times))  <span class="co"># Succeeds because NumPy knows how to vectorize.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[11.43478261  6.65822785 16.4375      6.18823529  5.7173913  11.19148936]</code></pre>
+</div>
+</div>
+<p>Of course, we also could have just converted our times list into an array and used the original function.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> array([<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>])</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,times))  <span class="co"># Succeeds because times is an array not a list.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[11.43478261  6.65822785 16.4375      6.18823529  5.7173913  11.19148936]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="manipulating-and-modifying-arrays" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="manipulating-and-modifying-arrays"><span class="header-section-number">8.6</span> Manipulating and Modifying Arrays</h2>
+<p>A wealth of functions exist to perform routine manipulation tasks on arrays once they are created. Often these tasks will involve changing the number of rows or columns or merging two arrays into one. The <em>size</em> and <em>shape</em> of an array are the number of elements and dimensions, respectively. These can be determined using the <code>shape</code> and <code>size</code> methods.</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.size)</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+(2, 3)</code></pre>
+</div>
+</div>
+<section id="reshaping-arrays" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="reshaping-arrays"><span class="header-section-number">8.6.1</span> Reshaping Arrays</h3>
+<p>The dimensions of an array can be modified using the <code>reshape</code> function. This methods maintains the number of elements and the order of elements but repacks them into a different number of rows and columns. Because the number of elements is maintained, the size of the new array has to be the same as the original. Let’s see an example.</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array, reshape</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> reshape(a,[<span class="dv">3</span>,<span class="dv">2</span>])</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]
+[[1 2]
+ [3 4]
+ [5 6]]</code></pre>
+</div>
+</div>
+<p>The original array (<code>a</code>) was a <span class="math inline">\(2\)</span> x <span class="math inline">\(3\)</span> and had <span class="math inline">\(6\)</span> elements and the reshaped array also has <span class="math inline">\(6\)</span> elements but is a <span class="math inline">\(3\)</span> x <span class="math inline">\(2\)</span>. You can start with a one-dimensional array and reshape it to a higher dimensional array.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, reshape</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">12</span>)</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> reshape(a,[<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 0.          0.90909091  1.81818182  2.72727273  3.63636364  4.54545455
+  5.45454545  6.36363636  7.27272727  8.18181818  9.09090909 10.        ]
+[[ 0.          0.90909091  1.81818182  2.72727273]
+ [ 3.63636364  4.54545455  5.45454545  6.36363636]
+ [ 7.27272727  8.18181818  9.09090909 10.        ]]</code></pre>
+</div>
+</div>
+</section>
+<section id="flattening-arrays" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="flattening-arrays"><span class="header-section-number">8.6.2</span> Flattening Arrays</h3>
+<p>Flattening an array takes a higher-dimensional array and squishes it into a one-dimensional array. You can “flatten” an array with the <code>flatten</code> method, but note that <code>flatten</code> doesn’t actually modify the original array.</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>a.flatten()</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># 'a' remains unchanged</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a.flatten() <span class="co"># If you want to change the definition of a, redifine it.</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]
+[1 2 3 4 5 6]</code></pre>
+</div>
+</div>
+</section>
+<section id="transposing-arrays" class="level3" data-number="8.6.3">
+<h3 data-number="8.6.3" class="anchored" data-anchor-id="transposing-arrays"><span class="header-section-number">8.6.3</span> Transposing Arrays</h3>
+<p>Transposing an array rotates it across the diagonal and can be accomplished with the <code>transpose</code> function. There is also a shortcut method for this of <code>array.T</code> to accomplish the same thing but just as with <code>flatten</code> it does not modify the original array. (neither does <code>transpose</code>)</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array,transpose</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>transpose(a)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># 'a' remains unchanged</span></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a.T <span class="co"># If you want to change the definition of a, redefine it.</span></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]
+[[1 4]
+ [2 5]
+ [3 6]]</code></pre>
+</div>
+</div>
+</section>
+<section id="merging-arrays" class="level3" data-number="8.6.4">
+<h3 data-number="8.6.4" class="anchored" data-anchor-id="merging-arrays"><span class="header-section-number">8.6.4</span> Merging Arrays</h3>
+<p>Several function exist for combining multiple arrays into a single array. We’ll give examples for a couple and mention the others in reference tables. The most commonly used functions for this task are <code>vstack</code> (vertical stacking) and <code>hstack</code> (horizontal stacking). <code>vstack</code> will stack the original arrays vertically to create the new array and <code>hstack</code> will stack them horizontally. Here are some examples.</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, hstack, vstack</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">10</span>)</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> vstack((a,b))</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)  <span class="co"># 'a' remains unchanged</span></span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> hstack((a,b))</span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.T)</span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[ 0.          1.11111111  2.22222222  3.33333333  4.44444444  5.55555556
+   6.66666667  7.77777778  8.88888889 10.        ]
+ [ 0.          0.55555556  1.11111111  1.66666667  2.22222222  2.77777778
+   3.33333333  3.88888889  4.44444444  5.        ]]
+[ 0.          1.11111111  2.22222222  3.33333333  4.44444444  5.55555556
+  6.66666667  7.77777778  8.88888889 10.        ]
+[ 0.          1.11111111  2.22222222  3.33333333  4.44444444  5.55555556
+  6.66666667  7.77777778  8.88888889 10.          0.          0.55555556
+  1.11111111  1.66666667  2.22222222  2.77777778  3.33333333  3.88888889
+  4.44444444  5.        ]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="commonly-used-array-methods-and-functions" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="commonly-used-array-methods-and-functions"><span class="header-section-number">8.7</span> Commonly-used Array Methods and Functions</h2>
+<p>NumPy contains an extensive listing of array methods and functions and it would be impractical to list them all here. However, below you will find some tables of some of the commonly used ones that can serve as a reference.</p>
+<table class="table">
+<caption>Array Attribute Methods and Functions</caption>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>shape(array)</code> or <code>array.shape</code></td>
+<td>Returns the dimensions of the array.</td>
+</tr>
+<tr class="even">
+<td><code>ndim(array)</code> or <code>array.ndim</code></td>
+<td>Returns the number of dimensions (i.e.&nbsp;a 2D array is <span class="math inline">\(2\)</span>).</td>
+</tr>
+<tr class="odd">
+<td><code>size(array)</code> or <code>array.size</code></td>
+<td>Returns the number of elements in an array.</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<caption>Array Modification Methods and Functions</caption>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>array.flatten()</code></td>
+<td>Returns a flattened view of <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>reshape(array,dims)</code> or <code>array.reshape(dims)</code></td>
+<td>Returns a view of <code>array</code> reshaped into an array with dimensions given by <code>dims</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>array.resize(dims)</code></td>
+<td><strong>Modifies</strong> <code>array</code> to be a resized array with dimensions <code>dims</code>.</td>
+</tr>
+<tr class="even">
+<td><code>transpose(array)</code> or <code>array.T</code></td>
+<td>Returns a view of the transpose of <code>array</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>sort(array)</code></td>
+<td>Returns a view of a sorted version of <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>array.sort()</code></td>
+<td><strong>Modifies</strong> <code>array</code> to be sorted.</td>
+</tr>
+<tr class="odd">
+<td><code>argsort(array)</code></td>
+<td>Returns index values that will sort <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>array.fill(x)</code></td>
+<td><strong>Modifies</strong> <code>array</code> so that all elements are equal to <code>x</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>vstack(a,b)</code></td>
+<td>Vertically stack arrays <code>a</code> and <code>b</code> to form the new array.</td>
+</tr>
+<tr class="even">
+<td><code>hstack(a,b)</code></td>
+<td>Horizontally stack arrays <code>a</code> and <code>b</code> to form the new array.</td>
+</tr>
+<tr class="odd">
+<td><code>vsplit(array,n)</code></td>
+<td>Splits <code>array</code> veritcally into <code>n</code> equal parts.</td>
+</tr>
+<tr class="even">
+<td><code>hsplit(array,n)</code></td>
+<td>Splits <code>array</code> horizontally into <code>n</code> equal parts.</td>
+</tr>
+<tr class="odd">
+<td><code>append(array,x)</code></td>
+<td>Returns a view of <code>array</code> with <code>x</code> added to the end of the array.</td>
+</tr>
+<tr class="even">
+<td><code>insert(array,n,x)</code></td>
+<td>Returns a view of <code>array</code> with <code>x</code> inserted at location <code>n</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>delete(array,n)</code></td>
+<td>Returns a view of <code>array</code> with element at location <code>n</code> removed.</td>
+</tr>
+<tr class="even">
+<td><code>unique(array)</code></td>
+<td>Returns a view of the unique elements of <code>array</code>.</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<caption>Array Measurement Methods and Functions</caption>
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>min(array)</code> or <code>array.min()</code></td>
+<td>Returns the minimum value in an array.</td>
+</tr>
+<tr class="even">
+<td><code>max(array)</code> or <code>array.max()</code></td>
+<td>Returns the maximum value in an array.</td>
+</tr>
+<tr class="odd">
+<td><code>argmin(array)</code> or <code>array.argmin()</code></td>
+<td>Returns the location of the minimum value in an array.</td>
+</tr>
+<tr class="even">
+<td><code>argmax(array)</code> or <code>array.argmax()</code></td>
+<td>Returns the location of the maximum value in an array.</td>
+</tr>
+<tr class="odd">
+<td><code>fmin(array1,array2)</code></td>
+<td>Returns the minimum between two arrays of the same size. (Arrays are compared elementwise.)</td>
+</tr>
+<tr class="even">
+<td><code>fmax(array1,array2)</code></td>
+<td>Returns the maximum between two arrays of the same size. (Arrays are compared elementwise.)</td>
+</tr>
+<tr class="odd">
+<td><code>mean(array)</code> or <code>array.mean()</code></td>
+<td>Returns the mean of <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>median(array)</code> or <code>array.median()</code></td>
+<td>Returns the median of <code>array</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>std(array)</code> or <code>array.std()</code></td>
+<td>Returns the standard deviation of <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>cumprod(array)</code> or <code>array.cumprod()</code></td>
+<td>Returns the cumulative product of <code>array</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>cumsum(array)</code> or <code>array.cumsum()</code></td>
+<td>Returns the cumulative sum of <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>sum(array)</code> or <code>array.sum()</code></td>
+<td>Returns the sum of all elements in <code>array</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>prod(array)</code> or <code>array.prod()</code></td>
+<td>Returns the product of all elements in <code>array</code>.</td>
+</tr>
+<tr class="even">
+<td><code>floor(array)</code></td>
+<td>Returns the floor (i.e., rounds down) of all elements in <code>array</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>ceil(array)</code></td>
+<td>Returns the ceiling (i.e., rounds up) of all elements in <code>array</code>.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/functions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/io.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
