@@ -5,3 +5,81 @@ citation-location: margin
 ---
 
 # File I/O (Input/Output)
+Up to now, we have been working with computer-generated or manually typed data sets.  Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis.  Most data files are *text* files, but there is a large variety of these that differ mostly in the way the information is formatted.   The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file.  For example, a *.csv* file (short for comma-seperated values) has commas to separate the information.
+
+
+## Reading Lines
+
+The first way to read a file is using a `for` loop to iterate over the file line by line.  Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works.  First, the file is opened using the `open` command.  The file should be attached to a variable for later use.   Next, the data is read one line at a time using the `readlines()` method.  We should use a `for` loop for this.  Finally, it is a good idea to close the file when you're finished.
+
+
+```{python}
+file = open("squares.csv")
+for line in file.readlines():
+    print(line)
+
+file.close()
+
+```
+
+You can see how each line gets read separately and printed off.  But this isn't super useful yet because we'd probably like to have the numbers stored in lists for our forthcoming analysis.  We can fix this by creating some empty lists and appending the appropriate values as they are read in. 
+
+
+```{python}
+numbers = []
+squares = []
+
+file = open("squares.csv")
+for line in file.readlines():
+    numbers.append( int(line.split(',')[0]) )
+    squares.append( int(line.split(',')[1]) )
+
+file.close()
+
+print(numbers)
+print(squares)
+```
+
+Now the data from the file is saved in Python lists and our analysis can proceed. 
+
+One final note: if all you want to do is read your file in as a list of strings (one string for each line), that can be done without a `for` loop using the function `readlines` (rather than `readline`).
+
+```{python}
+file = open("squares.csv")
+data = file.readlines()
+file.close()
+
+print(data)
+
+```
+
+
+
+## Using NumPy's `genfromtxt` function
+
+If the data file is highly structured (every line looks the same, separater character is consistent across the file, etc) then NumPy's `genfromtxt` function can read the data very efficiently into an array.  The `genfromtxt` function requires only one argument (the file name) with another optional argument (`delimiter`) that is typically included to specify the character used to separate the data.  Below is an example for using this function to read in the .csv data we have been working with.
+
+
+```{python}
+from numpy import genfromtxt
+
+data = genfromtxt('squares.csv',delimiter = ",")
+
+print(data)
+
+```
+
+Notice that the data was read into a NumPy array (2D in this case because there were two columns of data), which means that we can easily slice off the individual columns if needed.
+
+```{python}
+from numpy import genfromtxt
+
+data = genfromtxt('squares.csv',delimiter = ",")
+
+numbers = data[:,0]
+squares = data[:,1]
+print(numbers)
+print(squares)
+
+
+```

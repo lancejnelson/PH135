@@ -43,12 +43,12 @@ Lists can contain mixed data types. Below we construct a list of the electrical 
 conductivity = ["Gold",4.10e7,"Copper",5.96e7,"Aluminum",3.5e7]
 ```
 
-The elements of a list can be lists themselves.
+If the elements of a list are also lists, we call it a *nested* list.
 
 
 ```{python}
 
-conductivity = [[],[],[]]
+conductivity = [[1,2,3],[4,5,6],[7,8,9]]
 ```
 
 
@@ -179,6 +179,7 @@ Python has several built-in functions that will work with lists.  Functions are 
 | `min(list)`| Finds the smallest element in the list.|
 | `sum(list)`| Returns the sum of the elements in the list.[^sum]|
 | `listOne + listTwo`| Joins `listOne` with `listTwo` to form one list.|
+| `2 * list`| Repeat `list` and concenate to itself, making the list twice as long.|
 | `zip(listOne,listTwo)`| Zips two lists together. (Creates `[a1,b1,a2,b2...]` from `[a1,a2,a3...]` and `[b1,b2,b3...]`|
 
 [^sum]: Only works if the list contains only ints and floats

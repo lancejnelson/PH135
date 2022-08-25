@@ -13,16 +13,22 @@ book:
     - part: "Python - The Basics"
       chapters:
       - index.qmd
-      - chapters/basicPythonI.qmd
-      - chapters/basicPythonII.qmd
-      - chapters/basicPythonIII.qmd
+      - chapters/variables.qmd
+      - chapters/strings.qmd
+      - chapters/booleans.qmd
       - chapters/listsAndTuples.qmd
       - chapters/loops.qmd
       - chapters/functions.qmd
+    - part: "Python - Intermediate Concepts"
+      chapters:
+      - chapters/numpy.qmd
+      - chapters/io.qmd
+      - chapters/basicPlotting.qmd
 bibliography: references.bib
 
 format:
   html:
+    toc: true
     theme: 
       light: cosmo  # simplex cosmo
       dark: darkly
