@@ -246,7 +246,7 @@ It is worth noting that `else` statements are not required. If you leave the `el
     ```
 
 
-2. (Thermoelectrics)  A thermoelectric is a material that converts thermal energy into electrical energy and much research is devoted to finding new materials the exhibit this behavior.  Good thermoelectrics tend to be materials with high electrical conducitivity ($\sigma > 7 \times 10^5~\Omega^{-1} \text{m}^{-1}$ ) **and** low thermal conductivity ($\kappa< 2.0$ W/ m K ).  Write an `if`-`else` code block that checks to see if a material's electrical conductivity is above the threshold **and** its thermal conductivity is below the threshold.  Then choose some values for the conductivities and test your `if`-`else` block.
+2. (Thermoelectrics)  A thermoelectric is a material that converts thermal energy into electrical energy and much research is devoted to finding new materials that exhibit this behavior.  Good thermoelectrics tend to be materials with high electrical conducitivity ($\sigma > 7 \times 10^5~\Omega^{-1} \text{m}^{-1}$ ) **and** low thermal conductivity ($\kappa< 2.0$ W/ m K ).  Write an `if`-`else` code block that checks to see if a material's electrical conductivity is above the threshold **and** its thermal conductivity is below the threshold.  Then choose some values for the conductivities and test your `if`-`else` block.
 
 
     ```{python}
