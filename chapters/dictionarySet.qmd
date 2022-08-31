@@ -1,0 +1,7 @@
+---
+jupyter: python3
+reference-location: margin
+citation-location: margin
+---
+
+# Dictionaries

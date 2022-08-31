@@ -5,12 +5,14 @@ jupyter: python3
 
 ## Python
 
-Python is a computer programming language available on all major platforms (Mac, Windows, Linux).  Python is a scripting language which means that the computer interprets and runs your code at the moment you run it.  In contrast, with a compiled language like C the code must first be converted into binary before it can run (called "compiling" the code).  There are pros and cons to both types of languages. The on-the-fly interpretation of Python makes it quick and easy to write code and provides fast results for simple calculations.  When codes become longer and more complex, on-the-fly interpretation becomes less efficient and execution time will be much slower than it would be with a compiled language.  The pros and cons flip for a comiled language; writing code in a compiled language can be cumbersome and slow, but the execution time is typically much faster.  Out of necessity, most programmers become proficient in both types of languages.  Python(or another interpreted language) is used to "toy around" with your problem and build familiarity.  As the complexity of the code increases the user is then forced to transition to a compiled language to get the needed speed. This is the famous "two language" problem and there is a new programming language designed to eliminate this problem by combining the pros from both into one language. (The name of the language is [Julia](https://docs.julialang.org/en/v1/))
 
-Python is free, open source software and is maintained by the non-profit Python software foundation.  This is great because it means that you will always have free access to the Python language regardless of what organization or univeristy you are affliated with.  You'll never have to worry about not being able to use your Python code without paying for it.  Another benefit of open source languages is that all of the codes developed by other people are available for anyone to inspect, modify, and use.  This allows anyone to review another's code to ensure that it does what they say it does, or to modify it to do something else.  One last benefit that comes with an open source language is the community of Python users available to answer questions and provide instruction to the beginner. Answers to most questions about python are readily available on tutorial or forum websites.  
+
+Python is a computer programming language available on all major platforms (Mac, Windows, Linux).  Python is a scripting language which means that the computer interprets and runs your code at the moment you run it.  In contrast, with a compiled language like C the code must first be converted into binary before it can run (called "compiling" the code).  There are pros and cons to both types of languages. The on-the-fly interpretation of Python makes it quick and easy to write code and provides fast results for simple calculations.  When codes become longer and more complex, on-the-fly interpretation becomes less efficient and execution time will be much slower than it would be with a compiled language.  The pros and cons flip for a compiled language; writing code in a compiled language can be cumbersome and slow, but the execution time is typically much faster.  Out of necessity, most programmers become proficient in both types of languages.  Python(or another interpreted language) is used to "toy around" with your problem and build familiarity.  As the complexity of the code increases the user is then forced to transition to a compiled language to get the needed speed. This is the famous "two language" problem and there is a new programming language designed to eliminate this problem by combining the pros from both into one language. (The name of the language is [Julia](https://docs.julialang.org/en/v1/))
+
+Python is free, open source software and is maintained by the non-profit Python software foundation.  This is great because it means that you will always have free access to the Python language regardless of what organization or university you are affiliated with.  You'll never have to worry about not being able to use your Python code without paying for it.  Another benefit of open source languages is that all of the codes developed by other people are available for anyone to inspect, modify, and use.  This allows anyone to review another's code to ensure that it does what they say it does, or to modify it to do something else.  One last benefit that comes with an open source language is the community of Python users available to answer questions and provide instruction to the beginner. Answers to most questions about python are readily available on tutorial or forum websites.  
 
 ## Installing Software
-The first step is to install the software (if you haven't already). The most convenient way to install Python and also get many of the commonly-used libraries is to use an installer. I recommend [Anaconda](https://www.anaconda.com/download/"). When installing the software be sure to choose Python 3 since this is the current version.  By default, Anaconda will install a suit of sotwares and libraries that are commonly used.  If you want to install other Python libraries, open the Anaconda-Navigator (green circle icon) and select the **Environment** tab on the left.  Select **Not Installed** from the pull-down to see all of the libraries that are available to be installed.  To install a library, check the box next to it and click **Apply**.  Anaconda will take care of the rest. 
+The first step is to install the software (if you haven't already). The most convenient way to install Python and also get many of the commonly-used libraries is to use an installer. I recommend [Anaconda](https://www.anaconda.com/download/"). When installing the software be sure to choose Python 3 since this is the current version.  By default, Anaconda will install a suit of softwares and libraries that are commonly used.  If you want to install other Python libraries, open the Anaconda-Navigator (green circle icon) and select the **Environment** tab on the left.  Select **Not Installed** from the pull-down to see all of the libraries that are available to be installed.  To install a library, check the box next to it and click **Apply**.  Anaconda will take care of the rest. 
 
 
 >**_To Do:_**
@@ -32,9 +34,9 @@ To launch a Jupyter notebook, first open Anaconda-Navigator (green circle icon) 
 
 
 ### Notebook Structure
-There are two types of "cells" in a Jupyter notebook: code cells and text cells (also called Markdown cell).  Code cells contain "live" Python code that can be run inside of the notebook with any output appearing directly below it.  Markdown cells are designed to contain explanatory information about what is happening inside of the code cells.  They can contain text, math equations, and images.  Markdown cells suport markdown, html, and Latex (for generating pretty math equations).
+There are two types of "cells" in a Jupyter notebook: code cells and text cells (also called Markdown cell).  Code cells contain "live" Python code that can be run inside of the notebook with any output appearing directly below it.  Markdown cells are designed to contain explanatory information about what is happening inside of the code cells.  They can contain text, math equations, and images.  Markdown cells support markdown, html, and Latex (for generating pretty math equations).
 
-Both markdown and code cells can be executed by either selecting **Run Selected Cells** in the **Run** menu, by clicking the **Play** icon at the top of the notebook, or by using the **Shift-Return** shortcut when your curson is in the desired cell.
+Both markdown and code cells can be executed by either selecting **Run Selected Cells** in the **Run** menu, by clicking the **Play** icon at the top of the notebook, or by using the **Shift-Return** shortcut when your cursor is in the desired cell.
 
 ### Navigating Jupyter Notebooks
 
@@ -73,7 +75,7 @@ Jupyter notebooks in this class will be a nice mix of text cells (explanation) a
 
 ### Comments
 
-Comments are a way to describe what each section of code does and makes it easier for you and others to understand the code.  It may seem clear what each section of code does as you write it, but after a week, month or longer, it is unlikely to be obvious.  Paul Wilson of the University of Wisconson at Madison is quoted as saying, "Your closest collaborator is you six months ago, but you don't reply to emails."  Comment your code now so that you are not confused later.
+Comments are a way to describe what each section of code does and makes it easier for you and others to understand the code.  It may seem clear what each section of code does as you write it, but after a week, month or longer, it is unlikely to be obvious.  Paul Wilson of the University of Wisconsin at Madison is quoted as saying, "Your closest collaborator is you six months ago, but you don't reply to emails."  Comment your code now so that you are not confused later.
 
 There are several ways to add comments to your code:
 
@@ -104,7 +106,7 @@ h_i = 1000
 >
 >1. Execute the code block below and verify that no output is produced.
 >2. Add print statements that help you see the result of the calculation.
->3. Add simple commments next to each line explaining the code.
+>3. Add simple comments next to each line explaining the code.
 
 ```{python}
 a = 2 

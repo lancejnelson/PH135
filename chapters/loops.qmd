@@ -71,12 +71,14 @@ and the expression `1/n**2` evaluates to a new value.  The
 variable `theSum` is updated each time through to be the
 running total of all calculations performed thus far.  Here's another
 example of a loop used to calculate the value of $20!$:
+
 ```{python}
 theProduct = 1
 for n in range(1,21):
     theProduct = theProduct * n #Multiply theProduct by n
 print(theProduct)
 ```
+
 Remember that the range function creates a list starting at $1$, going
 up to $21$ but not including it. The math library has a function
 called `factorial` that does the same thing.  Let's use it to
@@ -104,7 +106,88 @@ print(theSum)
 ```
 
 
+### Zipping and Enumerating
 
+There are times when it is necessary to iterate over two lists simultaneously.  For example, let us say that we have a list of atomic numbers (`AN`) and a list of approximate atomic masses (`mass`) of the most abundant isotopes for the first six elements on the periodic table.
+
+
+```
+AN = [1,2,3,4,5,6]
+mass = [1,4,7,9,11,12]
+```
+
+If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number from the atomic mass.  To accomplish this, it would be nice to iterate over both lists simultaneously
+
+
+#### Zipping
+
+The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once.  The `zip` function does just that by merging two lists  or tuples into a nested list
+
+
+```{python}
+AN = [1,2,3,4,5,6]
+mass = [1,4,7,9,11,12]
+
+zipped = zip(AN,mass)
+
+for pair in zipped:
+    print(pair[1] - pair[0])
+
+```
+
+The zip objects are "single use" so you can't reuse `zipped` in a later loop.  If the two lists being zipped are not the same length, `zip` stops zipping when it reaches the end of the shorter list.
+
+
+#### Enumeration
+
+A close relative to `zip` is `enumerate` which zips a list to _the index value for that list_ (read that last statement again).  It also returns a "single use" object that can be iterated over.
+```{python}
+AN = [1,2,3,4,5,6]
+mass = [1,4,7,9,11,12]
+
+enum = enumerate(mass)
+
+for idx,val in enum:
+    print(val - AN[idx])
+
+```
+
+
+
+
+### List Comprehension
+
+It is fairly common to use a `for` loop to populate a list with a sequence of numbers.  
+
+
+```{python}
+myList = []
+
+for i in range(10):
+    myList.append(i**2)
+
+print(myList)
+
+```
+
+This entire process can be compressed down into a single line by expressing the `for` loop in square brackets. This is known as *list comprehension*. The code below will generate the list as above.
+
+
+```{python}
+
+myList = [i**2 for i in range(10)]
+print(myList)
+```
+
+
+List comprehension can take a little time to get used to but it is well worth it.  It saves both time and space and makes code less cluttered.  You can even add boolean expressions to your conditionals for further control of the final result.
+
+
+```{python}
+
+myList = [i**2 for i in range(10) if i %2 == 0]  # Include only the evens.
+print(myList)
+```
 
 
 
@@ -114,7 +197,7 @@ Logic can be combined with loops using something called a
 `while` loop.  A `while` loop is a good choice when you
 don't know beforehand exactly how many iterations of the loop will be
 executed but rather want the loop to continue to execute until some
-condition is met.  As an example, notice that in in equation (@eq-sum), the terms in the sum get progressively smaller as $n$ gets bigger.  It doesn't make sense to continue adding to the sum once the terms get very small.  Let's compute this sum
+condition is met.  As an example, notice that in @eq-sum, the terms in the sum get progressively smaller as $n$ gets bigger.  It doesn't make sense to continue adding to the sum once the terms get very small.  Let's compute this sum
 by looping until the fraction ${1 \over n^2}$  become smaller than $1 \times 10^{-10}$.
 
 ```{python}
@@ -134,7 +217,7 @@ careful about what value `n` starts at and when it is incremented
 prior to the start of the loop.  If it wasn't the loop's first logical
 test would fail and the loop wouldn't execute at all.
 
-`while` loops should be used with caution because you can easily write a *faulty termination condition* and inadveratently write a loop that runs forever.  This happens because your termination condition was never met.  An example of this is given below.
+`while` loops should be used with caution because you can easily write a *faulty termination condition* and inadvertently write a loop that runs forever.  This happens because your termination condition was never met.  An example of this is given below.
 
 
 Warning: Do not execute the code block below!!
@@ -147,7 +230,7 @@ while x != 10:
 print("Done")
 
 ```
- The loop above is intended to end after a few interations when the value of x is equal to 10.  However, closer inspection reveals that the value of x will never be equal to 10.  After the first iteration x is equal to 3, then 6,9,12,15 and so on... but never 10.  This loop will run forever because the termination condition is never met (`x != 10` never produces a `False`)!!  If you choose to use a `while` loop, triple check your termination condition to make sure you haven't made a mental error.  Avoiding the use of `!=` or `==` in your termination condition will help too.  Use `<=` or `>=` instead.
+ The loop above is intended to end after a few iterations when the value of x is equal to 10.  However, closer inspection reveals that the value of x will never be equal to 10.  After the first iteration x is equal to 3, then 6,9,12,15 and so on... but never 10.  This loop will run forever because the termination condition is never met (`x != 10` never produces a `False`)!!  If you choose to use a `while` loop, triple check your termination condition to make sure you haven't made a mental error.  Avoiding the use of `!=` or `==` in your termination condition will help too.  Use `<=` or `>=` instead.
 
 
 ## `continue`, `break`, and `pass` Commands

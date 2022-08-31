@@ -5,7 +5,7 @@ citation-location: margin
 ---
 
 # Basic Plotting
-Creating plots is an important task in science and engineering. The old addage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
+Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
 you do it right.  When making plots on a computer it is important to remember that computers don't plot functions, rather they plot individual points.  Only when you connect those points does the image look like the function you are so used to seeing.  In this chapter we will use a library called `matplotlib` for plotting.  More specifically, we will import the `pyplot` function inside of `matplotlib`. It is customary to use `plt` as an alias for `pyplot`.
 
 ```{python}
@@ -144,7 +144,7 @@ plt.title(r"Lennard-Jones Potential ($\theta$)")
 
 ```
 
-You can subcript any character using the `_` character followed by the subscript. $\theta_1$ can be written as `\theta_1`.  If the subscript is more than one character, you'll need to enclose it in curly braces. $\theta_{12}$ is written as `\theta_{12}`.  Superscripts work the same way only using the `^` chararcter instead of the underscore.
+You can subscript any character using the `_` character followed by the subscript. $\theta_1$ can be written as `\theta_1`.  If the subscript is more than one character, you'll need to enclose it in curly braces. $\theta_{12}$ is written as `\theta_{12}`.  Superscripts work the same way only using the `^` character instead of the underscore.
 
 | Argument | Description|
 |--------|------------|
@@ -171,7 +171,7 @@ You can subcript any character using the `_` character followed by the subscript
 
 ### Controlling the Axes
 
-By default, matplotlib will size the plotwindow to include all of the points.  If you want to zoom in our out, you can do so with the `xlim` and `ylim` functions.  These functions should be placed after the plot command on their own line just like the label commands.
+By default, matplotlib will size the plot window to include all of the points.  If you want to zoom in our out, you can do so with the `xlim` and `ylim` functions.  These functions should be placed after the plot command on their own line just like the label commands.
 
 
 
@@ -360,7 +360,7 @@ plt.colorbar()
 
 ### Histograms
 
-Histograms display bars representing the frequency of values in a given data set. Unlike bar plots, the width of the bar is meaningful since the each bar represents the number of x-values that fall within a range given by the width of the bar.  A histogram can be constructed using the `hist` function.  There is only one required argument, which is the data set.  Some commonly used keyword arguments are `bins` which specifies how many equally-spaced groups (called *bins*) to generate and `edgecolor` which can be used to specify the color of the barsedges.  
+Histograms display bars representing the frequency of values in a given data set. Unlike bar plots, the width of the bar is meaningful since the each bar represents the number of x-values that fall within a range given by the width of the bar.  A histogram can be constructed using the `hist` function.  There is only one required argument, which is the data set.  Some commonly used keyword arguments are `bins` which specifies how many equally-spaced groups (called *bins*) to generate and `edgecolor` which can be used to specify the color of the bar's edges.  
 
 
 ```{python}
@@ -476,3 +476,55 @@ plt.ylabel("Energy")
 plt.title("Lennard-Jones Potential")
 plt.tight_layout()
 ```
+
+
+
+The other method for generating an array of plots is similar to the first but different functions are used and a little more control over the plots is gained.  In this approach, functions to explicitly creates and links subplots, called *axes*  are used.  Just as before, the `figure` function is used to generate the overall figure. The create each subplot, the `add_subplot(rows,columns, plot_number)` function is used.  The arguments to this function are the same as for `subplot` in the previous method.  After the plot object has been created, we can call the `plot` function again, but this time preceded by the axes object that you just created.  Here is an example.
+
+
+```{python}
+from matplotlib import pyplot as plt
+%matplotlib inline
+from numpy import linspace,sqrt
+
+r = linspace(0.9,4,50)
+
+sigmaOne = 1
+epsilonOne = 1
+sigmaTwo = 2
+epsilonTwo = 2
+energyOne = 4 * sigmaOne* ((epsilonOne/r)**12 - (epsilonOne/r)**6)
+energyTwo = 4 * sigmaTwo * ((epsilonTwo/r)**12 - (epsilonTwo/r)**6)
+
+fig = plt.figure()
+ax1 = fig.add_subplot(2,1,1)
+ax1.plot(r,energyOne,marker = '+',color = 'k')
+ax1.set_xlim(0.5,3.0)
+ax1.set_ylim(-1.5,5)
+ax1.set_xlabel("Separation Distance")
+ax1.set_ylabel("Energy")
+ax1.set_title("Lennard-Jones Potential")
+
+ax2= fig.add_subplot(2,2,3)
+ax2.plot(r,energyTwo,marker = 'o',color = 'r')
+ax2.set_xlim(0.5,4.0)
+ax2.set_ylim(-2,5)
+ax2.set_xlabel("Separation Distance")
+ax2.set_ylabel("Energy")
+ax2.set_title("Lennard-Jones Potential")
+
+ax3 = fig.add_subplot(2,2,4)
+ax3.plot(r,energyTwo,marker = 'o',color = 'r')
+ax3.set_xlim(0.5,4.0)
+ax3.set_ylim(-2,5)
+ax3.set_xlabel("Separation Distance")
+ax3.set_ylabel("Energy")
+ax3.set_title("Lennard-Jones Potential")
+plt.tight_layout()
+```
+
+
+Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to customize each individual plot. There are a host of other methods available for further customization.  [This][axes] website has a comprehensive list of them.
+
+
+[axes]: https://matplotlib.org/stable/api/axes_api.html#subplots

@@ -72,7 +72,7 @@ c = a * b**2
 
 ```
 
-### Numbers: Integers and Floats
+## Numbers: Integers and Floats
 
 There are two types of numbers in Python - floats and integers. *Floats*, short for "floating point numbers," are values with decimals in them.  They may be either whole or non-whole numbers such as 3.0 or 1.2, but there is always a decimal point. *Integers* are whole numbers with no decimal point such as 2 or 53.
 
@@ -90,7 +90,13 @@ g = a * b # Produces a ???
 h = a / b # Produces a ???
 ```
 
-Integers and floats can be interconverted to each other using the `int()` and `float()` functions.
+
+>**_To Do:_**
+>
+>1. For each of the mathematical operations above guess what type of number the result will be.
+>2. Use `print` statements to verify your guesses and formulate a general rule that you can rely on.  (Tip, the `type()` function will tell you what kind of number a variable is.)
+
+Integers and floats can be inter-converted to each other using the `int()` and `float()` functions.
 
 ```{python}
 int(3.0)
@@ -120,7 +126,7 @@ f = c**4
 >**To Do:**
 >
 >1. Use print statements to investigate what each operation does.  
->2. Can you force each operation to produce a float and an integer?
+>2. Guess what type of number you expect the result to produce (int or float) and then check yourself?
 >3. Add comments next to each line (Use `#` to start a comment) explaining that operation. 
 
 
@@ -159,6 +165,12 @@ a *= 4
 a /= 3
 ```
 
+
+>**_To Do:_**
+>
+>1. Predict what the final result of `a` will be in the code cell above.
+>2. Add an appropriately-place print statement to see if you were correct.
+>3. If you were wrong, pow-wow with your neighbor until you understand.
 ### Compound Assignment
 
 At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it's own line of code, but if there are a lot of variables, this can begin to clutter your code a little.  An alternative is to assign multiple variables on a single line.  In the code below, we assign the atomic mass of the first three elements.
@@ -187,7 +199,7 @@ myLargeFloat = 5_000_000.6 # This is easy to read
 ```
 
 ### Very Large Numbers
-If your number is very large or very small ( $20-30$ zeros), you would probably rather not have to type all of the zeros at all, even if you can break it up with the underscores.  For example, the Boltzman constant, which comes up in thermodynamics, has a value equal to  
+If your number is very large or very small ( $20-30$ zeros), you would probably rather not have to type all of the zeros at all, even if you can break it up with the underscores.  For example, the Boltzmann constant, which comes up in thermodynamics, has a value equal to  
 
 $$ 1.38 \times 10^{-23}$$ 
 
@@ -221,6 +233,10 @@ math.sqrt(4)
 math.ceil(4.3)
 math.cos(1.5)
 math.sin(1.5)
+math.tan(3.14)
+math.asin(1)
+math.acos(1/2)
+math.atan(2)
 math.degrees(6.28)
 math.e
 math.exp(5)
@@ -228,7 +244,6 @@ math.factorial(4)
 math.log(200)
 math.log10(1000)
 math.radians(360)
-math.tan(3.14)
 math.pi
 math.pow(2,8)
 ```
@@ -248,56 +263,40 @@ from math import radians
 radians(4)
 ```
 
-## Displaying Results (The `print` Function).
-You have already been using the `print` function a little and you should have noticed that Python will not display the result of a calculation/operation unless you include a print statement.  In Python, you can pretty much `print()` anything and Python will just dump it to screen as it pleases. However, there are times when you may want to have a little more control over your print statements.  For example, maybe you'd like to print a sentence but with some numerical values inserted occasionally:
 
-```{python}
-age =22
-gpa = 3.58342
-c = 2.998e8
-print("Hi, I am Joe. I am", age," years old and my gpa is", gpa, " and the speed of light is", c,".")
-```
-
-This print statement is a little awkward and the numbers appearing probably have more digits than we'd like to see. We can improve upon this print statement using something called f-string (short for formatted strings).  To build an f-string, place an "f" immediately prior to the open quote and then everywhere you want a variable to appear, just enclose it in curly braces.
-
-```{python}
-age =22
-gpa = 3.5
-c = 2.998e8
-print(f"Hi, I am Joe. I am {age} years old and my gpa is {gpa} and the speed of light is {c}.")
-```
-
-That's a clever way to insert a numerical value into a string, but the last number is still displaying too many digits.  To control how the numbers are formatted, we can add a format code after the variable name:
-
-```{python}
-age =22
-gpa = 3.5
-c = 2.998e8
-print(f"Hi, I am Joe. I am {age:d} years old and my gpa is {gpa:5.2f} and the speed of light is {c:8.2e}.")
-```
-
- The structure of the stuff inside of the curly braces is as follows: `variable:formatcode` The format code indicates how you would like the variable to be formatted when it is printed. The `:d` indicates that the varible should be displayed as an integer and `:f` indicates a float. The amount of space that is allocated to display a number can be specified by placing a number in front of the `:`. The 5.2 in the float formatting indicates that the number should be displayed with at least 5 total spaces while displaying only 2 numbers after the decimal. A selection of some available format statements is given below.
-
-| format code| explanation|
-|------------|------------|
-|`{variable}`        | Use the default format for the data type.|
-|`{variable:4d}`        | Display as an integer, allocating 4 spaces for it.|
-|`{variable:.4f}`        | Display as a float, with four numbers after the decimal being displayed.|
-|`{variable:8.4f}`        | Display as a float, allocating 8 total spaces and 4 numbers after the decimal place.|
-|`{variable:8.4e}`        | Display using scientific notation, allocating 8 total spaces and 4 numbers after the decimal place.|
-
+## Flash Cards
+1. What are the rules for naming variables in Python?
+2. When will a mathematical calculation produce a float?
+3. When will a mathematical calculation produce an int?
+4. What is the best way to increase/decrease the value of a variable by a multiplicative factor (multiply it by a number)?
+5. What is the best way to increase/decrease the value of a variable by an additive constant (add a number to it)?
+6. When assigning large numbers to variables, what character can replace the "," to separate the numbers into groups of three?
+7. How do you use scientific notation to assign a very large number to a variable?
+8. Explain how to print a sentence with a variable inserted in the middle?
+9. What format code should be used to display a variable as a float with 8 total spaces and 2 numbers after the decimal?
+10. What format code should be used to display a variable in scientific notation with 6 total spaces and 2 numbers after the decimal?
+11. When using a trig function ($\sin \theta$, $\cos \theta$, $\tan \theta$), the number that is passed in must have what units?
+12. What does the `math.radians` function do?
 
 ## Exercises
 
+1. Calculate the distance from the point $(-48,56)$ to the point $(23,81)$ 1- using the `math.hypot()` function and then 2- using the following distance equation: $$ d = \sqrt{\Delta x^2 + \Delta y^2}$$ Print out the result and check your answer with your neighbor's answer.
 
-1. Calculate the distance from the origin to the point $(23,81)$ usign the `math.hypot()` function and then using the following distance equation:
 
-$$ d = \sqrt{\Delta x^2 + \Delta y^2}$$
+2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$. $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$ Print out the result and check your answer with your neighbor's answer.
 
-2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$.
 
-$$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
+3. (Optics Application) When light passes from one material to another, it is redirected from its original path.  We call this refraction.  The equation for calculating the bending angle is called Snell's law. $$ n_1 \sin \theta_1 = n_2 \sin \theta_2$$  where $n_1$ ($n_2$) is the index of refraction of the first(second) material and $\theta_1$($\theta_2$) is the incident (refracted) angle.  Calculate the refracted angle for an air-water interface for the following incident angles:
 
-(Optics Application) 3. When light encounters an interface between two different object, the light bends as it proceeds into the second material.  The index of refraction (n) determines how much bending happens. Bending is greater for materials with a bigger index of refraction.
+| Title |
+| :----------- | 
+| $15^\circ$ | 
+| $35^\circ$ | 
+| $45^\circ$ | 
+| $60^\circ$ | 
+| $85^\circ$ | 
+| ------------ |
+
+The index of refraction for air is $n_1 = 1.0$ and for water is $n_2 = 1.33$.  Print out your results and check your answer with your neighbor's answer.
 
 

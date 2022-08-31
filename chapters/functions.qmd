@@ -61,7 +61,7 @@ c = str(67.3)  # 'str' function is native.
 ```
 
 
-The `len`, `float` and `str` functions are all native and they all take **a single argument**. Othere native function have been mentioned in previous chapters and others will be mentiond in the future.
+The `len`, `float` and `str` functions are all native and they all take **a single argument**. Other native function have been mentioned in previous chapters and others will be mentioned in the future.
 
 
 ## Imported Functions
@@ -221,7 +221,7 @@ print(dx)  # There is no value associated with this variable outside of the func
 
 The down side to all of this is that you don't have access to function variables unless you pass them out of the function using the `return` statement.  
 
-Any variables defined outside of a function is called a *global variable*, which means that Python remembers these assignments from anywere in your code including inside of functions.   Using globabl variables with the intention to use them inside of functions is usually considered bad form and confusing and is discouraged.  One notable exception to this rule are physical constants like $g = 9.8$ m/s$^2$ (acceleration due to gravity on Earth) or $k_B = 1.38 \times 10^{-23}$ (Boltzmann's constant which is used heavily in thermodynamics) because these values will never change and may be used repeatedly.  Generally speaking every variable that is used in a function ought to be either i) passed in as an argument or ii) defined inside of the function.  Below is an example of an appropriate use of a global variable.
+Any variables defined outside of a function is called a *global variable*, which means that Python remembers these assignments from anywhere in your code including inside of functions.   Using global variables with the intention to use them inside of functions is usually considered bad form and confusing and is discouraged.  One notable exception to this rule are physical constants like $g = 9.8$ m/s$^2$ (acceleration due to gravity on Earth) or $k_B = 1.38 \times 10^{-23}$ (Boltzmann's constant which is used heavily in thermodynamics) because these values will never change and may be used repeatedly.  Generally speaking every variable that is used in a function ought to be either i) passed in as an argument or ii) defined inside of the function.  Below is an example of an appropriate use of a global variable.
 
 
 ```{python}
@@ -280,7 +280,7 @@ print(resultOne, resultTwo)
 ```
 
 
-Another advantage to using keyword arguments is that a default value can be coded into the function. This means that we can call the function with some arguments missing and default values will be used for them.  In the example above, the default value of `b` is 2 and if the function is called without specifiying a value for that argument, the function will proceed as usual using the default value for `b`.
+Another advantage to using keyword arguments is that a default value can be coded into the function. This means that we can call the function with some arguments missing and default values will be used for them.  In the example above, the default value of `b` is 2 and if the function is called without specifying a value for that argument, the function will proceed as usual using the default value for `b`.
 
 
 ```{python}
@@ -292,5 +292,32 @@ def example(a=1,b=2):
 result = example(a=5)
 
 print(result)
+
+```
+
+
+
+### Lambda Functions
+
+When the function you want to construct is very simple (one line), there is a shortcut code for making it called a *lambda function*.  The benefit is that they occupy less lines of code than the standard `def` functions.  A lambda function is defined as shown below with the variable immediately after the `lambda` statement as the independent variable in the function.
+
+
+```{python}
+
+f = lambda x: x**2
+
+print(f(5))
+```
+
+
+As a simple application of lambda functions let's consider a function from the `scipy.integrate` library called `quad` which will perform a numerical integration of a function.  The `quad` function takes three arguments: the function to be integrated, and the upper and lower bound on the integral. We can use a lambda function for the first argument rather than using several lines of code to build one in the traditional fashion.
+
+
+```{python}
+from scipy.integrate import quad
+from math import sin, pi
+
+quad(lambda x: sin(pi * x)**2,0,0.4 )
+
 
 ```

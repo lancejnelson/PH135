@@ -33,14 +33,14 @@ print(newList)
 
 ```
 
-but this seems overly cumbersome for such a simple task.  Numpy *ndarrays* (short for n-dimensional arrays) or just *arrays* make this task much simpler. Arrays are similar to lists or nested lists except that mathematical operations and `numpy` functions (but not `math` functions) automatically propogate to each element instead of requiring a `for` loop to iterate over it.  Because of their power and convenience, arrays are the default object type for any operation performed with NumPy.  
+but this seems overly cumbersome for such a simple task.  Numpy *ndarrays* (short for n-dimensional arrays) or just *arrays* make this task much simpler. Arrays are similar to lists or nested lists except that mathematical operations and `numpy` functions (but not `math` functions) automatically propagate to each element instead of requiring a `for` loop to iterate over it.  Because of their power and convenience, arrays are the default object type for any operation performed with NumPy.  
 
 
 ## Array Creation
 
 ### Type Conversion from List
 
-You can create an array from a list using numpy's `array` function. The list that is to be converted is the argument to the `array` function.  Mathematical operations can then be performed on the array and that operation will propogate through to all of the elements.
+You can create an array from a list using numpy's `array` function. The list that is to be converted is the argument to the `array` function.  Mathematical operations can then be performed on the array and that operation will propagate through to all of the elements.
 
 
 ```{python}
@@ -70,7 +70,7 @@ print(myArray)
 
 ### The `arange` and `linspace` Functions
 
-  Numpy has some sequence-generating functions that generate arrays by specifying start, stop, and stepsize values similar to the way `range` generates a list.  The two most common ones are `arange` and `linspace`.  The `arange` function behaves very similar to the native Python `range` function with a few notable exceptions:
+  Numpy has some sequence-generating functions that generate arrays by specifying start, stop, and step size values similar to the way `range` generates a list.  The two most common ones are `arange` and `linspace`.  The `arange` function behaves very similar to the native Python `range` function with a few notable exceptions:
 
 
 1. `arange` produces an array whereas `range` produces a list.
@@ -113,7 +113,7 @@ print(myArray)
 
 
 
-Two other useful functions for generating arrays are `zeros` and `ones` which generate arrays populated with exculsively ones or zeros. The functions require shape arguments as a tuple or list to specify the shape of the array.
+Two other useful functions for generating arrays are `zeros` and `ones` which generate arrays populated with exclusively ones or zeros. The functions require shape arguments as a tuple or list to specify the shape of the array.
 
 
 ```
@@ -178,7 +178,7 @@ The table below gives a summary of useful functions for creating numpy arrays.  
 | Method | Description|
 |--------|------------|
 | `linspace(start,stop,n)`| Returns an array of `n` evenly-spaced points begining at `start` and ending at `stop`.|
-| `arange(start,stop,dx)`| Returns an array begining at `start`,ending at `stop` with a step size of `dx`.|
+| `arange(start,stop,dx)`| Returns an array beginning at `start`,ending at `stop` with a step size of `dx`.|
 | `empty(dims)`| Returns an empty array with dimensions `dim`.|
 | `zeros(dims)`| Returns an array of zeros with dimensions `dim`.|
 | `ones(dims)`| Returns an array of ones with dimensions `dim`.|
@@ -207,7 +207,7 @@ print(myArray[2])
 
 
 ### Multi-dimensional Arrays
-Multi-dimensional array can be indexed in a similar fashion to nested lists, but because we often encounter multi-dimensional arrays there is a shortcut that makes the syntax simpler and more convenient.  Let's consider a two-dimensional array as an example.  To access the entire second row of the array, provide the row index in square brackets just as with one-dimesional arrays.
+Multi-dimensional array can be indexed in a similar fashion to nested lists, but because we often encounter multi-dimensional arrays there is a shortcut that makes the syntax simpler and more convenient.  Let's consider a two-dimensional array as an example.  To access the entire second row of the array, provide the row index in square brackets just as with one-dimensional arrays.
 
 
 ```{python}
@@ -219,7 +219,7 @@ print(myArray[1])
 ```
 
 
-To access the second element *in the second row*, we can add another set of square brackets with the appropriate index inside, just as we did with nested lists.  However, for convenience the second set of square brackets can be omitted and the row and column indices can be placed next to each other and separted by a comma.
+To access the second element *in the second row*, we can add another set of square brackets with the appropriate index inside, just as we did with nested lists.  However, for convenience the second set of square brackets can be omitted and the row and column indices can be placed next to each other and separated by a comma.
 
 ```
 array_name[row,column]
@@ -327,7 +327,7 @@ print(myArray[:,1:3])  # Extract all rows with columns 1 and 2
 
 ### Boolean Slicing
 
-Boolean operations can be evaluated on arrays to produce corrsponding arrays of booleans.  The boolean array can then be used to index the original array and extract elements that meet some criteria.
+Boolean operations can be evaluated on arrays to produce corresponding arrays of booleans.  The boolean array can then be used to index the original array and extract elements that meet some criteria.
 
 
 
@@ -355,7 +355,7 @@ print(myArray[myArray>2]) # Extract elements that are greater than 2.
 
 
 ## Vectorization and Broadcasting
-A major advantage of numpy arrays over lists is that operations *vectorize* across the arrays.  This means that mathematical operations propogate through the array instead of requiring a `for` loop.  This speeds up the calculation and makes code easier to write and read.  Simple mathematical operations like adding, subtracting, etc can be performed on arrays as you would expect and the operation propogates through to all elements.
+A major advantage of numpy arrays over lists is that operations *vectorize* across the arrays.  This means that mathematical operations propagate through the array instead of requiring a `for` loop.  This speeds up the calculation and makes code easier to write and read.  Simple mathematical operations like adding, subtracting, etc can be performed on arrays as you would expect and the operation propagates through to all elements.
 
 ```{python}
 from numpy import array
@@ -685,7 +685,7 @@ NumPy contains an extensive listing of array methods and functions and it would 
 | `array.fill(x)` | **Modifies** `array` so that all elements are equal to `x`.|
 | `vstack(a,b)` | Vertically stack arrays `a` and `b` to form the new array.|
 | `hstack(a,b)` | Horizontally stack arrays `a` and `b` to form the new array.|
-| `vsplit(array,n)` | Splits `array` veritcally into `n` equal parts.|
+| `vsplit(array,n)` | Splits `array` vertically into `n` equal parts.|
 | `hsplit(array,n)` | Splits `array` horizontally into `n` equal parts.|
 | `append(array,x)` | Returns a view of `array` with `x` added to the end of the array.|
 | `insert(array,n,x)` | Returns a view of `array` with `x` inserted at location `n`.|
@@ -703,8 +703,8 @@ NumPy contains an extensive listing of array methods and functions and it would 
 | `max(array)` or `array.max()`| Returns the maximum value in an array.|
 | `argmin(array)` or `array.argmin()` | Returns the location of the minimum value in an array.|
 | `argmax(array)` or `array.argmax()` | Returns the location of the maximum value in an array.|
-| `fmin(array1,array2)` | Returns the minimum between two arrays of the same size. (Arrays are compared elementwise.)|
-| `fmax(array1,array2)` | Returns the maximum between two arrays of the same size. (Arrays are compared elementwise.)|
+| `fmin(array1,array2)` | Returns the minimum between two arrays of the same size. (Arrays are compared element wise.)|
+| `fmax(array1,array2)` | Returns the maximum between two arrays of the same size. (Arrays are compared element wise.)|
 | `mean(array)` or `array.mean()` | Returns the mean of `array`.|
 | `median(array)` or `array.median()` | Returns the median of `array`.|
 | `std(array)` or `array.std()` | Returns the standard deviation of `array`.|

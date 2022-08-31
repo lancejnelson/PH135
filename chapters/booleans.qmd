@@ -58,8 +58,8 @@ b = 3 * a
 c = 0.3
 print(b==c)  # Are they the same number?  You would think they would
              # be right?
-print(" {:.5f} ".format(b))     # It sure looks like they are the same.
-print(" {:.5f} ".format(c))     # It sure looks like they are the same.
+print(" {:.5f} ".format(b))     # They sure look the same.
+print(" {:.5f} ".format(c))     # They sure look the same.
 print(" {:.45f} ".format(b))  #b--- out to 45 decimal places
 print(" {:.45f} ".format(c))  #c--- out to 45 decimal places
 ```
@@ -220,15 +220,57 @@ else:
 
 It is worth noting that `else` statements are not required. If you leave the `else` statement off and the `if` statement is false, no code block will execute.
 
+
+# Flash Cards
+
+1.  How do you check to see if one value is **greater than or equal to** another one?
+2.  Which boolean operators should **never** be used to compare floats?
+3.  What is the correct way to determine if two floats are equal to each other (or very close)?
+4.  When will the statement `p and q` evaluate to `True`?
+5.  When will the statement `p or q` evaluate to `True`?
+6.  How do you check to see if a certain sequence of characters is present in a string?
+7. When constructing an `if` block how does Python know what code to execute if the condition is `True`?
+
 # Exercises
 
+1. (Escape Velocity)  The escape velocity is the speed needed for an object to completely escape the gravitational pull of a planet. The expression for escape velocity is $$ v_\text{escape} = \sqrt{G M_p \over r}$$ where $G = 6.67 \times 10^{-11}$, $M_p$ is the mass of the planet you are trying to escape from, and $r$ is the radius of the planet.
 
-1. Removing file ext
-
-$$ d = \sqrt{\Delta x^2 + \Delta y^2}$$
-
-2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$.
-
-$$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
+    1. Construct an `if`-`else` code block that checks to see if a guessed speed is bigger or smaller than the escape velocity of Jupiter. The code block should print an appropriate message about the guessed velocity.  Jupiter has a mass of $M = 1.90 \times 10^{27} $ kg and a radius of $r = 6.99 \times 10^7$ meters.
+    2. Modify your guess until both branches of your `if`-`else` trigger.
+    3. Repeat for Earth. Earth has a mass of $M = 5.98 \times 10^{24}$ kg and a radius of $r = 6.37 \times 10^6$ meters.
 
 
+    ```{python}
+    #| eval: true
+    G = 6.67e-11
+    ```
+
+
+2. (Thermoelectrics)  A thermoelectric is a material that converts thermal energy into electrical energy and much research is devoted to finding new materials the exhibit this behavior.  Good thermoelectrics tend to be materials with high electrical conducitivity ($\sigma > 7 \times 10^5~\Omega^{-1} \text{m}^{-1}$ ) **and** low thermal conductivity ($\kappa< 2.0$ W/ m K ).  Write an `if`-`else` code block that checks to see if a material's electrical conductivity is above the threshold **and** its thermal conductivity is below the threshold.  Then choose some values for the conductivities and test your `if`-`else` block.
+
+
+    ```{python}
+    sigma = 0     # Electrical Conductivity
+    kappa = 0    # Thermal Conductivity
+
+
+    ```
+
+
+3. Alloys are often represented by a string containing the elements in the alloy and the relative number of atoms for each element. For example, "Cu2Au" (Copper-2-Gold) means that the alloy is made of copper and gold and there are two copper atoms for every gold atom.  Write some python code that calculates the total number of atoms in an alloy.  The code should include a print statement to display the result.  Then check your code on the alloys in the table below. You can assume that all elements have two-character symbols even though that isn't true; we won't consider any one-character symbols in this problem.
+
+Hints: 
+
+1. The possible lengths for the strings are 4 (one atom per element), 5 (one atom for one element and more for the other), or 6 (more than one atom for both elements).
+2. My code for this problem was about 15 lines long and it required a nested `if`-`else` block (an `if`-`else` inside of an `if` block).  
+3. You may find the `isdigit()` function to be helpful.  Do you remember how to use it and what it does?
+
+| | |Alloy | | |
+|--------|--------|--------|--------|--------|
+| "Cr3Si"| "Al2Cu"| "NbPd3"| "CaIn2"| "Al3Zr4"|
+
+```{python}
+alloy = "CaIn2"  
+
+    
+```

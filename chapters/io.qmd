@@ -5,12 +5,24 @@ citation-location: margin
 ---
 
 # File I/O (Input/Output)
-Up to now, we have been working with computer-generated or manually typed data sets.  Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis.  Most data files are *text* files, but there is a large variety of these that differ mostly in the way the information is formatted.   The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file.  For example, a *.csv* file (short for comma-seperated values) has commas to separate the information.
+Up to now, we have been working with computer-generated or manually typed data sets.  Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis.  Most data files are *text* files, but there is a large variety of these that differ mostly in the way the information is formatted.   The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file.  For example, a *.csv* file (short for comma-separated values) has commas to separate the information.
 
 
-## Reading Lines
+## Reading Files
+### Reading Line by Line
 
-The first way to read a file is using a `for` loop to iterate over the file line by line.  Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works.  First, the file is opened using the `open` command.  The file should be attached to a variable for later use.   Next, the data is read one line at a time using the `readlines()` method.  We should use a `for` loop for this.  Finally, it is a good idea to close the file when you're finished.
+The first way to read a file is using a `for` loop to iterate over the file line by line.  Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works.  First, the file is opened using the `open` command.  The file should be attached to a variable for later use.   Next, the data is read one line at a time using the `readlines()` method.  We should use a `for` loop for this.  Finally, it is a good idea to close the file when you're finished.  Let's see an example for reading in the following file, which will be named `squares.csv`
+
+
+```
+1, 1
+2, 4
+3, 9
+4, 16
+5, 25
+6, 36
+7, 49
+```
 
 
 ```{python}
@@ -42,7 +54,7 @@ print(squares)
 
 Now the data from the file is saved in Python lists and our analysis can proceed. 
 
-One final note: if all you want to do is read your file in as a list of strings (one string for each line), that can be done without a `for` loop using the function `readlines` (rather than `readline`).
+One final note: if all you want to do is read your file in as a list of strings (one string for each line), that can be done without a `for` loop using the `readlines` function (rather than `readline`).
 
 ```{python}
 file = open("squares.csv")
@@ -55,9 +67,9 @@ print(data)
 
 
 
-## Using NumPy's `genfromtxt` function
+### Using NumPy's `genfromtxt` function
 
-If the data file is highly structured (every line looks the same, separater character is consistent across the file, etc) then NumPy's `genfromtxt` function can read the data very efficiently into an array.  The `genfromtxt` function requires only one argument (the file name) with another optional argument (`delimiter`) that is typically included to specify the character used to separate the data.  Below is an example for using this function to read in the .csv data we have been working with.
+If the data file is highly structured (every line looks the same, separated character is consistent across the file, etc) then NumPy's `genfromtxt` function can read the data very efficiently into an array.  The `genfromtxt` function requires only one argument (the file name) with another optional argument (`delimiter`) that is typically included to specify the character used to separate the data.  Below is an example for using this function to read in the .csv data we have been working with.
 
 
 ```{python}
@@ -83,3 +95,113 @@ print(squares)
 
 
 ```
+
+Other optional arguments that can be used with the `genfromtxt` function are given in the table below:
+
+
+
+| Argument | Description |
+|--------|------------|
+| `delimiter`  |The string used to separate value.  By default, whitespace acts as the delimiter.|
+| `skip_header`  |The number of lines to skip at the beginning of a file.|
+| `skip_footer`  |The number of lines to skip at the end of a file.|
+| `usecols`  |Specify which columns to read with 0 being the first. For example, `usecols = (0,2,5)` will read the 1st, 3rd, and 6th columns.|
+| `comments`  |The character used to indicate the start of a comment.  Lines beginning with this character will be discarded.|
+
+
+
+
+
+## Writing Files
+Writing Python data to file is as simple as is reading a file. Just like when you are reading a file, determining which method to use will be determined by the type of data that you are writing. If your data is strictly numerical information stored in an array, Numpy has a function that will quickly save the data to a file. If your data is rife with inconsistencies, non-numerical data, etc, you’ll have to use Python's native `write` function.  
+
+### Writing Line by Line
+
+Sometimes the data file that you want to write includes some text or other non-numerical data.  For example, what if you wanted to write the following data to file:
+
+
+| Planet | Acceleration due to gravity (m/s$^2$|
+|--------|------------|
+| Earth | 9.8|
+| Moon | 1.6|
+| Mars | 3.7|
+| Venus | 8.83|
+| Saturn | 11.2|
+| Uranus | 10.5|
+| Neptune | 13.3|
+| Pluto | 0.61|
+| Jupiter | 24.5|
+| Sun | 275|
+
+```{python}
+planets = ["Earth","Moon","Mars","Venus","Saturn","Uranus","Neptune","Pluto","Jupiter","Sun"]
+g=[9.8,1.6,3.7,8.83,11.2,10.5,13.3,0.61,24.5,275]
+
+f= open("planets.txt","w")
+
+f.write("Planet   g (m/s^2)\n")
+f.write("------------------\n")
+
+for idx,planet in enumerate(planets):
+    f.write(f"{planet:10s}  {g[idx]:5.2f} \n" )
+
+f.close()
+```
+
+
+### Using NumPy's `savetxt` function
+
+If the data is strictly numerical and contains no text, the `savetxt` function is a fast and efficient way to write the data to file.   For example, maybe you have a two dimensional array containing various columns of planetary data.
+
+
+
+| Radius ( $\times 10^{6}$ meters ) | Mass  ( $\times 10^{23}$ kg )  | Acceleration due to gravity (m/s$^2$) |
+|--------|------|------------|
+| 6.37 |  59.8   | 9.8|
+| 1.74 |   0.736  | 1.6|
+| 3.38 |    6.42 | 3.7|
+| 6.07 |   48.8  | 8.83|
+| 58.2 |   5680  | 11.2|
+| 23.5 |   868  | 10.5|
+| 22.7 |  1030   | 13.3|
+| 1.15 |  0.131   | 0.61|
+| 69.8 |  19000   | 24.5|
+| 696 |   19890000  | 275|
+
+
+
+```{python}
+from numpy import savetxt
+
+data =[[6.37,59.8,9.8],[1.74,0.736,1.6],[3.38,6.42,3.7],[6.07,48.8,8.83],[58.2,5680,11.2],[23.5,868,10.5],[22.7,1030,13.3],[1.15,.131,0.61],[69.8,19000,24.5],[696,19890000,275]]
+
+savetxt("planetsData.txt",data,fmt = "%5.2e")
+
+
+```
+
+The `fmt` keyword argument can be be added  to specify how to format the data.  If the data is stored in separate one-dimensional arrays, you can pack them into a single list(tuple) when using the `savetxt` function and it will write each data set to it's own line in the file.
+
+
+```{python}
+radius = [6.37,1.74,3.38,6.07,58.2,23.5,22.7,1.15,69.8,696]
+mass = [59.8,0.736,6.42,48.8,5680,868,1030,0.131,19000,19890000]
+g = [9.8,1.6,3.7,8.83,11.2,10.5,13.3,0.61,24.5,275]
+
+savetxt("planetsDataTwo.txt",(radius,mass,g),fmt = "%5.2e")
+
+```
+
+Other optional arguments that can be used with the `savetxt` function are given in the table below:
+
+
+
+| Argument | Description |
+|--------|------------|
+| `delimiter`  |String or character to separate columns.|
+| `newline`  |String or character to separate lines.|
+| `header`  |String to be written at the beginning of the file.|
+| `footer`  |String to be written at the end of the file.|
+| `comments`  |String that will be prepended to the header and footer string to mark them as comments.|
+
+

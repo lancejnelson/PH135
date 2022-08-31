@@ -141,7 +141,7 @@ Lists have a collection of methods (or functions) for accomplishing routine task
 | `append(element)`| Adds a single element to the end of the list.|
 | `clear()`| Removes all elements from a list.|
 | `copy()`| Creates an independent copy of the list.|
-| `count(element)`| Counts the number of occurences of `element` in the list.|
+| `count(element)`| Counts the number of occurrences of `element` in the list.|
 | `extend(elements)`| Adds multiple elements to the end of the list.|
 | `index(element)`| Returns the index of the _first occurrence_ of `element`.|
 | `insert(index,element)`| Inserts the given `element` at the specified `index`.|
@@ -179,7 +179,7 @@ Python has several built-in functions that will work with lists.  Functions are 
 | `min(list)`| Finds the smallest element in the list.|
 | `sum(list)`| Returns the sum of the elements in the list.[^sum]|
 | `listOne + listTwo`| Joins `listOne` with `listTwo` to form one list.|
-| `2 * list`| Repeat `list` and concenate to itself, making the list twice as long.|
+| `2 * list`| Repeat `list` and concatenate to itself, making the list twice as long.|
 | `zip(listOne,listTwo)`| Zips two lists together. (Creates `[a1,b1,a2,b2...]` from `[a1,a2,a3...]` and `[b1,b2,b3...]`|
 
 [^sum]: Only works if the list contains only ints and floats
@@ -213,7 +213,7 @@ list(a)
 ```
 
 
-The `range` function can be called with up to three arguments: `range(start,end,stepsize)`. Consistent with indexing, the range includes the start value and excludes the end value. Below we generate a list of integers starting at 5, ending at 100 with a stepsize of 5.
+The `range` function can be called with up to three arguments: `range(start,end,stepsize)`. Consistent with indexing, the range includes the start value and excludes the end value. Below we generate a list of integers starting at 5, ending at 100 with a step size of 5.
 
 ```{python}
 
@@ -225,9 +225,9 @@ list(myList)
 
 ## Tuples
 
-_Tuples_ are another object type similar to lists except that they are _immutable_... that is to say, they cannont be modified once created.  They look similar to lists except that they are created using parenthesis instead of brackets.  Because you can't change the elements of a tuple, they are often used so that you don't inadvertently modify (and lose) critical data.  You can think of it as locking a file on your computer to avoid indavertently modifying it and losing the original content.  
+_Tuples_ are another object type similar to lists except that they are _immutable_... that is to say, they cannot be modified once created.  They look similar to lists except that they are created using parenthesis instead of brackets.  Because you can't change the elements of a tuple, they are often used so that you don't inadvertently modify (and lose) critical data.  You can think of it as locking a file on your computer to avoid inadvertently modifying it and losing the original content.  
 
-Below is a tuple containing... Since there will be no need to change these values, it makes sense to store them in a tuple.  Indexing and slicing work exactly the same as with lists and strings, so we can still use the values inside of a tuple to perfrom simple calculations. There are only two methods associated with tuples: `count(element)` and `index(element)`. Their usage is identical to the list methods.
+Below is a tuple containing... Since there will be no need to change these values, it makes sense to store them in a tuple.  Indexing and slicing work exactly the same as with lists and strings, so we can still use the values inside of a tuple to perform simple calculations. There are only two methods associated with tuples: `count(element)` and `index(element)`. Their usage is identical to the list methods.
 
 
 ```{python}

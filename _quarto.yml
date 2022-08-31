@@ -10,7 +10,7 @@ book:
   sidebar:
     style: floating
   chapters:
-    - part: "Python - The Basics"
+    - part: "Basic Python"
       chapters:
       - index.qmd
       - chapters/variables.qmd
@@ -19,7 +19,7 @@ book:
       - chapters/listsAndTuples.qmd
       - chapters/loops.qmd
       - chapters/functions.qmd
-    - part: "Python - Intermediate Concepts"
+    - part: "Intermediate Python"
       chapters:
       - chapters/numpy.qmd
       - chapters/io.qmd

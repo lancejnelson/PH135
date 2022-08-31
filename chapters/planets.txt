@@ -1,0 +1,12 @@
+Planet   g (m/s^2)
+------------------
+Earth        9.80 
+Moon         1.60 
+Mars         3.70 
+Venus        8.83 
+Saturn      11.20 
+Uranus      10.50 
+Neptune     13.30 
+Pluto        0.61 
+Jupiter     24.50 
+Sun         275.00 
