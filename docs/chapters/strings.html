@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Scientific Computing - 3&nbsp; Strings</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/booleans.html" rel="next">
+<link href="../chapters/variables.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Strings</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Scientific Computing</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Basic Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/strings.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/listsAndTuples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lists and Tuples</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Intermediate Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#creating-strings" id="toc-creating-strings" class="nav-link active" data-scroll-target="#creating-strings"> <span class="header-section-number">3.1</span> Creating Strings</a></li>
+  <li><a href="#displaying-text-and-numbers-together" id="toc-displaying-text-and-numbers-together" class="nav-link" data-scroll-target="#displaying-text-and-numbers-together"> <span class="header-section-number">3.2</span> Displaying text and numbers together</a></li>
+  <li><a href="#indexing-and-slicing" id="toc-indexing-and-slicing" class="nav-link" data-scroll-target="#indexing-and-slicing"> <span class="header-section-number">3.3</span> Indexing and Slicing</a></li>
+  <li><a href="#string-methods" id="toc-string-methods" class="nav-link" data-scroll-target="#string-methods"> <span class="header-section-number">3.4</span> String Methods</a></li>
+  <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">4</span> Flash Cards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">5</span> Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Strings</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Another commonly-used type of data is a string of characters known simply as <em>strings</em>. Strings can contain a variety of characters including letters, numbers, and symbols.</p>
+<section id="creating-strings" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="creating-strings"><span class="header-section-number">3.1</span> Creating Strings</h2>
+<p>Strings are created by placing the sequence of characters in single (or double) quotes.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"some text"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Strings can also be created by converting a float or an integer into a string using the <code>str()</code> function.</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="bu">str</span>(<span class="fl">4.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>One common error made when working with strings is to attempt to perform math with them. Python will not perform math with strings because it sees them as a series of characters and nothing more. In the cell below, we attempt to perform math with some strings.</p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">"4"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="st">"2"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> a <span class="op">*</span> b</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> b <span class="op">*</span> c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p><strong><em>To Do:</em></strong></p>
+<ol type="1">
+<li>Use print statements in the cell above to determine what happens when you add two strings together. (Ancillary question: Can you subtract strings?)</li>
+<li>Use print statements in the cell above to determine what happens when you multiply two strings.</li>
+<li>Use print statements in the cell above to determine what happens when you multiply a string and an integer.</li>
+<li>What do you think will happen if you multiplied a string and a float? Guess and then see if you’re right.</li>
+<li>Add comments for you to refer back to later.</li>
+</ol>
+</blockquote>
+<p>If you want to know the length of a string, you can use the <code>len()</code> function</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"some text"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="276">
+<pre><code>9</code></pre>
+</div>
+</div>
+<p>The length of the string above is 9 because a space is a valid character.</p>
+</section>
+<section id="displaying-text-and-numbers-together" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="displaying-text-and-numbers-together"><span class="header-section-number">3.2</span> Displaying text and numbers together</h2>
+<p>You have been using <code>print()</code> statements quite a lot lately (hopefully) but you probably haven’t printed text and numbers together. To display both text and numbers in the same message, there are several options. The first is to just put multiple variables into the <code>print()</code> function, separating them with commas.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>unit <span class="op">=</span> <span class="st">"m/s^2"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(g,unit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9.8 m/s^2</code></pre>
+</div>
+</div>
+<p>Another option is to convert the number to a string and then “add” it to the other string. This creates a single string as an argument to the <code>print()</code> function.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>unit <span class="op">=</span> <span class="st">"m/s^2"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(g) <span class="op">+</span> unit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9.8m/s^2</code></pre>
+</div>
+</div>
+<p>Notice the lack of space between the number and the unit. “Adding” the two strings smashed them together exactly as they were, no spaces added. You can insert multiple numbers into a string using something called “f”-strings. (short for formatted strings). To construct an f-string, simply place an “f” in front of the string. Anytime you want to insert a number in your string, enclose it in curly braces.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">3e8</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The speed of light is </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss"> and the speed of my car is </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The speed of light is 300000000.0 and the speed of my car is 5.0</code></pre>
+</div>
+</div>
+<p>That’s a clever way to insert a numerical value into a string, but the value of the speed of light is still displaying too many digits. To specify how the number should be formatted place a <code>:</code> after the variable name followed by a formatting tag.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> <span class="fl">8.3</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">2.998e8</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"There are </span><span class="sc">{</span>n<span class="sc">:d}</span><span class="ss"> cars traveling side by side.  One car is traveling at </span><span class="sc">{</span>v1<span class="sc">:4.2f}</span><span class="ss"> m/s and the other is traveling at </span><span class="sc">{</span>v2<span class="sc">:4.2f}</span><span class="ss"> m/s.  Those speeds are much smaller than the speed of light, which is </span><span class="sc">{</span>c<span class="sc">:.2e}</span><span class="ss"> m/s"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>There are 2 cars traveling side by side.  One car is traveling at 5.00 m/s and the other is traveling at 8.30 m/s.  Those speeds are much smaller than the speed of light, which is 3.00e+08 m/s</code></pre>
+</div>
+</div>
+<p>The structure of the stuff inside of the curly braces is <code>{variable:formatcode}</code>; <code>variable</code> holds the value to be displayed and <code>formatcode</code> indicates how the variable should be formatted when it is printed. The <code>f</code> in <code>:4.2f</code> indicates that the variable should be displayed as a float and the <code>4.2</code> indicates that four spaces should be allocated to display the number and no more than 2 numbers after the decimal should be displayed. A selection of some commonly-used format codes is given below.</p>
+<table class="table">
+<caption>A summary of common format codes.</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>format code</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>{variable}</code></td>
+<td>Use the default format for the data type.</td>
+</tr>
+<tr class="even">
+<td><code>{variable:4d}</code></td>
+<td>Display as an integer, allocating 4 spaces for it.</td>
+</tr>
+<tr class="odd">
+<td><code>{variable:.4f}</code></td>
+<td>Display as a float, with four numbers after the decimal being displayed.</td>
+</tr>
+<tr class="even">
+<td><code>{variable:8.4f}</code></td>
+<td>Display as a float, allocating 8 total spaces and 4 numbers after the decimal place.</td>
+</tr>
+<tr class="odd">
+<td><code>{variable:8.4e}</code></td>
+<td>Display using scientific notation, allocating 8 total spaces and 4 numbers after the decimal place.</td>
+</tr>
+<tr class="even">
+<td><code>{variable:6s}</code></td>
+<td>Display as a string, allocating 6 total spaces for it. If the string is longer than 6 spaces, it will display the entire string with no extra white space. If the string is shorter than 6 spaces, it will pad the string with whitespace until it is 6 spaces long.</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong><em>To Do:</em></strong></p>
+<ol type="1">
+<li>Modify the print statement above so that the float variables are given 8 total spaces with only 1 number after the decimal being displayed.</li>
+<li>Modify the print statement above so that the speed of light is displayed with 3 numbers after the decimal place.</li>
+</ol>
+</blockquote>
+</section>
+<section id="indexing-and-slicing" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="indexing-and-slicing"><span class="header-section-number">3.3</span> Indexing and Slicing</h2>
+<p>Accessing a piece (or slice) of a string is a common task in scientific computing. Often you will import data into Python from a text file and need to extract a portion of the file for later use in calculations. Indexing allows the user to extract a single element, or character, from a string. The key detail about indexing in Python is that <em>indices start from zero</em>. That means that the first character is index zero, the second character is index 1, and so on. For example, maybe a string contains the following amino acid sequence ‘MSLFKIRMPE’. For this example, the indices are as follows:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>Characters</strong></th>
+<th>M</th>
+<th>S</th>
+<th>L</th>
+<th>F</th>
+<th>K</th>
+<th>I</th>
+<th>R</th>
+<th>M</th>
+<th>P</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Index</strong></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>To access a single character from a string, place the desired index in square brackets after the name of the string.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPI"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="281">
+<pre><code>'M'</code></pre>
+</div>
+</div>
+<p>To access the last character in a string you could do</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPI"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>seq[<span class="bu">len</span>(seq) <span class="op">-</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="282">
+<pre><code>'I'</code></pre>
+</div>
+</div>
+<p>But this seems overly cumbersome. An easier approach is to index backwards. The string can be reverse indexed from the last character to the first using negative indices, starting with -1 as the last charcter.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPE"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>seq[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="283">
+<pre><code>'E'</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong><em>To Do:</em></strong></p>
+<ol type="1">
+<li>Access the 5th character in the peptide sequence above.</li>
+<li>Access the character that is 3rd from the end in the peptide sequence above.</li>
+</ol>
+</blockquote>
+<p>Indexing only provides a single character, but it is common to want a series of characters from a string. <em>Slicing</em> allows us to grab a section of a string. Slicing is performed by specifying start and stop indices separated by a colon in the square brackets. One important detail worth mentioning: the character at the starting index is included in the slice while the character located at the final index <em>is not</em> included in the slice.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPE"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="284">
+<pre><code>'MSLFK'</code></pre>
+</div>
+</div>
+<p>Looking at the string, you notice that the character at location 5 (I) has been excluded from the slice. You can leave off the first number when slicing and the slice will start at the beginning of the string.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPE"</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>seq[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="285">
+<pre><code>'MSLFK'</code></pre>
+</div>
+</div>
+<p>You can also use negative indices when slicing. This is especially helpful when you want to grab the last few characters in a string.</p>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">"data.txt"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ext <span class="op">=</span> <span class="bu">file</span>[<span class="op">-</span><span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we can adjust the step size in the slice. That is, we can ask for every other character in the string by setting a step size of 2. The structure of the slice is [start,stop,step].</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPE"</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>seq[<span class="dv">0</span>:<span class="dv">8</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="287">
+<pre><code>'MLKR'</code></pre>
+</div>
+</div>
+<p>You can omit the start and stop indices and Python will assume that you are slicing the entire string.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="st">"MSLFKIRMPE"</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>seq[::<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="288">
+<pre><code>'MLKRP'</code></pre>
+</div>
+</div>
+</section>
+<section id="string-methods" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="string-methods"><span class="header-section-number">3.4</span> String Methods</h2>
+<p>A <em>method</em> is a function that works only with a specific type of object. String methods only work on strings, and they don’t work on other types of objects, like floats or ints. If it helps you, you can just think of a method as a function.</p>
+<p>One example of a string method is the <code>capitalize()</code> function which returns a string with the first letter capitalized. To use a method (referred to as <em>calling</em> the method), the method name is appended to the variable you want it to operate on. For example, below is an Albert Einstein quote that needs capitalized.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>quote <span class="op">=</span> <span class="st">"i want to know God's thoughts. The rest are details."</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>quote.capitalize()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(quote)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>i want to know God's thoughts. The rest are details.</code></pre>
+</div>
+</div>
+<p>Notice that the original variable (quote) remains unchanged. This particular method does not change the value of the original string but rather returns a capitalized version of it. If we want to save the capitalized version, we can assign it to a new variable, or overwrite the original.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>quote <span class="op">=</span> <span class="st">"i want to know God's thoughts. The rest are details"</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>quote <span class="op">=</span> quote.capitalize()</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(quote)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>I want to know god's thoughts. the rest are details</code></pre>
+</div>
+</div>
+<p>In the cell below you will find a list of commonly-used string methods.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">"spdfgssfpggg"</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>a.capitalize()</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>a.center(<span class="dv">10</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>a.count(<span class="st">"s"</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>a.find(<span class="st">"d"</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>a.isalnum()</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>a.isalpha()</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>a.isdigit()</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>a.lstrip(<span class="st">"s"</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>a.rstrip(<span class="st">"g"</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>a.split(<span class="st">"s"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>a.startswith(<span class="st">"s"</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>a.endswith(<span class="st">"p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="291">
+<pre><code>False</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong><em>To Do:</em></strong></p>
+<ol type="1">
+<li>Use well-placed print statements to determine what each string method does.</li>
+<li>Add comments next to each method for future reference.</li>
+</ol>
+</blockquote>
+</section>
+<section id="flash-cards" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Flash Cards</h1>
+<ol type="1">
+<li>What is the index value of the sixth character in a string?</li>
+<li>What happens when you “add” two strings together?</li>
+<li>What happens when you multiply two strings together?</li>
+<li>What happens when you multiply a string by an integer?</li>
+<li>What happens when you multiply a string by a float?</li>
+<li>What function will tell you how many characters are in a string?</li>
+<li>Give two ways that you could slice out the <strong>first 4 characters in a string</strong>.</li>
+<li>Give two ways that you could slice out the <strong>last 4 characters in a string</strong>.</li>
+<li>What string method would you use to see if a string contains only numbers and characters, but no symbols?</li>
+<li>What does the string method <code>split()</code> do?</li>
+<li>What does the string method <code>find()</code> do?</li>
+<li>Explain how to print a sentence with a variable inserted in the middle?</li>
+<li>What format code should be used to display a variable as a <strong>float with 8 total spaces and 2 numbers after the decimal</strong>?</li>
+<li>What format code should be used to display a variable in <strong>scientific notation with 6 total spaces and 2 numbers after the decimal</strong>?</li>
+</ol>
+</section>
+<section id="exercises" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercises</h1>
+<ol type="1">
+<li>In the cell below you will find a string containing the name of a PNG file. (i.e.&nbsp;name always ends in “.png”).
+<ol type="i">
+<li>Remove the “.png” extension from the string <strong>using a string method</strong>.</li>
+<li>Remove the “.png” extension from the string <strong>using slicing.</strong></li>
+</ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">"physics.png"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>(Lightning Strike) The dielectric strength of air determines how likely it is for lightning to strike and this value varies with the humidity (moisture content) of the air. In the cell below, you will find a string that contains the dielectric strength of air for three different humidity levels. <strong>Use string methods</strong> to extract the three dielectric constant values. Then calculate
+<ol type="1">
+<li>the difference between the largest and smallest values.</li>
+<li>The average of the three values.</li>
+</ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>dielectricBreakdownAir <span class="op">=</span> <span class="st">"dry:15847,moderate:8523,wet:7864"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><p>Below you will find a string containing all experimentally known alloys (compounds formed by combining two or more elements on the periodic table) represented using the elements first discovered to exhibit that crystal structure (or “prototypes”).</p>
+<ol type="1">
+<li>Use string methods to find the number of alloys containing Aluminum (symbol: Al).</li>
+<li>Is there a crystal structure with the designation “CaC2” (Calcium Carbide) in the list? How about “Fe2Ag”?</li>
+<li>Use string methods to calculate the percentage of the alloys listed that have gold in them (symbol Au).</li>
+</ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>alloys <span class="op">=</span> <span class="st">"Cu,W,Mg,betaSn,Indium,alphaAs,alphaHg,Cu,AuCu,CuPt,AB2,MoPt2,AB2,AB3,AB3,A2B2,AB3,A2B2,AB3,A2B2,Al3Ti,AuCu3,AB3,A2B2,W,W,gamma-IrV,CsCl,AB2,AB2,MoSi2,AB3,AB3,A2B2,AB3,A2B2,AB3,gamma-CuTi,AB3,A2B2,CuTi3,AlFe3/BiF3,NaTl,Mg,WC,AB3,CuTe,AuCd,A2B2,AB3,AB3,A2B2,AB5,A4B2,A4B2,A4B2,A2B4,A3B3,A3B3,AB5,A4B2,A4B2,A4B2,A2B4,A3B3,A3B3,AB5,A2B4,A2B4,AB5,A2B4,A2B4,A3B3,AB5,A2B4,A3B3,A2B4,A2B4,A3B3,MgZn2,Fe3C,Cu2Mg,Cr3Si,Ni3Sn,ZrSi2,CrB,ITl,FeSi,CdTi,InTh,SeTl,NaCl,BaAl4,CaCu5,ThMn12,Fe2P,Co2Si,Th3P4,AlB2,ZnS,ZnS,NiAs,Mn5Si3,Cr3Si,Cu2Sb,MoSi2,Al2Cu,Cd58Y13,Co3V,Pu3Al,CrFe,NbPd3,Ni3Ti,CaIn2,ThSi2,CaC2,AuBe5,W5Si3,La2O3,BFe,FeS2,Bi2Te3,Ti3Cu4,FeS2,CdI2,Cd3Y,Ni2In,Ni2Si,betaCu3Ti,Al3Zr,FeS2,GdSi2(1.4),MoNi4,CuZr2,alphaReO3,PbO/PbS,Indium,betaSn,alphaAs,CuPt7,NbNi8,V4Zn5,MgNi2,alphaGa,alphaMn,betaMn,gammaSe,graphite,alphaPa,betaU,alphaNp,betaNp,alphaHg,Ga4Ti5,Al2Zr3,Al3Zr4,Al3Zr2,NaZn13,CaB6,Al3Ni2,Ga4Ni(Ga3.62Ni0.97),Ga3Pt5,Ga9Ni13,Ga4Ni3,Ga2Hf,C6Mn23,Cu8Hf3,Ni10Zr7,Hg2Pt,B4Mg,B7Mg,Ge3Rh5,In4Ti3,V7.49Sb9,Li3B14,LiB3,LiB-MS1,LiB-MS2,Re24Ti5,Ni7Zr2,Pt11Zr9,Au4Zr,Hf54Os17,CrSi2,Ag51Gd14.o3.t0,Ag51Gd14.o3.t1,Ag51Gd14.o3.t2,Ag51Gd14.o2.t3,Ag51Gd14.o2.t4,Ag51Gd14.o2.t5,Ag51Gd14.o2.t6,Ag51Gd14.o1.t7,Ag51Gd14.o1.t8,Ag51Gd14.o1.t9,Zn22Zr,As2Ti,Ge10Ho11,Ir3Zr5,CaCl2,CFe4,C2Mn5,C3Mn7,Fe3Th7,F3Fe,F3Fe,NiTi,Ag2O,etaAg2Zn,AlCl3,AlF3,alphaAl2O3,Al12W,Ag2Se,AlPd,AlSb,Cu5Zn8,BaPb3,Hf3Sc*-h321,Hf5Sc-h51,BiHf2-134,Hf5Pb-f63,HfPd5,Re25Zr21,B11_3,B11_3',Z3,Z3',Al13Co4,eta,D8_11,Al9Co2,Pd4Se,NaCd2,Er3Ru2,Pt3Sr7,Ir4Sc11,Ru25Y44,RuZn6,NbRu-Beta'',delta(CdNi),Cd2Ce,Hg2U,InMg2,Cd3Er,CdMg3,CeNi3,CoSc3,Pb3Sr,PuNi3,YZn3,Co2Y2*,Sc2Zr*,Mo3Ti*-81,MoTi*-80,ReTi2*-81,Hf2Tl*-6,Be2Zn*-65,Re3Ru*-124,Cu2.82P,Mg2Au,BiF3,Al12Mg17,MgAu3-x,MgAu3+x,Mg2Cu,Mg2Ga,MgGa2,Mg5Ga2,Mg2Ga5,MgGa,Mg3Hg,Mg3In,Mg44Rh7,CaF2,Al3Ir,Mn23Th6,Mg2Zn11,Mg4Zn7,Mg3Ru2,Au2V,Sr9Mg38,CrFe,Rh13Sc57,Fe7W6,AuSn2,Bi2Pd,Bi2Pd5,Bi3Ni,Bi3Y5,Bi4Rh,BiMn3,BiPd3,BiTi2,CoSb2,Cu7Hg6,Hg2K,Ir2Zn11,Ni3P,KP15,Pu28Zr,B12U,TiZn16,Rh2Y3,Rh3Pu5,alpha-SV3,IrTa,Ge4Sm5,Cl2Pb,NbPt3,Hg4Pt,Pd4Pu3,Er3Ni2,Pd2Ti,Pd5Ti3,Pd3Ti2,Hg5Mn2,Pu3Pd5,Ga2Zr,FeP4_mP30,FeP4_mS40,In3Ir,Fe6Ge5,Fe3Ga4,Al6Mn,AsFe,CoSn,As3Co,Im-3m,Pm-3m,P6/mmm,Pm-3n,Fe6.5Ge4-ideal(Fe14Ge8),Fe6.5Ge4-part(Fe13Ge8),Al8Cr5,Co5Ge7,E2_1,beta-NW2,alpha-MoS2,D8_5r,Na13Cl12v7,alpha-N2,alpha-N2p,beta-N2,epsilon-N2,gamma-N2,WN2_194af,Ag2Te,C1,C19,C4,C7,WN2_187fg,WN2_194de,Hagg_N4W6,MoO3,O3W,P3Tc,WN4_164ad,B4W,P4Re,B8_1v2,B8_1v2p,Na4Cl3v1,C4W3,S3U4,O5Nb2,B8_1v3,Na7Cl6_v3,Na7Cl8v1,B8_1v1,B8_1v1p,Na1Cl1v2,Na3Cl3v2,B8_1v2pp,B3v2,Na7Cl7v2,B1,NTa,NbO,NbS,Hagg_NW2,Mo2N,NV2,NW2_Pearson,beta-W,Ge8Mn11,NaTe3,NaTe,Sb3Sr2,SrAs3,La2Sb,Ga5Tm3,B6Si1,B2Zr1,B12Y1,B2Mg1,B4La1,B1Ni1,B1Mo2,As1B1,B4Cr3,B1Pu1,B2V3,B2Zr1,B3V2,B4Ce1,B6Fe23,B1Tc1,B1Pt1,B2Re1,B2Ru1,B5W2,B1Fe1,B1Mo1,B1Re3,B3Ru2,B1Ni3,B3Ru7,B1Tc1,B1Be2,B2Nb1,B1Rh1,B1Tc1,B1Tc1,B2Li2,B4Cr1,B4Mn1,B1Fe2,B1Fe2,B1Fe2,B1Pd2,B1Pt2,B1Ti2,B2Mo1,B2Sc1,B4Mo2,B4Mn3,B4Nb3,B5W2,B1Co1,B1Fe3,B1Li1,B1Mn1,B2Li2,B3Mo1,B3Re1,B3Ru2,B4Cr1,B4Fe1,B4Mo1,B6Ta5,B11Li1,B11Li1,B11Li1,B11Li1,B11Li1,B1Cr2,B1Rh2,B2Fe1,B2W1,B12Sc1,B2Pd5,B3Ni4,B3Ni4,B5Mo2,B5W2,B12Si3,B1Co3,B1Pd3,B4Mn4,B2Mo1,B4Rh5,B4W1,B4W1,B9Li1,B20Na3,B3Ni4,B3Si1,B8Ru11,Cu,Cu,W,W,Mg,Mg,NaCl,CsCl,ZnS,ZnS,WC,C1Ti1,C1Si1,C2U1,C3Pr2,C1W1,C1Sc1,C60K6,C1Y2,C2Ca1,C1Fe3,C4Sc3,Ba1C2,C1Nb2,C1Mo2,C2Th1,C2Rb2,C5Y4,C19Sc15,Be2C1,C2Os1,C2Li2,C2Os1,C1V2,C7Ho4,C6Cr23,Ba1C2,C1Mo2,C1Sc2,C2Re1,C2Re1,C1Nb1,C1Nb1,C1Os1,C1Ru1,C1Sc1,C1Si1,C1Fe4,C1Fe4,B1C5,B1C5,C1Co2,C1Fe2,C1Fe2,C1Re2,C2Ca1,C2Ca1,C2Ir1,C2Ir1,C2Mg1,C2Re1,C2Si1,C2Th1,C2Th1,C2Th1,Al4C3,As4C3,C3Nb4,B1C7,B1C7,B1C7,B1C7,B1C7,C1Fe3,C1Fe3,C1Mo1,C1Ni3,C1Os1,C1Re1,C1Si1,C1W2,C8Cs1,C1Fe4,C1Si1,C1Si1,C2Cr3,C3Mg2,C4Ir1,C4Ir1,C4Ir1,C5Nb6,B1C5,B1C5,C1Fe2,C1Mo1,C1Mo2,C1Nb2,C1Nb2,C1Si1,C1Ti2,C2Ca1,C2Ca1,C2Ca1,C2Cs2,C2Na1,C5Ti8,C1Si1,C2Fe5,C2Fe5,C2Fe5,C2Mn5,C2Mn5,C3Sc4,C6Eu1,C6Yb1,B13C2,B4C1,C1Cr3,C1Fe3,C1Fe3,C1Fe3,C1Si1,C1Si1,C1Ti1,C2Cs2,C2K2,C2Na2,C3Ir1,C3Ir5,C1Si1,C8K1,C8Rb1,C1Si1,C2Cr3,C2Cr3,C3Fe7,C3Os2,C4Ir1,C7Ir3,C7Lu4,Ba1C2,C1Mn6,C1Si1,C6Mn23,C1Si1,C2K2,C5V6,C1Si1,C5Ir4,C1Si1,C3Os2,C1Si1,C7Ho4,C0.88V1,C7V8,C7V8,C7V8,C19Er15,Ba3C60,C60Sr3,AlCu2Mn-Heusler,AlCu2Mn-Heusler-tet*%,Cu1Li2Sn1-antiHeusler,Cu1Li2Sn1-antiHeusler-tet*%,AlCu2Mn-Heusler,AlCu2Mn-Heusler-tet*%,Cu1Li2Sn1-antiHeusler,Cu1Li2Sn1-antiHeusler-tet*%,C1b,C1b,Co1Ge1Mn1_ICSD_52968,Co1Ge1Mn1_ICSD_623495,Co3Ge1Mn2_ICSD_52972,Cl1La1Se1_ICSD_425686,Co2Si1_ICSD_44858,C15b,As2Ce1Pd2,SQS_L12,Al1F6K2Na1_ICSD_6027,Cf,Te,Po,C,alpha-Pu,C,beta-Pu,O2,P,Se,Se,H,C,alpha-Np,alpha-U,alpha-Ga,P,I2,S,gamma-Pu,Si,beta-Np,B,beta-U,N2,CrFe,C,Cl2,In,Pa,Si,C,Sn,S,Se,S,B,B,Po,Hg,As,C,O2,Sm,Sc,C,gamma-HgSn6-10,Mg,La,C,C,C,N2,C,C,N2,Si,Mn,Mn,Li,Po,Si,Cu,Si,C,W,FeS2,P2I4,H2S,SiO2,Mo8P5,FeNi,H2S,As2Ba,epsilon-WO3,Rh2Ga9,SiO2,alpha-P3N5,H3Cl,delta-PdCl2,H3Cl,LiSn,NiTi,Au5Mn2,AuTe2,AlCl3,H2S,ZrO2,gamma-PdCl2,alpha-C7H8,B2Pd5,SiO2,H3Cl,CuO,alpha-Ag2Se,BaS3,Ag2Se,H3Cl,SiO2,Ta2H,FeS,H3S,CdTe,H2S,beta-SeO2,TlP5,AuTe2,ZrO2,FeS2,kappa-Al2O3,CoAs,FeSb2,HgBr2,HCl,Au2V,Ta3S2,CeTe3,PdSn2,PtSn4,W3O10,BN,GeS2,AsGa,beta-Ta2O5,AuCd,GaCl2,Sr2Bi3,GeAs2,Rh5Ge3,Sb2O3,TlF,alpha-PdCl2,CaCl2,etaFe2C,FeS2,TiCu3,CuTe,Rh2S3,WO3,beta-C7H8,TiO2,CdSb,Benzene,Cr3C2,Co2Si,HgCl2,PbCl2,SrH2,Sb2S3,C3Cr7,epsilon-NiAl3,MgB4,MoO3,Fe3C,GeS,MnP,FeB,SnS,FeAs,ZrSi2,MnAl6,CrB,H2S,Ga3Pt5,CdPt3,alpha-IrV,H3S,beta-ThI3,alpha-FeSe,alpha-PbO,PdSn4,TlF,TiSi2,Mn2B,Ta3B4,MoPt2,ReSi2,SiS2,KHg2,Al4U,Cs3P7,H2S,beta-NbO2,GeSe2,Ni3P,Ti2Ge3,PdS,SrBr2,Ti3P,Ti5Te4,Ni4Mo,ThCl4,alpha-NbO2,SiO2,SiO2,CdAs2,Gd3Al2,NbTe4,Co5Ge7,GeP,Sr5Si3,NbAs,MnF2,VN,BaS3,SeO3,Pd4Se,Rh3P2,HgI2,Ru2Sn3,beta-Bi2O3,RuIn3,Ir3Ga5,RbGa3,GaSb,CuTi3,CuAu,NbTe4,PtPb4,Si2U3,ThB4,Cu2Sb,PbO,gamma-CuTi,Ba5Si3,PtS,beta-V3S,SeO2,TiO2,beta-BeO,Zn3P2,ZrO2,HgI2,Mn12Th,ThH2,Al3Zr,Al3Ti,V4Zn5,Al4Ba,Pt8Ti,MoSi2,Hg2Cl2,Al2Cu,W5Si3,Cr5B3,SiU3,SeTl,In2S3,TiO2,alpha-ThSi2,Ga2Hf,Mn3O4,MoB,NbP,MoS2,IrGe4,ZnTe,AgZn,beta-PdCl2,BiI3,C8H8,PdAl,Ti3O,Fe2P,CrCl3,SiO2,CrCl3,HgS,Ni3S2,AlF3,CdI2,CuI,beta-CuI,beta-RuCl3,Bi2O3,alpha-Si3N4,H3S,Cr5Al8,SiC,CSi,NiS,NV2,La2O3,Al3Ni2,CdI2,deltaH^II-NW2,H3Ho,Cu3P,Bi2Te3,Al4C3,B5Mo2,CaC6,Fe7W6,CuPt,Al2O3,alpha-Al2S3,Al2S3,PI3,beta-Si3N4,Er3Ru2,UCl3,SiO2,AuF3,AuF3,Mg2Ni,SiO2,CrSi2,beta-SiO2,Fe3C,CrFe3NiSn5,Cu3P,beta-RuCl3,Na3As,Fe3Th7,SiC,BN,ZnS,SiC,Re3N,WC,Fe2P,Li2Sb,alpha-Sm3Ge5,FeS,Cu2Te,Li3N,AlB2,CaCu5,CoSn,AlPO4,Mn5Si3,SiO2,Ni3Ti,Ni3Sn,W2B5,Co2Al5,MgZn2,MgNi2,CaIn2,Ni2In,MoS2,Na3As,CMo,CuS,NiAs,BN,AsTi,Ga4Ni,NH3,CO,FeSi,CoU,Mg2Zn11,Al12W,CoAs3,FeS2,CuCl,Pd17Se15,PH3,SiO2,SrSi2,gamma-Cu9Al4,Fe4C,AuBe5,ZnS,SiF4,Cu5Zn8,Cu15Si4,Pu2C3,Th3P4,ReO3,CaB6,BaHg11,Cu3Au,CsCl,NbO,Cr3Si,Cu2O,UB12,Th6Mn23,Cr23C6,Ca7Ge,CaF2,BiF3,NaCl,NaZn13,SiO2,Cu2Mg,Co3O4,CTi2,NiTi2,NaTl,TeO6H6,Sb2Tl7,gamma-Fe3Zn10,H3S,Pt3O4,beta-Hg4Pt,Ir3Ge7,Ga4Ni3,AsKSe2,Pb(Zr0.52Ti0.48)O3,AuAgTe2,KClO3,[Sc,Y]2Si2O7,AgAuTe4,AlPS4,CeRu2B2,NaFeS2,BPS4,CoAsS,Bi5Nb3O15,CuBrSe3,AsCu3S4,Re2O5[SO4]2,AsK3S4,TiAl2Br8,V2MoO8,Li2Si2O5,C2CeNi,VPCl9,K2CdPb,MnGa2Sb2,TiFeSi,La2NiO4,alpha-Tl2TeO3,TaNiTe2,CuBrSe3,BiGaO3,CNCl,FeOCl,Mg2SiO4,CuFe2S3,CuSbS2,CaTiO3,BaSO4,KFe2S3,La43Ni17Mg5,SrCuO2,MgSiO3,MgO4S,CaSO4,MgB2C2,SrAl2Se4,Al2CuIr,HoCuP2,NbPS,LaRhC2,Sr2As2O7,TlZn2Sb2,CdAl2S4,BPO4,ThBC,Na5Fe3F14,Li2MoF6,ThBC,Ta2Se8I,Pb(Zr0.52Ti0.48)O3,Ce3Si6N11,gamma-MgNiSn,Ba5In4Bi5,Tl4HgI6,BaGe2As2,LaPtSi,Be[BH4]2,alpha-CuAlCl4,KAu4Sn2,CuFeS2,HoCoGa5,CaCuO2,Nb4CoSi,KCeSe4,BiAl2S4,K2SnCl6,FeCu2Al7,PbFCl,CuBi2O4,AgUF6,ZnSb2O4,CeCo4B4,(La,Ba)2CuO4,ZrSiO4,PPrS4,Ta3Al4O13[OH],ScRh6P4,gamma-Ag3SI,FePSe3,Be2SiO4,FeTiO3,Ag5Pb2O6,COS,LiNbO3,CuNiSb2,CrNiS2,SmSI,PrNiO3,KBO2,LiNbO3,CaCO3,K2Ta4O9F4,Al[PO4],Sr[S2O6][H2O]4,Sr[S2O6][H2O]4,Fe12Zr2P7,GdSI,Nb7Ru6B8,Mg[NH],Fe3Te3Tl,AuCN,Al[PO4],KNiCl3,Al5C3N,BaPtSb,LiScI3,BaSi4O9,AlB4Mg,Al9Mn3Si,AlN3Ti4,AlCCr2,LiBC,PrRu4P12,Cu2Fe[CN]6,NaClO3,NiSSb,KSbO3,KB6H6,Rb3AsSe16,Mg32(Al,Zn)49,Ca3Al2O6,AlLi3N2,(Mn,Fe)2O3,F6KP,Te[OH]6,Ca3PI3,Ag3AuTe2,Cu3S4V,Cu3AsS4,AgAsMg,Ag3[PO4],Ca3Al2O6,CaTiO3,Ce5Mo3O16,K2PtCl6,Cr9Fe16Ni7,CrFe18Ni8,AlCu2Mn,Eu2Ir2O7,Al2MgO4,Fe3W3C,CrFe12Ni3,CrFe4Ni3,CaFeO6Si2,Na2MgAlF7,Ca4Al6O16S,YBa2Cu3O7-x,alpha-RbPr[MoO4]2,CsPr[MoO4]2,KCNS,KAg[CO3],BaCr2Ru4O12,MgB2O(OH)6,C17FeO4Pt,Na4Ti2Si8O22[H2O]4,NaGdCu2F8,Ba2TiSi2O8,NaZn[OH]3,Ca2MgSi2O7,Cu2FeS4Sn,CaRbFe4As4,AsCuSiZr,Rb2TiCu2Se4,YbBaCo4O7,KAg(CN)2,pi-FeMg3Al8Si6,pi-FeMg3Al9Si5,Be3Al2Si6O18,MgB12H12[H2O]12,LiMgAuSn,Mg3B7ClO13,CrFe11MoNi3,CrFe2525Ni6,CuCrCl5[NH3]6,Co3Al2Si3O12,Cu8(Fe,Zn)3Sn2S12,BaCu4[VO][PO4]4,AsPh4CeS8P4Me8,NaCa3[CO3]2F3[H2O],Na3Co(CO3)2Cl,Na6Mg2(SO4)(CO3)4,Cs2ZnFe[CN]6,AB,A5B11,AB3,AB3,A3B13,A3B5,AB7,Cu2(Zn,Fe)SnS4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/variables.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Numbers</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/booleans.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
