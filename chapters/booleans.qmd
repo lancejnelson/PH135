@@ -235,7 +235,7 @@ It is worth noting that `else` statements are not required. If you leave the `el
 
 1. (Escape Velocity)  The escape velocity is the speed needed for an object to completely escape the gravitational pull of a planet. The expression for escape velocity is $$ v_\text{escape} = \sqrt{G M_p \over r}$$ where $G = 6.67 \times 10^{-11}$, $M_p$ is the mass of the planet you are trying to escape from, and $r$ is the radius of the planet.
 
-    1. Construct an `if`-`else` code block that checks to see if a guessed speed is bigger or smaller than the escape velocity of Jupiter. The code block should print an appropriate message about the guessed velocity.  Jupiter has a mass of $M = 1.90 \times 10^{27} $ kg and a radius of $r = 6.99 \times 10^7$ meters.
+    1. Construct an `if`-`else` code block that checks to see if a guessed speed is bigger or smaller than the escape velocity of Jupiter. The code block should print an appropriate message about the guessed velocity.  Jupiter has a mass of $M = 1.90 \times 10^{27}$ kg and a radius of $r = 6.99 \times 10^7$ meters.
     2. Modify your guess until both branches of your `if`-`else` trigger.
     3. Repeat for Earth. Earth has a mass of $M = 5.98 \times 10^{24}$ kg and a radius of $r = 6.37 \times 10^6$ meters.
 

@@ -125,7 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -244,11 +244,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"> <span class="header-section-number">6.2</span> <code>while</code> Loops</a></li>
   <li><a href="#continue-break-and-pass-commands" id="toc-continue-break-and-pass-commands" class="nav-link" data-scroll-target="#continue-break-and-pass-commands"> <span class="header-section-number">6.3</span> <code>continue</code>, <code>break</code>, and <code>pass</code> Commands</a></li>
+  <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">6.4</span> Flash Cards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">6.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -272,7 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>for</code> loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over. Here is an example of of <code>for</code> loop that is used to add up the elements of a list.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="fl">9.9</span>]: </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    thesum <span class="op">=</span> thesum <span class="op">+</span> i</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    thesum <span class="op">+=</span> i</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This would be equivalent to the following code:</p>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -338,7 +340,7 @@ fun</code></pre>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> factorial</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>2432902008176640000</code></pre>
 </div>
 </div>
@@ -517,9 +519,91 @@ mass = [1,4,7,9,11,12]</code></pre>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    s <span class="op">+=</span> term     <span class="co"># Add 1/n^2 to the running total</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, when the value of <code>n</code> is not a multiple of 3, the sum will not be updated and the associated terms are effectively skipped.</p>
 <p>Finally, the <code>pass</code> statement does nothing. Seriously!! It is merely a place holder for code that has not bee written yet. Usually, you’ll use the <code>pass</code> statement to run and test code without errors due to missing code.</p>
+</section>
+<section id="flash-cards" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="flash-cards"><span class="header-section-number">6.4</span> Flash Cards</h2>
+<ol type="1">
+<li>Explain the basic structure and key elements of a <code>for</code> loop.</li>
+<li>Explain the basic structure and key elements of a <code>while</code> loop.</li>
+<li>What does the <code>break</code> statement do?</li>
+<li>What does the <code>continue</code> statement do?</li>
+<li>What does the <code>pass</code> statement do?</li>
+<li>What does the <code>zip</code> function do? Give an example.</li>
+<li>What does the <code>enumerate</code> function do? Give an example.</li>
+<li>What is list comprehension? Give an example.</li>
+</ol>
+</section>
+<section id="exercises" class="level2 page-columns page-full" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.5</span> Exercises</h2>
+<ol type="1">
+<li><p>Summations appear often in science and mathematics. One such summation is called the Riemann Zeta function and is given by <span class="math display">\[ \zeta(n) = \sum_{k=1}^\infty {1\over k^n} = {1\over 1^n} + {1\over 2^n} + {1\over 3^n} + \dots\]</span></p>
+<ol type="1">
+<li>Use a <code>for</code> loop to evaluate <span class="math inline">\(\zeta(2)\)</span> and <span class="math inline">\(\zeta(4)\)</span> and verify that <span class="math inline">\(\zeta(2) = {\pi^2 \over 6}\)</span> and <span class="math inline">\(\zeta(4) = {\pi^4 \over 90}\)</span>. This summation is called an infinite sum and we surely don’t want our loop to continue forever!! Instead, an infinite sum like this one can be approximated by including a large number of terms. To determine if you have included enough terms, increase the number of terms steadily and watch for the final result to stop changing appreciably.</li>
+<li>Now repeat part 1 using list comprehension and the <code>sum</code> function?</li>
+<li>Repeat the exercise one final time using a <code>while</code> loop. Write the <code>while</code> loop so that it stops iterating when the value of <span class="math inline">\({1\over k^n}\)</span> gets smaller than <span class="math inline">\(1 \times 10^{-6}\)</span>.</li>
+<li>Which method do you prefer?</li>
+</ol></li>
+</ol>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>seq<span class="op">=</span> [<span class="dv">1</span><span class="op">/</span>k<span class="op">**</span>n <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">1000</span>)]</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sum</span>(seq))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi<span class="op">**</span><span class="dv">4</span><span class="op">/</span><span class="dv">90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.0823232333773058
+1.082323233711138</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: <span class="math display">\[ {\sin x \over x} = 1\]</span> One numerical method for solving an equation like this involves first rearranging it to look like this: <span class="math display">\[ x = \sin x\]</span> and then repeatedly evaluating the right hand side, using the result of the previous evaluation, until subsequent evaluations differ very little (<span class="math inline">\(1 \times 10^{-3}\)</span> would be fine). <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Use a <code>while</code> loop to solve this equation and report the correct value for x. Then plug the answer back into the equation to verify that it indeed does satisfy the equation. Hint: You’ll have to define two variables: one to hold the old guess and one to hold the updated guess. Initialize these variables to any old values but make sure that they aren’t the same value or your stopping criteria will trigger on the first iteration and the loop won’t run at all.</li>
+</ol>
+<div class="no-row-height column-margin column-container"><li id="fn1" role="doc-endnote"><p><sup>1</sup>&nbsp;This is called successive relaxation.</p></li></div><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>xnew <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>xold <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(xnew <span class="op">-</span> xold) <span class="op">&gt;</span> <span class="fl">1e-3</span>:</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    xold <span class="op">=</span> xnew</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    xnew <span class="op">=</span> sin(xold)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xnew)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sin(xnew))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>An object that is dropped from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion. Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (terminal velocity). The function that describes the velocity of the particle as a function of time is given by</li>
+</ol>
+<p><span class="math display">\[ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}\]</span></p>
+<p>and the terminal velocity is given by</p>
+<p><span class="math display">\[v_t = \sqrt{m g \over c}\]</span></p>
+<p>where <span class="math inline">\(m\)</span> is the mass of the projectile, <span class="math inline">\(c\)</span> is the drag constant, <span class="math inline">\(g= 9.8\)</span> m/s<span class="math inline">\(^2\)</span> is the acceleration due to gravity, <span class="math inline">\(v_0\)</span> is the initial velocity of the particle, and <span class="math inline">\(t\)</span> is time.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> exp</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.75</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>v0<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> []</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> t <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    v.append(<span class="op">-</span>m <span class="op">*</span> g <span class="op">/</span> c <span class="op">+</span> (m <span class="op">*</span> g <span class="op">/</span>c <span class="op">+</span> v0) <span class="op">*</span> exp(<span class="op">-</span>c <span class="op">*</span> t<span class="op">/</span>m))</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    t <span class="op">+=</span> dt</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.0, -4.468039044885536, -8.172173514262592, -11.24300884703188, -13.788820755034818, -15.899372956179654, -17.64908218636846, -19.099642086543998, -20.30219848145437, -21.299152749089117, -22.125656866452537, -22.810852846042806, -23.378900264783283, -23.849828115426348, -24.240241016171566, -24.563904679002622, -24.83223127998649, -25.054681845384493, -25.23909984145513, -25.391987730114167]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
+</div>
+</div>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

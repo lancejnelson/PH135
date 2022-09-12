@@ -289,14 +289,27 @@ radians(4)
 3. (Optics Application) When light passes from one material to another, it is redirected from its original path.  We call this refraction.  The equation for calculating the bending angle is called Snell's law. $$ n_1 \sin \theta_1 = n_2 \sin \theta_2$$  where $n_1$ ($n_2$) is the index of refraction of the first(second) material and $\theta_1$($\theta_2$) is the incident (refracted) angle.  Calculate the refracted angle for an air-water interface for the following incident angles:
 
 | Title |
-| :----------- | 
+|:-----------| 
 | $15^\circ$ | 
 | $35^\circ$ | 
 | $45^\circ$ | 
 | $60^\circ$ | 
 | $85^\circ$ | 
-| ------------ |
 
-The index of refraction for air is $n_1 = 1.0$ and for water is $n_2 = 1.33$.  Print out your results and check your answer with your neighbor's answer.
+The index of refraction for air is $n_1 = 1.0$ and for water is $n_2 = 1.33$.  Print out your results and compare answers with your neighbor.
 
 
+4. (Projectile Motion)  The range of a projectile is given by the equation:$$ d = {2 v^2 \cos \theta \sin \theta \over g}$$
+or the equivalent expression:$$ d = {v^2  \sin 2 \theta \over g}$$
+where $g = 9.8$ m/s$^2$, $\theta$ is the launch angle, and $v$ is the launch speed.
+
+    1. Using a launch angle of 60$^\circ$ and a launch speed of $40$ m/s, verify that both expressions above give the same result for the range.
+    2. Now pick one of the equations above and use trial and error to determine the angle that gives maximum range.
+
+
+```{python}
+v = 40
+g = 9.8
+
+
+```

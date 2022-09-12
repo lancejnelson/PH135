@@ -396,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">3.0</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>4.0</code></pre>
 </div>
 </div>
@@ -490,7 +490,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>1.26e-06</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>'3.2'</code></pre>
 </div>
 </div>
@@ -514,7 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>math.radians(<span class="dv">360</span>)</span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>math.pi</span>
 <span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>,<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>256.0</code></pre>
 </div>
 </div>
@@ -529,7 +529,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> radians</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>radians(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>0.06981317007977318</code></pre>
 </div>
 </div>
@@ -581,12 +581,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(85^\circ\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">————</td>
-</tr>
 </tbody>
 </table>
-<p>The index of refraction for air is <span class="math inline">\(n_1 = 1.0\)</span> and for water is <span class="math inline">\(n_2 = 1.33\)</span>. Print out your results and check your answer with your neighbor’s answer.</p>
+<p>The index of refraction for air is <span class="math inline">\(n_1 = 1.0\)</span> and for water is <span class="math inline">\(n_2 = 1.33\)</span>. Print out your results and compare answers with your neighbor.</p>
+<ol start="4" type="1">
+<li><p>(Projectile Motion) The range of a projectile is given by the equation:<span class="math display">\[ d = {2 v^2 \cos \theta \sin \theta \over g}\]</span> or the equivalent expression:<span class="math display">\[ d = {v^2  \sin 2 \theta \over g}\]</span> where <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span>, <span class="math inline">\(\theta\)</span> is the launch angle, and <span class="math inline">\(v\)</span> is the launch speed.</p>
+<ol type="1">
+<li>Using a launch angle of 60<span class="math inline">\(^\circ\)</span> and a launch speed of <span class="math inline">\(40\)</span> m/s, verify that both expressions above give the same result for the range.</li>
+<li>Now pick one of the equations above and use trial and error to determine the angle that gives maximum range.</li>
+</ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
