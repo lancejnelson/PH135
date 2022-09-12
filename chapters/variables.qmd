@@ -341,8 +341,9 @@ where
 
 6. In Einstein's special theory of relativity, the momentum of an object with mass $m$ (in kg) and velocity $v$ (in m/s) is given by:$$ p = m v \gamma$$ where $$\gamma = {1\over \sqrt{1 - {v^2\over c^2}}}$$ with $c = 3 \times 10^8$ m/s
 
-    1. Calculate the momentum of an object with mass $m = 0.14$ kg and whose speed is ${1 \over 4}$ the speed of light.  
-    2. Repeat for the following speeds: ${1\over 2}$ the speed of light, ${3\over 4}$ the speed of light, and ${7\over 8}$ the speed of light.
+    1. Calculate the momentum of an object with mass $m = 0.14$ kg and speed $v = 50$ m/s.  Then compare to the classical expression for momentum: $p = mv$. 
+    2. Now calculate the momentum of an object with mass $m = 0.14$ kg and whose speed is ${1 \over 4}$ the speed of light.  Repeat the comparison to the classical value.  
+    3. Repeat for the following speeds: ${1\over 2}$ the speed of light, ${3\over 4}$ the speed of light, and ${7\over 8}$ the speed of light.  Repeat the comparison to the classical value.
 
 ```{python}
 
