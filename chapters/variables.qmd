@@ -277,27 +277,34 @@ radians(4)
 10. What format code should be used to display a variable in scientific notation with 6 total spaces and 2 numbers after the decimal?
 11. When using a trig function ($\sin \theta$, $\cos \theta$, $\tan \theta$), the number that is passed in must have what units?
 12. What does the `math.radians` function do?
+13. Where can you find King Benjamin's address to his people?
 
 ## Exercises
 
 1. Calculate the distance from the point $(-48,56)$ to the point $(23,81)$ 1- using the `math.hypot()` function and then 2- using the following distance equation: $$ d = \sqrt{\Delta x^2 + \Delta y^2}$$ Print out the result and check your answer with your neighbor's answer.
 
+```{python}
 
-2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$. $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$ Print out the result and check your answer with your neighbor's answer.
+
+```
 
 
-3. (Optics Application) When light passes from one material to another, it is redirected from its original path.  We call this refraction.  The equation for calculating the bending angle is called Snell's law. $$ n_1 \sin \theta_1 = n_2 \sin \theta_2$$  where $n_1$ ($n_2$) is the index of refraction of the first(second) material and $\theta_1$($\theta_2$) is the incident (refracted) angle.  Calculate the refracted angle for an air-water interface for the following incident angles:
+2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$. $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$ Print out the result and check your answer with a classmate.
 
-| Title |
-|:-----------| 
-| $15^\circ$ | 
-| $35^\circ$ | 
-| $45^\circ$ | 
-| $60^\circ$ | 
-| $85^\circ$ | 
+```{python}
 
-The index of refraction for air is $n_1 = 1.0$ and for water is $n_2 = 1.33$.  Print out your results and compare answers with your neighbor.
 
+```
+
+
+3. (Solar Mass)  The mass of the sun can be calculated using the following formula:$$ M_\text{sun} = {4 \pi^2 (1 \text{ AU})^3\over G (1 \text{ yr})^2}$$  
+The unit AU is called an astronomical unit of length and is defined to be the average distance between the sun and earth. $$ 1 \text{ AU} = 1.58\times 10^{-5} \text{ light years}$$
+where $1 \text{ lightyear} = 9.5 \times 10^{12}$ km.  The constant $G$ is called the gravitational constant and has the value: $$ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}$$  Calculate the mass of the sun and display your result using a print statement.  You should find a value of $M_\text{Sun} = 2.01 \times 10^{30}$ kg
+
+```{python}
+
+
+```
 
 4. (Projectile Motion)  The range of a projectile is given by the equation:$$ d = {2 v^2 \cos \theta \sin \theta \over g}$$
 or the equivalent expression:$$ d = {v^2  \sin 2 \theta \over g}$$
@@ -310,6 +317,34 @@ where $g = 9.8$ m/s$^2$, $\theta$ is the launch angle, and $v$ is the launch spe
 ```{python}
 v = 40
 g = 9.8
+
+
+```
+
+
+5. (Rydberg's constant) Rydberg's constant ($R_\infty$) is a physical constant in Rydberg's formula which was used to predict the spectrum of light emitted by a heavy atom. Rydberg's constant is given by: $$R_\infty = {m_e e^4 \over 8 \epsilon_0^2 h^3 c}$$  
+where  
+   - $m_e = 9.109 \times 10^{-31}$ kg is the mass of an electron.
+   - $e = 1.602 \times 10^{-19}$ C is the charge of an electron/proton.
+   - $\epsilon_0 = 8.854 \times 10^{-12}$ C V$^{-1}$ m$^{-1}$ is the electrical constant.
+   - $h = 6.626 \times 10^{-34}$ J s is Plank's constant.
+   - $c = 3 \times 10^8$ m/s is the speed of light.
+
+    These constants show up all over in physics.  In the cell below write some code that assigns the constants to variables and then use the variables to calculate Rydberg's constant. Use a print statement to display the result.  The result should be: $R_\infty = 10961656.2162$ (in m$^{-1}$)
+
+
+
+```{python}
+
+
+```
+
+6. In Einstein's special theory of relativity, the momentum of an object with mass $m$ (in kg) and velocity $v$ (in m/s) is given by:$$ p = m v \gamma$$ where $$\gamma = {1\over \sqrt{1 - {v^2\over c^2}}}$$ with $c = 3 \times 10^8$ m/s
+
+    1. Calculate the momentum of an object with mass $m = 0.14$ kg and whose speed is ${1 \over 4}$ the speed of light.  
+    2. Repeat for the following speeds: ${1\over 2}$ the speed of light, ${3\over 4}$ the speed of light, and ${7\over 8}$ the speed of light.
+
+```{python}
 
 
 ```
