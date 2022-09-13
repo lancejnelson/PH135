@@ -5,12 +5,12 @@ citation-location: margin
 ---
 
 # Loops
- _Loops_ allow programs to rerun the same block of code multiple times.  This is important because there are often
+ _Loops_ allow programs to rerun the same block of code multiple times.  This might seem like a funny thing to want to do but it turns out that there are many important tasks that are repetitive in nature (perhaps with small changes for each successive repetition).  A loop provides a succinct and efficient way to perform tasks of this nature.
 
 
 ## `for` loops
 
- The `for` loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over.  Here is an example of of `for` loop that is used to add up the elements of a list.
+The `for` loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over.  Here is an example of of `for` loop that is used to add up the elements of a list.
 
 ```{python}
 thesum = 0
@@ -32,11 +32,20 @@ for i in [3,2,1,9.9]:
  ```
 
 which isn't that much longer than using a loop.  However, as the list gets longer and/or the mathematical operations being performed get more complex the second method would get unreasonably long.
+
+
 The correct language is to say that we are _iterating_ over the list `[3,2,1,9.9]`.  This
 means that the loop variable (`i` in this case but you can choose it to be whatever you want) gets assigned
 the values of the list elements, one by one, until it reaches the end
 of the list.  You can use `for` loops to iterate over any multi-element object like lists or tuples.  Python uses indentation to indicate
 where the loop ends. In this case there was only one statement inside to loop, but if you wanted more than one each line should be indented.  
+
+
+>**_To Do:_**
+>
+>1. Add a `print` statement inside of the loop above to display the value of the variable `thesum`.
+>2. Predict what the output will be and then run the code and verify that you were correct.
+>3. Now change the loop variable to be named `physics` and verify that the loop still works as expected.
 
 
 You can iterate over `range` objects and strings using `for` loops.
@@ -106,6 +115,13 @@ print(theSum)
 ```
 
 
+
+>**_To Do:_**
+>  Perform the following modifications to the loop above.
+>1. Increase the upper bound of the sum to go up to and include $5000$.
+>2. Only include the terms where `n` is a multiple of 5 and 3 **or** is a multiple of 7.
+>3. Replace the statement that updates `theSum` to its shorthand version.
+
 ### Zipping and Enumerating
 
 There are times when it is necessary to iterate over two lists simultaneously.  For example, let us say that we have a list of atomic numbers (`AN`) and a list of approximate atomic masses (`mass`) of the most abundant isotopes for the first six elements on the periodic table.
@@ -137,6 +153,12 @@ for pair in zipped:
 
 The zip objects are "single use" so you can't reuse `zipped` in a later loop.  If the two lists being zipped are not the same length, `zip` stops zipping when it reaches the end of the shorter list.
 
+>**_To Do:_**
+>
+>1. Print the variable `zipped` and inspect closely.  Was the output what you expected?  
+>2. Now do `print(tuple(zipped))` and inspect closely.  Draw a conclusion.
+>3. Add a few more entries to the list named `AN`, but don't add the corresponding entries to the other list. Now the lists being zipped aren't the same length.  Inspect the output of the print statement to determine what `zip` does in this scenario.
+
 
 #### Enumeration
 
@@ -153,6 +175,9 @@ for idx,val in enum:
 ```
 
 
+>**_To Do:_**
+>
+>1. Repeat the previous To-Dos for the cell above.
 
 
 ### List Comprehension
@@ -190,6 +215,9 @@ print(myList)
 ```
 
 
+>**_To Do:_**
+>
+>1. Think of your favorite mathematical function and modify the code above to generate a few samples from it.
 
 ## `while` Loops
 
@@ -198,24 +226,31 @@ Logic can be combined with loops using something called a
 don't know beforehand exactly how many iterations of the loop will be
 executed but rather want the loop to continue to execute until some
 condition is met.  As an example, notice that in @eq-sum, the terms in the sum get progressively smaller as $n$ gets bigger.  It doesn't make sense to continue adding to the sum once the terms get very small.  Let's compute this sum
-by looping until the fraction ${1 \over n^2}$  become smaller than $1 \times 10^{-10}$.
+by looping until the fraction ${1 \over n^2}$  become smaller than $1 \times 10^{-2}$.
 
 ```{python}
 term = 1  # Load the first term in the sum
 s = term  # Initialize the sum
 n = 1     # Set a counter
-while term > 1e-10:  # Loop while term is bigger than 1e-10
+while term > 1e-2:  # Loop while term is bigger than 1e-2
     n = n +  1        #Add 1 to n so that it will count: 2,3,4,5
     term = 1./n**2    # Calculate the next term to add
     s = s +  term     # Add 1/n^2 to the running total
 ```
 
-This loop will continue to execute until `term<1e-10`. Note
+This loop will continue to execute until `term<1e-2`. Note
 that unlike the `for` loop, here you have to do your own counting if you need to know how many iterations have been performed. Be
 careful about what value `n` starts at and when it is incremented
 (`n = n + 1`). Also notice that `term` must be assigned
 prior to the start of the loop.  If it wasn't the loop's first logical
 test would fail and the loop wouldn't execute at all.
+
+
+>**_To Do:_**
+>
+>1. Decrease the threshold on the termination condition and observe any changes in the final result and how many more iterations are performed.  
+>2. After toying around with it for a while pick a termination condition that you feel will produce a result that is accurate.
+
 
 `while` loops should be used with caution because you can easily write a *faulty termination condition* and inadvertently write a loop that runs forever.  This happens because your termination condition was never met.  An example of this is given below.
 
@@ -232,6 +267,10 @@ print("Done")
 ```
  The loop above is intended to end after a few iterations when the value of x is equal to 10.  However, closer inspection reveals that the value of x will never be equal to 10.  After the first iteration x is equal to 3, then 6,9,12,15 and so on... but never 10.  This loop will run forever because the termination condition is never met (`x != 10` never produces a `False`)!!  If you choose to use a `while` loop, triple check your termination condition to make sure you haven't made a mental error.  Avoiding the use of `!=` or `==` in your termination condition will help too.  Use `<=` or `>=` instead.
 
+>**_To Do:_**
+>
+>1. Modify the termination condition in the loop above so that it terminates when `x` gets larger than 15.
+>2. Run the code and verify that you did it correct.
 
 ## `continue`, `break`, and `pass` Commands
 
@@ -298,70 +337,48 @@ Finally, the `pass` statement does nothing.  Seriously!!  It is merely a place h
 
 1. Summations appear often in science and mathematics.  One such summation is called the Riemann Zeta function and is given by $$ \zeta(n) = \sum_{k=1}^\infty {1\over k^n} = {1\over 1^n} + {1\over 2^n} + {1\over 3^n} + \dots$$
 
-    1. Use a `for` loop to evaluate $\zeta(2)$ and $\zeta(4)$ and verify that $\zeta(2) = {\pi^2 \over 6}$ and $\zeta(4) = {\pi^4 \over 90}$.  This summation is called an infinite sum and we surely don't want our loop to continue forever!! Instead, an infinite sum like this one can be approximated by including a large number of terms.  To determine if you have included enough terms, increase the number of terms steadily and watch for the final result to stop changing appreciably.
+    1. Use a `for` loop to evaluate $\zeta(2)$ and $\zeta(4)$ and verify that $\zeta(2) = {\pi^2 \over 6}$ and $\zeta(4) = {\pi^4 \over 90}$.  This summation is called an infinite sum and we surely don't want our loop to continue forever!! Instead, an infinite sum like this one can be approximated with a `for` loop with a large number of iterations.  To determine if you have included enough terms, increase the number of terms steadily and watch for the final result to stop changing appreciably.
     2. Now repeat part 1 using list comprehension and the `sum` function?
     3. Repeat the exercise one final time using a `while` loop.  Write the `while` loop so that it stops iterating when the value of ${1\over k^n}$ gets smaller than $1 \times 10^{-6}$.
-    4. Which method do you prefer?
 
 
 ```{python}
-#| eval: true
 
-from math import pi
-
-n = 4
-seq= [1/k**n for k in range(1,1000)]
-
-print(sum(seq))
-print(pi**4/90)
 ```
 
 
-2. A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: $$ {\sin x \over x} = 1$$  One numerical method for solving an equation like this involves first rearranging it to look like this: $$ x = \sin x$$ and then repeatedly evaluating the right hand side, using the result of the previous evaluation, until subsequent evaluations differ very little ($1 \times 10^{-3}$ would be fine). [^relax] Use a `while` loop to solve this equation and report the correct value for x.  Then plug the answer back into the equation to verify that it indeed does satisfy the equation.
-Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't the same value or your stopping criteria will trigger on the first iteration and the loop won't run at all.
+2. A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: $$ {\sin x \over x} = 1$$  One numerical method for solving an equation like this involves first rearranging it to look like this: $$ x = \sin x$$ and then using a loop to repeatedly evaluating the right hand side, using the result of the previous evaluation as the input, until subsequent evaluations differ very little ($1 \times 10^{-3}$ would be fine). [^relax] The first few iterations of this process might look something like this: $$(x_\text{old})_1 = 2 \text{ (starting guess)}$$ $$(x_\text{new})_1 = \sin((x_\text{old})_1)$$ $$(x_\text{old})_2 = (x_\text{new})_1$$ $$(x_\text{new})_2 = \sin((x_\text{old})_2)$$ $$(x_\text{old})_3 = (x_\text{new})_2$$ $$(x_\text{new})_3 = \sin((x_\text{old})_3)$$
+
+    1. Use a `while` loop to solve this equation and report the correct value for x.  
+    2. Plug the answer back into the equation to verify that it indeed does satisfy the equation.
+    3. Report how many iterations it took to solve the problem.
+    3. Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.
+
+    Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't equal or your stopping criteria will trigger on the first iteration and the loop won't run at all.
 
 
 ```{python}
-#| eval: false
-from math import sin
-xnew = 2
-xold = 1
 
-while abs(xnew - xold) > 1e-3:
-    xold = xnew
-    xnew = sin(xold)
-
-    
-print(xnew)
-print(sin(xnew))
-
+xold = 2 # starting guess
 ```
 [^relax]: This is called successive relaxation.
 
 
-3. An object that is dropped from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (terminal velocity).  The function that describes the velocity of the particle as a function of time is given by
-
-$$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$
-
-and the terminal velocity is given by
-
-$$v_t = \sqrt{m g \over c}$$
-
+3. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = \sqrt{m g \over c}$$
 where $m$ is the mass of the projectile, $c$ is the drag constant, $g= 9.8$ m/s$^2$ is the acceleration due to gravity, $v_0$ is the initial velocity of the particle, and $t$ is time. 
 
+    1. Use a while loop to calculate the velocity of the particle at $0.1$ second time intervals, starting at $t = 0$.
+    2. The loop should terminate when the velocity of the particle achieves $90\%$ of terminal velocity.
+    3. Use a print statement to display the amount of time that has elapsed before reaching $90\%$ of terminal velocity.
+    4. Hypothesize about what might happen if you increased or decreased the mass of the object, while leaving all other physical parameters fixed.  Then modify your code and see if your guess was right.
+    5. Hypothesize about what might happen if you increased or decreased the drag constant (`c`) for the object, while leaving all other physical parameters fixed.  Then modify your code and see if your guess was right.
+
 ```{python}
-from math import exp
-m = 2
+#| eval: true
+from numpy import exp,sqrt
+m = 20
 g = 9.8
 c = 0.75
 v0=0
 
-v = []
-t = 0
-dt = 0.5
-while t < 10:
-    v.append(-m * g / c + (m * g /c + v0) * exp(-c * t/m))
-    t += dt
-
-print(v)
 ```
