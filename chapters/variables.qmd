@@ -151,11 +151,6 @@ a += 10
 Augmented assignment can be used with addition, subtraction, multiplication, and division as shown in the code cell below.
 
 
->**_To Do:_**
->
->1. Predict what the final result of a will be in the code cell below.
->2. Add an appropriately-place print statement to see if you were correct.
->3. If you were wrong, pow-wow with your neighbor until you understand.
 
 ```{python}
 a = 7
@@ -169,8 +164,9 @@ a /= 3
 >**_To Do:_**
 >
 >1. Predict what the final result of `a` will be in the code cell above.
->2. Add an appropriately-place print statement to see if you were correct.
+>2. Add an appropriately-place `print` statement to see if you were correct.
 >3. If you were wrong, pow-wow with your neighbor until you understand.
+
 ### Compound Assignment
 
 At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it's own line of code, but if there are a lot of variables, this can begin to clutter your code a little.  An alternative is to assign multiple variables on a single line.  In the code below, we assign the atomic mass of the first three elements.

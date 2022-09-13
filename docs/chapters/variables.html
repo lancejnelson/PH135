@@ -243,9 +243,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#numbers-integers-and-floats" id="toc-numbers-integers-and-floats" class="nav-link" data-scroll-target="#numbers-integers-and-floats"> <span class="header-section-number">2.2</span> Numbers: Integers and Floats</a>
   <ul class="collapse">
   <li><a href="#augmented-assignment" id="toc-augmented-assignment" class="nav-link" data-scroll-target="#augmented-assignment"> <span class="header-section-number">2.2.1</span> Augmented Assignment</a></li>
-  <li><a href="#large-numbers" id="toc-large-numbers" class="nav-link" data-scroll-target="#large-numbers"> <span class="header-section-number">2.2.2</span> Large numbers</a></li>
-  <li><a href="#very-large-numbers" id="toc-very-large-numbers" class="nav-link" data-scroll-target="#very-large-numbers"> <span class="header-section-number">2.2.3</span> Very Large Numbers</a></li>
-  <li><a href="#python-functions" id="toc-python-functions" class="nav-link" data-scroll-target="#python-functions"> <span class="header-section-number">2.2.4</span> Python functions</a></li>
+  <li><a href="#compound-assignment" id="toc-compound-assignment" class="nav-link" data-scroll-target="#compound-assignment"> <span class="header-section-number">2.2.2</span> Compound Assignment</a></li>
+  <li><a href="#large-numbers" id="toc-large-numbers" class="nav-link" data-scroll-target="#large-numbers"> <span class="header-section-number">2.2.3</span> Large numbers</a></li>
+  <li><a href="#very-large-numbers" id="toc-very-large-numbers" class="nav-link" data-scroll-target="#very-large-numbers"> <span class="header-section-number">2.2.4</span> Very Large Numbers</a></li>
+  <li><a href="#python-functions" id="toc-python-functions" class="nav-link" data-scroll-target="#python-functions"> <span class="header-section-number">2.2.5</span> Python functions</a></li>
   </ul></li>
   <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">2.3</span> Flash Cards</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">2.4</span> Exercises</a></li>
@@ -428,14 +429,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Augmented assignment can be used with addition, subtraction, multiplication, and division as shown in the code cell below.</p>
-<blockquote class="blockquote">
-<p><strong><em>To Do:</em></strong></p>
-<ol type="1">
-<li>Predict what the final result of a will be in the code cell below.</li>
-<li>Add an appropriately-place print statement to see if you were correct.</li>
-<li>If you were wrong, pow-wow with your neighbor until you understand.</li>
-</ol>
-</blockquote>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">3</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">-=</span> <span class="dv">1</span></span>
@@ -445,10 +438,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong><em>To Do:</em></strong></p>
 <ol type="1">
 <li>Predict what the final result of <code>a</code> will be in the code cell above.</li>
-<li>Add an appropriately-place print statement to see if you were correct.</li>
-<li>If you were wrong, pow-wow with your neighbor until you understand. ### Compound Assignment</li>
+<li>Add an appropriately-place <code>print</code> statement to see if you were correct.</li>
+<li>If you were wrong, pow-wow with your neighbor until you understand.</li>
 </ol>
 </blockquote>
+</section>
+<section id="compound-assignment" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="compound-assignment"><span class="header-section-number">2.2.2</span> Compound Assignment</h3>
 <p>At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it’s own line of code, but if there are a lot of variables, this can begin to clutter your code a little. An alternative is to assign multiple variables on a single line. In the code below, we assign the atomic mass of the first three elements.</p>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>H, He, Li <span class="op">=</span> <span class="fl">1.01</span>, <span class="fl">4.00</span>, <span class="fl">5.39</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
@@ -459,8 +455,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </blockquote>
 </section>
-<section id="large-numbers" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="large-numbers"><span class="header-section-number">2.2.2</span> Large numbers</h3>
+<section id="large-numbers" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="large-numbers"><span class="header-section-number">2.2.3</span> Large numbers</h3>
 <p>Sometimes you find yourself working with large numbers in your calculation. Maybe your calculation involves the use of ten billion, which has 10 zeros in it. It can be difficult to look at all of those zeros with no commas to help break it up. In those cases, you can use an underscore (<code>_</code>) in place of the comma, as shown below.</p>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10000000000</span> <span class="co"># This is tough to look at.</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10_000_000_000</span>  <span class="co"># This is easy to read</span></span>
@@ -468,15 +464,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>myLargeFloat <span class="op">=</span> <span class="fl">5000000.6</span> <span class="co"># This is tough to read</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>myLargeFloat <span class="op">=</span> <span class="fl">5_000_000.6</span> <span class="co"># This is easy to read</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="very-large-numbers" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="very-large-numbers"><span class="header-section-number">2.2.3</span> Very Large Numbers</h3>
+<section id="very-large-numbers" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="very-large-numbers"><span class="header-section-number">2.2.4</span> Very Large Numbers</h3>
 <p>If your number is very large or very small ( <span class="math inline">\(20-30\)</span> zeros), you would probably rather not have to type all of the zeros at all, even if you can break it up with the underscores. For example, the Boltzmann constant, which comes up in thermodynamics, has a value equal to</p>
 <p><span class="math display">\[ 1.38 \times 10^{-23}\]</span></p>
 <p>We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below) This is super handy for very large and very small number. (Numbers of both variety show up frequently in physics!)</p>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kB <span class="op">=</span> <span class="fl">1.38e-23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="python-functions" class="level3" data-number="2.2.4">
-<h3 data-number="2.2.4" class="anchored" data-anchor-id="python-functions"><span class="header-section-number">2.2.4</span> Python functions</h3>
+<section id="python-functions" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="python-functions"><span class="header-section-number">2.2.5</span> Python functions</h3>
 <p>In addition to basic mathematical functions, python contains several mathematical <em>functions</em>. As in mathematics, a function has a name (e.g.&nbsp;<em>f</em>) and the arguments are places inside of the parenthesis after the name. The <em>argument</em> is any value or piece of information fed into the function. In the case below, <em>f</em> requires a single argument <em>x</em>.</p>
 <p><span class="math display">\[f(x)\]</span></p>
 <p>In the cell below, you will find several useful math equations.</p>
