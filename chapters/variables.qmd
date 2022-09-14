@@ -268,12 +268,9 @@ radians(4)
 5. What is the best way to increase/decrease the value of a variable by an additive constant (add a number to it)?
 6. When assigning large numbers to variables, what character can replace the "," to separate the numbers into groups of three?
 7. How do you use scientific notation to assign a very large number to a variable?
-8. Explain how to print a sentence with a variable inserted in the middle?
-9. What format code should be used to display a variable as a float with 8 total spaces and 2 numbers after the decimal?
-10. What format code should be used to display a variable in scientific notation with 6 total spaces and 2 numbers after the decimal?
-11. When using a trig function ($\sin \theta$, $\cos \theta$, $\tan \theta$), the number that is passed in must have what units?
-12. What does the `math.radians` function do?
-13. Where can you find King Benjamin's address to his people?
+8. When using a trig function ($\sin \theta$, $\cos \theta$, $\tan \theta$), the number that is passed in must have what units?
+9. What does the `math.radians` function do?
+10. Where can you find King Benjamin's address to his people?
 
 ## Exercises
 

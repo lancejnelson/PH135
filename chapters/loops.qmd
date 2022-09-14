@@ -117,7 +117,9 @@ print(theSum)
 
 
 >**_To Do:_**
->  Perform the following modifications to the loop above.
+>
+>Perform the following modifications to the loop above.  
+> 
 >1. Increase the upper bound of the sum to go up to and include $5000$.
 >2. Only include the terms where `n` is a multiple of 5 and 3 **or** is a multiple of 7.
 >3. Replace the statement that updates `theSum` to its shorthand version.
@@ -217,7 +219,7 @@ print(myList)
 
 >**_To Do:_**
 >
->1. Think of your favorite mathematical function and modify the code above to generate a few samples from it.
+>Think of your favorite mathematical function and modify the code above to generate a few samples from it.
 
 ## `while` Loops
 
@@ -375,7 +377,7 @@ where $m$ is the mass of the projectile, $c$ is the drag constant, $g= 9.8$ m/s$
 
 ```{python}
 #| eval: true
-from numpy import exp,sqrt
+from math import exp,sqrt
 m = 20
 g = 9.8
 c = 0.75

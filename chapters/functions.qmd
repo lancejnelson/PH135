@@ -321,3 +321,21 @@ quad(lambda x: sin(pi * x)**2,0,0.4 )
 
 
 ```
+
+
+## Flash Cards
+1. Describe the basic structure and key elements of a user-defined function.
+2. What are function arguments?
+3. List all of the ways that a function can be imported from a module.
+4. What does the `return` statement do?
+5. What is the difference between a local and global variables?
+6. What is a keyword argument? Give an example.
+7. What is a lambda function? How do you make one? 
+8. 
+
+
+## Exercises
+1. A wooden block is placed on a horizontal surface and pushed across the floor with an initial velocity of $v_0$.  The expression for the position of the block after $t$ seconds have elapsed is $$x(t) = v_0 t - {1\over 2} \mu g t^2$$ where $\mu$ is the coefficient of friction and $g = 9.8$ m/s$^2$.  You can easily calculate the time it takes for the block to come to rest to be $$ T = {v_0 \over \mu g}$$.  Write a function that takes the coefficient of friction and initial velocity as arguments and returns the total distance traveled while coming to rest.  
+
+    1. Call the function for $v_0 = 7.2$ m/s and the following values of $\mu = 0.62,0.3,0.45,0.2$
+    2. Use list comprehension to put these travel distances into a list.  
