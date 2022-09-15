@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 9&nbsp; File I/O (Input/Output)</title>
+<title>Scientific Computing - 10&nbsp; File I/O (Input/Output)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -192,12 +192,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
   </div>
 </li>
       </ul>
@@ -212,17 +217,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
       </ul>
@@ -236,15 +241,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#reading-files" id="toc-reading-files" class="nav-link active" data-scroll-target="#reading-files"> <span class="header-section-number">9.1</span> Reading Files</a>
+  <li><a href="#reading-files" id="toc-reading-files" class="nav-link active" data-scroll-target="#reading-files"> <span class="header-section-number">10.1</span> Reading Files</a>
   <ul class="collapse">
-  <li><a href="#reading-line-by-line" id="toc-reading-line-by-line" class="nav-link" data-scroll-target="#reading-line-by-line"> <span class="header-section-number">9.1.1</span> Reading Line by Line</a></li>
-  <li><a href="#using-numpys-genfromtxt-function" id="toc-using-numpys-genfromtxt-function" class="nav-link" data-scroll-target="#using-numpys-genfromtxt-function"> <span class="header-section-number">9.1.2</span> Using NumPy’s <code>genfromtxt</code> function</a></li>
+  <li><a href="#reading-line-by-line" id="toc-reading-line-by-line" class="nav-link" data-scroll-target="#reading-line-by-line"> <span class="header-section-number">10.1.1</span> Reading Line by Line</a></li>
+  <li><a href="#using-numpys-genfromtxt-function" id="toc-using-numpys-genfromtxt-function" class="nav-link" data-scroll-target="#using-numpys-genfromtxt-function"> <span class="header-section-number">10.1.2</span> Using NumPy’s <code>genfromtxt</code> function</a></li>
   </ul></li>
-  <li><a href="#writing-files" id="toc-writing-files" class="nav-link" data-scroll-target="#writing-files"> <span class="header-section-number">9.2</span> Writing Files</a>
+  <li><a href="#writing-files" id="toc-writing-files" class="nav-link" data-scroll-target="#writing-files"> <span class="header-section-number">10.2</span> Writing Files</a>
   <ul class="collapse">
-  <li><a href="#writing-line-by-line" id="toc-writing-line-by-line" class="nav-link" data-scroll-target="#writing-line-by-line"> <span class="header-section-number">9.2.1</span> Writing Line by Line</a></li>
-  <li><a href="#using-numpys-savetxt-function" id="toc-using-numpys-savetxt-function" class="nav-link" data-scroll-target="#using-numpys-savetxt-function"> <span class="header-section-number">9.2.2</span> Using NumPy’s <code>savetxt</code> function</a></li>
+  <li><a href="#writing-line-by-line" id="toc-writing-line-by-line" class="nav-link" data-scroll-target="#writing-line-by-line"> <span class="header-section-number">10.2.1</span> Writing Line by Line</a></li>
+  <li><a href="#using-numpys-savetxt-function" id="toc-using-numpys-savetxt-function" class="nav-link" data-scroll-target="#using-numpys-savetxt-function"> <span class="header-section-number">10.2.2</span> Using NumPy’s <code>savetxt</code> function</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -254,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></h1>
 </div>
 
 
@@ -269,10 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Up to now, we have been working with computer-generated or manually typed data sets. Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis. Most data files are <em>text</em> files, but there is a large variety of these that differ mostly in the way the information is formatted. The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file. For example, a <em>.csv</em> file (short for comma-separated values) has commas to separate the information.</p>
-<section id="reading-files" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="reading-files"><span class="header-section-number">9.1</span> Reading Files</h2>
-<section id="reading-line-by-line" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="reading-line-by-line"><span class="header-section-number">9.1.1</span> Reading Line by Line</h3>
+<section id="reading-files" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="reading-files"><span class="header-section-number">10.1</span> Reading Files</h2>
+<section id="reading-line-by-line" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="reading-line-by-line"><span class="header-section-number">10.1.1</span> Reading Line by Line</h3>
 <p>The first way to read a file is using a <code>for</code> loop to iterate over the file line by line. Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works. First, the file is opened using the <code>open</code> command. The file should be attached to a variable for later use. Next, the data is read one line at a time using the <code>readlines()</code> method. We should use a <code>for</code> loop for this. Finally, it is a good idea to close the file when you’re finished. Let’s see an example for reading in the following file, which will be named <code>squares.csv</code></p>
 <pre><code>1, 1
 2, 4
@@ -341,8 +346,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="using-numpys-genfromtxt-function" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="using-numpys-genfromtxt-function"><span class="header-section-number">9.1.2</span> Using NumPy’s <code>genfromtxt</code> function</h3>
+<section id="using-numpys-genfromtxt-function" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="using-numpys-genfromtxt-function"><span class="header-section-number">10.1.2</span> Using NumPy’s <code>genfromtxt</code> function</h3>
 <p>If the data file is highly structured (every line looks the same, separated character is consistent across the file, etc) then NumPy’s <code>genfromtxt</code> function can read the data very efficiently into an array. The <code>genfromtxt</code> function requires only one argument (the file name) with another optional argument (<code>delimiter</code>) that is typically included to specify the character used to separate the data. Below is an example for using this function to read in the .csv data we have been working with.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
@@ -415,11 +420,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </section>
 </section>
-<section id="writing-files" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="writing-files"><span class="header-section-number">9.2</span> Writing Files</h2>
+<section id="writing-files" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="writing-files"><span class="header-section-number">10.2</span> Writing Files</h2>
 <p>Writing Python data to file is as simple as is reading a file. Just like when you are reading a file, determining which method to use will be determined by the type of data that you are writing. If your data is strictly numerical information stored in an array, Numpy has a function that will quickly save the data to a file. If your data is rife with inconsistencies, non-numerical data, etc, you’ll have to use Python’s native <code>write</code> function.</p>
-<section id="writing-line-by-line" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="writing-line-by-line"><span class="header-section-number">9.2.1</span> Writing Line by Line</h3>
+<section id="writing-line-by-line" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="writing-line-by-line"><span class="header-section-number">10.2.1</span> Writing Line by Line</h3>
 <p>Sometimes the data file that you want to write includes some text or other non-numerical data. For example, what if you wanted to write the following data to file:</p>
 <table class="table">
 <thead>
@@ -484,8 +489,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="using-numpys-savetxt-function" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="using-numpys-savetxt-function"><span class="header-section-number">9.2.2</span> Using NumPy’s <code>savetxt</code> function</h3>
+<section id="using-numpys-savetxt-function" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="using-numpys-savetxt-function"><span class="header-section-number">10.2.2</span> Using NumPy’s <code>savetxt</code> function</h3>
 <p>If the data is strictly numerical and contains no text, the <code>savetxt</code> function is a fast and efficient way to write the data to file. For example, maybe you have a two dimensional array containing various columns of planetary data.</p>
 <table class="table">
 <colgroup>
@@ -808,12 +813,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/numpy.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/basicPlotting.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

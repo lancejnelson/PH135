@@ -18,6 +18,7 @@ book:
       - chapters/strings.qmd
       - chapters/booleans.qmd
       - chapters/listsAndTuples.qmd
+      - chapters/dictionarySet.qmd
       - chapters/loops.qmd
       - chapters/functions.qmd
     - part: "Intermediate Python"

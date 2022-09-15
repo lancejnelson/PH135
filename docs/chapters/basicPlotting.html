@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 10&nbsp; Basic Plotting</title>
+<title>Scientific Computing - 11&nbsp; Basic Plotting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -191,12 +191,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
   </div>
 </li>
       </ul>
@@ -211,17 +216,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
       </ul>
@@ -235,23 +240,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#plotting-functions-of-a-single-variable" id="toc-plotting-functions-of-a-single-variable" class="nav-link active" data-scroll-target="#plotting-functions-of-a-single-variable"> <span class="header-section-number">10.1</span> Plotting Functions of a Single Variable</a>
+  <li><a href="#plotting-functions-of-a-single-variable" id="toc-plotting-functions-of-a-single-variable" class="nav-link active" data-scroll-target="#plotting-functions-of-a-single-variable"> <span class="header-section-number">11.1</span> Plotting Functions of a Single Variable</a>
   <ul class="collapse">
-  <li><a href="#linestyles-markers-and-colors" id="toc-linestyles-markers-and-colors" class="nav-link" data-scroll-target="#linestyles-markers-and-colors"> <span class="header-section-number">10.1.1</span> Linestyles, Markers, and Colors</a></li>
-  <li><a href="#labeling-plots" id="toc-labeling-plots" class="nav-link" data-scroll-target="#labeling-plots"> <span class="header-section-number">10.1.2</span> Labeling Plots</a></li>
-  <li><a href="#greek-letters" id="toc-greek-letters" class="nav-link" data-scroll-target="#greek-letters"> <span class="header-section-number">10.1.3</span> Greek Letters</a></li>
-  <li><a href="#controlling-the-axes" id="toc-controlling-the-axes" class="nav-link" data-scroll-target="#controlling-the-axes"> <span class="header-section-number">10.1.4</span> Controlling the Axes</a></li>
-  <li><a href="#overlaying-plots" id="toc-overlaying-plots" class="nav-link" data-scroll-target="#overlaying-plots"> <span class="header-section-number">10.1.5</span> Overlaying Plots</a></li>
+  <li><a href="#linestyles-markers-and-colors" id="toc-linestyles-markers-and-colors" class="nav-link" data-scroll-target="#linestyles-markers-and-colors"> <span class="header-section-number">11.1.1</span> Linestyles, Markers, and Colors</a></li>
+  <li><a href="#labeling-plots" id="toc-labeling-plots" class="nav-link" data-scroll-target="#labeling-plots"> <span class="header-section-number">11.1.2</span> Labeling Plots</a></li>
+  <li><a href="#greek-letters" id="toc-greek-letters" class="nav-link" data-scroll-target="#greek-letters"> <span class="header-section-number">11.1.3</span> Greek Letters</a></li>
+  <li><a href="#controlling-the-axes" id="toc-controlling-the-axes" class="nav-link" data-scroll-target="#controlling-the-axes"> <span class="header-section-number">11.1.4</span> Controlling the Axes</a></li>
+  <li><a href="#overlaying-plots" id="toc-overlaying-plots" class="nav-link" data-scroll-target="#overlaying-plots"> <span class="header-section-number">11.1.5</span> Overlaying Plots</a></li>
   </ul></li>
-  <li><a href="#other-plot-types" id="toc-other-plot-types" class="nav-link" data-scroll-target="#other-plot-types"> <span class="header-section-number">10.2</span> Other Plot Types</a>
+  <li><a href="#other-plot-types" id="toc-other-plot-types" class="nav-link" data-scroll-target="#other-plot-types"> <span class="header-section-number">11.2</span> Other Plot Types</a>
   <ul class="collapse">
-  <li><a href="#logarithmic-plots" id="toc-logarithmic-plots" class="nav-link" data-scroll-target="#logarithmic-plots"> <span class="header-section-number">10.2.1</span> Logarithmic Plots</a></li>
-  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots"> <span class="header-section-number">10.2.2</span> Bar Plots</a></li>
-  <li><a href="#errorbar-plots" id="toc-errorbar-plots" class="nav-link" data-scroll-target="#errorbar-plots"> <span class="header-section-number">10.2.3</span> Errorbar Plots</a></li>
-  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots"> <span class="header-section-number">10.2.4</span> Scatter Plots</a></li>
-  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"> <span class="header-section-number">10.2.5</span> Histograms</a></li>
+  <li><a href="#logarithmic-plots" id="toc-logarithmic-plots" class="nav-link" data-scroll-target="#logarithmic-plots"> <span class="header-section-number">11.2.1</span> Logarithmic Plots</a></li>
+  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots"> <span class="header-section-number">11.2.2</span> Bar Plots</a></li>
+  <li><a href="#errorbar-plots" id="toc-errorbar-plots" class="nav-link" data-scroll-target="#errorbar-plots"> <span class="header-section-number">11.2.3</span> Errorbar Plots</a></li>
+  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots"> <span class="header-section-number">11.2.4</span> Scatter Plots</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"> <span class="header-section-number">11.2.5</span> Histograms</a></li>
+  <li><a href="#polar-plots" id="toc-polar-plots" class="nav-link" data-scroll-target="#polar-plots"> <span class="header-section-number">11.2.6</span> Polar Plots</a></li>
   </ul></li>
-  <li><a href="#multifigure-plots" id="toc-multifigure-plots" class="nav-link" data-scroll-target="#multifigure-plots"> <span class="header-section-number">10.3</span> Multifigure Plots</a></li>
+  <li><a href="#multifigure-plots" id="toc-multifigure-plots" class="nav-link" data-scroll-target="#multifigure-plots"> <span class="header-section-number">11.3</span> Multifigure Plots</a></li>
   </ul>
 </nav>
     </div>
@@ -260,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></h1>
 </div>
 
 
@@ -274,13 +280,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong…. it’s worth way more than that if you do it right. When making plots on a computer it is important to remember that computers don’t plot functions, rather they plot individual points. Only when you connect those points does the image look like the function you are so used to seeing. In this chapter we will use a library called <code>matplotlib</code> for plotting. More specifically, we will import the <code>pyplot</code> function inside of <code>matplotlib</code>. It is customary to use <code>plt</code> as an alias for <code>pyplot</code>.</p>
+<p>Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong…. it’s worth way more than that if you do it right. When making plots of functions on a computer it is important to remember that computers don’t plot functions, rather they plot individual points. Only when you connect those points does the image look like the function you are used to seeing. In this chapter we will use a library called <code>matplotlib</code> for plotting. More specifically, we will import the <code>pyplot</code> function inside of <code>matplotlib</code>. It is customary to use <code>plt</code> as an alias for <code>pyplot</code>.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>%matplotlib inline</code> statement is a Jupyter notebook command. It tells Jupyter to display any plots generated directly in the notebook instead of in a separate window. If you use matplotlib in another environment, you should remove this line and instead place <code>plt.show()</code> af the plot commands.</p>
-<section id="plotting-functions-of-a-single-variable" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="plotting-functions-of-a-single-variable"><span class="header-section-number">10.1</span> Plotting Functions of a Single Variable</h2>
-<p>In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. A good choice for generating the x-coordinates is either <code>linspace</code> or <code>arange</code> from NumPy. The following equation is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance</p>
+<section id="plotting-functions-of-a-single-variable" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="plotting-functions-of-a-single-variable"><span class="header-section-number">11.1</span> Plotting Functions of a Single Variable</h2>
+<p>In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. If you want to plot a function, the list of x coordinates should be chosen to be a dense array of points spanning the function’s domain and the list of y coordinates should be the function values at those points. A good choice for generating the x-coordinates is either <code>linspace</code> or <code>arange</code> from NumPy. Let’s consider an example. The function shown below is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance</p>
 <p><span class="math display">\[ E = 4\sigma\left[ \left({\epsilon\over r} \right)^{12} - \left({\epsilon\over r} \right)^{6}\right]\]</span></p>
 <p>Let’s plot this function from <span class="math inline">\(0.9\)</span> to <span class="math inline">\(4.0\)</span>.</p>
 <div class="cell" data-execution_count="2">
@@ -290,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>epsilon <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">20</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>energy <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigma<span class="op">*</span> ((epsilon<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilon<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
@@ -299,9 +305,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="basicPlotting_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>By default, matplotlib connects the points to form a line (albeit a bit jagged because we didn’t plot that many points).</p>
-<section id="linestyles-markers-and-colors" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="linestyles-markers-and-colors"><span class="header-section-number">10.1.1</span> Linestyles, Markers, and Colors</h3>
+<blockquote class="blockquote">
+<p><strong><em>To Do:</em></strong></p>
+<ol type="1">
+<li>You may have noticed that the plot doesn’t appear very smooth. Think about what modifications you might make so that the plot is smoother.</li>
+<li>Run the code to verify that you did it correct.</li>
+</ol>
+</blockquote>
+<section id="linestyles-markers-and-colors" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="linestyles-markers-and-colors"><span class="header-section-number">11.1.1</span> Linestyles, Markers, and Colors</h3>
 <p>Three optional arguments can help you control the look of the plot: <code>marker</code>, <code>linestyle</code>, and <code>color</code>. All of these arguments take strings. The <code>linestyle</code> argument determines if the line is solid or dashed and what type of dashing to use. The <code>marker</code> argument specifies the shape of the plot marker to be used. Below are tables listing possible options for these arguments.</p>
 <table class="table">
 <caption>Common Marker Styles</caption>
@@ -448,8 +460,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="labeling-plots" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="labeling-plots"><span class="header-section-number">10.1.2</span> Labeling Plots</h3>
+<section id="labeling-plots" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="labeling-plots"><span class="header-section-number">11.1.2</span> Labeling Plots</h3>
 <p>All good plots have axes labels and a title and you can add them to a matplotlib plot using the <code>xlabel()</code>, <code>ylabel()</code>, and <code>title()</code> functions which are placed on their own line after the <code>plot</code> command.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -472,8 +484,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="greek-letters" class="level3" data-number="10.1.3">
-<h3 data-number="10.1.3" class="anchored" data-anchor-id="greek-letters"><span class="header-section-number">10.1.3</span> Greek Letters</h3>
+<section id="greek-letters" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="greek-letters"><span class="header-section-number">11.1.3</span> Greek Letters</h3>
 <p>In physics, Greek letters get used all the time and you may find yourself wanting to use one in a plot title or axes label. This can be accomplished by placing an <code>r</code> in front of the title string and then placing the name of the greek variable inside of <code>$</code> with a backslash in front of it. This is better illustrated with an example.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -576,8 +588,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="controlling-the-axes" class="level3" data-number="10.1.4">
-<h3 data-number="10.1.4" class="anchored" data-anchor-id="controlling-the-axes"><span class="header-section-number">10.1.4</span> Controlling the Axes</h3>
+<section id="controlling-the-axes" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="controlling-the-axes"><span class="header-section-number">11.1.4</span> Controlling the Axes</h3>
 <p>By default, matplotlib will size the plot window to include all of the points. If you want to zoom in our out, you can do so with the <code>xlim</code> and <code>ylim</code> functions. These functions should be placed after the plot command on their own line just like the label commands.</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -602,8 +614,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="overlaying-plots" class="level3" data-number="10.1.5">
-<h3 data-number="10.1.5" class="anchored" data-anchor-id="overlaying-plots"><span class="header-section-number">10.1.5</span> Overlaying Plots</h3>
+<section id="overlaying-plots" class="level3" data-number="11.1.5">
+<h3 data-number="11.1.5" class="anchored" data-anchor-id="overlaying-plots"><span class="header-section-number">11.1.5</span> Overlaying Plots</h3>
 <p>Often you will want to plot more than one set of data on the same set of axes. This can be accomplished two ways. The first way is to call the <code>plot</code> function twice in the same Jupyter notebook cell. Matplotlib will automatically place the plots on the same figure and scale it appropriately. Below you will find a plot of the Lennard-Jones potential for two choices of the parameters <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -665,11 +677,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="other-plot-types" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="other-plot-types"><span class="header-section-number">10.2</span> Other Plot Types</h2>
+<section id="other-plot-types" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="other-plot-types"><span class="header-section-number">11.2</span> Other Plot Types</h2>
 <p>Beyond the line plot that we learned about in the previous section, matplotlib can generate many other types of plots that are very useful in a scientific setting. We’ll explore some of them here.</p>
-<section id="logarithmic-plots" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="logarithmic-plots"><span class="header-section-number">10.2.1</span> Logarithmic Plots</h3>
+<section id="logarithmic-plots" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="logarithmic-plots"><span class="header-section-number">11.2.1</span> Logarithmic Plots</h3>
 <p>Sometimes the function being plotted increases or decreases by many orders of magnitude and a normal linear plot would not be particularly useful. Logarithmic plots can be made with the use of the <code>semilogx</code>, <code>semilogy</code>, or <code>loglog</code> functions depending on which axes you want to be on a logarithmic scale. Consider the first plot produced below. Notice that it rises from <span class="math inline">\(0\)</span> at <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(10^{45}\)</span> at <span class="math inline">\(x = 100\)</span>. Plotting this function with the y-axis scaled logarithmically will smooth out the plot and make it easier to analyze.</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -691,8 +703,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="bar-plots" class="level3" data-number="10.2.2">
-<h3 data-number="10.2.2" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">10.2.2</span> Bar Plots</h3>
+<section id="bar-plots" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">11.2.2</span> Bar Plots</h3>
 <p>A bar plot and a scatter plot are quite similar except that instead of a plot marker indicating the associated value, the height of the bar represents the value. You can make a bar plot using the <code>bar</code> function inside of <code>pyplot</code>.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -748,8 +760,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="errorbar-plots" class="level3" data-number="10.2.3">
-<h3 data-number="10.2.3" class="anchored" data-anchor-id="errorbar-plots"><span class="header-section-number">10.2.3</span> Errorbar Plots</h3>
+<section id="errorbar-plots" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="errorbar-plots"><span class="header-section-number">11.2.3</span> Errorbar Plots</h3>
 <p>To make plots with error bars use matplotlilb’s <code>errorbar</code> function. You can choose to add error bars on the x or y axis using the keyword arguments <code>xerr</code> and <code>yerr</code>.</p>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -772,8 +784,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>The <code>linestyle</code>, <code>marker</code>, and <code>markersize</code> arguments work with this plot type also.</p>
 </section>
-<section id="scatter-plots" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">10.2.4</span> Scatter Plots</h3>
+<section id="scatter-plots" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">11.2.4</span> Scatter Plots</h3>
 <p>We have already generated scatter plots using the <code>plot</code> function but you can also use the <code>scatter</code> command to do the same thing. The only other additional functionality with <code>scatter</code> is the ability to specify the color, shape, and size of each plot marker individually.</p>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -792,15 +804,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Length of day for planets in our solar system (color indicates mass)"</span>)</span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x11eefe1c0&gt;</code></pre>
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x11ad84bb0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="basicPlotting_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="histograms" class="level3" data-number="10.2.5">
-<h3 data-number="10.2.5" class="anchored" data-anchor-id="histograms"><span class="header-section-number">10.2.5</span> Histograms</h3>
+<section id="histograms" class="level3" data-number="11.2.5">
+<h3 data-number="11.2.5" class="anchored" data-anchor-id="histograms"><span class="header-section-number">11.2.5</span> Histograms</h3>
 <p>Histograms display bars representing the frequency of values in a given data set. Unlike bar plots, the width of the bar is meaningful since the each bar represents the number of x-values that fall within a range given by the width of the bar. A histogram can be constructed using the <code>hist</code> function. There is only one required argument, which is the data set. Some commonly used keyword arguments are <code>bins</code> which specifies how many equally-spaced groups (called <em>bins</em>) to generate and <code>edgecolor</code> which can be used to specify the color of the bar’s edges.</p>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
@@ -840,91 +852,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
+<section id="polar-plots" class="level3" data-number="11.2.6">
+<h3 data-number="11.2.6" class="anchored" data-anchor-id="polar-plots"><span class="header-section-number">11.2.6</span> Polar Plots</h3>
+<p>In a polar plot instead of providing <span class="math inline">\((x,y)\)</span> coordinates, you provide <span class="math inline">\((r,\theta)\)</span> coordinates, where <span class="math inline">\(r\)</span> is the radial distance from the origin and <span class="math inline">\(\theta\)</span> is the angular location on the unit circle.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,pi,sin</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">4</span> <span class="op">*</span> pi,<span class="dv">150</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> sin(<span class="dv">2</span><span class="op">*</span> theta)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>plt.polar(theta,r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="basicPlotting_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
-<section id="multifigure-plots" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="multifigure-plots"><span class="header-section-number">10.3</span> Multifigure Plots</h2>
+</section>
+<section id="multifigure-plots" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="multifigure-plots"><span class="header-section-number">11.3</span> Multifigure Plots</h2>
 <p>To generate multiple, independent plots in the same figure a few more lines of code are necessary to specify how you want the plots arranged. There are two general methods for doing that and we will demonstrate both of them. In the first method, you’ll first use the <code>figure()</code> command to generate a figure and the <code>subplot()</code> function to generate the individual plots in the figure. The <code>subplot</code> function take three arguments.</p>
 <pre><code>subplot(rows,columns,plot_number)</code></pre>
 <p>As an example, to generate a figure of two plots side by side.</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>Text(0.5, 1.0, 'Lennard-Jones Potential')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="basicPlotting_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+<p><img src="basicPlotting_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Pay close attention to the <code>subplot</code> function. <code>subplot(1,2,1)</code> will generate a <span class="math inline">\(1\)</span> x <span class="math inline">\(2\)</span> grid of plots and place the next plot generated at the 1st location. Below is an example of a more advanced array of plots. Pay close attention to the <code>subplot</code> functions until you understand.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="basicPlotting_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>The other method for generating an array of plots is similar to the first but different functions are used and a little more control over the plots is gained. In this approach, functions to explicitly creates and links subplots, called <em>axes</em> are used. Just as before, the <code>figure</code> function is used to generate the overall figure. The create each subplot, the <code>add_subplot(rows,columns, plot_number)</code> function is used. The arguments to this function are the same as for <code>subplot</code> in the previous method. After the plot object has been created, we can call the <code>plot</code> function again, but this time preceded by the axes object that you just created. Here is an example.</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
@@ -939,33 +927,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>ax1.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>ax2.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>ax3.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>ax3.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>ax3.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>plt.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="basicPlotting_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The other method for generating an array of plots is similar to the first but different functions are used and a little more control over the plots is gained. In this approach, functions to explicitly creates and links subplots, called <em>axes</em> are used. Just as before, the <code>figure</code> function is used to generate the overall figure. The create each subplot, the <code>add_subplot(rows,columns, plot_number)</code> function is used. The arguments to this function are the same as for <code>subplot</code> in the previous method. After the plot object has been created, we can call the <code>plot</code> function again, but this time preceded by the axes object that you just created. Here is an example.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>ax1.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>ax2.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>ax3.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>ax3.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>ax3.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="basicPlotting_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Notice the <code>set_xlim</code>, <code>set_ylim</code>, <code>set_xlabel</code> etc methods that were used to customize each individual plot. There are a host of other methods available for further customization. <a href="https://matplotlib.org/stable/api/axes_api.html#subplots">This</a> website has a comprehensive list of them.</p>
@@ -1177,7 +1207,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/io.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

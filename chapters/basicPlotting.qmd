@@ -6,7 +6,7 @@ citation-location: margin
 
 # Basic Plotting
 Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
-you do it right.  When making plots on a computer it is important to remember that computers don't plot functions, rather they plot individual points.  Only when you connect those points does the image look like the function you are so used to seeing.  In this chapter we will use a library called `matplotlib` for plotting.  More specifically, we will import the `pyplot` function inside of `matplotlib`. It is customary to use `plt` as an alias for `pyplot`.
+you do it right.  When making plots of functions on a computer it is important to remember that computers don't plot functions, rather they plot individual points.  Only when you connect those points does the image look like the function you are used to seeing.  In this chapter we will use a library called `matplotlib` for plotting.  More specifically, we will import the `pyplot` function inside of `matplotlib`. It is customary to use `plt` as an alias for `pyplot`.
 
 ```{python}
 from matplotlib import pyplot as plt
@@ -17,7 +17,7 @@ from matplotlib import pyplot as plt
 The `%matplotlib inline` statement is a Jupyter notebook command. It tells Jupyter to display any plots generated directly in the notebook instead of in a separate window.  If you use matplotlib in another environment, you should remove this line and instead place `plt.show()` af the plot commands.
 
 ## Plotting Functions of a Single Variable
- In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. A good choice for generating the x-coordinates is either `linspace` or `arange` from NumPy. The following equation is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance
+ In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. If you want to plot a function, the list of x coordinates should be chosen to be a dense array of points spanning the function's domain and the list of y coordinates should be the function values at those points. A good choice for generating the x-coordinates is either `linspace` or `arange` from NumPy. Let's consider an example. The function shown below is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance
 
 
 $$ E = 4\sigma\left[ \left({\epsilon\over r} \right)^{12} - \left({\epsilon\over r} \right)^{6}\right]$$
@@ -30,7 +30,7 @@ from numpy import linspace,sqrt
 
 sigma = 1
 epsilon = 1
-r = linspace(0.9,4,50)
+r = linspace(0.9,4,20)
 energy = 4 * sigma* ((epsilon/r)**12 - (epsilon/r)**6)
 
 plt.figure()
@@ -38,8 +38,10 @@ plt.plot(r,energy)
 
 ```
 
-
-By default, matplotlib connects the points to form a line (albeit a bit jagged because we didn't plot that many points). 
+>**_To Do:_**
+>  
+>1. You may have noticed that the plot doesn't appear very smooth. Think about what modifications you might make so that the plot is smoother. 
+>2. Run the code to verify that you did it correct.
 
 ### Linestyles, Markers, and Colors
 
@@ -392,6 +394,25 @@ plt.figure()
 plt.hist(densities,bins = [0,2.5,5,7.5,10,12.5,15,17.5,20,22.5],edgecolor = 'r')
 plt.xlabel("Material Densities")
 plt.title(r"Histogram of Material Densities (g/cm$^3$)")
+
+```
+
+### Polar Plots
+
+In a polar plot instead of providing $(x,y)$ coordinates, you provide $(r,\theta)$ coordinates, where $r$ is the radial distance from the origin and $\theta$ is the angular location on the unit circle.  
+
+
+
+```{python}
+from matplotlib import pyplot as plt
+%matplotlib inline
+from numpy import linspace,pi,sin
+
+theta = linspace(0,4 * pi,150)
+r = sin(2* theta)
+
+plt.figure()
+plt.polar(theta,r)
 
 ```
 ## Multifigure Plots

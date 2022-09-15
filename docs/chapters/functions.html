@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 7&nbsp; Functions</title>
+<title>Scientific Computing - 8&nbsp; Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -192,12 +192,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
   </div>
 </li>
       </ul>
@@ -212,17 +217,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
       </ul>
@@ -236,17 +241,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#native-functions" id="toc-native-functions" class="nav-link active" data-scroll-target="#native-functions"> <span class="header-section-number">7.1</span> Native Functions</a></li>
-  <li><a href="#imported-functions" id="toc-imported-functions" class="nav-link" data-scroll-target="#imported-functions"> <span class="header-section-number">7.2</span> Imported Functions</a></li>
-  <li><a href="#user-defined-functions" id="toc-user-defined-functions" class="nav-link" data-scroll-target="#user-defined-functions"> <span class="header-section-number">7.3</span> User-defined Functions</a>
+  <li><a href="#native-functions" id="toc-native-functions" class="nav-link active" data-scroll-target="#native-functions"> <span class="header-section-number">8.1</span> Native Functions</a></li>
+  <li><a href="#imported-functions" id="toc-imported-functions" class="nav-link" data-scroll-target="#imported-functions"> <span class="header-section-number">8.2</span> Imported Functions</a></li>
+  <li><a href="#user-defined-functions" id="toc-user-defined-functions" class="nav-link" data-scroll-target="#user-defined-functions"> <span class="header-section-number">8.3</span> User-defined Functions</a>
   <ul class="collapse">
-  <li><a href="#the-return-statement" id="toc-the-return-statement" class="nav-link" data-scroll-target="#the-return-statement"> <span class="header-section-number">7.3.1</span> The <code>return</code> statement</a></li>
-  <li><a href="#local-vs-global-variable-scope" id="toc-local-vs-global-variable-scope" class="nav-link" data-scroll-target="#local-vs-global-variable-scope"> <span class="header-section-number">7.3.2</span> Local vs Global Variable Scope</a></li>
-  <li><a href="#positional-vs.-keyword-arguments" id="toc-positional-vs.-keyword-arguments" class="nav-link" data-scroll-target="#positional-vs.-keyword-arguments"> <span class="header-section-number">7.3.3</span> Positional vs.&nbsp;Keyword Arguments</a></li>
-  <li><a href="#lambda-functions" id="toc-lambda-functions" class="nav-link" data-scroll-target="#lambda-functions"> <span class="header-section-number">7.3.4</span> Lambda Functions</a></li>
+  <li><a href="#the-return-statement" id="toc-the-return-statement" class="nav-link" data-scroll-target="#the-return-statement"> <span class="header-section-number">8.3.1</span> The <code>return</code> statement</a></li>
+  <li><a href="#local-vs-global-variable-scope" id="toc-local-vs-global-variable-scope" class="nav-link" data-scroll-target="#local-vs-global-variable-scope"> <span class="header-section-number">8.3.2</span> Local vs Global Variable Scope</a></li>
+  <li><a href="#positional-vs.-keyword-arguments" id="toc-positional-vs.-keyword-arguments" class="nav-link" data-scroll-target="#positional-vs.-keyword-arguments"> <span class="header-section-number">8.3.3</span> Positional vs.&nbsp;Keyword Arguments</a></li>
+  <li><a href="#lambda-functions" id="toc-lambda-functions" class="nav-link" data-scroll-target="#lambda-functions"> <span class="header-section-number">8.3.4</span> Lambda Functions</a></li>
   </ul></li>
-  <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">7.4</span> Flash Cards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">7.5</span> Exercises</a></li>
+  <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">8.4</span> Flash Cards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">8.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></h1>
 </div>
 
 
@@ -301,8 +306,8 @@ print is a function
 </ol>
 </blockquote>
 <p>Python functions generally fall into three groups: functions that come standard with Python (called native functions), functions that you can import into Python, and functions that you write yourself.</p>
-<section id="native-functions" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="native-functions"><span class="header-section-number">7.1</span> Native Functions</h2>
+<section id="native-functions" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="native-functions"><span class="header-section-number">8.1</span> Native Functions</h2>
 <p>There are a few functions that are always ready to go whenever you run Python. They are included with the programming language. We call these functions native functions. You have already been using some of them, like these</p>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">1</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">len</span>(myList)  <span class="co"># 'len' function is native.</span></span>
@@ -312,8 +317,8 @@ print is a function
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="bu">str</span>(<span class="fl">67.3</span>)  <span class="co"># 'str' function is native.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>len</code>, <code>float</code> and <code>str</code> functions are all native and they all take <strong>a single argument</strong>. Other native function have been mentioned in previous chapters and others will be mentioned in the future.</p>
 </section>
-<section id="imported-functions" class="level2 page-columns page-full" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="imported-functions"><span class="header-section-number">7.2</span> Imported Functions</h2>
+<section id="imported-functions" class="level2 page-columns page-full" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="imported-functions"><span class="header-section-number">8.2</span> Imported Functions</h2>
 <div class="page-columns page-full"><p>Many times, you will need to go beyond what Python can do by itself<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. However, that doesn’t mean you have to create everything you need to do from scratch. Most likely, the function that you need has already been coded. Somebody else created the function and made it available to anyone who wants it. Groups of functions that perform similar tasks are typically bundled together into libraries ready to be imported so that the functions that they contain can be used.</p><div class="no-row-height column-margin column-container"><li id="fn2" role="doc-endnote"><p><sup>2</sup>&nbsp;For example, Python does not include <span class="math inline">\(\sin()\)</span> or <span class="math inline">\(\cos()\)</span> as Native functions.</p></li></div></div>
 <p>In order to use use a function correctly, you’ll need to know what information(arguments) the function expects you to give it and what information the function intends to return to you as a result. This information can be found in the library’s documentation. Most libraries have great documentation with lists of the included functions, what the functions do, the expected arguments, and examples on how to use the most common ones. You can usually find the library documentation by searching the internet for the library’s name plus “Python documentation”.</p>
 <p>Providing a complete list of all available libraries and function is not really the purpose of this book. Instead, we’ll illustrate how to import functions and use them. As you use Python more and more you should get in the habit of searching out the appropriate library to accomplish the task at hand. When faced with a task to accomplish, your first thought should be, “ I’ll bet somebody has already done that. I’m going to try to find that library.”</p>
@@ -344,8 +349,8 @@ print is a function
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> sin(pi)</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> e<span class="op">**</span><span class="fl">2.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="user-defined-functions" class="level2 page-columns page-full" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="user-defined-functions"><span class="header-section-number">7.3</span> User-defined Functions</h2>
+<section id="user-defined-functions" class="level2 page-columns page-full" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="user-defined-functions"><span class="header-section-number">8.3</span> User-defined Functions</h2>
 <p>After having programmed for a while, you will notice that certain tasks get repeated frequently. For example, maybe in your research project you need to calculate the force exerted on an atom due to many other nearby atoms. You could copy and paste your force-calculation code every time it was needed, but that would likely result in lots of extra code and become very cumbersome to work with. You can avoid this by creating your own function to calculate the force between any two atoms. Then, every time you need another force calculation, you simple call the function again. You only write the force-calculation part of the code once and then you execute it as many times as you need to.</p>
 <p>To create your own function, you first need to name the function. The name should be descriptive of what it does and makes sense to you and anyone else who might use it. The first line of a function definition starts with the <code>def</code> statement (short for definition) followed by the name of the function with whatever information, called <em>arguments</em>, that needs to be fed into the function enclosed in parenthesis. <strong>The last character in this line must be a colon.</strong> Everything inside the function is indented four spaces and placed directly below the first line.</p>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> functionName(arg1,arg2,arg3):</span>
@@ -373,8 +378,8 @@ The distance is 7.2560.</code></pre>
 </div>
 </div>
 <p>This function works just fine with integers or floats for the coordinates.</p>
-<section id="the-return-statement" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="the-return-statement"><span class="header-section-number">7.3.1</span> The <code>return</code> statement</h3>
+<section id="the-return-statement" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="the-return-statement"><span class="header-section-number">8.3.1</span> The <code>return</code> statement</h3>
 <p>The <code>distance</code> function prints out the value for the distance, but what if we want to use this distance in a subsequent calculation? Maybe we want to calculate the average distance between several pairs of atoms. We can instruct the function to return the final distance using the <code>return</code> statement. If the arguments to the function are the inputs, the <code>return</code> statement specifies what the output is. Let’s modify the function above to include a <code>return</code> statement.</p>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -397,8 +402,8 @@ The distance is 7.2560.</code></pre>
 </div>
 </div>
 </section>
-<section id="local-vs-global-variable-scope" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="local-vs-global-variable-scope"><span class="header-section-number">7.3.2</span> Local vs Global Variable Scope</h3>
+<section id="local-vs-global-variable-scope" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="local-vs-global-variable-scope"><span class="header-section-number">8.3.2</span> Local vs Global Variable Scope</h3>
 <p>Variables created inside of a function have <em>local scope</em>. This means that they are not accessible outside of the function. In our <code>distance</code> function the variables <code>dx</code>,<code>dy</code>,<code>dz</code>, and <code>d</code> were all local variables that are used inside the function but have no value outside of it. This is convenient because we don’t have to worry about overwriting a variable or using it twice. If someone sends you a function and you want to use it in your code, you don’t have to worry about what variable he/she chose to use inside his function; they won’t affect your code at all.</p>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> distance(coords1,coords2):</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    dx <span class="op">=</span> coords1[<span class="dv">0</span>] <span class="op">-</span> coords2[<span class="dv">0</span>]</span>
@@ -424,8 +429,8 @@ The distance is 7.2560.</code></pre>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span>         <span class="co">#&lt;--- g defined to be a global variable</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> myFunction(r,t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="positional-vs.-keyword-arguments" class="level3 page-columns page-full" data-number="7.3.3">
-<h3 data-number="7.3.3" class="anchored" data-anchor-id="positional-vs.-keyword-arguments"><span class="header-section-number">7.3.3</span> Positional vs.&nbsp;Keyword Arguments</h3>
+<section id="positional-vs.-keyword-arguments" class="level3 page-columns page-full" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="positional-vs.-keyword-arguments"><span class="header-section-number">8.3.3</span> Positional vs.&nbsp;Keyword Arguments</h3>
 <p>The function arguments we have been using so far are called <em>positional arguments</em> because they are required to be in a specific position inside the parenthesis. To see what I mean consider the example below.</p>
 <div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> example(a,b):</span>
@@ -469,8 +474,8 @@ The distance is 7.2560.</code></pre>
 </div>
 </div>
 </section>
-<section id="lambda-functions" class="level3" data-number="7.3.4">
-<h3 data-number="7.3.4" class="anchored" data-anchor-id="lambda-functions"><span class="header-section-number">7.3.4</span> Lambda Functions</h3>
+<section id="lambda-functions" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="lambda-functions"><span class="header-section-number">8.3.4</span> Lambda Functions</h3>
 <p>When the function you want to construct is very simple (one line), there is a shortcut code for making it called a <em>lambda function</em>. The benefit is that they occupy less lines of code than the standard <code>def</code> functions. A lambda function is defined as shown below with the variable immediately after the <code>lambda</code> statement as the independent variable in the function.</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
@@ -486,14 +491,14 @@ The distance is 7.2560.</code></pre>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin, pi</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>quad(<span class="kw">lambda</span> x: sin(pi <span class="op">*</span> x)<span class="op">**</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="fl">0.4</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>(0.15322553581056808, 1.7011451781741914e-15)</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="flash-cards" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="flash-cards"><span class="header-section-number">7.4</span> Flash Cards</h2>
+<section id="flash-cards" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="flash-cards"><span class="header-section-number">8.4</span> Flash Cards</h2>
 <ol type="1">
 <li>Describe the basic structure and key elements of a user-defined function.</li>
 <li>What are function arguments?</li>
@@ -505,13 +510,49 @@ The distance is 7.2560.</code></pre>
 <li></li>
 </ol>
 </section>
-<section id="exercises" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.5</span> Exercises</h2>
 <ol type="1">
-<li><p>A wooden block is placed on a horizontal surface and pushed across the floor with an initial velocity of <span class="math inline">\(v_0\)</span>. The expression for the position of the block after <span class="math inline">\(t\)</span> seconds have elapsed is <span class="math display">\[x(t) = v_0 t - {1\over 2} \mu g t^2\]</span> where <span class="math inline">\(\mu\)</span> is the coefficient of friction and <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span>. You can easily calculate the time it takes for the block to come to rest to be <span class="math display">\[ T = {v_0 \over \mu g}\]</span>. Write a function that takes the coefficient of friction and initial velocity as arguments and returns the total distance traveled while coming to rest.</p>
+<li><p>A wooden block is placed on a horizontal surface and pushed across the floor with an initial velocity of <span class="math inline">\(v_0\)</span>. The expression for the position of the block after <span class="math inline">\(t\)</span> seconds have elapsed is <span class="math display">\[x(t) = v_0 t - {1\over 2} \mu g t^2\]</span> where <span class="math inline">\(\mu\)</span> is the coefficient of friction and <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span>. You can easily calculate the time it takes for the block to come to rest to be <span class="math display">\[ T = {v_0 \over \mu g}\]</span>.</p>
 <ol type="1">
+<li>Write a function that takes the coefficient of friction and the initial velocity as arguments and returns the total distance traveled while coming to rest.<br>
+</li>
 <li>Call the function for <span class="math inline">\(v_0 = 7.2\)</span> m/s and the following values of <span class="math inline">\(\mu = 0.62,0.3,0.45,0.2\)</span></li>
-<li>Use list comprehension to put these travel distances into a list.</li>
+<li>Use list comprehension to put these travel distances into a list.<br>
+</li>
+<li>Use the <code>zip</code> function to combine the list of friction coefficients with the list of travel distances.</li>
+<li>Use a <code>print</code> statement to verify that you did it correctly.</li>
+</ol></li>
+<li><p>In quantum mechanics you will learn that the energy of an electron can’t just be any old value, but can only be certain discrete values. For the hydrogen atom, the allowed energy levels for the electron (in units of electron-volts) are given by <span class="math display">\[E(n) = {-m_e e^3 \over 32 \pi^2 \epsilon_0^2 \hbar^2 n^2}\]</span> where <span class="math inline">\(n\)</span> must be an integer and the other constants are</p>
+<ul>
+<li><span class="math inline">\(m_e = 9.109 \times 10^{-31}\)</span> kg is the mass of an electron.</li>
+<li><span class="math inline">\(e = 1.602 \times 10^{-19}\)</span> C is the fundamental.</li>
+<li><span class="math inline">\(\epsilon_0 = 8.854 \times 10^{-12}\)</span> C V<span class="math inline">\(^{-1}\)</span> m<span class="math inline">\(^{-1}\)</span> is the electrical constant.</li>
+<li><span class="math inline">\(\hbar = 1.054 \times 10^{-34}\)</span> J s is the reduced Planck constant.</li>
+</ul>
+<ol type="1">
+<li>Construct a function that takes the quantum number (<span class="math inline">\(n\)</span>) as an argument and returns the energy of the electron in units of electron-volts. All of the fundamental constants in the equation should appear as keyword arguments with default values attached. Call the function for a few values of <span class="math inline">\(n\)</span> to make sure it is working. You should find that <span class="math inline">\(E(1) = -13.6\)</span> eV, <span class="math inline">\(E(2) = -3.4\)</span> eV, <span class="math inline">\(E(3) = -1.5\)</span> eV, etc.</li>
+<li>When an electron transitions from a high energy state to a low energy state, it releases a bundle of light (called a “photon”) with an energy that is exactly equal to the energy difference. Use the function you built in part 1 to calculate the energy of a photon that is released when an electron transitions from the <span class="math inline">\(n = 5\)</span> state to the <span class="math inline">\(n = 2\)</span> state.</li>
+<li>The wavelength (<span class="math inline">\(\lambda\)</span>) of the photon can by calculated using the following equation: <span class="math display">\[\lambda = {2 \pi \hbar c \over e \Delta E}\]</span>. Calculate the wavelength of light released for the transition described in part 2. Go to <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/vision/specol.html#c1">this</a> website and determine what color this corresponds to.</li>
+<li>Use list comprehension together with the function you built in part 1 to build a list containing the 15 lowest-energy levels for the hydrogen atom.</li>
+</ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>me <span class="op">=</span> <span class="fl">9.109e-31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Max Planck discovered that <strong>all</strong> objects emit a spectrum of radiation and that the intensity of the spectrum depends on the object’s temperature. The equation for the intensity of the emitted light is <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where
+<ul>
+<li><span class="math inline">\(c = 3.0 \times 10^8\)</span> m/s is the speed of light.</li>
+<li><span class="math inline">\(k_B = 1.38 \times 10^{-23}\)</span> m<span class="math inline">\(^2\)</span>kg s<span class="math inline">\(^{-2}\)</span> K<span class="math inline">\(^{-1}\)</span> is the Boltzmann constant.</li>
+<li><span class="math inline">\(\epsilon_0 = 8.854 \times 10^{-12}\)</span> C V<span class="math inline">\(^{-1}\)</span> m<span class="math inline">\(^{-1}\)</span> is the electrical constant.</li>
+<li>T is temperature in Kelvins.</li>
+<li><span class="math inline">\(\lambda\)</span> is wavelength in meters.</li>
+</ul>
+<ol type="1">
+<li>Write a function that takes two arguments: the temperature of the object and the wavelength of light. All other physical constants should appear as keyword arguments with appropriate default values attached. The function should return the corresponding light intensity given by the function above.</li>
+<li>The temperature of the sun is approximately <span class="math inline">\(5780\)</span> K and it emits strongly in the visible region of the spectrum. Use the function you built in part 1 to calculate the intensity of light emitted by the sun at the following wavelengths: [250 nm, 500 nm, 750 nm, 1000 nm, 1500 nm] (“nm” is short for nano-meters or <span class="math inline">\(\times 10^{-9}\)</span> meters). Use list comprehension to build a list of these intensities. Comment on the trend that you notice.</li>
+<li>The coldest temperature ever measured in our solar system was at <span class="math inline">\(25\)</span> K at the bottom of a lunar crater during “night” time. That’s -410<span class="math inline">\(^\circ\)</span> F.. Yowza! However, during “day” time, the temperature of the moon is about <span class="math inline">\(400\)</span> K. Compute the intensity of daytime light emitted by the moon for the same wavelengths given in part 2. As before, use list comprehension to put these intensities into a list. How do these intensities compare to the sun’s?<br>
+</li>
+<li>The moon emits strongest in the infrared region of the spectrum (<span class="math inline">\(\lambda &gt; 750\)</span> nm) which our eyes are not able to see. The only reason we can see the moon is because it reflects light from the sun. Recalculate the intensity of light from the moon for the following infrared wavelengths: [6000 nm, 7500 nm, 9000 nm, 10000 nm, 12000 nm]. How do these intensities compare to the sun’s light?</li>
 </ol></li>
 </ol>
 
@@ -723,12 +764,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/loops.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/numpy.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

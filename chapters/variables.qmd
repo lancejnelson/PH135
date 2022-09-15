@@ -320,7 +320,7 @@ where
    - $m_e = 9.109 \times 10^{-31}$ kg is the mass of an electron.
    - $e = 1.602 \times 10^{-19}$ C is the charge of an electron/proton.
    - $\epsilon_0 = 8.854 \times 10^{-12}$ C V$^{-1}$ m$^{-1}$ is the electrical constant.
-   - $h = 6.626 \times 10^{-34}$ J s is Plank's constant.
+   - $h = 6.626 \times 10^{-34}$ J Hz is the Planck constant.
    - $c = 3 \times 10^8$ m/s is the speed of light.
 
     These constants show up all over in physics.  In the cell below write some code that assigns the constants to variables and then use the variables to calculate Rydberg's constant. Use a print statement to display the result.  The result should be: $R_\infty = 10961656.2162$ (in m$^{-1}$)

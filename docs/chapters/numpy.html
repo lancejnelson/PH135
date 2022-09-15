@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 8&nbsp; The numpy module</title>
+<title>Scientific Computing - 9&nbsp; The numpy module</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -192,12 +192,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
   </div>
 </li>
       </ul>
@@ -212,17 +217,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
       </ul>
@@ -236,39 +241,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#numpy-arrays" id="toc-numpy-arrays" class="nav-link active" data-scroll-target="#numpy-arrays"> <span class="header-section-number">8.1</span> Numpy Arrays</a></li>
-  <li><a href="#array-creation" id="toc-array-creation" class="nav-link" data-scroll-target="#array-creation"> <span class="header-section-number">8.2</span> Array Creation</a>
+  <li><a href="#numpy-arrays" id="toc-numpy-arrays" class="nav-link active" data-scroll-target="#numpy-arrays"> <span class="header-section-number">9.1</span> Numpy Arrays</a></li>
+  <li><a href="#array-creation" id="toc-array-creation" class="nav-link" data-scroll-target="#array-creation"> <span class="header-section-number">9.2</span> Array Creation</a>
   <ul class="collapse">
-  <li><a href="#type-conversion-from-list" id="toc-type-conversion-from-list" class="nav-link" data-scroll-target="#type-conversion-from-list"> <span class="header-section-number">8.2.1</span> Type Conversion from List</a></li>
-  <li><a href="#the-arange-and-linspace-functions" id="toc-the-arange-and-linspace-functions" class="nav-link" data-scroll-target="#the-arange-and-linspace-functions"> <span class="header-section-number">8.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</a></li>
-  <li><a href="#arrays-from-functions" id="toc-arrays-from-functions" class="nav-link" data-scroll-target="#arrays-from-functions"> <span class="header-section-number">8.2.3</span> Arrays from Functions</a></li>
+  <li><a href="#type-conversion-from-list" id="toc-type-conversion-from-list" class="nav-link" data-scroll-target="#type-conversion-from-list"> <span class="header-section-number">9.2.1</span> Type Conversion from List</a></li>
+  <li><a href="#the-arange-and-linspace-functions" id="toc-the-arange-and-linspace-functions" class="nav-link" data-scroll-target="#the-arange-and-linspace-functions"> <span class="header-section-number">9.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</a></li>
+  <li><a href="#arrays-from-functions" id="toc-arrays-from-functions" class="nav-link" data-scroll-target="#arrays-from-functions"> <span class="header-section-number">9.2.3</span> Arrays from Functions</a></li>
   </ul></li>
-  <li><a href="#accessing-and-slicing-arrays" id="toc-accessing-and-slicing-arrays" class="nav-link" data-scroll-target="#accessing-and-slicing-arrays"> <span class="header-section-number">8.3</span> Accessing and Slicing Arrays</a>
+  <li><a href="#accessing-and-slicing-arrays" id="toc-accessing-and-slicing-arrays" class="nav-link" data-scroll-target="#accessing-and-slicing-arrays"> <span class="header-section-number">9.3</span> Accessing and Slicing Arrays</a>
   <ul class="collapse">
-  <li><a href="#one-dimensional-arrays" id="toc-one-dimensional-arrays" class="nav-link" data-scroll-target="#one-dimensional-arrays"> <span class="header-section-number">8.3.1</span> One-dimensional Arrays</a></li>
-  <li><a href="#multi-dimensional-arrays" id="toc-multi-dimensional-arrays" class="nav-link" data-scroll-target="#multi-dimensional-arrays"> <span class="header-section-number">8.3.2</span> Multi-dimensional Arrays</a></li>
-  <li><a href="#accessing-multiple-elements" id="toc-accessing-multiple-elements" class="nav-link" data-scroll-target="#accessing-multiple-elements"> <span class="header-section-number">8.3.3</span> Accessing Multiple Elements</a></li>
+  <li><a href="#one-dimensional-arrays" id="toc-one-dimensional-arrays" class="nav-link" data-scroll-target="#one-dimensional-arrays"> <span class="header-section-number">9.3.1</span> One-dimensional Arrays</a></li>
+  <li><a href="#multi-dimensional-arrays" id="toc-multi-dimensional-arrays" class="nav-link" data-scroll-target="#multi-dimensional-arrays"> <span class="header-section-number">9.3.2</span> Multi-dimensional Arrays</a></li>
+  <li><a href="#accessing-multiple-elements" id="toc-accessing-multiple-elements" class="nav-link" data-scroll-target="#accessing-multiple-elements"> <span class="header-section-number">9.3.3</span> Accessing Multiple Elements</a></li>
   </ul></li>
-  <li><a href="#slicing-arrays" id="toc-slicing-arrays" class="nav-link" data-scroll-target="#slicing-arrays"> <span class="header-section-number">8.4</span> Slicing Arrays</a>
+  <li><a href="#slicing-arrays" id="toc-slicing-arrays" class="nav-link" data-scroll-target="#slicing-arrays"> <span class="header-section-number">9.4</span> Slicing Arrays</a>
   <ul class="collapse">
-  <li><a href="#multi-dimensional-arrays-1" id="toc-multi-dimensional-arrays-1" class="nav-link" data-scroll-target="#multi-dimensional-arrays-1"> <span class="header-section-number">8.4.1</span> Multi-dimensional Arrays</a></li>
-  <li><a href="#boolean-slicing" id="toc-boolean-slicing" class="nav-link" data-scroll-target="#boolean-slicing"> <span class="header-section-number">8.4.2</span> Boolean Slicing</a></li>
+  <li><a href="#multi-dimensional-arrays-1" id="toc-multi-dimensional-arrays-1" class="nav-link" data-scroll-target="#multi-dimensional-arrays-1"> <span class="header-section-number">9.4.1</span> Multi-dimensional Arrays</a></li>
+  <li><a href="#boolean-slicing" id="toc-boolean-slicing" class="nav-link" data-scroll-target="#boolean-slicing"> <span class="header-section-number">9.4.2</span> Boolean Slicing</a></li>
   </ul></li>
-  <li><a href="#vectorization-and-broadcasting" id="toc-vectorization-and-broadcasting" class="nav-link" data-scroll-target="#vectorization-and-broadcasting"> <span class="header-section-number">8.5</span> Vectorization and Broadcasting</a>
+  <li><a href="#vectorization-and-broadcasting" id="toc-vectorization-and-broadcasting" class="nav-link" data-scroll-target="#vectorization-and-broadcasting"> <span class="header-section-number">9.5</span> Vectorization and Broadcasting</a>
   <ul class="collapse">
-  <li><a href="#numpy-functions" id="toc-numpy-functions" class="nav-link" data-scroll-target="#numpy-functions"> <span class="header-section-number">8.5.1</span> Numpy Functions</a></li>
-  <li><a href="#arrays-of-same-dimensions" id="toc-arrays-of-same-dimensions" class="nav-link" data-scroll-target="#arrays-of-same-dimensions"> <span class="header-section-number">8.5.2</span> Arrays of same Dimensions</a></li>
-  <li><a href="#arrays-of-different-dimensions" id="toc-arrays-of-different-dimensions" class="nav-link" data-scroll-target="#arrays-of-different-dimensions"> <span class="header-section-number">8.5.3</span> Arrays of Different Dimensions</a></li>
-  <li><a href="#vectorizing-user-defined-functions" id="toc-vectorizing-user-defined-functions" class="nav-link" data-scroll-target="#vectorizing-user-defined-functions"> <span class="header-section-number">8.5.4</span> Vectorizing user-defined functions</a></li>
+  <li><a href="#numpy-functions" id="toc-numpy-functions" class="nav-link" data-scroll-target="#numpy-functions"> <span class="header-section-number">9.5.1</span> Numpy Functions</a></li>
+  <li><a href="#arrays-of-same-dimensions" id="toc-arrays-of-same-dimensions" class="nav-link" data-scroll-target="#arrays-of-same-dimensions"> <span class="header-section-number">9.5.2</span> Arrays of same Dimensions</a></li>
+  <li><a href="#arrays-of-different-dimensions" id="toc-arrays-of-different-dimensions" class="nav-link" data-scroll-target="#arrays-of-different-dimensions"> <span class="header-section-number">9.5.3</span> Arrays of Different Dimensions</a></li>
+  <li><a href="#vectorizing-user-defined-functions" id="toc-vectorizing-user-defined-functions" class="nav-link" data-scroll-target="#vectorizing-user-defined-functions"> <span class="header-section-number">9.5.4</span> Vectorizing user-defined functions</a></li>
   </ul></li>
-  <li><a href="#manipulating-and-modifying-arrays" id="toc-manipulating-and-modifying-arrays" class="nav-link" data-scroll-target="#manipulating-and-modifying-arrays"> <span class="header-section-number">8.6</span> Manipulating and Modifying Arrays</a>
+  <li><a href="#manipulating-and-modifying-arrays" id="toc-manipulating-and-modifying-arrays" class="nav-link" data-scroll-target="#manipulating-and-modifying-arrays"> <span class="header-section-number">9.6</span> Manipulating and Modifying Arrays</a>
   <ul class="collapse">
-  <li><a href="#reshaping-arrays" id="toc-reshaping-arrays" class="nav-link" data-scroll-target="#reshaping-arrays"> <span class="header-section-number">8.6.1</span> Reshaping Arrays</a></li>
-  <li><a href="#flattening-arrays" id="toc-flattening-arrays" class="nav-link" data-scroll-target="#flattening-arrays"> <span class="header-section-number">8.6.2</span> Flattening Arrays</a></li>
-  <li><a href="#transposing-arrays" id="toc-transposing-arrays" class="nav-link" data-scroll-target="#transposing-arrays"> <span class="header-section-number">8.6.3</span> Transposing Arrays</a></li>
-  <li><a href="#merging-arrays" id="toc-merging-arrays" class="nav-link" data-scroll-target="#merging-arrays"> <span class="header-section-number">8.6.4</span> Merging Arrays</a></li>
+  <li><a href="#reshaping-arrays" id="toc-reshaping-arrays" class="nav-link" data-scroll-target="#reshaping-arrays"> <span class="header-section-number">9.6.1</span> Reshaping Arrays</a></li>
+  <li><a href="#flattening-arrays" id="toc-flattening-arrays" class="nav-link" data-scroll-target="#flattening-arrays"> <span class="header-section-number">9.6.2</span> Flattening Arrays</a></li>
+  <li><a href="#transposing-arrays" id="toc-transposing-arrays" class="nav-link" data-scroll-target="#transposing-arrays"> <span class="header-section-number">9.6.3</span> Transposing Arrays</a></li>
+  <li><a href="#merging-arrays" id="toc-merging-arrays" class="nav-link" data-scroll-target="#merging-arrays"> <span class="header-section-number">9.6.4</span> Merging Arrays</a></li>
   </ul></li>
-  <li><a href="#commonly-used-array-methods-and-functions" id="toc-commonly-used-array-methods-and-functions" class="nav-link" data-scroll-target="#commonly-used-array-methods-and-functions"> <span class="header-section-number">8.7</span> Commonly-used Array Methods and Functions</a></li>
+  <li><a href="#commonly-used-array-methods-and-functions" id="toc-commonly-used-array-methods-and-functions" class="nav-link" data-scroll-target="#commonly-used-array-methods-and-functions"> <span class="header-section-number">9.7</span> Commonly-used Array Methods and Functions</a></li>
   </ul>
 </nav>
     </div>
@@ -277,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></h1>
 </div>
 
 
@@ -292,8 +297,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>Numpy (pronounced “num”-“pie”) is a popular Python library that is heavily used in the scientific/mathematical community. So much so that numpy is typically included as part of the standard bundle of libraries that comes with your Python installation. The functions inside numpy will allow you to solve problems with less effort and will produce faster-executing code.</p>
-<section id="numpy-arrays" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="numpy-arrays"><span class="header-section-number">8.1</span> Numpy Arrays</h2>
+<section id="numpy-arrays" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="numpy-arrays"><span class="header-section-number">9.1</span> Numpy Arrays</h2>
 <p>You are already familiar with Python lists but may not have noticed that they are not suitable for mathematical calculations. For example, attempting to multiply a list by a scalar or evaluate a mathematical function like <span class="math inline">\(\sin()\)</span> on a list will <em>not</em> produce a mathematical result or may produce an error. For example, consider the following code.</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>]</span>
@@ -319,10 +324,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>but this seems overly cumbersome for such a simple task. Numpy <em>ndarrays</em> (short for n-dimensional arrays) or just <em>arrays</em> make this task much simpler. Arrays are similar to lists or nested lists except that mathematical operations and <code>numpy</code> functions (but not <code>math</code> functions) automatically propagate to each element instead of requiring a <code>for</code> loop to iterate over it. Because of their power and convenience, arrays are the default object type for any operation performed with NumPy.</p>
 </section>
-<section id="array-creation" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="array-creation"><span class="header-section-number">8.2</span> Array Creation</h2>
-<section id="type-conversion-from-list" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="type-conversion-from-list"><span class="header-section-number">8.2.1</span> Type Conversion from List</h3>
+<section id="array-creation" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="array-creation"><span class="header-section-number">9.2</span> Array Creation</h2>
+<section id="type-conversion-from-list" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="type-conversion-from-list"><span class="header-section-number">9.2.1</span> Type Conversion from List</h3>
 <p>You can create an array from a list using numpy’s <code>array</code> function. The list that is to be converted is the argument to the <code>array</code> function. Mathematical operations can then be performed on the array and that operation will propagate through to all of the elements.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -348,8 +353,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="the-arange-and-linspace-functions" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="the-arange-and-linspace-functions"><span class="header-section-number">8.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</h3>
+<section id="the-arange-and-linspace-functions" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="the-arange-and-linspace-functions"><span class="header-section-number">9.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</h3>
 <p>Numpy has some sequence-generating functions that generate arrays by specifying start, stop, and step size values similar to the way <code>range</code> generates a list. The two most common ones are <code>arange</code> and <code>linspace</code>. The <code>arange</code> function behaves very similar to the native Python <code>range</code> function with a few notable exceptions:</p>
 <ol type="1">
 <li><code>arange</code> produces an array whereas <code>range</code> produces a list.</li>
@@ -426,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="arrays-from-functions" class="level3" data-number="8.2.3">
-<h3 data-number="8.2.3" class="anchored" data-anchor-id="arrays-from-functions"><span class="header-section-number">8.2.3</span> Arrays from Functions</h3>
+<section id="arrays-from-functions" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="arrays-from-functions"><span class="header-section-number">9.2.3</span> Arrays from Functions</h3>
 <p>A third approach is to generate an array from a function using the <code>fromfunction</code> function which generates an array of values using the array indices as the inputs. Ths function requires two arguments: the name of the function being used and the shape of the array being generated.</p>
 <pre><code>fromfunction(function, shape)</code></pre>
 <p>Let’s make a 3 x 3 array where each element is the product of the row and column indices:</p>
@@ -499,11 +504,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </section>
 </section>
-<section id="accessing-and-slicing-arrays" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="accessing-and-slicing-arrays"><span class="header-section-number">8.3</span> Accessing and Slicing Arrays</h2>
+<section id="accessing-and-slicing-arrays" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="accessing-and-slicing-arrays"><span class="header-section-number">9.3</span> Accessing and Slicing Arrays</h2>
 <p>Accessing and slicing arrays can be done in exactly the same way as is done with lists. However, there is some additional functionality for accessing and slicing arrays that do not apply to lists.</p>
-<section id="one-dimensional-arrays" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="one-dimensional-arrays"><span class="header-section-number">8.3.1</span> One-dimensional Arrays</h3>
+<section id="one-dimensional-arrays" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="one-dimensional-arrays"><span class="header-section-number">9.3.1</span> One-dimensional Arrays</h3>
 <p>Elements from a one-dimensional array can be extracted using square brackets (<code>[]</code>) just like we have done with lists.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -515,8 +520,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="multi-dimensional-arrays" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="multi-dimensional-arrays"><span class="header-section-number">8.3.2</span> Multi-dimensional Arrays</h3>
+<section id="multi-dimensional-arrays" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="multi-dimensional-arrays"><span class="header-section-number">9.3.2</span> Multi-dimensional Arrays</h3>
 <p>Multi-dimensional array can be indexed in a similar fashion to nested lists, but because we often encounter multi-dimensional arrays there is a shortcut that makes the syntax simpler and more convenient. Let’s consider a two-dimensional array as an example. To access the entire second row of the array, provide the row index in square brackets just as with one-dimensional arrays.</p>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -541,8 +546,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="accessing-multiple-elements" class="level3" data-number="8.3.3">
-<h3 data-number="8.3.3" class="anchored" data-anchor-id="accessing-multiple-elements"><span class="header-section-number">8.3.3</span> Accessing Multiple Elements</h3>
+<section id="accessing-multiple-elements" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="accessing-multiple-elements"><span class="header-section-number">9.3.3</span> Accessing Multiple Elements</h3>
 <p>Multiple elements of an array can be accessed using a list for the index instead of a single number.</p>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -574,10 +579,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="slicing-arrays" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="slicing-arrays"><span class="header-section-number">8.4</span> Slicing Arrays</h2>
-<section id="multi-dimensional-arrays-1" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="multi-dimensional-arrays-1"><span class="header-section-number">8.4.1</span> Multi-dimensional Arrays</h3>
+<section id="slicing-arrays" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="slicing-arrays"><span class="header-section-number">9.4</span> Slicing Arrays</h2>
+<section id="multi-dimensional-arrays-1" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="multi-dimensional-arrays-1"><span class="header-section-number">9.4.1</span> Multi-dimensional Arrays</h3>
 <p>We’ve already shown you how to slice a list using the : operator. The same can be done with arrays. However, for 2D (and higher) arrays the slicing is more powerful (intuitive). It can be helpful to visualize an array as a matrix, even if it is not being treated that way Mathematically. For example, let’s say that you define the following array:</p>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -620,8 +625,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="boolean-slicing" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="boolean-slicing"><span class="header-section-number">8.4.2</span> Boolean Slicing</h3>
+<section id="boolean-slicing" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="boolean-slicing"><span class="header-section-number">9.4.2</span> Boolean Slicing</h3>
 <p>Boolean operations can be evaluated on arrays to produce corresponding arrays of booleans. The boolean array can then be used to index the original array and extract elements that meet some criteria.</p>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -650,8 +655,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="vectorization-and-broadcasting" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="vectorization-and-broadcasting"><span class="header-section-number">8.5</span> Vectorization and Broadcasting</h2>
+<section id="vectorization-and-broadcasting" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="vectorization-and-broadcasting"><span class="header-section-number">9.5</span> Vectorization and Broadcasting</h2>
 <p>A major advantage of numpy arrays over lists is that operations <em>vectorize</em> across the arrays. This means that mathematical operations propagate through the array instead of requiring a <code>for</code> loop. This speeds up the calculation and makes code easier to write and read. Simple mathematical operations like adding, subtracting, etc can be performed on arrays as you would expect and the operation propagates through to all elements.</p>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -671,8 +676,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>All of the common mathematical operations that you learned for numbers now apply to arrays. Cool!</p>
-<section id="numpy-functions" class="level3" data-number="8.5.1">
-<h3 data-number="8.5.1" class="anchored" data-anchor-id="numpy-functions"><span class="header-section-number">8.5.1</span> Numpy Functions</h3>
+<section id="numpy-functions" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="numpy-functions"><span class="header-section-number">9.5.1</span> Numpy Functions</h3>
 <p>The numpy library has a massive collection of vectorized mathematical functions and these functions should be used instead of similar functions from other libraries that are not vectorized (like <code>math</code>).</p>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -688,8 +693,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="arrays-of-same-dimensions" class="level3" data-number="8.5.2">
-<h3 data-number="8.5.2" class="anchored" data-anchor-id="arrays-of-same-dimensions"><span class="header-section-number">8.5.2</span> Arrays of same Dimensions</h3>
+<section id="arrays-of-same-dimensions" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="arrays-of-same-dimensions"><span class="header-section-number">9.5.2</span> Arrays of same Dimensions</h3>
 <p>If a mathematical operation is performed between two arrays of the same dimensions, the mathematical operation is performed between corresponding elements in the two arrays. For example, if two <span class="math inline">\(2\)</span> x <span class="math inline">\(2\)</span> arrays are added together, element (0,0) of the first array gets added to the corresponding element in the second and so forth for all elements:</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -724,8 +729,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="arrays-of-different-dimensions" class="level3" data-number="8.5.3">
-<h3 data-number="8.5.3" class="anchored" data-anchor-id="arrays-of-different-dimensions"><span class="header-section-number">8.5.3</span> Arrays of Different Dimensions</h3>
+<section id="arrays-of-different-dimensions" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="arrays-of-different-dimensions"><span class="header-section-number">9.5.3</span> Arrays of Different Dimensions</h3>
 <p>When a mathematical operation between two arrays of different dimensions is attempted, Python has to figure out how to make them have the same shape before performing the operation. <em>Broadcasting</em> refers to the set of rules used for operations like this. To handled arrays with different dimensions, NumPy pads or clones the array with fewer dimensions to make it have the same dimensions as the larger array. For example, what would happen if you attempted this operation:</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -790,8 +795,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p>the operation would succeed because the first dimension of the first array is 1 and the second dimension of both arrays are 3.</p>
 </section>
-<section id="vectorizing-user-defined-functions" class="level3" data-number="8.5.4">
-<h3 data-number="8.5.4" class="anchored" data-anchor-id="vectorizing-user-defined-functions"><span class="header-section-number">8.5.4</span> Vectorizing user-defined functions</h3>
+<section id="vectorizing-user-defined-functions" class="level3" data-number="9.5.4">
+<h3 data-number="9.5.4" class="anchored" data-anchor-id="vectorizing-user-defined-functions"><span class="header-section-number">9.5.4</span> Vectorizing user-defined functions</h3>
 <p>Standard Python functions are often designed to perform a single calculation rather than iterate over a list to perform many calculations. For example, here is a function to calculate the average acceleration of an object given its final velocity and time of travel.</p>
 <div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
@@ -839,8 +844,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="manipulating-and-modifying-arrays" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="manipulating-and-modifying-arrays"><span class="header-section-number">8.6</span> Manipulating and Modifying Arrays</h2>
+<section id="manipulating-and-modifying-arrays" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="manipulating-and-modifying-arrays"><span class="header-section-number">9.6</span> Manipulating and Modifying Arrays</h2>
 <p>A wealth of functions exist to perform routine manipulation tasks on arrays once they are created. Often these tasks will involve changing the number of rows or columns or merging two arrays into one. The <em>size</em> and <em>shape</em> of an array are the number of elements and dimensions, respectively. These can be determined using the <code>shape</code> and <code>size</code> methods.</p>
 <div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -853,8 +858,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 (2, 3)</code></pre>
 </div>
 </div>
-<section id="reshaping-arrays" class="level3" data-number="8.6.1">
-<h3 data-number="8.6.1" class="anchored" data-anchor-id="reshaping-arrays"><span class="header-section-number">8.6.1</span> Reshaping Arrays</h3>
+<section id="reshaping-arrays" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="reshaping-arrays"><span class="header-section-number">9.6.1</span> Reshaping Arrays</h3>
 <p>The dimensions of an array can be modified using the <code>reshape</code> function. This methods maintains the number of elements and the order of elements but repacks them into a different number of rows and columns. Because the number of elements is maintained, the size of the new array has to be the same as the original. Let’s see an example.</p>
 <div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array, reshape</span>
@@ -892,8 +897,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="flattening-arrays" class="level3" data-number="8.6.2">
-<h3 data-number="8.6.2" class="anchored" data-anchor-id="flattening-arrays"><span class="header-section-number">8.6.2</span> Flattening Arrays</h3>
+<section id="flattening-arrays" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="flattening-arrays"><span class="header-section-number">9.6.2</span> Flattening Arrays</h3>
 <p>Flattening an array takes a higher-dimensional array and squishes it into a one-dimensional array. You can “flatten” an array with the <code>flatten</code> method, but note that <code>flatten</code> doesn’t actually modify the original array.</p>
 <div class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
@@ -912,8 +917,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="transposing-arrays" class="level3" data-number="8.6.3">
-<h3 data-number="8.6.3" class="anchored" data-anchor-id="transposing-arrays"><span class="header-section-number">8.6.3</span> Transposing Arrays</h3>
+<section id="transposing-arrays" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="transposing-arrays"><span class="header-section-number">9.6.3</span> Transposing Arrays</h3>
 <p>Transposing an array rotates it across the diagonal and can be accomplished with the <code>transpose</code> function. There is also a shortcut method for this of <code>array.T</code> to accomplish the same thing but just as with <code>flatten</code> it does not modify the original array. (neither does <code>transpose</code>)</p>
 <div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array,transpose</span>
@@ -934,8 +939,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="merging-arrays" class="level3" data-number="8.6.4">
-<h3 data-number="8.6.4" class="anchored" data-anchor-id="merging-arrays"><span class="header-section-number">8.6.4</span> Merging Arrays</h3>
+<section id="merging-arrays" class="level3" data-number="9.6.4">
+<h3 data-number="9.6.4" class="anchored" data-anchor-id="merging-arrays"><span class="header-section-number">9.6.4</span> Merging Arrays</h3>
 <p>Several function exist for combining multiple arrays into a single array. We’ll give examples for a couple and mention the others in reference tables. The most commonly used functions for this task are <code>vstack</code> (vertical stacking) and <code>hstack</code> (horizontal stacking). <code>vstack</code> will stack the original arrays vertically to create the new array and <code>hstack</code> will stack them horizontally. Here are some examples.</p>
 <div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, hstack, vstack</span>
@@ -964,8 +969,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="commonly-used-array-methods-and-functions" class="level2" data-number="8.7">
-<h2 data-number="8.7" class="anchored" data-anchor-id="commonly-used-array-methods-and-functions"><span class="header-section-number">8.7</span> Commonly-used Array Methods and Functions</h2>
+<section id="commonly-used-array-methods-and-functions" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="commonly-used-array-methods-and-functions"><span class="header-section-number">9.7</span> Commonly-used Array Methods and Functions</h2>
 <p>NumPy contains an extensive listing of array methods and functions and it would be impractical to list them all here. However, below you will find some tables of some of the commonly used ones that can serve as a reference.</p>
 <table class="table">
 <caption>Array Attribute Methods and Functions</caption>
@@ -1356,12 +1361,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/functions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/io.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

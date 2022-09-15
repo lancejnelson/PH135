@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 6&nbsp; Loops</title>
+<title>Scientific Computing - 7&nbsp; Loops</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/functions.html" rel="next">
-<link href="../chapters/listsAndTuples.html" rel="prev">
+<link href="../chapters/dictionarySet.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -192,12 +192,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
   </div>
 </li>
       </ul>
@@ -212,17 +217,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
       </ul>
@@ -236,16 +241,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#for-loops" id="toc-for-loops" class="nav-link active" data-scroll-target="#for-loops"> <span class="header-section-number">6.1</span> <code>for</code> loops</a>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link active" data-scroll-target="#for-loops"> <span class="header-section-number">7.1</span> <code>for</code> loops</a>
   <ul class="collapse">
-  <li><a href="#boolean-logic-inside-loops" id="toc-boolean-logic-inside-loops" class="nav-link" data-scroll-target="#boolean-logic-inside-loops"> <span class="header-section-number">6.1.1</span> Boolean Logic Inside Loops</a></li>
-  <li><a href="#zipping-and-enumerating" id="toc-zipping-and-enumerating" class="nav-link" data-scroll-target="#zipping-and-enumerating"> <span class="header-section-number">6.1.2</span> Zipping and Enumerating</a></li>
-  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"> <span class="header-section-number">6.1.3</span> List Comprehension</a></li>
+  <li><a href="#boolean-logic-inside-loops" id="toc-boolean-logic-inside-loops" class="nav-link" data-scroll-target="#boolean-logic-inside-loops"> <span class="header-section-number">7.1.1</span> Boolean Logic Inside Loops</a></li>
+  <li><a href="#zipping-and-enumerating" id="toc-zipping-and-enumerating" class="nav-link" data-scroll-target="#zipping-and-enumerating"> <span class="header-section-number">7.1.2</span> Zipping and Enumerating</a></li>
+  <li><a href="#list-comprehension" id="toc-list-comprehension" class="nav-link" data-scroll-target="#list-comprehension"> <span class="header-section-number">7.1.3</span> List Comprehension</a></li>
   </ul></li>
-  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"> <span class="header-section-number">6.2</span> <code>while</code> Loops</a></li>
-  <li><a href="#continue-break-and-pass-commands" id="toc-continue-break-and-pass-commands" class="nav-link" data-scroll-target="#continue-break-and-pass-commands"> <span class="header-section-number">6.3</span> <code>continue</code>, <code>break</code>, and <code>pass</code> Commands</a></li>
-  <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">6.4</span> Flash Cards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">6.5</span> Exercises</a></li>
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops"> <span class="header-section-number">7.2</span> <code>while</code> Loops</a></li>
+  <li><a href="#continue-break-and-pass-commands" id="toc-continue-break-and-pass-commands" class="nav-link" data-scroll-target="#continue-break-and-pass-commands"> <span class="header-section-number">7.3</span> <code>continue</code>, <code>break</code>, and <code>pass</code> Commands</a></li>
+  <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">7.4</span> Flash Cards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">7.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -254,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Loops</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></h1>
 </div>
 
 
@@ -269,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p><em>Loops</em> allow programs to rerun the same block of code multiple times. This might seem like a funny thing to want to do but it turns out that there are many important tasks that are repetitive in nature (perhaps with small changes for each successive repetition). A loop provides a succinct and efficient way to perform tasks of this nature.</p>
-<section id="for-loops" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">6.1</span> <code>for</code> loops</h2>
+<section id="for-loops" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">7.1</span> <code>for</code> loops</h2>
 <p>The <code>for</code> loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over. Here is an example of of <code>for</code> loop that is used to add up the elements of a list.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="fl">9.9</span>]: </span>
@@ -325,7 +330,7 @@ fun</code></pre>
 </div>
 </div>
 <p>These examples are so simple that you might wonder when a loop might actually be useful to you. Let’s see if we can build a loop to calculate the following sum</p>
-<p><span id="eq-sum"><span class="math display">\[ \sum_{n=1}^{1000} {1\over n^2} \tag{6.1}\]</span></span></p>
+<p><span id="eq-sum"><span class="math display">\[ \sum_{n=1}^{1000} {1\over n^2} \tag{7.1}\]</span></span></p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>theSum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">1000</span>):</span>
@@ -353,8 +358,8 @@ fun</code></pre>
 <pre><code>2432902008176640000</code></pre>
 </div>
 </div>
-<section id="boolean-logic-inside-loops" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="boolean-logic-inside-loops"><span class="header-section-number">6.1.1</span> Boolean Logic Inside Loops</h3>
+<section id="boolean-logic-inside-loops" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="boolean-logic-inside-loops"><span class="header-section-number">7.1.1</span> Boolean Logic Inside Loops</h3>
 <p>Often when using loops, we only want a block of code to execute when some condition is satisfied. We can use boolean logic inside of the loop to accomplish this. For example, let’s write a loop to compute the following sum:</p>
 <p><span class="math display">\[ \sum_{{n\over 5} \in \text{ Int and } {n\over 3} \in \text{ Int}} {1\over n^2} \]</span></p>
 <p>which is similar to the one we did above, but this time we only want to include terms where <span class="math inline">\(n\)</span> is a perfect multiple of both 5 and 3. To check to see if <code>n</code> is a perfect multiple of a number we can calculate the modulo (remainder after division) using the <code>%</code> operator and check that it is equal to zero.</p>
@@ -378,14 +383,14 @@ fun</code></pre>
 </ol>
 </blockquote>
 </section>
-<section id="zipping-and-enumerating" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="zipping-and-enumerating"><span class="header-section-number">6.1.2</span> Zipping and Enumerating</h3>
+<section id="zipping-and-enumerating" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="zipping-and-enumerating"><span class="header-section-number">7.1.2</span> Zipping and Enumerating</h3>
 <p>There are times when it is necessary to iterate over two lists simultaneously. For example, let us say that we have a list of atomic numbers (<code>AN</code>) and a list of approximate atomic masses (<code>mass</code>) of the most abundant isotopes for the first six elements on the periodic table.</p>
 <pre><code>AN = [1,2,3,4,5,6]
 mass = [1,4,7,9,11,12]</code></pre>
 <p>If we want to calculate the number of neutrons in each isotope, we need to subtract each atomic number from the atomic mass. To accomplish this, it would be nice to iterate over both lists simultaneously</p>
-<section id="zipping" class="level4" data-number="6.1.2.1">
-<h4 data-number="6.1.2.1" class="anchored" data-anchor-id="zipping"><span class="header-section-number">6.1.2.1</span> Zipping</h4>
+<section id="zipping" class="level4" data-number="7.1.2.1">
+<h4 data-number="7.1.2.1" class="anchored" data-anchor-id="zipping"><span class="header-section-number">7.1.2.1</span> Zipping</h4>
 <p>The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code>zip</code> function does just that by merging two lists or tuples into a nested list</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>AN <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
@@ -415,8 +420,8 @@ mass = [1,4,7,9,11,12]</code></pre>
 </ol>
 </blockquote>
 </section>
-<section id="enumeration" class="level4" data-number="6.1.2.2">
-<h4 data-number="6.1.2.2" class="anchored" data-anchor-id="enumeration"><span class="header-section-number">6.1.2.2</span> Enumeration</h4>
+<section id="enumeration" class="level4" data-number="7.1.2.2">
+<h4 data-number="7.1.2.2" class="anchored" data-anchor-id="enumeration"><span class="header-section-number">7.1.2.2</span> Enumeration</h4>
 <p>A close relative to <code>zip</code> is <code>enumerate</code> which zips a list to <em>the index value for that list</em> (read that last statement again). It also returns a “single use” object that can be iterated over.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>AN <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
@@ -443,8 +448,8 @@ mass = [1,4,7,9,11,12]</code></pre>
 </blockquote>
 </section>
 </section>
-<section id="list-comprehension" class="level3" data-number="6.1.3">
-<h3 data-number="6.1.3" class="anchored" data-anchor-id="list-comprehension"><span class="header-section-number">6.1.3</span> List Comprehension</h3>
+<section id="list-comprehension" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="list-comprehension"><span class="header-section-number">7.1.3</span> List Comprehension</h3>
 <p>It is fairly common to use a <code>for</code> loop to populate a list with a sequence of numbers.</p>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> []</span>
@@ -479,9 +484,9 @@ mass = [1,4,7,9,11,12]</code></pre>
 </blockquote>
 </section>
 </section>
-<section id="while-loops" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">6.2</span> <code>while</code> Loops</h2>
-<p>Logic can be combined with loops using something called a <code>while</code> loop. A <code>while</code> loop is a good choice when you don’t know beforehand exactly how many iterations of the loop will be executed but rather want the loop to continue to execute until some condition is met. As an example, notice that in <a href="#eq-sum">Equation&nbsp;<span>6.1</span></a>, the terms in the sum get progressively smaller as <span class="math inline">\(n\)</span> gets bigger. It doesn’t make sense to continue adding to the sum once the terms get very small. Let’s compute this sum by looping until the fraction <span class="math inline">\({1 \over n^2}\)</span> become smaller than <span class="math inline">\(1 \times 10^{-2}\)</span>.</p>
+<section id="while-loops" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">7.2</span> <code>while</code> Loops</h2>
+<p>Logic can be combined with loops using something called a <code>while</code> loop. A <code>while</code> loop is a good choice when you don’t know beforehand exactly how many iterations of the loop will be executed but rather want the loop to continue to execute until some condition is met. As an example, notice that in <a href="#eq-sum">Equation&nbsp;<span>7.1</span></a>, the terms in the sum get progressively smaller as <span class="math inline">\(n\)</span> gets bigger. It doesn’t make sense to continue adding to the sum once the terms get very small. Let’s compute this sum by looping until the fraction <span class="math inline">\({1 \over n^2}\)</span> become smaller than <span class="math inline">\(1 \times 10^{-2}\)</span>.</p>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>term <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Load the first term in the sum</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> term  <span class="co"># Initialize the sum</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span>     <span class="co"># Set a counter</span></span>
@@ -514,8 +519,8 @@ mass = [1,4,7,9,11,12]</code></pre>
 </ol>
 </blockquote>
 </section>
-<section id="continue-break-and-pass-commands" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="continue-break-and-pass-commands"><span class="header-section-number">6.3</span> <code>continue</code>, <code>break</code>, and <code>pass</code> Commands</h2>
+<section id="continue-break-and-pass-commands" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="continue-break-and-pass-commands"><span class="header-section-number">7.3</span> <code>continue</code>, <code>break</code>, and <code>pass</code> Commands</h2>
 <p>The <code>continue</code>, <code>break</code>, and <code>pass</code> commands are used to control the flow of code execution in loops. Here is a description of their usage:</p>
 <table class="table">
 <colgroup>
@@ -572,8 +577,8 @@ mass = [1,4,7,9,11,12]</code></pre>
 <p>Now, when the value of <code>n</code> is not a multiple of 3, the sum will not be updated and the associated terms are effectively skipped.</p>
 <p>Finally, the <code>pass</code> statement does nothing. Seriously!! It is merely a place holder for code that has not bee written yet. Usually, you’ll use the <code>pass</code> statement to run and test code without errors due to missing code.</p>
 </section>
-<section id="flash-cards" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="flash-cards"><span class="header-section-number">6.4</span> Flash Cards</h2>
+<section id="flash-cards" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="flash-cards"><span class="header-section-number">7.4</span> Flash Cards</h2>
 <ol type="1">
 <li>Explain the basic structure and key elements of a <code>for</code> loop.</li>
 <li>Explain the basic structure and key elements of a <code>while</code> loop.</li>
@@ -585,8 +590,8 @@ mass = [1,4,7,9,11,12]</code></pre>
 <li>What is list comprehension? Give an example.</li>
 </ol>
 </section>
-<section id="exercises" class="level2 page-columns page-full" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.5</span> Exercises</h2>
+<section id="exercises" class="level2 page-columns page-full" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
 <ol type="1">
 <li><p>Summations appear often in science and mathematics. One such summation is called the Riemann Zeta function and is given by <span class="math display">\[ \zeta(n) = \sum_{k=1}^\infty {1\over k^n} = {1\over 1^n} + {1\over 2^n} + {1\over 3^n} + \dots\]</span></p>
 <ol type="1">
@@ -828,13 +833,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/listsAndTuples.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lists and Tuples</span></span>
+      <a href="../chapters/dictionarySet.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Functions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
