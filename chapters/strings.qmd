@@ -231,7 +231,7 @@ a.endswith("p")
 
 
 
-# Flash Cards
+## Flash Cards
 1. What is the index value of the sixth character in a string?
 2. What happens when you "add" two strings together?
 3. What happens when you multiply two strings together?
@@ -246,10 +246,11 @@ a.endswith("p")
 12. Explain how to print a sentence with a variable inserted in the middle?
 13. What format code should be used to display a variable as a **float with 8 total spaces and 2 numbers after the decimal**?
 14. What format code should be used to display a variable in **scientific notation with 6 total spaces and 2 numbers after the decimal**?
-15. Where is the parable of the wheat and the tares found?
+15. Where is the parable of the wheat and the tares found? 
 
 
-# Exercises
+
+## Exercises
 
 
 1. In the cell below you will find a string containing the name of a PNG file. (i.e. name always ends in ".png").  
