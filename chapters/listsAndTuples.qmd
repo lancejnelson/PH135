@@ -285,7 +285,7 @@ balmerTup = tuple(balmer)
 12. Explain the usage of the `insert` list method.
 13. Explain the usage of the `remove` list method.
 14. Explain the usage of the `pop` list method. 
-
+15. Where is the record of Jesus calming the storm?
 
 
 ## Exercises

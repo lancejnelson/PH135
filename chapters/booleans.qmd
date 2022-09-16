@@ -230,6 +230,7 @@ It is worth noting that `else` statements are not required. If you leave the `el
 5.  When will the statement `p or q` evaluate to `True`?
 6.  How do you check to see if a certain sequence of characters is present in a string?
 7. When constructing an `if` block how does Python know what code to execute if the condition is `True`?
+8. Recite Helaman 5:12.
 
 # Exercises
 

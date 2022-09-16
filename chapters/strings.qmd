@@ -246,7 +246,7 @@ a.endswith("p")
 12. Explain how to print a sentence with a variable inserted in the middle?
 13. What format code should be used to display a variable as a **float with 8 total spaces and 2 numbers after the decimal**?
 14. What format code should be used to display a variable in **scientific notation with 6 total spaces and 2 numbers after the decimal**?
-
+15. Where is the parable of the wheat and the tares found?
 
 
 # Exercises
