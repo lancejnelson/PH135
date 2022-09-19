@@ -221,7 +221,7 @@ else:
 It is worth noting that `else` statements are not required. If you leave the `else` statement off and the `if` statement is false, no code block will execute.
 
 
-# Flash Cards
+## Flash Cards
 
 1.  How do you check to see if one value is **greater than or equal to** another one?
 2.  Which boolean operators should **never** be used to compare floats?
@@ -232,7 +232,7 @@ It is worth noting that `else` statements are not required. If you leave the `el
 7. When constructing an `if` block how does Python know what code to execute if the condition is `True`?
 8. Recite Helaman 5:12.
 
-# Exercises
+## Exercises
 
 1. (Escape Velocity)  The escape velocity is the speed needed for an object to completely escape the gravitational pull of a planet. The expression for escape velocity is $$ v_\text{escape} = \sqrt{G M_p \over r}$$ where $G = 6.67 \times 10^{-11}$, $M_p$ is the mass of the planet you are trying to escape from, and $r$ is the radius of the planet.
 
@@ -274,4 +274,34 @@ Hints:
 alloy = "CaIn2"  
 
     
+```
+
+
+4. The quadratic equation has two solutions and they can be positive, negative, or complex.  Often the complex and negative solutions are not relavant/meaningful.  Write an `if/elif/else` block of code that checks what type of solutions will results and only displays the real, positive solution(s) if there is one.  If there is no positive solution, the code should display a message indicating such.  Then check your code with the values given below. As a reminder, here is the quadratic equation: $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
+
+
+`a = 2, b = 3, c = 8` (no real solutions)
+
+`a = 1, b = -3, c = 2` (two positive solutions)
+
+`a = 1, b = -3, c = -2` (one positive solution and one negative solution)
+
+```{python}
+
+# Python code here.
+```
+
+
+5. (Triangle Classification)  There is a simple criteria to determine whether a triangle can be formed from a set of specified side lengths.  The criteria states that the sum of any two sides must be larger than the third side.  This criteria must be satisified for all possible combinations of two sides if the triangle is to be valid.  If the triangle is valid, the angles can be found by first using the law of cosines to find the first two angles and then choosing the third angle so that the sum of the three angles add up to $180^\circ$. $$c^2 = a^2 + b^2 - 2 a b \cos(C)$$
+
+    1. Write some code that checks to see if a valid triangle can be formed from the given side lengths.  Check your code for several choices of side lengths to verify that it is working.
+    2. If a triangle can be formed, use the law of cosines to calculate the triangle's angles.
+    3. All valid triangles are classified according to the largest angle present (acute, obtuse, and right) and also according to their side lengths (scalene - no sides equal, isoscelese - two sides equal and equilateral - all sides equal). Modify your code to determine the classification of a triangle (i.e. obtuse scalene) and print that classification to screen.
+
+
+
+
+```{python}
+from numpy import arccos,pi
+
 ```

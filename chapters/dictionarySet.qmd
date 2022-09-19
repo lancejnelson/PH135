@@ -4,4 +4,25 @@ reference-location: margin
 citation-location: margin
 ---
 
-# Dictionaries
+# Dictionaries and Sets
+
+## Dictionaries
+A dictionary is a multi-element object just like a list or tuple but instead of connecting each element to an integer index value, a keyword is used.  Dictionaries allow you to access data without knowing anything about the order of the items.  For example, maybe you want to store the orbital radius of all the planets in the solar system. Using a dictionary would allow you to associate the name of the planet with its orbital radius.  A string containing the planet's name could serve as the key and the associated radius as the value.  Dictionaries are built using curly braces (`{}`) instead of square brackets (lists) or parentheses (tuples).  Each item in the dictionary is a `key:value` pair and the items are separated by commas just like lists.  Below is an example
+
+
+```{python}
+orbitalRadii = {"H":1.01, "He":4.00, "Li":6.94}
+
+```
+
+
+Accessing an element of a dictionary is done with square brackets (`[]`) just like lists and the desired key value is placed inside.
+
+```{python}
+atomicMasses = {"H":1.01, "He":4.00}
+
+print(atomicMasses["He"])
+
+```
+
+## Sets

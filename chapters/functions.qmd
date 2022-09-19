@@ -295,7 +295,20 @@ print(result)
 
 ```
 
+### Splatting
 
+
+```{python}
+def func(a,b,c,d):
+
+    return a**b + c/d
+args  = (5,4,6,3)
+
+result = func(*args)
+
+print(result)
+
+```
 
 ### Lambda Functions
 

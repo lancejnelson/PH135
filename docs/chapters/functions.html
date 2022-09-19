@@ -192,7 +192,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries</span></a>
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries and Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -248,7 +248,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#the-return-statement" id="toc-the-return-statement" class="nav-link" data-scroll-target="#the-return-statement"> <span class="header-section-number">8.3.1</span> The <code>return</code> statement</a></li>
   <li><a href="#local-vs-global-variable-scope" id="toc-local-vs-global-variable-scope" class="nav-link" data-scroll-target="#local-vs-global-variable-scope"> <span class="header-section-number">8.3.2</span> Local vs Global Variable Scope</a></li>
   <li><a href="#positional-vs.-keyword-arguments" id="toc-positional-vs.-keyword-arguments" class="nav-link" data-scroll-target="#positional-vs.-keyword-arguments"> <span class="header-section-number">8.3.3</span> Positional vs.&nbsp;Keyword Arguments</a></li>
-  <li><a href="#lambda-functions" id="toc-lambda-functions" class="nav-link" data-scroll-target="#lambda-functions"> <span class="header-section-number">8.3.4</span> Lambda Functions</a></li>
+  <li><a href="#splatting" id="toc-splatting" class="nav-link" data-scroll-target="#splatting"> <span class="header-section-number">8.3.4</span> Splatting</a></li>
+  <li><a href="#lambda-functions" id="toc-lambda-functions" class="nav-link" data-scroll-target="#lambda-functions"> <span class="header-section-number">8.3.5</span> Lambda Functions</a></li>
   </ul></li>
   <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">8.4</span> Flash Cards</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">8.5</span> Exercises</a></li>
@@ -474,24 +475,40 @@ The distance is 7.2560.</code></pre>
 </div>
 </div>
 </section>
-<section id="lambda-functions" class="level3" data-number="8.3.4">
-<h3 data-number="8.3.4" class="anchored" data-anchor-id="lambda-functions"><span class="header-section-number">8.3.4</span> Lambda Functions</h3>
-<p>When the function you want to construct is very simple (one line), there is a shortcut code for making it called a <em>lambda function</em>. The benefit is that they occupy less lines of code than the standard <code>def</code> functions. A lambda function is defined as shown below with the variable immediately after the <code>lambda</code> statement as the independent variable in the function.</p>
+<section id="splatting" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="splatting"><span class="header-section-number">8.3.4</span> Splatting</h3>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(a,b,c,d):</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">**</span>b <span class="op">+</span> c<span class="op">/</span>d</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>args  <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">3</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> func(<span class="op">*</span>args)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>627.0</code></pre>
+</div>
+</div>
+</section>
+<section id="lambda-functions" class="level3" data-number="8.3.5">
+<h3 data-number="8.3.5" class="anchored" data-anchor-id="lambda-functions"><span class="header-section-number">8.3.5</span> Lambda Functions</h3>
+<p>When the function you want to construct is very simple (one line), there is a shortcut code for making it called a <em>lambda function</em>. The benefit is that they occupy less lines of code than the standard <code>def</code> functions. A lambda function is defined as shown below with the variable immediately after the <code>lambda</code> statement as the independent variable in the function.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>25</code></pre>
 </div>
 </div>
 <p>As a simple application of lambda functions let’s consider a function from the <code>scipy.integrate</code> library called <code>quad</code> which will perform a numerical integration of a function. The <code>quad</code> function takes three arguments: the function to be integrated, and the upper and lower bound on the integral. We can use a lambda function for the first argument rather than using several lines of code to build one in the traditional fashion.</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> quad</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin, pi</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>quad(<span class="kw">lambda</span> x: sin(pi <span class="op">*</span> x)<span class="op">**</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="fl">0.4</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> quad</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin, pi</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>quad(<span class="kw">lambda</span> x: sin(pi <span class="op">*</span> x)<span class="op">**</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="fl">0.4</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>(0.15322553581056808, 1.7011451781741914e-15)</code></pre>
 </div>
 </div>
@@ -537,7 +554,7 @@ The distance is 7.2560.</code></pre>
 <li>Use list comprehension together with the function you built in part 1 to build a list containing the 15 lowest-energy levels for the hydrogen atom.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>me <span class="op">=</span> <span class="fl">9.109e-31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>me <span class="op">=</span> <span class="fl">9.109e-31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>Max Planck discovered that <strong>all</strong> objects emit a spectrum of radiation and that the intensity of the spectrum depends on the object’s temperature. The equation for the intensity of the emitted light is <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where
 <ul>

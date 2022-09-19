@@ -12,6 +12,9 @@ When performing mathematical operations, it is often desirable to store the valu
 Attaching a value to a variable is called *assignment* and is performed using the equal sign (=), as demonstrated in the cell below:
 
 ```{python}
+#| eval: true
+#| echo: true
+
 a = 5.0
 b = 3
 c = a + b
@@ -271,6 +274,7 @@ radians(4)
 8. When using a trig function ($\sin \theta$, $\cos \theta$, $\tan \theta$), the number that is passed in must have what units?
 9. What does the `math.radians` function do?
 10. Where can you find King Benjamin's address to his people?
+
 
 ## Exercises
 
