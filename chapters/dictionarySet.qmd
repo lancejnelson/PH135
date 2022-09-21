@@ -7,22 +7,127 @@ citation-location: margin
 # Dictionaries and Sets
 
 ## Dictionaries
-A dictionary is a multi-element object just like a list or tuple but instead of connecting each element to an integer index value, a keyword is used.  Dictionaries allow you to access data without knowing anything about the order of the items.  For example, maybe you want to store the orbital radius of all the planets in the solar system. Using a dictionary would allow you to associate the name of the planet with its orbital radius.  A string containing the planet's name could serve as the key and the associated radius as the value.  Dictionaries are built using curly braces (`{}`) instead of square brackets (lists) or parentheses (tuples).  Each item in the dictionary is a `key:value` pair and the items are separated by commas just like lists.  Below is an example
+
+### Creating a Dictionary
+A dictionary is a multi-element object just like a list or tuple but instead of connecting each element to an integer index value, a keyword is used.  Dictionaries allow you to access data without knowing anything about the order of the items.  For example, maybe you want to store the orbital radius of all the planets in the solar system. Using a dictionary you can associate the name of the planet with its orbital radius.  A string containing the planet's name could serve as the key and the associated radius as the value.  Dictionaries are built using curly braces (`{}`) instead of square brackets (lists) or parentheses (tuples).  Each item in the dictionary is a `key:value` pair and the items are separated by commas just like lists.  Below is an example
 
 
 ```{python}
-orbitalRadii = {"H":1.01, "He":4.00, "Li":6.94}
+orbitalRadii = {"Mercury":0.39, "Venus":0.72, "Earth":1.0, "Mars":1.5,"Jupiter":5.2,"Saturn":9.5, "Uranus":19.2,"Neptune":30.1, "Pluto": 39.5}
 
 ```
+
+The keys don't have to be strings, but can be any data type.  Here we use the orbital radius as the key and the orbital period (in earth days) as the associated value.
+```{python}
+radiiandPeriod = {0.39: 88, 0.72: 224.7 , 1.0: 365.2 , 1.5: 687 ,5.2: 4331 ,9.5: 10_747 , 19.2: 30_589 ,30.1: 59_800 ,39.5: 90_560 }
+
+```
+
 
 
 Accessing an element of a dictionary is done with square brackets (`[]`) just like lists and the desired key value is placed inside.
 
 ```{python}
-atomicMasses = {"H":1.01, "He":4.00}
+orbitalRadii = {"Mercury":0.39, "Venus":0.72, "Earth":1.0, "Mars":1.5,"Jupiter":5.2,"Saturn":9.5, "Uranus":19.2,"Neptune":30.1, "Pluto": 39.5}
 
-print(atomicMasses["He"])
+print(orbitalRadii["Jupiter"])
 
 ```
 
+Additional `key:value` pairs can be added to an existing dictionary by calling the key and assigning it to a value
+
+```{python}
+orbitalRadii = {"Mercury":0.39, "Venus":0.72, "Earth":1.0, "Mars":1.5,"Jupiter":5.2,"Saturn":9.5, "Uranus":19.2,"Neptune":30.1, "Pluto": 39.5}
+
+orbitalRadii["Moon"] = 0.384  
+print(orbitalRadii)
+
+```
+
+
+
+### `keys`, `items` and `values` methods
+Three dictionary methods are so heavily used that they are worth mentioning here.  The `keys` dictionary method will return a list[^view] of all keys that are present in the dictionary.  The `values` method will return a list of all values present in the list and the `items` method will return a list of key:value pairs. 
+
+
+[^view]: Actually it produces an iterator that can be used in conjunction with a loop.  If you want a list you must use the `list` function.
+```{python}
+orbitalRadii = {"Mercury":0.39, "Venus":0.72, "Earth":1.0, "Mars":1.5,"Jupiter":5.2,"Saturn":9.5, "Uranus":19.2,"Neptune":30.1, "Pluto": 39.5}
+
+print(orbitalRadii.values())
+
+```
+
+
+### Other useful dictionary methods
+
+There are a few other useful 
+
+```{python}
+orbitalRadii = {"Mercury":0.39, "Venus":0.72, "Earth":1.0, "Mars":1.5,"Jupiter":5.2,"Saturn":9.5, "Uranus":19.2,"Neptune":30.1, "Pluto": 39.5}
+
+radii = {"Moon":0.384, "Venus": 0.71}
+orbitalRadii.pop("Mercury")
+orbitalRadii.popitem()
+oRadii = dict.fromkeys(["Mercury", "Venus", "Earth"],[0.39,0.72,1.0])
+orbitalRadii.update(radii)
+```
+
+> **_To Do:_**
+>  
+>1. Use print statements to determine what each dictionary method in the cell above does. 
+>2. Add comments next to each line explaining the method.
+>
+
 ## Sets
+A set is another python data type that is used occasionally.  They are multi-element objects similar to lists and tuples with one key difference: there can be no repeated elements in a set.
+
+### Creating a Set
+
+Sets are created using curly braces (`{}`) just like dictionaries but instead of `key:value` pairs, single values are put inside the curly braces.
+
+```{python}
+mySet = {1,2,4,2,1,3,4}
+
+print(mySet)
+
+```
+
+
+## Exercises
+
+1. (Physical Constants)  The field of physics is filled with experimental constants.  In fact, you'll use some of them so frequently throught your undergraduate experience that you'll end up memorizing them. Until then it could be useful to store some of these constants in a dictionary for easy reference.  Build a dictionary containing the values of 10 of the constants found [here](https://en.wikipedia.org/wiki/List_of_physical_constants).  You are free to choose the names of the keys to be anything that makes good sense to you.
+
+
+
+```{python}
+
+# Python code here.
+
+```
+
+
+2. (Unit Conversions) Unit conversions show up all over in physics and if you don't have the conversion factors memorized you may find yourself constantly looking them up. Construct a dictionary that contains many of the most useful unit conversions, including those shown below.  You are free to choose the key names to be whatever makes most sense to you. I've given a few examples in the code cell below to get you started. $$ 1 \text{ kilometer} = 1000 \text{ meters}$$ $$ 1 \text{ inch} = 2.54 \text{ centimeters}$$ $$ 1 \text{ mile} = 1.609 \text{ kilometers}$$ $$ 1 \text{ mph} = 0.447 \text{ m/s}$$ $$ 1 \text{ u} = 1.661 \times 10^{-27} \text{ kg}$$ $$ 1 \text{ electron-volt} = 1.602 \times 10^{-19} \text{ Joules}$$ $$ 1 \text{ day} = 24 \text{ hours}$$ $$ 1 \text{ radian} = 57.3^\circ$$ $$ 1 \text{ rev} = 2\pi \text{ radians}$$
+
+
+Once the dictionary is created use it to perform the following conversions:
+
+1. Convert 5 miles to meters.
+2. Convert $250^\circ$ to radians.
+3. $562$ Joules to electron-volts.
+
+
+```{python}
+conversions = {"km-to-m": 1000, "in-to-cm": 2.54 }
+
+```
+
+
+3. Make a dictionary with three keys: "age", "height" (in inches), and "favorite number".  The values associated with these keys should be lists of all the associated values for everyone in our class.  Once you have built the dictionary, calculate the average height, average age, and largest favorite number.
+
+
+```{python}
+
+# Python code here.
+
+```

@@ -296,7 +296,7 @@ print(result)
 ```
 
 ### Splatting
-
+Functions can potentially require dozens of arguments to be passed in which can make calling the function long and difficult to look at.  One way to shorten the code is to put all of the arguments in a list or tuple. 
 
 ```{python}
 def func(a,b,c,d):
