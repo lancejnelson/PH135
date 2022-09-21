@@ -5,6 +5,10 @@ citation-location: margin
 ---
 
 # Lists and Tuples
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/listsAndTuples.ipynb)
+
+
 Up to this point, we have only worked with single numerical values or strings (multiple characters). Often we will want to work with collections of values (perhaps the orbital period of all of the planets in our solar system.) and it will be quite inconvenient to store each value into its own variable. Instead, the values can be stored in a list or tuple.  Lists and tuples are both collections of _elements_ , like numbers or strings.  The key difference between them is that tuples are _immutable_, which means they cannot be modified after their initial creation. On the other hand, lists are _mutable_, or able to be modified.
 
 

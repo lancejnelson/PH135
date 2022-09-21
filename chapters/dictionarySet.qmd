@@ -84,7 +84,7 @@ A set is another python data type that is used occasionally.  They are multi-ele
 
 ### Creating a Set
 
-Sets are created using curly braces (`{}`) just like dictionaries but instead of `key:value` pairs, single values are put inside the curly braces.
+Sets are created using curly braces (`{}`) just like dictionaries but instead of placing `key:value` pairs inside, single values are put inside the curly braces.  Any repeated elements will be automatically deleted when the set is created.
 
 ```{python}
 mySet = {1,2,4,2,1,3,4}
@@ -92,6 +92,125 @@ mySet = {1,2,4,2,1,3,4}
 print(mySet)
 
 ```
+
+
+The `set` function can be used to turn a list or tuple into a set and any repeated elements will be deleted.  This can be a handy way to remove unwanted duplicates from a list.
+
+
+```{python}
+elements = ["H", "He", "Ne", "He", "N", "Ag", "Pt", "Ag"]
+
+mySet = set(elements)
+
+print(mySet)
+
+```
+
+
+### Modifying a set
+
+Elements can be added to a set using the `add` and/or `update` methods.   The `add` method will add a single element to the set and `update` will allow you to add more than one element.  
+
+
+```{python}
+elements = {"H", "He", "Ne", "He", "N", "Ag", "Pt", "Ag"}
+
+elements.add("Au")
+
+elements.update(["In","Cu","Os","He"])
+
+```
+
+>**_To Do:_**
+>
+>1. Predict what the set will look like after the `add` method executes. Then add a print statement to verify that you're correct.  
+>2. What happens if you try to `add` an element that is already in the set?
+>3. Predict what the set will look like after the `update` method executes. Then add a print statement to verify that you're correct.
+>
+
+
+Elements can be removed from a set using the `remove` and/or `discard` methods.  The difference between these methods is very subtle.  They will both remove an element, but the `remove` method will throw an error if the element you are attempting to remove isn't in the set.  `discard` won't throw an error even if the element isn't present.  The `clear` method will remove all entries from the set.
+
+
+```{python}
+#| eval: false
+elements = {"H", "He", "Ne", "He", "N", "Ag", "Pt", "Ag"}
+
+elements.remove("H")
+elements.discard("He")
+elements.discard("Cu")
+elements.remove("Cu")
+elements.clear()
+
+
+```
+
+>**_To Do:_**
+>
+> Predict what the set will look like after each statement in the cell above. Then add a print statement to verify that you're correct.  
+>
+
+
+
+### Mathematical Set Operations
+
+Three mathematical operations are typically performed on sets: union, intersection, and difference.  The union of two sets is the set of all unique elements between both sets.  The union of two sets can be found using the `|` operator.
+
+
+```{python}
+topRow = {"H", "He"}
+
+secondRow= {"Li","Be","B", "C","N", "O","F", "Ne"}
+
+together = topRow|secondRow
+print(together)
+
+```
+
+
+The intersection of two sets is the set of elements that are common to both sets.  The intersection of two sets can be found using the `&` operator
+
+
+```{python}
+topRow = {"H", "He"}
+
+secondRow= {"Li","Be","B", "C","N", "O","F", "Ne"}
+
+intersect = topRow&secondRow
+print(intersect)
+
+```
+
+
+And finally, the difference of two sets is the set of elements that are found in one set but not in the other. The difference of two sets can be found using the `-` operator. Note that `A - B` will produce a different set than `B - A`.  `A- B` will produce a set with all of the elements from set `A` that are not in set `B`.  `B - A` will do just the opposite, forming a set with all the elements from set `B` that are not in set `A`.  If you want the set of elements that are in `A` **and** `B` but not in both (kind of like the opposite of intersection) then you want the symmetric difference operator (`^`)
+
+
+```{python}
+topRow = {"H", "He"}
+
+secondRow= {"Li","Be","B", "C","N", "O","F", "Ne"}
+
+diff = topRow - secondRow
+symdiff = topRow ^ secondRow
+
+```
+
+
+As a final point you should note that you cannot extract elements of a set using square brackets like you could with lists and tuples.  It's just not allowed.  However, you can iterate over sets even though there is no guarantee about the order they will come in.  See the cell below to see an example.
+
+
+```{python}
+
+elements= {"Li","Be","B", "C","N", "O","F", "Ne"}
+
+#print(elements[2])
+
+for i in elements:
+    print(i)
+
+```
+
+
 
 
 ## Exercises

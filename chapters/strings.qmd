@@ -6,6 +6,9 @@ jupyter: python3
 
 # Strings
 
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/strings.ipynb)
+
+
 Another commonly-used type of data is a string of characters known simply as *strings*.  Strings can contain a variety of characters including letters, numbers, and symbols.  
 
 ## Creating Strings

@@ -4,6 +4,9 @@ jupyter: python3
 
 # Boolean Variables and Conditionals
 
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/booleans.ipynb)
+
 ## Boolean Variables
 
 We have learned about three types of variables in Python: ints, floats, and strings.  Another variable type is a boolean, which can be one of two values: `True` or `False`.  You can assign a boolean variable in the same way that you assign numbers or string, using `=`
