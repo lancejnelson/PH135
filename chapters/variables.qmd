@@ -3,7 +3,7 @@ format: html
 toc: true
 ---
 
-# Variables and Numbers
+# Variables and Numbers ( [Jupyter](lancejnelson.github.io/PH135/variables.ipynb))
 
 ## Variables
 
