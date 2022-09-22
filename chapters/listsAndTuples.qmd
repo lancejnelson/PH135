@@ -79,6 +79,25 @@ electrons[-1]
 >3. Discuss any misunderstandings with a peer.
 
 
+Accessing elements of nested lists requires multiple sets of parenthesis.
+
+```{python}
+
+conductivity = [[1,2,3],[4,5,6],[7,8,9]]
+
+x = conductivity[1][0]
+y = conductivity[0][2]
+
+```
+
+
+> **_To Do:_**
+>
+>1. Predict the output for each of the indexes performed in the cell above.
+>2. Use print statements to check your answers.
+>3. Discuss any misunderstandings with a peer.
+
+
 Since lists are _mutable_, we can modify the value of an element in a list using the `=` operator.
 
 ```{python}
@@ -190,6 +209,7 @@ Python has several built-in functions that will work with lists.  Functions are 
 | `sum(list)`| Returns the sum of the elements in the list.[^sum]|
 | `listOne + listTwo`| Joins `listOne` with `listTwo` to form one list.|
 | `2 * list`| Repeat `list` and concatenate to itself, making the list twice as long.|
+| `del list[index]`| Deletes list elements located at index.  Can also specify a range of values.|
 | `zip(listOne,listTwo)`| Zips two lists together. (Creates `[(a1,b1),(a2,b2),...]` from `[a1,a2,a3...]` and `[b1,b2,b3...]`|
 | `enumerate(list)`| Zips a list to the index value for that list (Creates `[(0,a1),(1,a2),(2,a3)...]` from `[a1,a2,a3...]`|
 
@@ -301,11 +321,12 @@ balmerTup = tuple(balmer)
 ```
 
 2. The code in the cell below will generate a list of 200 random integers in the range $0 \rightarrow 15$.
-    1. Verify that there indeed are 200 numbers in the list (Use a function, don't count them in your head.)
-    2. How many 7's appear in the list? (Use a function, don't count them by hand)
-    3. What is the largest and smallest numbers that appear in the list?
-    4. Find the index of the first occurrence of the number 1.
-    5. Sort the list and use a print statement to verify that you were successful.
+    1. Print the list and inspect it to verify that you understand what it contains.
+    2. Verify that there indeed are 200 numbers in the list (Use a function, don't count them one by one.)
+    3. How many 7's appear in the list? (Use a function, don't count them by hand)
+    4. What is the largest and smallest numbers that appear in the list?
+    5. Find the index of the first occurrence of the number 1.
+    6. Sort the list and use a print statement to verify that you were successful.
 ```{python}
 from random import randint
 
