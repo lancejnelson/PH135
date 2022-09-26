@@ -5,6 +5,11 @@ citation-location: margin
 ---
 
 # Loops
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/loops.ipynb)
+
+
+
  _Loops_ allow programs to rerun the same block of code multiple times.  This might seem like a funny thing to want to do but it turns out that there are many important tasks that are repetitive in nature (perhaps with small changes for each successive repetition).  A loop provides a succinct and efficient way to perform tasks of this nature.
 
 
@@ -334,10 +339,17 @@ Finally, the `pass` statement does nothing.  Seriously!!  It is merely a place h
 6. What does the `zip` function do? Give an example.
 7. What does the `enumerate` function do? Give an example.
 8. What is list comprehension? Give an example.
+9. Where is the account of Jesus walking on the water?
 
 ## Exercises
+1. Use a loop to construct a list containing the first 1000 numbers that are multiples of both $5$ and $3$. (The modulo operator (`%`) is a good and efficient way to see if a number is a multiple of another.)
 
-1. Summations appear often in science and mathematics.  One such summation is called the Riemann Zeta function and is given by $$ \zeta(n) = \sum_{k=1}^\infty {1\over k^n} = {1\over 1^n} + {1\over 2^n} + {1\over 3^n} + \dots$$
+```{python}
+
+# Python code here.
+```
+
+2. Summations appear often in science and mathematics.  One such summation is called the Riemann Zeta function and is given by $$ \zeta(n) = \sum_{k=1}^\infty {1\over k^n} = {1\over 1^n} + {1\over 2^n} + {1\over 3^n} + \dots$$
 
     1. Use a `for` loop to evaluate $\zeta(2)$ and $\zeta(4)$ and verify that $\zeta(2) = {\pi^2 \over 6}$ and $\zeta(4) = {\pi^4 \over 90}$.  This summation is called an infinite sum and we surely don't want our loop to continue forever!! Instead, an infinite sum like this one can be approximated with a `for` loop with a large number of iterations.  To determine if you have included enough terms, increase the number of terms steadily and watch for the final result to stop changing appreciably.
     2. Now repeat part 1 using list comprehension and the `sum` function?
@@ -346,27 +358,28 @@ Finally, the `pass` statement does nothing.  Seriously!!  It is merely a place h
 
 ```{python}
 
+#Python code here
+
 ```
 
 
-2. A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: $$ {\sin x \over x} = 1$$  One numerical method for solving an equation like this involves first rearranging it to look like this: $$ x = \sin x$$ and then using a loop to repeatedly evaluating the right hand side, using the result of the previous evaluation as the input, until subsequent evaluations differ very little ($1 \times 10^{-3}$ would be fine). [^relax] The first few iterations of this process might look something like this: $$(x_\text{old})_1 = 2 \text{ (starting guess)}$$ $$(x_\text{new})_1 = \sin((x_\text{old})_1)$$ $$(x_\text{old})_2 = (x_\text{new})_1$$ $$(x_\text{new})_2 = \sin((x_\text{old})_2)$$ $$(x_\text{old})_3 = (x_\text{new})_2$$ $$(x_\text{new})_3 = \sin((x_\text{old})_3)$$
+3. In the cell below you will find three lists containing the masses, lengths, and radii for a collection of cylinders.  The moment of inertia for each cylinder can be calculated as $$ I = {1\over 4} M R^2 + {1\over 12} M L^2$$.  
 
-    1. Use a `while` loop to solve this equation and report the correct value for x.  
-    2. Plug the answer back into the equation to verify that it indeed does satisfy the equation.
-    3. Report how many iterations it took to solve the problem.
-    3. Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.
-
-    Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't equal or your stopping criteria will trigger on the first iteration and the loop won't run at all.
+    1. Use a loop to iterate over these lists and calculate the moment of inertia for each one.  Store the calculated values in a new list.  You should use the `enumerate` function on this problem.
+    2. Calculate the largest, smallest, and average of the calculated values
 
 
 ```{python}
+from numpy.random import uniform
+mass = uniform(3,8,1000)
+radius = uniform(0.5,1.2,1000)
+length = uniform(0.8,3,1000)
 
-xold = 2 # starting guess
+
+
 ```
-[^relax]: This is called successive relaxation.
 
-
-3. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = \sqrt{m g \over c}$$
+4. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = \sqrt{m g \over c}$$
 where $m$ is the mass of the projectile, $c$ is the drag constant, $g= 9.8$ m/s$^2$ is the acceleration due to gravity, $v_0$ is the initial velocity of the particle, and $t$ is time. 
 
     1. Use a while loop to calculate the velocity of the particle at $0.1$ second time intervals, starting at $t = 0$.
@@ -384,3 +397,32 @@ c = 0.75
 v0=0
 
 ```
+
+
+5. In the cell below you will find a dictionary containing the mass(in kg) and diameter of the planets in our solar system.  Use a loop to iterate over this dictionary and calculate the acceleration due to gravity at the surface of the planet. $$ g = {G M \over R^2}$$.  Then add this value to the list for each planet. Print the dictionary when you are done to verify that each dictionary entry is a list with three elements.
+
+
+```{python}
+
+planetData = {"Mercury": [0.33e24,4.879e6],"Venus":[4.87e24,1.2104e7],"Earth":[5.97e24,1.2756e7],"Mars":[0.642e24,6.792e6],"Jupiter":[1.898e27,1.42984e8],"Saturn":[5.68e26,1.20536e8],"Uranus":[8.68e25,5.1118e7],"Neptune":[1.02e26,4.9528e7],"Pluto":[0.013e24,2.376e7]}
+
+```
+
+
+
+
+(Extra Credit) A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: $$ {\sin x \over x} = 1$$  One numerical method for solving an equation like this involves first rearranging it to look like this: $$ x = \sin x$$ and then using a loop to repeatedly evaluating the right hand side, using the result of the previous evaluation as the input, until subsequent evaluations differ very little ($1 \times 10^{-3}$ would be fine). [^relax] The first few iterations of this process might look something like this: $$(x_\text{old})_1 = 2 \text{ (starting guess)}$$ $$(x_\text{new})_1 = \sin((x_\text{old})_1)$$ $$(x_\text{old})_2 = (x_\text{new})_1$$ $$(x_\text{new})_2 = \sin((x_\text{old})_2)$$ $$(x_\text{old})_3 = (x_\text{new})_2$$ $$(x_\text{new})_3 = \sin((x_\text{old})_3)$$
+
+    1. Use a `while` loop to solve this equation and report the correct value for x.  
+    2. Plug the answer back into the equation to verify that it indeed does satisfy the equation.
+    3. Report how many iterations it took to solve the problem.
+    3. Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.
+
+    Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't equal or your stopping criteria will trigger on the first iteration and the loop won't run at all.
+
+
+```{python}
+
+xold = 2 # starting guess
+```
+[^relax]: This is called successive relaxation.

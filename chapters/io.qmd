@@ -8,6 +8,37 @@ citation-location: margin
 Up to now, we have been working with computer-generated or manually typed data sets.  Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis.  Most data files are *text* files, but there is a large variety of these that differ mostly in the way the information is formatted.   The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file.  For example, a *.csv* file (short for comma-separated values) has commas to separate the information.
 
 
+## The `os` module
+The `os` module allows you to perform standard operations on the files and folders on your computer.  When opening files from a python script, the default search path is the directory where the current file is located. If you want to open files located in other directories, you'll need to use the `os` module to navigate there first. The following functions are the most commonly used ones
+
+
+|Function|Description|
+|--------|-----------|
+|`getcwd()`| Short for get current working directory.  Returns a string of the current directory.|
+|`chdir(path)`| Change the current direction to be somewhere else.|
+|`listdir()`| List all of the files and folders in the current working directory.|
+
+In the cell below, we show the usage of these functions.
+
+```{python}
+#| eval: false
+from os import getcwd,chdir,listdir
+
+currentdir = getcwd()  
+chdir(/path/to/new/directory)
+myfiles = listdir()
+
+```
+
+
+>**_To Do:_**
+>  
+> Add print statements to the cell above and inspect the result
+>
+
+
+The `os` module has many, many more functions that do useful things but you will mostly use the functions mentioned above.  As you get more experience using your computer at the command line, you will be better equipped to understand the usefulness of the rest of this library. 
+
 ## Reading Files
 ### Reading Line by Line
 
@@ -69,7 +100,7 @@ print(data)
 
 ### Using NumPy's `genfromtxt` function
 
-If the data file is highly structured (every line looks the same, separated character is consistent across the file, etc) then NumPy's `genfromtxt` function can read the data very efficiently into an array.  The `genfromtxt` function requires only one argument (the file name) with another optional argument (`delimiter`) that is typically included to specify the character used to separate the data.  Below is an example for using this function to read in the .csv data we have been working with.
+If the data file is highly structured (every line looks the same, separator character is consistent across the file, etc) then NumPy's `genfromtxt` function can read the data very efficiently into an array.  The `genfromtxt` function requires only one argument (the file name) with another optional argument (`delimiter`) that is typically included to specify the character used to separate the data.  Below is an example for using this function to read in the .csv data we have been working with.
 
 
 ```{python}
@@ -133,6 +164,7 @@ Sometimes the data file that you want to write includes some text or other non-n
 | Jupiter | 24.5|
 | Sun | 275|
 
+In this case you must open the file you want to write through and write each line of the file one by one.  This requires that you use a loop to iterate over the data. An example is given below.
 ```{python}
 planets = ["Earth","Moon","Mars","Venus","Saturn","Uranus","Neptune","Pluto","Jupiter","Sun"]
 g=[9.8,1.6,3.7,8.83,11.2,10.5,13.3,0.61,24.5,275]
@@ -205,3 +237,8 @@ Other optional arguments that can be used with the `savetxt` function are given 
 | `comments`  |String that will be prepended to the header and footer string to mark them as comments.|
 
 
+
+## Flashcards
+
+
+## Exercises
