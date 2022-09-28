@@ -2,6 +2,8 @@
 jupyter: python3
 reference-location: margin
 citation-location: margin
+execute: 
+  freeze: auto
 ---
 
 # Dictionaries and Sets
@@ -88,7 +90,7 @@ orbitalRadii = {"Mercury":0.39, "Venus":0.72, "Earth":1.0, "Mars":1.5,"Jupiter":
 radii = {"Moon":0.384, "Venus": 0.71}
 orbitalRadii.pop("Mercury")
 orbitalRadii.popitem()
-oRadii = dict.fromkeys(["Mercury", "Venus", "Earth"],[0.39,0.72,1.0])
+oRadii = dict.fromkeys(["Mercury", "Venus", "Earth"])
 orbitalRadii.update(radii)
 ```
 

@@ -2,6 +2,8 @@
 jupyter: python3
 reference-location: margin
 citation-location: margin
+execute: 
+  freeze: auto
 ---
 
 # Basic Plotting

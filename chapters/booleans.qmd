@@ -1,5 +1,7 @@
 ---
 jupyter: python3
+execute: 
+  freeze: auto
 ---
 
 # Boolean Variables and Conditionals
