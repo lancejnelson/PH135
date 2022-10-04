@@ -26,6 +26,16 @@ book:
       - chapters/numpy.qmd
       - chapters/io.qmd
       - chapters/basicPlotting.qmd
+      - chapters/advancedPlotting.qmd
+      - chapters/pandas.qmd
+      - chapters/sympy.qmd
+    - part: "Numerical Methods"
+      chapters:
+      - chapters/extrapolation_interpolation.qmd
+      - chapters/fitting.qmd
+      - chapters/derivatives.qmd
+      - chapters/integration.qmd
+      - chapters/eulers.qmd
 bibliography: references.bib
 
 format:

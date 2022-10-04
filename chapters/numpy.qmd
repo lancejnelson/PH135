@@ -7,11 +7,15 @@ execute:
 ---
 
 # The `numpy` module
-Numpy (pronounced "num"-"pie") is a popular Python library that is heavily used in the scientific/mathematical community.  So much so that numpy is typically included as part of the standard bundle of libraries that comes with your Python installation.  The functions inside numpy will allow you to solve problems with less effort and will produce faster-executing code.  
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/numpy.ipynb)
+
+
+Numpy (short for "numerical python" and pronounced "num"-"pie") is a popular Python library that is heavily used in the scientific/mathematical community.  So much so that numpy is typically included as part of the standard bundle of libraries that comes with your Python installation.  The functions inside numpy will allow you to solve problems with less effort and will produce faster-executing code.  
 
 
 ## Numpy Arrays
-You are already familiar with Python lists but may not have noticed that they are not suitable for mathematical calculations. For example, attempting to multiply a list by a scalar or evaluate a mathematical function like $\sin()$ on a list will *not* produce a mathematical result or may produce an error. For example, consider the following code.
+You are already familiar with Python lists but may not have noticed that they are not suitable for mathematical calculations. For example, attempting to multiply a list by a scalar or evaluating a mathematical function like $\sin()$ on a list will *not* produce a mathematical result or may produce an error. For example, consider the following code.
 
 
 ```{python}
@@ -719,3 +723,182 @@ NumPy contains an extensive listing of array methods and functions and it would 
 
 
 : Array Measurement Methods and Functions
+
+
+## Flashcards Part I
+1. In what ways are arrays "better" than lists? (better might be too strong.)
+2. How do you create an array from a list?
+3. Explain the usage of the `linspace` function.
+4. Explain the usage of the `arange` function.
+5. Explain the usage of the `zeros_like` function. 
+6. How do you access a single element from a two-dimensional array?
+7. How do you access **multiple** array elements at once in a one-dimensional array?
+8. How do you access **multiple** array elements at once in a two-dimensional array?
+9. How do you slice a two-dimensional array? 
+9. What is boolean slicing? Given an example.
+10. What is broadcasting?
+11. What has President Nelson taught us about the meaning of the word Israel?
+
+## Flashcards Part II
+1. How can you determine the shape and size of an array?
+2. What does the `reshape` function do? Give an example to show the usage.
+3. What does the `flatten` function do? Give an example to show the usage.
+4. What does the `transpose` function do? Give an example to show the usage.
+5. What does the `vstack` function do? Give an example to show the usage.
+6. What does the `hstack` function do? Give an example to show the usage.
+7. What do the `argmax` and `argmin` functions do?
+8. How many temples does the church have in operation currently?
+
+
+
+## Exercises Part I
+1. [Here](https://en.wikipedia.org/wiki/Unit_circle#/media/File:Unit_circle_angles_color.svg) you will find a picture of the unit circle. 
+    1. Use the `arange` function to generate all of the angles (in degrees) on the unit circle **displayed in blue or black text**.
+    2. Using a single line of code, convert all of the angle from part 1 into radians.
+    3. Use the `linspace` function to generate all of the angles (in degrees) on the unit circle **displayed in red or black text**.
+    4. Using a single line of code, convert all of the angle from part 3 into radians.
+    5. Using a single line of code, evaluate $\sin()$ onto both sets of angles and verify that they agree with the values on the unit circle.
+    6. Using a single line of code, evaluate $\cos()$ onto both sets of angles and verify that they agree with the values on the unit circle.
+    7. Using a single line of code, evaluate ${\sin(\theta)\over \cos(\theta)}$ for all of the angles in your arrays. This should be equal to $\tan(\theta)$
+```{python}
+# Python code here
+
+```
+
+
+2. In the cell below you will find three arrays containing the masses, lengths, and radii for a collection of cylinders.  The moment of inertia for each cylinder can be calculated as $$ I = {1\over 4} M R^2 + {1\over 12} M L^2$$.  
+
+    1. Using a single line of code, calculate the moment of inertia for all of the values in the arrays.
+    2. Determine the largest, smallest, and average of the calculated values.
+
+
+```{python}
+from numpy.random import uniform
+mass = uniform(3,8,1000)
+radius = uniform(0.5,1.2,1000)
+length = uniform(0.8,3,1000)
+
+
+```
+
+
+3. Construct a two-dimensional array with the following entries: $$\begin{bmatrix}
+1& 5 & 7 & 2\\
+3& 9 & 1 & 4\\
+4& 2 & 2 & 8\\
+9& 1 & 6 & 3\\
+\end{bmatrix}$$
+
+    1. Now access the number in the third column and second row. (It's a $1$)
+    2. Slice the array from columns $2 \rightarrow 4$ and rows $1 \rightarrow 3$.
+
+
+4. The following temperatures are prominent on the Fahrenheit scale: `[0,32,100,212,451]`.  The are the 
+    1. Create an array that contains these temperatures.
+    2. Using a single line of code, convert these temperatures into degrees Celsius using the following formula $$T_C =  {5\over 9}(T_F - 32)$$
+    3. Using a single line of code, convert the temperatures from part 2 into Kelvins using the following formula $$T_K = T_C + 273.15$$  
+    4. Using a single line of code, convert the temperatures from **part 1** into Kelvins using the following formula $$T_K = {5\over 9} ( T_F - 32) + 273.15$$  
+
+
+```{python}
+# Python code here.
+```
+
+
+5. The equation below defines the relationship between energy ($E$) in Joules of a photon and its wavelength ($\lambda$) in meters.  The $h$ is Plank's constant ($6.626 \times 10^{-34}$ J $\cdot$ s) and $c$ is the speed of light in a vacuum ($2.998 \times 10^8$ m/s). $$E = {h c \over \lambda}$$
+
+    1. Generate an array of wavelength values of visible light ($400$ nm $\rightarrow 800$ nm) in $50$ nm increments. ("nm" stands for nanometers or $\times 10^{-9}$ m)
+    2. Generate a second array containing the energy of each wavelength of light from part 1.  Does the energy of a photon increase or decrease with wavelength?
+
+```{python}
+# Python code here
+
+```
+
+6. A boat is out at sea with the following location and velocity vectors: $$x = 
+\begin{bmatrix}
+5 \\
+2
+\end{bmatrix} \text{ km}$$ $$v = 
+\begin{bmatrix}
+-13 \\
+25
+\end{bmatrix}  \text{ m/s}$$ when a gust of wind causes the boat to accelerate for approximately $3$ minutes with the following acceleration vector:$$x = 
+\begin{bmatrix}
+-8 \\
+-5
+\end{bmatrix} \text{ m/s}^2$$
+We can find the position and velocity vectors of the boat after the wind has died back down with the following equation: $$ \vec{x_f} = \vec{x_i} + \vec{v_i} \Delta t + {1\over 2} \vec{a} \Delta t^2$$ $$ \vec{v_f} = \vec{v_i} + \vec{a} \Delta t$$
+
+    1. Create arrays containing the initial position, initial velocity, and acceleration of the boat **in SI units**.
+    2. Using a single line of code, calculate the final position of the boat. (Watch out: You must convert $3$ minutes to seconds before performing the calculation.)
+    3. Using a single line of code, calculate the final velocity of the boat. (Watch out: You must convert $3$ minutes to seconds before performing the calculation.)
+
+
+7. Predict the outcome of the following operations between two arrays.  Then test your prediction.
+
+    $$\begin{bmatrix}
+    1&8&9\\
+    8&1&9\\
+    1&8&1\\
+    \end{bmatrix}+ \begin{bmatrix}
+    1&1\\
+    1&1\\
+    \end{bmatrix} $$ $$
+    \begin{bmatrix}
+    1&1\\
+    2&2\\
+    \end{bmatrix}
+    + \begin{bmatrix}
+    1\\
+    \end{bmatrix}$$ $$
+    \begin{bmatrix}
+    1&8&9\\
+    8&1&9\\
+    1&8&1\\
+    \end{bmatrix} +  \begin{bmatrix}
+    1\\
+    2\\
+    3\\
+    \end{bmatrix}$$ $$
+    \begin{bmatrix}
+    1&8&9\\
+    8&1&9\\
+    1&8&1\\
+    \end{bmatrix}
+    +     \begin{bmatrix}
+    1&2&3\\
+    \end{bmatrix}$$
+
+
+```{python}
+# Python code here
+```
+
+
+8. In quantum mechanics you will learn that the allowed energy levels for the harmonic oscillator are given by:$$E_n = \hbar \sqrt{k \over m} (n + {1\over 2})$$ where $k = 4 \pi^2$ and $m = 1$ gram.
+
+    1. Generate an array of $n$ values from $1 \rightarrow 10$ (inclusive).
+    2. Using a single line of code, calculate the first 10 allowed energies for this harmonic oscillator. (Don't forget to convert the mass to kg so everything is in SI units.)
+    3. Combine these two arrays into a single $11$ x $2$ array with the first column containing $n$ values and the second column containing the corresponding energies.
+
+```{python}
+# Python code here.
+```
+
+9. Generate an array containing integers $0 \rightarrow 14$ (inclusive)
+    1. Reshape the array to be a $3$ x $5$ array.
+    2. Transpose the array from part 1 so that it is $5$ x $3$.
+    3. Make the array from part 2 one-dimensional.
+
+
+10. The $\cos()$ function can be written as an infinite sum:  $$ \cos(x) = 1 - {x^2 \over 2!} + {x^4 \over 4!} - {x^6 \over 6!} + \dots = \sum_{n = 0}^\infty {(-1)^n x^{2n} \over (2n)!}$$. (As it turns out, any function can be written as a sum like this.)
+    1. Make an array of integer $n$ values from $0 \rightarrow 100$.
+    2. Using a single line of code, generate the terms in the sum for $x = \pi$. Note: `scipy.special` has a `factorial` function that will work on arrays.  
+    3. Use `cumsum` to evaluate the sum.
+    4. Interpret the results and verify that as you include more terms in the sum the approximation to $\cos(x)$ gets better and better.
+
+
+```{python}
+
+```

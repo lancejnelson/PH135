@@ -1,0 +1,9 @@
+---
+jupyter: python3
+reference-location: margin
+citation-location: margin
+execute: 
+  freeze: auto
+---
+
+# Extrapolation and Interpolation
