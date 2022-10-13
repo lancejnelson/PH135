@@ -259,7 +259,7 @@ Other optional arguments that can be used with the `savetxt` function are given 
 10. 
 
 ## Exercises
-1. Use the all of the functions from the `os` library that we mentioned in the text. I'll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.  
+1. Use all of the functions from the `os` library that we mentioned in the text. I'll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.  
 
 
 ```{python}
