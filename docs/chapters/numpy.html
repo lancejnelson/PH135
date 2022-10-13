@@ -326,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#commonly-used-array-methods-and-functions" id="toc-commonly-used-array-methods-and-functions" class="nav-link" data-scroll-target="#commonly-used-array-methods-and-functions"> <span class="header-section-number">9.7</span> Commonly-used Array Methods and Functions</a></li>
   <li><a href="#flashcards-part-i" id="toc-flashcards-part-i" class="nav-link" data-scroll-target="#flashcards-part-i"> <span class="header-section-number">9.8</span> Flashcards Part I</a></li>
   <li><a href="#flashcards-part-ii" id="toc-flashcards-part-ii" class="nav-link" data-scroll-target="#flashcards-part-ii"> <span class="header-section-number">9.9</span> Flashcards Part II</a></li>
-  <li><a href="#exercises-part-i" id="toc-exercises-part-i" class="nav-link" data-scroll-target="#exercises-part-i"> <span class="header-section-number">9.10</span> Exercises Part I</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">9.10</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -1235,11 +1235,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What does the <code>vstack</code> function do? Give an example to show the usage.</li>
 <li>What does the <code>hstack</code> function do? Give an example to show the usage.</li>
 <li>What do the <code>argmax</code> and <code>argmin</code> functions do?</li>
+<li>What does the <code>cumsum</code> function do?</li>
 <li>How many temples does the church have in operation currently?</li>
 </ol>
 </section>
-<section id="exercises-part-i" class="level2" data-number="9.10">
-<h2 data-number="9.10" class="anchored" data-anchor-id="exercises-part-i"><span class="header-section-number">9.10</span> Exercises Part I</h2>
+<section id="exercises" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.10</span> Exercises</h2>
 <ol type="1">
 <li><a href="https://en.wikipedia.org/wiki/Unit_circle#/media/File:Unit_circle_angles_color.svg">Here</a> you will find a picture of the unit circle.
 <ol type="1">
@@ -1275,7 +1276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Now access the number in the third column and second row. (It’s a <span class="math inline">\(1\)</span>)</li>
 <li>Slice the array from columns <span class="math inline">\(2 \rightarrow 4\)</span> and rows <span class="math inline">\(1 \rightarrow 3\)</span>.</li>
 </ol></li>
-<li><p>The following temperatures are prominent on the Fahrenheit scale: <code>[0,32,100,212,451]</code>. The are the</p>
+<li><p>The following temperatures are prominent on the Fahrenheit scale: <code>[0,32,100,212,451]</code>.</p>
 <ol type="1">
 <li>Create an array that contains these temperatures.</li>
 <li>Using a single line of code, convert these temperatures into degrees Celsius using the following formula <span class="math display">\[T_C =  {5\over 9}(T_F - 32)\]</span></li>
@@ -1288,21 +1289,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li><p>The equation below defines the relationship between energy (<span class="math inline">\(E\)</span>) in Joules of a photon and its wavelength (<span class="math inline">\(\lambda\)</span>) in meters. The <span class="math inline">\(h\)</span> is Plank’s constant (<span class="math inline">\(6.626 \times 10^{-34}\)</span> J <span class="math inline">\(\cdot\)</span> s) and <span class="math inline">\(c\)</span> is the speed of light in a vacuum (<span class="math inline">\(2.998 \times 10^8\)</span> m/s). <span class="math display">\[E = {h c \over \lambda}\]</span></p>
 <ol type="1">
-<li>Generate an array of wavelength values of visible light (<span class="math inline">\(400\)</span> nm <span class="math inline">\(\rightarrow 800\)</span> nm) in <span class="math inline">\(50\)</span> nm increments. (“nm” stands for nanometers or <span class="math inline">\(\times 10^{-9}\)</span> m)</li>
+<li>Generate an array of wavelength values for visible light (<span class="math inline">\(400\)</span> nm <span class="math inline">\(\rightarrow 800\)</span> nm) in <span class="math inline">\(50\)</span> nm increments. (“nm” stands for nanometers or <span class="math inline">\(10^{-9}\)</span> m)</li>
 <li>Generate a second array containing the energy of each wavelength of light from part 1. Does the energy of a photon increase or decrease with wavelength?</li>
 </ol></li>
 </ol>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
-<li><p>A boat is out at sea with the following location and velocity vectors: <span class="math display">\[x =
+<li><p>A boat is out at sea with the following location and velocity vectors: <span class="math display">\[x_i =
 \begin{bmatrix}
 5 \\
 2
-\end{bmatrix} \text{ km}\]</span> <span class="math display">\[v =
+\end{bmatrix} \text{ km}\]</span> <span class="math display">\[v_i =
 \begin{bmatrix}
 -13 \\
 25
-\end{bmatrix}  \text{ m/s}\]</span> when a gust of wind causes the boat to accelerate for approximately <span class="math inline">\(3\)</span> minutes with the following acceleration vector:<span class="math display">\[x =
+\end{bmatrix}  \text{ m/s}\]</span> when a gust of wind causes the boat to accelerate for approximately <span class="math inline">\(3\)</span> minutes with the following acceleration vector:<span class="math display">\[a =
 \begin{bmatrix}
 -8 \\
 -5

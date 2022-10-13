@@ -326,10 +326,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<p><a href="https://lancejnelson.github.io/PH135/jupyter/io.ipynb">Jupyter Notebook</a></p>
 <p>Up to now, we have been working with computer-generated or manually typed data sets. Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis. Most data files are <em>text</em> files, but there is a large variety of these that differ mostly in the way the information is formatted. The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file. For example, a <em>.csv</em> file (short for comma-separated values) has commas to separate the information.</p>
 <section id="the-os-module" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="the-os-module"><span class="header-section-number">10.1</span> The <code>os</code> module</h2>
-<p>The <code>os</code> module allows you to perform standard operations on the files and folders on your computer. When opening files from a python script, the default search path is the directory where the current file is located. If you want to open files located in other directories, you’ll need to use the <code>os</code> module to navigate there first. The following functions are the most commonly used ones</p>
+<p>Before we learn how to read and write data files, we should first learn how to navigate our computer’s file system from within Python. For this, we will use a module called <code>os</code> (short for operating system). The <code>os</code> module allows you to perform standard operations on the files and folders on your computer. When opening files from a python script, the default search path is the directory where the current file is located. If you want to open files located in other directories, you may need to use the <code>os</code> module to navigate there first. The following functions are the most commonly used ones</p>
 <table class="table">
 <colgroup>
 <col style="width: 42%">
@@ -348,11 +349,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td><code>chdir(path)</code></td>
-<td>Change the current direction to be somewhere else.</td>
+<td>Change the current working direction to be at <code>path</code>.</td>
 </tr>
 <tr class="odd">
 <td><code>listdir()</code></td>
 <td>List all of the files and folders in the current working directory.</td>
+</tr>
+<tr class="even">
+<td><code>mkdir(path)</code></td>
+<td>Make an new directory at location <code>path</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -360,11 +365,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> getcwd,chdir,listdir</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>currentdir <span class="op">=</span> getcwd()  </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>chdir(<span class="op">/</span>path<span class="op">/</span>to<span class="op">/</span>new<span class="op">/</span>directory)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>myfiles <span class="op">=</span> listdir()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>myfiles <span class="op">=</span> listdir()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#chdir(/path/to/new/directory)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p><strong><em>To Do:</em></strong></p>
-<p>Add print statements to the cell above and inspect the result</p>
+<ol type="1">
+<li>Add print statements to the cell above and inspect the results to understand what each function does.</li>
+<li>Modify the third statement above (the one that uses <code>chdir</code>) to change the current working directory to one that actually exists on your machine.</li>
+<li>Everyone has a “Downloads” folder on their computer. Use the <code>chdir</code> function to change the current working directory to the Downloads folder.</li>
+</ol>
 </blockquote>
 <p>The <code>os</code> module has many, many more functions that do useful things but you will mostly use the functions mentioned above. As you get more experience using your computer at the command line, you will be better equipped to understand the usefulness of the rest of this library.</p>
 </section>
@@ -703,9 +712,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="flashcards" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">10.4</span> Flashcards</h2>
+<ol type="1">
+<li>What does <code>os.getcwd()</code> do?</li>
+<li>What does <code>os.chdir()</code> do?</li>
+<li>What does <code>os.mkdir()</code> do?</li>
+<li>What does <code>os.listdir()</code> do?</li>
+<li>How do you open a file and read all of the lines in that file using <code>readline()</code>?</li>
+<li>How do you open a file and read all of the lines in that file using <code>numpy.genfromtxt()</code>?</li>
+<li>What is the <code>delimiter</code> keyword argument used for when reading a file with <code>numpy.genfromtxt()</code>?</li>
+<li>How do you open and write to a file using the <code>write</code> function?</li>
+<li>How do you write to a file using <code>numpy.savetxt</code>?</li>
+<li></li>
+</ol>
 </section>
 <section id="exercises" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.5</span> Exercises</h2>
+<ol type="1">
+<li>Use the all of the functions from the <code>os</code> library that we mentioned in the text. I’ll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.</li>
+</ol>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>In a previous homework problem you calculated the moments of inertia for a data set. In the cell below, you will find arrays containing 1000 values for for mass, length, and radius just as you did in the other homework problem.
+<ol type="1">
+<li>Using a single line of code, calculate the moments of inertia for the entire data set using the familiar formula: <span class="math display">\[ I = {1\over 4} M R^2 + {1\over 12} M L^2\]</span></li>
+<li>Write this data to file first using the <code>open</code> and <code>write</code> functions. Mass values should be in column 1, lengths in column 2, radii in column 3, and moments of inertia in column 4. Add a header to the file to label the columns. Open the file and inspect it to verify that you did it right.</li>
+<li>Repeat exercise 2 but using the <code>numpy.savetxt</code> function. Open the file and inspect it to verify that you did it right.</li>
+</ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> normal(<span class="dv">2</span>,<span class="fl">.2</span>,<span class="dv">1000</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><a href="https://lancejnelson.github.io/PH135/files/planets.csv">This file</a> contains planetary data for all of the planets in our solar system formatted as a “.csv” file.
+<ol type="1">
+<li>Download the file and move it to a location on your computer that you are familiar with.</li>
+<li>Read the file using the <code>open</code> and <code>readlines</code> functions.</li>
+<li>Repeat exercise 2 using <code>numpy.genfromtxt()</code>.</li>
+<li>Using a single line of code, calculate the average eccentricity of the planets.</li>
+<li>Using a single line of code each, determine the maximum and minium acceleration due to gravity of the planets.</li>
+</ol>
+Tip: You’ll need to use the <code>skip_header</code> and <code>usecols</code> keyword arguments to tell <code>genfromtxt</code> to skip the first row and column.</li>
+</ol>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><a href="https://lancejnelson.github.io/PH135/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this: <code>free energy     TOTEN =             -72.3092</code> and you need to extract the numbers from all of these lines. Use the following steps to build a list containing these numbers:
+<ol type="1">
+<li>Use the <code>open</code> and <code>readlines</code> functions to read this file into a list of strings.</li>
+<li>Iterate over this list and look for lines that contain the string “free energy”.</li>
+<li>When you find a line that has this string in it, <code>split</code> the string and extract the number. Make sure you turn the number in the string into a float.</li>
+<li>Append this number to a list that you defined initially to be empty.</li>
+</ol></li>
+</ol>
+<p>When you have built the list of energies, determine: 1. The number of energies in your list. 2. The average of the last 5 entries. 3. The minimum and maximum energies in your list.</p>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

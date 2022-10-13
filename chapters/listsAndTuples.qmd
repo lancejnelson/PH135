@@ -57,6 +57,41 @@ If the elements of a list are also lists, we call it a *nested* list.
 conductivity = [[1,2,3],[4,5,6],[7,8,9]]
 ```
 
+### The `range` function
+
+Often it will be necessary to generate a (possibly very long) list of integers.  Instead of constructing the list by typing these numbers one by one, Python has a built-in function called `range()` that will do it for you. The `range()` function requires at least one argument to tell it how high the range should be.
+
+```{python}
+a = range(10)  # Generate a list of integers up to 10
+a
+```
+
+
+
+This output probably wasn't what you expected. Instead of generating the full list of numbers, Python generates a `range` object that stands in place of it because it requires less memory. (Consider what might happen to your computer's memory if you did `range(1000000000000)`.)  To force Python to generate the list, you can convert the `range` object into a list using the `list()` function.
+
+
+```{python}
+a = range(10)  # Generate a list of integers up to 10
+list(a)
+```
+
+
+The `range` function can be called with up to three arguments: `range(start,end,stepsize)`. Consistent with indexing, the range includes the start value and excludes the end value. Below we generate a list of integers starting at 5, ending at 100 with a step size of 5.
+
+```{python}
+
+myList = range(5,100,5)
+list(myList)
+```
+
+
+> **_To Do:_**
+>
+>Use the range function to generate a list of **even** numbers from 8 to 88. (the list should include 88!)
+> 
+
+
 
 ## Indexing and Slicing Lists
 
@@ -137,7 +172,7 @@ electrons[5:2:-1]
 >3. Discuss any misunderstandings with a peer.
 >4. Now use list slicing to extract every third element of the list in the cell above starting at the beginning.
 
-### Tests for Inclusion  
+## Tests for Inclusion  
  
  Just as with strings, the `in` operator can be used with lists to determine if a list element is present.  Suppose you have a list of all the known radioactive elements on the periodic table and you'd like to know if Iridium is in the list. The `in` statement let's us quickly test to see if it is in the list. (see example below)
 
@@ -158,7 +193,7 @@ numbers = [5,6,3,1,2]
 ```
 
 
-### List Methods
+## List Methods
 
 Lists have a collection of methods (or functions) for accomplishing routine tasks.  Some of the more common list methods are given below.  All of the methods given will modify the original list (except `copy()`).  As a reminder, methods only work on the object type that they were designed for (lists in this case) and they are called by appending the method name to the variable you want it to operate on. (i.e. `myList.clear()`) 
 
@@ -199,7 +234,7 @@ a = ["Air 0C",331,"Air 30C",343, "Helium 0C",970,"Ethyl Alcohol",1170,"Water 20C
 
 
 
-### Built-in functions for Lists
+## Built-in functions for Lists
 Python has several built-in functions that will work with lists.  Functions are called by placing the arguments to the function in parenthesis and prepending the name of the function to the parenthesis.  Here are a few common functions that are used with lists: (the `zip` and `enumerate` functions will be explained in greater detail next chapter.)
 
 
@@ -234,39 +269,6 @@ b = ["r","s","t"]
 c = [4,7,8]
 ```
 
-### The `range` function
-
-Often it will be necessary to generate a (possibly very long) list of integers.  Instead of constructing the list by typing these numbers one by one, Python has a built-in function called `range()` that will do it for you. The `range()` function requires at least one argument to tell it how high the range should be.
-
-```{python}
-a = range(10)  # Generate a list of integers up to 10
-a
-```
-
-
-
-This output probably wasn't what you expected. Instead of generating the full list of numbers, Python generates a `range` object that stands in place of it because it requires less memory. (Consider what might happen to your computer's memory if you did `range(1000000000000)`.)  To force Python to generate the list, you can convert the `range` object into a list using the `list()` function.
-
-
-```{python}
-a = range(10)  # Generate a list of integers up to 10
-list(a)
-```
-
-
-The `range` function can be called with up to three arguments: `range(start,end,stepsize)`. Consistent with indexing, the range includes the start value and excludes the end value. Below we generate a list of integers starting at 5, ending at 100 with a step size of 5.
-
-```{python}
-
-myList = range(5,100,5)
-list(myList)
-```
-
-
-> **_To Do:_**
->
->Use the range function to generate a list of **even** numbers from 8 to 88. (the list should include 88!)
-> 
 
 
 

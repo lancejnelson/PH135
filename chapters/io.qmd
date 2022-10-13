@@ -7,18 +7,23 @@ execute:
 ---
 
 # File I/O (Input/Output)
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/io.ipynb)
+
+
 Up to now, we have been working with computer-generated or manually typed data sets.  Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis.  Most data files are *text* files, but there is a large variety of these that differ mostly in the way the information is formatted.   The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file.  For example, a *.csv* file (short for comma-separated values) has commas to separate the information.
 
 
 ## The `os` module
-The `os` module allows you to perform standard operations on the files and folders on your computer.  When opening files from a python script, the default search path is the directory where the current file is located. If you want to open files located in other directories, you'll need to use the `os` module to navigate there first. The following functions are the most commonly used ones
+Before we learn how to read and write data files, we should first learn how to navigate our computer's file system from within Python. For this, we will use a module called `os` (short for operating system). The `os` module allows you to perform standard operations on the files and folders on your computer.  When opening files from a python script, the default search path is the directory where the current file is located. If you want to open files located in other directories, you may need to use the `os` module to navigate there first. The following functions are the most commonly used ones
 
 
 |Function|Description|
 |--------|-----------|
 |`getcwd()`| Short for get current working directory.  Returns a string of the current directory.|
-|`chdir(path)`| Change the current direction to be somewhere else.|
+|`chdir(path)`| Change the current working direction to be at `path`.|
 |`listdir()`| List all of the files and folders in the current working directory.|
+|`mkdir(path)`| Make an new directory at location `path`.|
 
 In the cell below, we show the usage of these functions.
 
@@ -27,16 +32,17 @@ In the cell below, we show the usage of these functions.
 from os import getcwd,chdir,listdir
 
 currentdir = getcwd()  
-chdir(/path/to/new/directory)
 myfiles = listdir()
+#chdir(/path/to/new/directory)
 
 ```
 
 
 >**_To Do:_**
 >  
-> Add print statements to the cell above and inspect the result
->
+> 1. Add print statements to the cell above and inspect the results to understand what each function does.
+> 2. Modify the third statement above (the one that uses `chdir`) to change the current working directory to one that actually exists on your machine.
+> 3. Everyone has a "Downloads" folder on their computer. Use the `chdir` function to change the current working directory to the Downloads folder.
 
 
 The `os` module has many, many more functions that do useful things but you will mostly use the functions mentioned above.  As you get more experience using your computer at the command line, you will be better equipped to understand the usefulness of the rest of this library. 
@@ -241,6 +247,77 @@ Other optional arguments that can be used with the `savetxt` function are given 
 
 
 ## Flashcards
-
+1. What does `os.getcwd()` do?
+2. What does `os.chdir()` do?
+3. What does `os.mkdir()` do?
+4. What does `os.listdir()` do?
+5. How do you open a file and read all of the lines in that file using `readline()`?
+6. How do you open a file and read all of the lines in that file using `numpy.genfromtxt()`?
+7. What is the `delimiter` keyword argument used for when reading a file with `numpy.genfromtxt()`?
+8. How do you open and write to a file using the `write` function?
+9. How do you write to a file using `numpy.savetxt`?
+10. 
 
 ## Exercises
+1. Use the all of the functions from the `os` library that we mentioned in the text. I'll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.  
+
+
+```{python}
+# Python code here
+```
+
+
+
+2. In a previous homework problem you calculated the moments of inertia for a data set.  In the cell below, you will find arrays containing 1000 values for for mass, length, and radius just as you did in the other homework problem.
+    1. Using a single line of code, calculate the moments of inertia for the entire data set using the familiar formula: $$ I = {1\over 4} M R^2 + {1\over 12} M L^2$$
+    2. Write this data to file first using the `open` and `write` functions. Mass values should be in column 1, lengths in column 2, radii in column 3, and moments of inertia in column 4.  Add a header to the file to label the columns. Open the file and inspect it to verify that you did it right.
+    3. Repeat exercise 2 but using the `numpy.savetxt` function.  Open the file and inspect it to verify that you did it right.
+    
+
+
+
+```{python}
+#| eval: false
+from numpy.random import normal
+
+mass = normal(5,.5,1000)
+length = normal(2,.2,1000)
+radius = normal(1,.1,1000)
+
+```
+
+
+3.  [This file](https://lancejnelson.github.io/PH135/files/planets.csv) contains planetary data for all of the planets in our solar system formatted as a ".csv" file.  
+    1. Download the file and move it to a location on your computer that you are familiar with. 
+    2. Read the file using the `open` and `readlines` functions.
+    3. Repeat exercise 2 using `numpy.genfromtxt()`.
+    4. Using a single line of code, calculate the average eccentricity of the planets.
+    5. Using a single line of code each, determine the maximum and minium acceleration due to gravity of the planets.
+
+    Tip: You'll need to use the `skip_header` and `usecols` keyword arguments to tell `genfromtxt` to skip the first row and column.
+
+
+```{python}
+# Python code here
+```
+
+
+
+4. [This file](https://lancejnelson.github.io/PH135/files/OUTCAR.static) contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside.  Reading this file is definitely a job for `open` and `readlines` rather than `numpy.genfromtxt()`.  Periodically in this file there are lines that look like this: `  free energy     TOTEN =             -72.3092` and you need to extract the numbers from all of these lines.  Use the following steps to build a list containing these numbers:
+    1. Use the `open` and `readlines` functions to read this file into a list of strings.
+    2. Iterate over this list and look for lines that contain the string "free energy".
+    3. When you find a line that has this string in it, `split` the string and extract the number. Make sure you turn the number in the string into a float.
+    4. Append this number to a list that you defined initially to be empty. 
+
+
+When you have built the list of energies, determine:
+    1. The number of energies in your list.
+    2. The average of the last 5 entries.
+    3. The minimum and maximum energies in your list.
+
+
+```{python}
+# Python code here
+```
+
+

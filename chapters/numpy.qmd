@@ -747,11 +747,12 @@ NumPy contains an extensive listing of array methods and functions and it would 
 5. What does the `vstack` function do? Give an example to show the usage.
 6. What does the `hstack` function do? Give an example to show the usage.
 7. What do the `argmax` and `argmin` functions do?
-8. How many temples does the church have in operation currently?
+8. What does the `cumsum` function do?
+9. How many temples does the church have in operation currently?
 
 
 
-## Exercises Part I
+## Exercises 
 1. [Here](https://en.wikipedia.org/wiki/Unit_circle#/media/File:Unit_circle_angles_color.svg) you will find a picture of the unit circle. 
     1. Use the `arange` function to generate all of the angles (in degrees) on the unit circle **displayed in blue or black text**.
     2. Using a single line of code, convert all of the angle from part 1 into radians.
@@ -793,7 +794,7 @@ length = uniform(0.8,3,1000)
     2. Slice the array from columns $2 \rightarrow 4$ and rows $1 \rightarrow 3$.
 
 
-4. The following temperatures are prominent on the Fahrenheit scale: `[0,32,100,212,451]`.  The are the 
+4. The following temperatures are prominent on the Fahrenheit scale: `[0,32,100,212,451]`.  
     1. Create an array that contains these temperatures.
     2. Using a single line of code, convert these temperatures into degrees Celsius using the following formula $$T_C =  {5\over 9}(T_F - 32)$$
     3. Using a single line of code, convert the temperatures from part 2 into Kelvins using the following formula $$T_K = T_C + 273.15$$  
@@ -807,7 +808,7 @@ length = uniform(0.8,3,1000)
 
 5. The equation below defines the relationship between energy ($E$) in Joules of a photon and its wavelength ($\lambda$) in meters.  The $h$ is Plank's constant ($6.626 \times 10^{-34}$ J $\cdot$ s) and $c$ is the speed of light in a vacuum ($2.998 \times 10^8$ m/s). $$E = {h c \over \lambda}$$
 
-    1. Generate an array of wavelength values of visible light ($400$ nm $\rightarrow 800$ nm) in $50$ nm increments. ("nm" stands for nanometers or $\times 10^{-9}$ m)
+    1. Generate an array of wavelength values for visible light ($400$ nm $\rightarrow 800$ nm) in $50$ nm increments. ("nm" stands for nanometers or $10^{-9}$ m)
     2. Generate a second array containing the energy of each wavelength of light from part 1.  Does the energy of a photon increase or decrease with wavelength?
 
 ```{python}
@@ -815,15 +816,15 @@ length = uniform(0.8,3,1000)
 
 ```
 
-6. A boat is out at sea with the following location and velocity vectors: $$x = 
+6. A boat is out at sea with the following location and velocity vectors: $$x_i = 
 \begin{bmatrix}
 5 \\
 2
-\end{bmatrix} \text{ km}$$ $$v = 
+\end{bmatrix} \text{ km}$$ $$v_i = 
 \begin{bmatrix}
 -13 \\
 25
-\end{bmatrix}  \text{ m/s}$$ when a gust of wind causes the boat to accelerate for approximately $3$ minutes with the following acceleration vector:$$x = 
+\end{bmatrix}  \text{ m/s}$$ when a gust of wind causes the boat to accelerate for approximately $3$ minutes with the following acceleration vector:$$a = 
 \begin{bmatrix}
 -8 \\
 -5

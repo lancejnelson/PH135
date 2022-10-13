@@ -381,7 +381,7 @@ length = uniform(0.8,3,1000)
 
 ```
 
-4. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = \sqrt{m g \over c}$$
+4. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = -{m g \over c}$$
 where $m$ is the mass of the projectile, $c$ is the drag constant, $g= 9.8$ m/s$^2$ is the acceleration due to gravity, $v_0$ is the initial velocity of the particle, and $t$ is time. 
 
     1. Use a while loop to calculate the velocity of the particle at $0.1$ second time intervals, starting at $t = 0$.
