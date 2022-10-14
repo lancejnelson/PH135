@@ -354,28 +354,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="numpy-arrays" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="numpy-arrays"><span class="header-section-number">9.1</span> Numpy Arrays</h2>
 <p>You are already familiar with Python lists but may not have noticed that they are not suitable for mathematical calculations. For example, attempting to multiply a list by a scalar or evaluating a mathematical function like <span class="math inline">\(\sin()\)</span> on a list will <em>not</em> produce a mathematical result or may produce an error. For example, consider the following code.</p>
-<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>newList <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> myList</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[4, 5, 7, 4, 5, 7]</code></pre>
-</div>
-</div>
 <p>You probably expected <code>newList</code> to be <code>[8,10,14]</code> but multiplying a list by a number doesn’t do that. Instead it repeats the list and concatenates it to itself. To multiply each element of a list by a number you must use a <code>for</code> loop.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>newList <span class="op">=</span> []</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    newList.append(i<span class="op">*</span> <span class="dv">2</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[8, 10, 14]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>newList <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    newList.append(i<span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>but this seems overly cumbersome for such a simple task. Numpy <em>ndarrays</em> (short for n-dimensional arrays) or just <em>arrays</em> make this task much simpler. Arrays are similar to lists or nested lists except that mathematical operations and <code>numpy</code> functions (but not <code>math</code> functions) automatically propagate to each element instead of requiring a <code>for</code> loop to iterate over it. Because of their power and convenience, arrays are the default object type for any operation performed with NumPy.</p>
 </section>
 <section id="array-creation" class="level2" data-number="9.2">
@@ -383,29 +373,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="type-conversion-from-list" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="type-conversion-from-list"><span class="header-section-number">9.2.1</span> Type Conversion from List</h3>
 <p>You can create an array from a list using numpy’s <code>array</code> function. The list that is to be converted is the argument to the <code>array</code> function. Mathematical operations can then be performed on the array and that operation will propagate through to all of the elements.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>])</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>newArray <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> myArray </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[ 8 10 14]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">7</span>])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>newArray <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> myArray </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Nested lists, or lists that contain lists as their elements, can be converted to multi-dimensional arrays using the <code>array</code> function.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2 3]
- [4 5 6]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="the-arange-and-linspace-functions" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="the-arange-and-linspace-functions"><span class="header-section-number">9.2.2</span> The <code>arange</code> and <code>linspace</code> Functions</h3>
@@ -420,90 +399,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>linspace</code> function is related to the <code>arange</code> function except that instead of specifying the step size of the sequence, the sequence is generated based on the number of equally-spaced points in the given span of numbers. Additionally, <code>arange</code> excludes the stop value while <code>linspace</code> includes it. The difference between these two functions is subtle and the use of one over the other often comes down to user preference or convenience.</p>
 <pre><code>linspace(start,stop,number of points)</code></pre>
 <p>Below is an example that shows the usage of <code>linspace</code> and <code>arange</code>.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,arange</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[ 0.          0.52631579  1.05263158  1.57894737  2.10526316  2.63157895
-  3.15789474  3.68421053  4.21052632  4.73684211  5.26315789  5.78947368
-  6.31578947  6.84210526  7.36842105  7.89473684  8.42105263  8.94736842
-  9.47368421 10.        ]
-[0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5.  5.5 6.  6.5 7.  7.5 8.  8.5
- 9.  9.5]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,arange</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.5</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When using <code>linspace</code> you may still want to know what the sequence spacing is. You can request that <code>linspace</code> provide this information by adding the optional argument <code>retstep = True</code> to the argument list. With this addition, linspace not only returns the sequence to you, but also the stepsize.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,arange</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>myArray,mydx <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,retstep<span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mydx)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5263157894736842
-[ 0.          0.52631579  1.05263158  1.57894737  2.10526316  2.63157895
-  3.15789474  3.68421053  4.21052632  4.73684211  5.26315789  5.78947368
-  6.31578947  6.84210526  7.36842105  7.89473684  8.42105263  8.94736842
-  9.47368421 10.        ]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,arange</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>myArray,mydx <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">20</span>,retstep<span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mydx)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Two other useful functions for generating arrays are <code>zeros</code> and <code>ones</code> which generate arrays populated with exclusively ones or zeros. The functions require shape arguments as a tuple or list to specify the shape of the array.</p>
 <pre><code>zeros((rows,columns))</code></pre>
 <p>If the array to be created is only one dimensional, the argument can be a single number instead of a tuple.</p>
 <pre><code>zeros(n)</code></pre>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> zeros,ones</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> zeros([<span class="dv">3</span>,<span class="dv">4</span>])</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> ones(<span class="dv">5</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[0. 0. 0. 0.]
- [0. 0. 0. 0.]
- [0. 0. 0. 0.]]
-[1. 1. 1. 1. 1.]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> zeros,ones</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> zeros([<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> ones(<span class="dv">5</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Arrays of any constant (not just one or zero) can then be easily generated by performing the needed math on the original array.</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> zeros,ones</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> zeros([<span class="dv">3</span>,<span class="dv">4</span>]) <span class="op">+</span> <span class="dv">5</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> ones(<span class="dv">5</span>) <span class="op">*</span> <span class="dv">12</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[5. 5. 5. 5.]
- [5. 5. 5. 5.]
- [5. 5. 5. 5.]]
-[12. 12. 12. 12. 12.]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> zeros,ones</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> zeros([<span class="dv">3</span>,<span class="dv">4</span>]) <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>myArray2 <span class="op">=</span> ones(<span class="dv">5</span>) <span class="op">*</span> <span class="dv">12</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="arrays-from-functions" class="level3" data-number="9.2.3">
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="arrays-from-functions"><span class="header-section-number">9.2.3</span> Arrays from Functions</h3>
 <p>A third approach is to generate an array from a function using the <code>fromfunction</code> function which generates an array of values using the array indices as the inputs. Ths function requires two arguments: the name of the function being used and the shape of the array being generated.</p>
 <pre><code>fromfunction(function, shape)</code></pre>
 <p>Let’s make a 3 x 3 array where each element is the product of the row and column indices:</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> fromfunction</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prod(x,y):</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> y</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> fromfunction(prod,(<span class="dv">3</span>,<span class="dv">3</span>))</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[0. 0. 0.]
- [0. 1. 2.]
- [0. 2. 4.]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> fromfunction</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prod(x,y):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> y</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> fromfunction(prod,(<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The table below gives a summary of useful functions for creating numpy arrays. The required arguments are also described.</p>
 <table class="table">
 <caption>Common functions for generating arrays</caption>
@@ -564,73 +501,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="one-dimensional-arrays" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="one-dimensional-arrays"><span class="header-section-number">9.3.1</span> One-dimensional Arrays</h3>
 <p>Elements from a one-dimensional array can be extracted using square brackets (<code>[]</code>) just like we have done with lists.</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">8</span>])</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>7</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">8</span>])</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="multi-dimensional-arrays" class="level3" data-number="9.3.2">
 <h3 data-number="9.3.2" class="anchored" data-anchor-id="multi-dimensional-arrays"><span class="header-section-number">9.3.2</span> Multi-dimensional Arrays</h3>
 <p>Multi-dimensional array can be indexed in a similar fashion to nested lists, but because we often encounter multi-dimensional arrays there is a shortcut that makes the syntax simpler and more convenient. Let’s consider a two-dimensional array as an example. To access the entire second row of the array, provide the row index in square brackets just as with one-dimensional arrays.</p>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[4 5 6]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To access the second element <em>in the second row</em>, we can add another set of square brackets with the appropriate index inside, just as we did with nested lists. However, for convenience the second set of square brackets can be omitted and the row and column indices can be placed next to each other and separated by a comma.</p>
 <pre><code>array_name[row,column]</code></pre>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>][<span class="dv">1</span>])  <span class="co"># This works, but is a bit hard on the eyes</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>,<span class="dv">1</span>])  <span class="co"># This works also and is easier to look at.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>5
-5</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>][<span class="dv">1</span>])  <span class="co"># This works, but is a bit hard on the eyes</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>,<span class="dv">1</span>])  <span class="co"># This works also and is easier to look at.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="accessing-multiple-elements" class="level3" data-number="9.3.3">
 <h3 data-number="9.3.3" class="anchored" data-anchor-id="accessing-multiple-elements"><span class="header-section-number">9.3.3</span> Accessing Multiple Elements</h3>
 <p>Multiple elements of an array can be accessed using a list for the index instead of a single number.</p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>])</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">2</span>])  <span class="co"># Extract element 2</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[ [<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>] ])  <span class="co"># Extract elements 3, 6, and 9.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>3
-[ 4  7 10]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>])</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">2</span>])  <span class="co"># Extract element 2</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[ [<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">9</span>] ])  <span class="co"># Extract elements 3, 6, and 9.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This can even be done with multi-dimensional arrays. If the index is a single list, the corresponding rows will be extract. If the corresponding list of columns is added to the index list, individual elements will be extracted.</p>
 <pre><code>array_name[[rows]]  # Access set of rows</code></pre>
 <pre><code>array_name[[rows], [columns]]  # Access set of elements</code></pre>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[[<span class="dv">0</span>,<span class="dv">1</span>]]) <span class="co"># Extract rows 0 and 1.</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>]])   <span class="co"># Extract elements (1,0), (2,2), and (0,2)  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2 3]
- [4 5 6]]
-[4 9 3]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[[<span class="dv">0</span>,<span class="dv">1</span>]]) <span class="co"># Extract rows 0 and 1.</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>],[<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>]])   <span class="co"># Extract elements (1,0), (2,2), and (0,2)  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="slicing-arrays" class="level2" data-number="9.4">
@@ -638,8 +546,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="multi-dimensional-arrays-1" class="level3" data-number="9.4.1">
 <h3 data-number="9.4.1" class="anchored" data-anchor-id="multi-dimensional-arrays-1"><span class="header-section-number">9.4.1</span> Multi-dimensional Arrays</h3>
 <p>We’ve already shown you how to slice a list using the : operator. The same can be done with arrays. However, for 2D (and higher) arrays the slicing is more powerful (intuitive). It can be helpful to visualize an array as a matrix, even if it is not being treated that way Mathematically. For example, let’s say that you define the following array:</p>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>which can be visualized as the following matrix:</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -656,96 +564,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{pmatrix}
 \]</span></p>
 <p>we could do</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[5 6]
- [8 9]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To include all of the elements in a given dimension, use the <code>:</code> alone with no numbers surrounding it.</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[:,<span class="dv">1</span>:<span class="dv">3</span>])  <span class="co"># Extract all rows with columns 1 and 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[2 3]
- [5 6]
- [8 9]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[:,<span class="dv">1</span>:<span class="dv">3</span>])  <span class="co"># Extract all rows with columns 1 and 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="boolean-slicing" class="level3" data-number="9.4.2">
 <h3 data-number="9.4.2" class="anchored" data-anchor-id="boolean-slicing"><span class="header-section-number">9.4.2</span> Boolean Slicing</h3>
 <p>Boolean operations can be evaluated on arrays to produce corresponding arrays of booleans. The boolean array can then be used to index the original array and extract elements that meet some criteria.</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>boolArray <span class="op">=</span> a <span class="op">&gt;</span> <span class="dv">2</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(boolArray)</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a[boolArray])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[False False  True  True  True  True]
-[3 4 5 6]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>boolArray <span class="op">=</span> a <span class="op">&gt;</span> <span class="dv">2</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(boolArray)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a[boolArray])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This also works on multi-dimensional arrays although the result is always one-dimensional regardless of the shape of the original array.</p>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[myArray<span class="op">&gt;</span><span class="dv">2</span>]) <span class="co"># Extract elements that are greater than 2.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[3 4 5 6 7 8 9]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>myArray <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myArray[myArray<span class="op">&gt;</span><span class="dv">2</span>]) <span class="co"># Extract elements that are greater than 2.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="vectorization-and-broadcasting" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="vectorization-and-broadcasting"><span class="header-section-number">9.5</span> Vectorization and Broadcasting</h2>
 <p>A major advantage of numpy arrays over lists is that operations <em>vectorize</em> across the arrays. This means that mathematical operations propagate through the array instead of requiring a <code>for</code> loop. This speeds up the calculation and makes code easier to write and read. Simple mathematical operations like adding, subtracting, etc can be performed on arrays as you would expect and the operation propagates through to all elements.</p>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> b</span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="dv">2</span><span class="op">/</span>b</span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> a <span class="op">*</span> b</span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c,d,e,f,g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[5 7 9] [1 4 9] [ 8 10 12] [0.5        0.4        0.33333333] [ 4 10 18]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> b</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="dv">2</span><span class="op">/</span>b</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> a <span class="op">*</span> b</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c,d,e,f,g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>All of the common mathematical operations that you learned for numbers now apply to arrays. Cool!</p>
 <section id="numpy-functions" class="level3" data-number="9.5.1">
 <h3 data-number="9.5.1" class="anchored" data-anchor-id="numpy-functions"><span class="header-section-number">9.5.1</span> Numpy Functions</h3>
 <p>The numpy library has a massive collection of vectorized mathematical functions and these functions should be used instead of similar functions from other libraries that are not vectorized (like <code>math</code>).</p>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> sqrt <span class="im">as</span> nsqrt</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> mathsqrt</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>])</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nsqrt(squares))</span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co">#print(mathsqrt(squares))  #This will fail because it wasn't a numpy function.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1. 2. 3. 4. 5.]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> sqrt <span class="im">as</span> nsqrt</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> mathsqrt</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> array([<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>])</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nsqrt(squares))</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">#print(mathsqrt(squares))  #This will fail because it wasn't a numpy function.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="arrays-of-same-dimensions" class="level3" data-number="9.5.2">
 <h3 data-number="9.5.2" class="anchored" data-anchor-id="arrays-of-same-dimensions"><span class="header-section-number">9.5.2</span> Arrays of same Dimensions</h3>
@@ -764,24 +638,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 10&amp;12\\
 \end{pmatrix}
 \]</span></p>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]])</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b  <span class="co"># Add the elements of the arrays together.</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">*</span> b  <span class="co"># Multiply the elements of the arrays together.</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[ 6  8]
- [10 12]]
-[[ 5 12]
- [21 32]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]])</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b  <span class="co"># Add the elements of the arrays together.</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a <span class="op">*</span> b  <span class="co"># Multiply the elements of the arrays together.</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="arrays-of-different-dimensions" class="level3" data-number="9.5.3">
 <h3 data-number="9.5.3" class="anchored" data-anchor-id="arrays-of-different-dimensions"><span class="header-section-number">9.5.3</span> Arrays of Different Dimensions</h3>
@@ -806,19 +672,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 2&amp;2\\
 \end{pmatrix}
 \]</span></p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([<span class="dv">2</span>,<span class="dv">2</span>])</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[3 4]
- [5 6]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are some cases where NumPy simply cannot figure out how to broadcast one of the arrays appropriately and an error results. When broadcasting, NumPy must verify that all dimensions are compatible with each other. Two dimensions are compatible when i) they are equal or ii) one of the dimensions is 1. For example, if we tried to perform the following mathematical operation, broadcasting would fail because the first dimension of the first array is 2 and the first dimension of the second array is 3.</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -831,11 +691,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 3&amp;3&amp;3\\
 \end{pmatrix}
 \]</span></p>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>]])</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],[<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>]])</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>but if we attempted</p>
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -852,175 +712,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="vectorizing-user-defined-functions" class="level3" data-number="9.5.4">
 <h3 data-number="9.5.4" class="anchored" data-anchor-id="vectorizing-user-defined-functions"><span class="header-section-number">9.5.4</span> Vectorizing user-defined functions</h3>
 <p>Standard Python functions are often designed to perform a single calculation rather than iterate over a list to perform many calculations. For example, here is a function to calculate the average acceleration of an object given its final velocity and time of travel.</p>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,<span class="fl">5.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>9.392857142857144</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,<span class="fl">5.6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now what if I have a list of many times that I’d like to feed into this function and get an acceleration value for each one.</p>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>]</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,times))  <span class="co"># Produces an error because you can't divide by a list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>]</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,times))  <span class="co"># Produces an error because you can't divide by a list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>An error results here because Python does not know how to divide by a list. We can NumPy-ify this function using a function called <code>vectorize</code>. The resulting function will behave just like the other functions from the NumPy library, vectorizing across the list of times.</p>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> vectorize</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>]</span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>vaccel <span class="op">=</span> vectorize(accel)  <span class="co"># Vectorize the function!</span></span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vaccel(<span class="fl">52.6</span>,times))  <span class="co"># Succeeds because NumPy knows how to vectorize.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[11.43478261  6.65822785 16.4375      6.18823529  5.7173913  11.19148936]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> vectorize</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>]</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>vaccel <span class="op">=</span> vectorize(accel)  <span class="co"># Vectorize the function!</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vaccel(<span class="fl">52.6</span>,times))  <span class="co"># Succeeds because NumPy knows how to vectorize.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Of course, we also could have just converted our times list into an array and used the original function.</p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> array([<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>])</span>
-<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,times))  <span class="co"># Succeeds because times is an array not a list.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[11.43478261  6.65822785 16.4375      6.18823529  5.7173913  11.19148936]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> accel(velocity, time):</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> velocity <span class="op">/</span> time</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> array([<span class="fl">4.6</span>,<span class="fl">7.9</span>,<span class="fl">3.2</span>,<span class="fl">8.5</span>,<span class="fl">9.2</span>,<span class="fl">4.7</span>])</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(accel(<span class="fl">52.6</span>,times))  <span class="co"># Succeeds because times is an array not a list.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="manipulating-and-modifying-arrays" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="manipulating-and-modifying-arrays"><span class="header-section-number">9.6</span> Manipulating and Modifying Arrays</h2>
 <p>A wealth of functions exist to perform routine manipulation tasks on arrays once they are created. Often these tasks will involve changing the number of rows or columns or merging two arrays into one. The <em>size</em> and <em>shape</em> of an array are the number of elements and dimensions, respectively. These can be determined using the <code>shape</code> and <code>size</code> methods.</p>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.size)</span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>6
-(2, 3)</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.size)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="reshaping-arrays" class="level3" data-number="9.6.1">
 <h3 data-number="9.6.1" class="anchored" data-anchor-id="reshaping-arrays"><span class="header-section-number">9.6.1</span> Reshaping Arrays</h3>
 <p>The dimensions of an array can be modified using the <code>reshape</code> function. This methods maintains the number of elements and the order of elements but repacks them into a different number of rows and columns. Because the number of elements is maintained, the size of the new array has to be the same as the original. Let’s see an example.</p>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array, reshape</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> reshape(a,[<span class="dv">3</span>,<span class="dv">2</span>])</span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2 3]
- [4 5 6]]
-[[1 2]
- [3 4]
- [5 6]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array, reshape</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> reshape(a,[<span class="dv">3</span>,<span class="dv">2</span>])</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The original array (<code>a</code>) was a <span class="math inline">\(2\)</span> x <span class="math inline">\(3\)</span> and had <span class="math inline">\(6\)</span> elements and the reshaped array also has <span class="math inline">\(6\)</span> elements but is a <span class="math inline">\(3\)</span> x <span class="math inline">\(2\)</span>. You can start with a one-dimensional array and reshape it to a higher dimensional array.</p>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, reshape</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">12</span>)</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> reshape(a,[<span class="dv">3</span>,<span class="dv">4</span>])</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
-<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[ 0.          0.90909091  1.81818182  2.72727273  3.63636364  4.54545455
-  5.45454545  6.36363636  7.27272727  8.18181818  9.09090909 10.        ]
-[[ 0.          0.90909091  1.81818182  2.72727273]
- [ 3.63636364  4.54545455  5.45454545  6.36363636]
- [ 7.27272727  8.18181818  9.09090909 10.        ]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, reshape</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">12</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> reshape(a,[<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="flattening-arrays" class="level3" data-number="9.6.2">
 <h3 data-number="9.6.2" class="anchored" data-anchor-id="flattening-arrays"><span class="header-section-number">9.6.2</span> Flattening Arrays</h3>
 <p>Flattening an array takes a higher-dimensional array and squishes it into a one-dimensional array. You can “flatten” an array with the <code>flatten</code> method, but note that <code>flatten</code> doesn’t actually modify the original array.</p>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>a.flatten()</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># 'a' remains unchanged</span></span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a.flatten() <span class="co"># If you want to change the definition of a, redifine it.</span></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2 3]
- [4 5 6]]
-[1 2 3 4 5 6]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>a.flatten()</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># 'a' remains unchanged</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a.flatten() <span class="co"># If you want to change the definition of a, redifine it.</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="transposing-arrays" class="level3" data-number="9.6.3">
 <h3 data-number="9.6.3" class="anchored" data-anchor-id="transposing-arrays"><span class="header-section-number">9.6.3</span> Transposing Arrays</h3>
 <p>Transposing an array rotates it across the diagonal and can be accomplished with the <code>transpose</code> function. There is also a shortcut method for this of <code>array.T</code> to accomplish the same thing but just as with <code>flatten</code> it does not modify the original array. (neither does <code>transpose</code>)</p>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array,transpose</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>transpose(a)</span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># 'a' remains unchanged</span></span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a.T <span class="co"># If you want to change the definition of a, redefine it.</span></span>
-<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1 2 3]
- [4 5 6]]
-[[1 4]
- [2 5]
- [3 6]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array,transpose</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>transpose(a)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)  <span class="co"># 'a' remains unchanged</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a.T <span class="co"># If you want to change the definition of a, redefine it.</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="merging-arrays" class="level3" data-number="9.6.4">
 <h3 data-number="9.6.4" class="anchored" data-anchor-id="merging-arrays"><span class="header-section-number">9.6.4</span> Merging Arrays</h3>
 <p>Several function exist for combining multiple arrays into a single array. We’ll give examples for a couple and mention the others in reference tables. The most commonly used functions for this task are <code>vstack</code> (vertical stacking) and <code>hstack</code> (horizontal stacking). <code>vstack</code> will stack the original arrays vertically to create the new array and <code>hstack</code> will stack them horizontally. Here are some examples.</p>
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, hstack, vstack</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">10</span>)</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> vstack((a,b))</span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)  <span class="co"># 'a' remains unchanged</span></span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> hstack((a,b))</span>
-<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.T)</span>
-<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[ 0.          1.11111111  2.22222222  3.33333333  4.44444444  5.55555556
-   6.66666667  7.77777778  8.88888889 10.        ]
- [ 0.          0.55555556  1.11111111  1.66666667  2.22222222  2.77777778
-   3.33333333  3.88888889  4.44444444  5.        ]]
-[ 0.          1.11111111  2.22222222  3.33333333  4.44444444  5.55555556
-  6.66666667  7.77777778  8.88888889 10.        ]
-[ 0.          1.11111111  2.22222222  3.33333333  4.44444444  5.55555556
-  6.66666667  7.77777778  8.88888889 10.          0.          0.55555556
-  1.11111111  1.66666667  2.22222222  2.77777778  3.33333333  3.88888889
-  4.44444444  5.        ]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, hstack, vstack</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">10</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> vstack((a,b))</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(c)  <span class="co"># 'a' remains unchanged</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> hstack((a,b))</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.T)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="commonly-used-array-methods-and-functions" class="level2" data-number="9.7">
@@ -1253,7 +1044,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using a single line of code, evaluate <span class="math inline">\({\sin(\theta)\over \cos(\theta)}\)</span> for all of the angles in your arrays. This should be equal to <span class="math inline">\(\tan(\theta)\)</span></li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><p>In the cell below you will find three arrays containing the masses, lengths, and radii for a collection of cylinders. The moment of inertia for each cylinder can be calculated as <span class="math display">\[ I = {1\over 4} M R^2 + {1\over 12} M L^2\]</span>.</p>
 <ol type="1">
@@ -1261,10 +1052,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Determine the largest, smallest, and average of the calculated values.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> uniform(<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">1000</span>)</span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> uniform(<span class="fl">0.5</span>,<span class="fl">1.2</span>,<span class="dv">1000</span>)</span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> uniform(<span class="fl">0.8</span>,<span class="dv">3</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> uniform</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> uniform(<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">1000</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> uniform(<span class="fl">0.5</span>,<span class="fl">1.2</span>,<span class="dv">1000</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> uniform(<span class="fl">0.8</span>,<span class="dv">3</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><p>Construct a two-dimensional array with the following entries: <span class="math display">\[\begin{bmatrix}
 1&amp; 5 &amp; 7 &amp; 2\\
@@ -1285,7 +1076,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using a single line of code, convert the temperatures from <strong>part 1</strong> into Kelvins using the following formula <span class="math display">\[T_K = {5\over 9} ( T_F - 32) + 273.15\]</span></li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
 <li><p>The equation below defines the relationship between energy (<span class="math inline">\(E\)</span>) in Joules of a photon and its wavelength (<span class="math inline">\(\lambda\)</span>) in meters. The <span class="math inline">\(h\)</span> is Plank’s constant (<span class="math inline">\(6.626 \times 10^{-34}\)</span> J <span class="math inline">\(\cdot\)</span> s) and <span class="math inline">\(c\)</span> is the speed of light in a vacuum (<span class="math inline">\(2.998 \times 10^8\)</span> m/s). <span class="math display">\[E = {h c \over \lambda}\]</span></p>
 <ol type="1">
@@ -1293,7 +1084,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate a second array containing the energy of each wavelength of light from part 1. Does the energy of a photon increase or decrease with wavelength?</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
 <li><p>A boat is out at sea with the following location and velocity vectors: <span class="math display">\[x_i =
 \begin{bmatrix}
@@ -1347,7 +1138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1&amp;2&amp;3\\
 \end{bmatrix}\]</span></p></li>
 </ol>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="8" type="1">
 <li><p>In quantum mechanics you will learn that the allowed energy levels for the harmonic oscillator are given by:<span class="math display">\[E_n = \hbar \sqrt{k \over m} (n + {1\over 2})\]</span> where <span class="math inline">\(k = 4 \pi^2\)</span> and <span class="math inline">\(m = 1\)</span> gram.</p>
 <ol type="1">
@@ -1356,7 +1147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Combine these two arrays into a single <span class="math inline">\(11\)</span> x <span class="math inline">\(2\)</span> array with the first column containing <span class="math inline">\(n\)</span> values and the second column containing the corresponding energies.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="9" type="1">
 <li>Generate an array containing integers <span class="math inline">\(0 \rightarrow 14\)</span> (inclusive)
 <ol type="1">

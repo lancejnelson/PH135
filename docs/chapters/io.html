@@ -389,103 +389,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 5, 25
 6, 36
 7, 49</code></pre>
-<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>.readlines():</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(line)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1,1
-
-2,4
-
-3,9
-
-4,16
-
-5,25
-
-6,36
-
-7,49
-
-8,64
-
-9,81
-
-10,100</code></pre>
-</div>
-</div>
 <p>You can see how each line gets read separately and printed off. But this isn’t super useful yet because we’d probably like to have the numbers stored in lists for our forthcoming analysis. We can fix this by creating some empty lists and appending the appropriate values as they are read in.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> []</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>.readlines():</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    numbers.append( <span class="bu">int</span>(line.split(<span class="st">','</span>)[<span class="dv">0</span>]) )</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    squares.append( <span class="bu">int</span>(line.split(<span class="st">','</span>)[<span class="dv">1</span>]) )</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> []</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>.readlines():</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    numbers.append( <span class="bu">int</span>(line.split(<span class="st">','</span>)[<span class="dv">0</span>]) )</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    squares.append( <span class="bu">int</span>(line.split(<span class="st">','</span>)[<span class="dv">1</span>]) )</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now the data from the file is saved in Python lists and our analysis can proceed.</p>
 <p>One final note: if all you want to do is read your file in as a list of strings (one string for each line), that can be done without a <code>for</code> loop using the <code>readlines</code> function (rather than <code>readline</code>).</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['1,1\n', '2,4\n', '3,9\n', '4,16\n', '5,25\n', '6,36\n', '7,49\n', '8,64\n', '9,81\n', '10,100']</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-numpys-genfromtxt-function" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="using-numpys-genfromtxt-function"><span class="header-section-number">10.2.2</span> Using NumPy’s <code>genfromtxt</code> function</h3>
 <p>If the data file is highly structured (every line looks the same, separator character is consistent across the file, etc) then NumPy’s <code>genfromtxt</code> function can read the data very efficiently into an array. The <code>genfromtxt</code> function requires only one argument (the file name) with another optional argument (<code>delimiter</code>) that is typically included to specify the character used to separate the data. Below is an example for using this function to read in the .csv data we have been working with.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[  1.   1.]
- [  2.   4.]
- [  3.   9.]
- [  4.  16.]
- [  5.  25.]
- [  6.  36.]
- [  7.  49.]
- [  8.  64.]
- [  9.  81.]
- [ 10. 100.]]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice that the data was read into a NumPy array (2D in this case because there were two columns of data), which means that we can easily slice off the individual columns if needed.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[ 1.  2.  3.  4.  5.  6.  7.  8.  9. 10.]
-[  1.   4.   9.  16.  25.  36.  49.  64.  81. 100.]</code></pre>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> data[:,<span class="dv">1</span>]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Other optional arguments that can be used with the <code>genfromtxt</code> function are given in the table below:</p>
 <table class="table">
 <colgroup>
@@ -580,18 +526,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>In this case you must open the file you want to write through and write each line of the file one by one. This requires that you use a loop to iterate over the data. An example is given below.</p>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Earth"</span>,<span class="st">"Moon"</span>,<span class="st">"Mars"</span>,<span class="st">"Venus"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>,<span class="st">"Pluto"</span>,<span class="st">"Jupiter"</span>,<span class="st">"Sun"</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>[<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>f<span class="op">=</span> <span class="bu">open</span>(<span class="st">"planets.txt"</span>,<span class="st">"w"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">"Planet   g (m/s^2)</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">"------------------</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx,planet <span class="kw">in</span> <span class="bu">enumerate</span>(planets):</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="ss">f"</span><span class="sc">{</span>planet<span class="sc">:10s}</span><span class="ss">  </span><span class="sc">{</span>g[idx]<span class="sc">:5.2f}</span><span class="ss"> </span><span class="ch">\n</span><span class="ss">"</span> )</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Earth"</span>,<span class="st">"Moon"</span>,<span class="st">"Mars"</span>,<span class="st">"Venus"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>,<span class="st">"Pluto"</span>,<span class="st">"Jupiter"</span>,<span class="st">"Sun"</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>[<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>f<span class="op">=</span> <span class="bu">open</span>(<span class="st">"planets.txt"</span>,<span class="st">"w"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">"Planet   g (m/s^2)</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>f.write(<span class="st">"------------------</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx,planet <span class="kw">in</span> <span class="bu">enumerate</span>(planets):</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="ss">f"</span><span class="sc">{</span>planet<span class="sc">:10s}</span><span class="ss">  </span><span class="sc">{</span>g[idx]<span class="sc">:5.2f}</span><span class="ss"> </span><span class="ch">\n</span><span class="ss">"</span> )</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="using-numpys-savetxt-function" class="level3" data-number="10.3.2">
 <h3 data-number="10.3.2" class="anchored" data-anchor-id="using-numpys-savetxt-function"><span class="header-section-number">10.3.2</span> Using NumPy’s <code>savetxt</code> function</h3>
@@ -662,17 +608,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> savetxt</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span>[[<span class="fl">6.37</span>,<span class="fl">59.8</span>,<span class="fl">9.8</span>],[<span class="fl">1.74</span>,<span class="fl">0.736</span>,<span class="fl">1.6</span>],[<span class="fl">3.38</span>,<span class="fl">6.42</span>,<span class="fl">3.7</span>],[<span class="fl">6.07</span>,<span class="fl">48.8</span>,<span class="fl">8.83</span>],[<span class="fl">58.2</span>,<span class="dv">5680</span>,<span class="fl">11.2</span>],[<span class="fl">23.5</span>,<span class="dv">868</span>,<span class="fl">10.5</span>],[<span class="fl">22.7</span>,<span class="dv">1030</span>,<span class="fl">13.3</span>],[<span class="fl">1.15</span>,<span class="fl">.131</span>,<span class="fl">0.61</span>],[<span class="fl">69.8</span>,<span class="dv">19000</span>,<span class="fl">24.5</span>],[<span class="dv">696</span>,<span class="dv">19890000</span>,<span class="dv">275</span>]]</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsData.txt"</span>,data,fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> savetxt</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span>[[<span class="fl">6.37</span>,<span class="fl">59.8</span>,<span class="fl">9.8</span>],[<span class="fl">1.74</span>,<span class="fl">0.736</span>,<span class="fl">1.6</span>],[<span class="fl">3.38</span>,<span class="fl">6.42</span>,<span class="fl">3.7</span>],[<span class="fl">6.07</span>,<span class="fl">48.8</span>,<span class="fl">8.83</span>],[<span class="fl">58.2</span>,<span class="dv">5680</span>,<span class="fl">11.2</span>],[<span class="fl">23.5</span>,<span class="dv">868</span>,<span class="fl">10.5</span>],[<span class="fl">22.7</span>,<span class="dv">1030</span>,<span class="fl">13.3</span>],[<span class="fl">1.15</span>,<span class="fl">.131</span>,<span class="fl">0.61</span>],[<span class="fl">69.8</span>,<span class="dv">19000</span>,<span class="fl">24.5</span>],[<span class="dv">696</span>,<span class="dv">19890000</span>,<span class="dv">275</span>]]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsData.txt"</span>,data,fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>fmt</code> keyword argument can be be added to specify how to format the data. If the data is stored in separate one-dimensional arrays, you can pack them into a single list(tuple) when using the <code>savetxt</code> function and it will write each data set to it’s own line in the file.</p>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> [<span class="fl">6.37</span>,<span class="fl">1.74</span>,<span class="fl">3.38</span>,<span class="fl">6.07</span>,<span class="fl">58.2</span>,<span class="fl">23.5</span>,<span class="fl">22.7</span>,<span class="fl">1.15</span>,<span class="fl">69.8</span>,<span class="dv">696</span>]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">59.8</span>,<span class="fl">0.736</span>,<span class="fl">6.42</span>,<span class="fl">48.8</span>,<span class="dv">5680</span>,<span class="dv">868</span>,<span class="dv">1030</span>,<span class="fl">0.131</span>,<span class="dv">19000</span>,<span class="dv">19890000</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> [<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsDataTwo.txt"</span>,(radius,mass,g),fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> [<span class="fl">6.37</span>,<span class="fl">1.74</span>,<span class="fl">3.38</span>,<span class="fl">6.07</span>,<span class="fl">58.2</span>,<span class="fl">23.5</span>,<span class="fl">22.7</span>,<span class="fl">1.15</span>,<span class="fl">69.8</span>,<span class="dv">696</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">59.8</span>,<span class="fl">0.736</span>,<span class="fl">6.42</span>,<span class="fl">48.8</span>,<span class="dv">5680</span>,<span class="dv">868</span>,<span class="dv">1030</span>,<span class="fl">0.131</span>,<span class="dv">19000</span>,<span class="dv">19890000</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> [<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsDataTwo.txt"</span>,(radius,mass,g),fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Other optional arguments that can be used with the <code>savetxt</code> function are given in the table below:</p>
 <table class="table">
 <colgroup>
@@ -722,15 +668,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What is the <code>delimiter</code> keyword argument used for when reading a file with <code>numpy.genfromtxt()</code>?</li>
 <li>How do you open and write to a file using the <code>write</code> function?</li>
 <li>How do you write to a file using <code>numpy.savetxt</code>?</li>
-<li></li>
+<li>Where are the sacrament prayers located? (They are found in more than one location)</li>
 </ol>
 </section>
 <section id="exercises" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.5</span> Exercises</h2>
 <ol type="1">
-<li>Use the all of the functions from the <code>os</code> library that we mentioned in the text. I’ll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.</li>
+<li>Use all of the functions from the <code>os</code> library that we mentioned in the text. I’ll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.</li>
 </ol>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>In a previous homework problem you calculated the moments of inertia for a data set. In the cell below, you will find arrays containing 1000 values for for mass, length, and radius just as you did in the other homework problem.
 <ol type="1">
@@ -739,11 +685,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Repeat exercise 2 but using the <code>numpy.savetxt</code> function. Open the file and inspect it to verify that you did it right.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> normal(<span class="dv">2</span>,<span class="fl">.2</span>,<span class="dv">1000</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> normal(<span class="dv">2</span>,<span class="fl">.2</span>,<span class="dv">1000</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><a href="https://lancejnelson.github.io/PH135/files/planets.csv">This file</a> contains planetary data for all of the planets in our solar system formatted as a “.csv” file.
 <ol type="1">
@@ -755,18 +701,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 Tip: You’ll need to use the <code>skip_header</code> and <code>usecols</code> keyword arguments to tell <code>genfromtxt</code> to skip the first row and column.</li>
 </ol>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
-<li><a href="https://lancejnelson.github.io/PH135/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this: <code>free energy     TOTEN =             -72.3092</code> and you need to extract the numbers from all of these lines. Use the following steps to build a list containing these numbers:
+<li><a href="https://lancejnelson.github.io/PH135/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this:<br>
+<code>free energy     TOTEN =             -72.3092</code><br>
+and you need to extract the numbers from all of these lines. Use the following steps to build a list containing these numbers:
 <ol type="1">
 <li>Use the <code>open</code> and <code>readlines</code> functions to read this file into a list of strings.</li>
-<li>Iterate over this list and look for lines that contain the string “free energy”.</li>
-<li>When you find a line that has this string in it, <code>split</code> the string and extract the number. Make sure you turn the number in the string into a float.</li>
+<li>Iterate over this list and look for lines that contain the string “TOTEN”.</li>
+<li>When you find a line that has this string in it, <code>split</code> the string and extract the number. Make sure you convert the number into a float.</li>
 <li>Append this number to a list that you defined initially to be empty.</li>
+</ol>
+When you have built the list of energies, determine:
+<ol type="1">
+<li>The number of energies in your list.</li>
+<li>The average of the last 5 entries.</li>
+<li>The minimum and maximum energies in your list.</li>
 </ol></li>
 </ol>
-<p>When you have built the list of energies, determine: 1. The number of energies in your list. 2. The average of the last 5 entries. 3. The minimum and maximum energies in your list.</p>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

@@ -1,8 +1,10 @@
 project:
   type: book
   output-dir: docs
-
+  render:
+    - chapters/io.qmd
 execute:
+  enabled: false
   freeze: auto
 book:
   title: "Scientific Computing"

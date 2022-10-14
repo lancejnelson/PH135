@@ -256,7 +256,7 @@ Other optional arguments that can be used with the `savetxt` function are given 
 7. What is the `delimiter` keyword argument used for when reading a file with `numpy.genfromtxt()`?
 8. How do you open and write to a file using the `write` function?
 9. How do you write to a file using `numpy.savetxt`?
-10. 
+10. Where are the sacrament prayers located? (They are found in more than one location)
 
 ## Exercises
 1. Use all of the functions from the `os` library that we mentioned in the text. I'll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.  
@@ -303,17 +303,18 @@ radius = normal(1,.1,1000)
 
 
 
-4. [This file](https://lancejnelson.github.io/PH135/files/OUTCAR.static) contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside.  Reading this file is definitely a job for `open` and `readlines` rather than `numpy.genfromtxt()`.  Periodically in this file there are lines that look like this: `  free energy     TOTEN =             -72.3092` and you need to extract the numbers from all of these lines.  Use the following steps to build a list containing these numbers:
+4. [This file](https://lancejnelson.github.io/PH135/files/OUTCAR.static) contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside.  Reading this file is definitely a job for `open` and `readlines` rather than `numpy.genfromtxt()`.  Periodically in this file there are lines that look like this:  
+`  free energy     TOTEN =             -72.3092`  
+and you need to extract the numbers from all of these lines.  Use the following steps to build a list containing these numbers:  
     1. Use the `open` and `readlines` functions to read this file into a list of strings.
-    2. Iterate over this list and look for lines that contain the string "free energy".
-    3. When you find a line that has this string in it, `split` the string and extract the number. Make sure you turn the number in the string into a float.
-    4. Append this number to a list that you defined initially to be empty. 
-
-
-When you have built the list of energies, determine:
+    2. Iterate over this list and look for lines that contain the string "TOTEN".
+    3. When you find a line that has this string in it, `split` the string and extract the number. Make sure you convert the number into a float.
+    4. Append this number to a list that you defined initially to be empty.  
+    
+   When you have built the list of energies, determine:     
     1. The number of energies in your list.
     2. The average of the last 5 entries.
-    3. The minimum and maximum energies in your list.
+    3. The minimum and maximum energies in your list. 
 
 
 ```{python}
