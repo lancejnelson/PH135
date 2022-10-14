@@ -1,6 +1,7 @@
 ---
 jupyter: python3
 execute: 
+  enabled: false
   freeze: auto
 ---
 # Python and Jupyter Notebooks

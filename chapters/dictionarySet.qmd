@@ -4,6 +4,7 @@ reference-location: margin
 citation-location: margin
 execute: 
   freeze: auto
+  cache: true
 ---
 
 # Dictionaries and Sets

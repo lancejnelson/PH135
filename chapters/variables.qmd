@@ -2,6 +2,7 @@
 format: html
 execute: 
   freeze: auto
+  cache: true
 toc: true
 ---
 

@@ -4,9 +4,15 @@ reference-location: margin
 citation-location: margin
 execute: 
   freeze: auto
+  cache: true
 ---
 
 # Basic Plotting
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/basicPlotting.ipynb)
+
+
+
 Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
 you do it right.  When making plots of functions on a computer it is important to remember that computers don't plot functions, rather they plot individual points.  Only when you connect those points does the image look like the function you are used to seeing.  In this chapter we will use a library called `matplotlib` for plotting.  More specifically, we will import the `pyplot` function inside of `matplotlib`. It is customary to use `plt` as an alias for `pyplot`.
 
@@ -250,6 +256,35 @@ plt.ylim(-2,5)
 plt.xlabel("Separation Distance")
 plt.ylabel("Energy")
 plt.title("Lennard-Jones Potential")
+
+```
+
+### Plot Legends
+Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, you must first use the keyword argument `label` to each `plot` command to label the plots.  To add the legend, use the command `pyplot.ledend()`.  An example is given below:
+
+```{python}
+from matplotlib import pyplot as plt
+%matplotlib inline
+from numpy import linspace,sqrt
+
+r = linspace(0.9,4,50)
+
+sigmaOne = 1
+epsilonOne = 1
+sigmaTwo = 2
+epsilonTwo = 2
+energyOne = 4 * sigmaOne* ((epsilonOne/r)**12 - (epsilonOne/r)**6)
+energyTwo = 4 * sigmaTwo * ((epsilonTwo/r)**12 - (epsilonTwo/r)**6)
+
+plt.figure()
+plt.plot(r,energyOne,marker = 'o',label = "plot1")
+plt.plot(r,energyTwo,marker = 'x',label = "plot2")
+plt.xlim(0.5,3.5)
+plt.ylim(-2,5)
+plt.xlabel("Separation Distance")
+plt.ylabel("Energy")
+plt.title("Lennard-Jones Potential")
+plt.legend()
 
 ```
 
@@ -551,3 +586,44 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 
 
 [axes]: https://matplotlib.org/stable/api/axes_api.html#subplots
+
+
+## Flashcards
+1. Describe how to make a simple, no frills plot of a function. Give a short example.
+2. How do you modify your plot style to be a red dashed line with triangle markers?
+3. What is the `ms` keyword argument used for when plotting?
+4. How do you add axes labels to a plot?
+5. How do you add a title to a plot?
+6. How do you insert greek letters into a plot title or axes label?
+7. How do you control the size of the plot windown (i.e. zoom in or out.)
+8. How do you plot multiple plots on the **same** figure?
+9. List the other types of plots discussed in this chapter.
+10. How do you make multi-figure plot? Give an example showing the functions that should be used.
+11. 
+
+## Exercises
+1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$ Plot this function from $-20 < x < 20$.  Then make the following customizations to the plot: [![Single Slit Diffraction]](https://commons.wikimedia.org/wiki/File:Diffraction_of_a_single_slit.jpg#/media/File:Diffraction_of_a_single_slit.jpg)
+  1. Set the color of the line to be green.
+  2. Add axes labels to the plot. The x-label should be "Location" and the y-label should by "Intensity".
+  3. Add the following title to the plot: "Single-Slit diffraction pattern"
+
+```{python}
+# python code here
+```
+
+
+2. Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) $$ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}$$ where
+    - $c = 3.0 \times 10^8$ m/s is the speed of light.
+    - $h = 6.26 \times 10^34$ m$^2$ kg /s is Plank's constant.
+    - $k_B = 1.38 \times 10^{-23}$ m$^2$kg s$^{-2}$ K$^{-1}$ is the Boltzmann constant.
+    - T is temperature in Kelvins.
+    - $\lambda$ is wavelength in meters.
+   Follow the steps below to plot this function for several different temperatures:  
+     1. Copy the function that you made previously into the cell below. (or build it from scratch)
+     2. Use `numpy.vectorize` to vectorize your function.
+     3. Use `numpy.linspace` to generate a grid of 500 $\lambda$ values from $0 \rightarrow 3 \times 10^{-6}$ m.
+     4. Call your vectorized function for $T = 5780$ K (temperature of the sun), producing a list of intensities.
+     5. Plot intensity vs. $\lambda$ .  
+     6. Repeat steps 4 and 5 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
+     7. Add a legend to the figure. Use the temperatures as the labels.
+
