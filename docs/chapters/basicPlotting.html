@@ -1057,14 +1057,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercises" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">11.5</span> Exercises</h2>
 <ol type="1">
-<li><p>If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:<span class="math display">\[ y(x) = \left({\sin x\over x}\right)^2\]</span> Plot this function from <span class="math inline">\(-20 &lt; x &lt; 20\)</span>. <a href="figures/Diffraction_of_a_single_slit.jpg">[Single Slit Diffraction]</a></p>
-<p>Then make the following customizations to the plots:</p>
-<ol type="1">
-<li>Set the color of the line to be green.</li>
-<li>Add axes labels to the plot. The x-label should be “Location” and the y-label should by “Intensity”.</li>
-<li>Add the following title to the plot: “Single-Slit diffraction pattern”</li>
-</ol></li>
+<li>If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:<span class="math display">\[ y(x) = \left({\sin x\over x}\right)^2\]</span> Plot this function from <span class="math inline">\(-20 &lt; x &lt; 20\)</span>.</li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Single Slit Diffraction</figcaption><p></p>
+</figure>
+</div>
+<p>Then make the following customizations to the plots:<br>
+1. Set the color of the line to be green. 2. Add axes labels to the plot. The x-label should be “Location” and the y-label should by “Intensity”. 3. Add the following title to the plot: “Single-Slit diffraction pattern”</p>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><p>Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where</p>
@@ -1087,7 +1089,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add a legend to the figure. Use the temperatures as the labels.</li>
 </ol></li>
 <li><p><a href="https://lancejnelson.github.io/PH135/files/HART.csv">This file</a> contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART). The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively. Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of the data. Add axes and plot labels to your plot.</p></li>
-<li><p><a href="https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip">This file</a> contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes. Read the file and plot a histogram of this column. Then write a single statement summarizing what this plot is communicating to you.</p></li>
+<li><p><a href="https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip">This file</a> contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes. Read the file and plot a histogram of this column. Then write a single statement summarizing what this plot is communicating to you. Note: The file is zipped so you’ll need to unzip it before you can read it in.</p></li>
 <li><p>(Extra Credit) The 8th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred per year from 1973 to 2021.</p></li>
 </ol>
 

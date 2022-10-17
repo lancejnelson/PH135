@@ -601,8 +601,9 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 11. Where can you find the account of Abinadi?
 
 ## Exercises
-1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$ Plot this function from $-20 < x < 20$.   [![Single Slit Diffraction]](figures/Diffraction_of_a_single_slit.jpg)
+1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$ Plot this function from $-20 < x < 20$.   
 
+  ![Single Slit Diffraction](https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg)
 
    Then make the following customizations to the plots:  
    1. Set the color of the line to be green.
@@ -634,7 +635,8 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 3. [This file](https://lancejnelson.github.io/PH135/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of the data.  Add axes and plot labels to your plot.
 
 
-4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you. 
+4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021.  The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
 
 5. (Extra Credit)  The 8th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred per year from 1973 to 2021. 
+ 
 
