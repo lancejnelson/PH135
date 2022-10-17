@@ -594,21 +594,20 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 4. How do you add axes labels to a plot?
 5. How do you add a title to a plot?
 6. How do you insert greek letters into a plot title or axes label?
-7. How do you control the size of the plot windown (i.e. zoom in or out.)
+7. How do you control the size of the plot window (i.e. zoom in or out.)
 8. How do you plot multiple plots on the **same** figure?
 9. List the other types of plots discussed in this chapter.
 10. How do you make multi-figure plot? Give an example showing the functions that should be used.
 11. Where can you find the account of Abinadi?
 
 ## Exercises
-1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$ Plot this function from $-20 < x < 20$.   
-
+1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$    
   ![Single Slit Diffraction](https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg)
-
-   Then make the following customizations to the plots:  
-   1. Set the color of the line to be green.
-   2. Add axes labels to the plot. The x-label should be "Location" and the y-label should by "Intensity".
-   3. Add the following title to the plot: "Single-Slit diffraction pattern"
+   
+   Plot this function from $-20 < x < 20$. Then make the following customizations to the plots:  
+     1. Set the color of the line to be green.
+     2. Add axes labels to the plot. The x-label should be "Location" and the y-label should by "Intensity".
+     3. Add the following title to the plot: "Single-Slit diffraction pattern"
 
 ```{python}
 # python code here

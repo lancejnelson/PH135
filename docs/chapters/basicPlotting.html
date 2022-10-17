@@ -1047,7 +1047,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>How do you add axes labels to a plot?</li>
 <li>How do you add a title to a plot?</li>
 <li>How do you insert greek letters into a plot title or axes label?</li>
-<li>How do you control the size of the plot windown (i.e.&nbsp;zoom in or out.)</li>
+<li>How do you control the size of the plot window (i.e.&nbsp;zoom in or out.)</li>
 <li>How do you plot multiple plots on the <strong>same</strong> figure?</li>
 <li>List the other types of plots discussed in this chapter.</li>
 <li>How do you make multi-figure plot? Give an example showing the functions that should be used.</li>
@@ -1057,16 +1057,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercises" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">11.5</span> Exercises</h2>
 <ol type="1">
-<li>If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:<span class="math display">\[ y(x) = \left({\sin x\over x}\right)^2\]</span> Plot this function from <span class="math inline">\(-20 &lt; x &lt; 20\)</span>.</li>
+<li><p>If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:<span class="math display">\[ y(x) = \left({\sin x\over x}\right)^2\]</span><br>
+<img src="https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg" class="img-fluid" alt="Single Slit Diffraction"></p>
+<p>Plot this function from <span class="math inline">\(-20 &lt; x &lt; 20\)</span>. Then make the following customizations to the plots:</p>
+<ol type="1">
+<li>Set the color of the line to be green.</li>
+<li>Add axes labels to the plot. The x-label should be “Location” and the y-label should by “Intensity”.</li>
+<li>Add the following title to the plot: “Single-Slit diffraction pattern”</li>
+</ol></li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Single Slit Diffraction</figcaption><p></p>
-</figure>
-</div>
-<p>Then make the following customizations to the plots:<br>
-1. Set the color of the line to be green. 2. Add axes labels to the plot. The x-label should be “Location” and the y-label should by “Intensity”. 3. Add the following title to the plot: “Single-Slit diffraction pattern”</p>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><p>Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where</p>
