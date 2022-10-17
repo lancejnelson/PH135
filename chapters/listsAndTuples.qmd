@@ -205,7 +205,7 @@ Lists have a collection of methods (or functions) for accomplishing routine task
 | `clear()`| Removes all elements from a list.|
 | `copy()`| Creates an independent copy of the list.|
 | `count(element)`| Counts the number of occurrences of `element` in the list.|
-| `extend(elements)`| Adds multiple elements to the end of the list.|
+| `extend([a,b,c,...])`| Adds multiple elements to the end of the list.|
 | `index(element)`| Returns the index of the _first occurrence_ of `element`.|
 | `insert(index,element)`| Inserts the given `element` at the specified `index`.|
 | `pop(index)`| Removes and returns the element given at `index`.  If no index is provided, it defaults to the last element.|

@@ -12,7 +12,6 @@ execute:
 [Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/basicPlotting.ipynb)
 
 
-
 Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
 you do it right.  When making plots of functions on a computer it is important to remember that computers don't plot functions, rather they plot individual points.  Only when you connect those points does the image look like the function you are used to seeing.  In this chapter we will use a library called `matplotlib` for plotting.  More specifically, we will import the `pyplot` function inside of `matplotlib`. It is customary to use `plt` as an alias for `pyplot`.
 
@@ -260,7 +259,7 @@ plt.title("Lennard-Jones Potential")
 ```
 
 ### Plot Legends
-Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, you must first use the keyword argument `label` to each `plot` command to label the plots.  To add the legend, use the command `pyplot.ledend()`.  An example is given below:
+Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, you must first use the keyword argument `label` to each `plot` command to specify each plot's label.  To add the legend, use the command `pyplot.ledend()`.  An example is given below:
 
 ```{python}
 from matplotlib import pyplot as plt
@@ -599,13 +598,16 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 8. How do you plot multiple plots on the **same** figure?
 9. List the other types of plots discussed in this chapter.
 10. How do you make multi-figure plot? Give an example showing the functions that should be used.
-11. 
+11. Where can you find the account of Abinadi?
 
 ## Exercises
-1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$ Plot this function from $-20 < x < 20$.  Then make the following customizations to the plot: [![Single Slit Diffraction]](https://commons.wikimedia.org/wiki/File:Diffraction_of_a_single_slit.jpg#/media/File:Diffraction_of_a_single_slit.jpg)
-  1. Set the color of the line to be green.
-  2. Add axes labels to the plot. The x-label should be "Location" and the y-label should by "Intensity".
-  3. Add the following title to the plot: "Single-Slit diffraction pattern"
+1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$ Plot this function from $-20 < x < 20$.   [![Single Slit Diffraction]](figures/Diffraction_of_a_single_slit.jpg)
+
+
+   Then make the following customizations to the plots:  
+   1. Set the color of the line to be green.
+   2. Add axes labels to the plot. The x-label should be "Location" and the y-label should by "Intensity".
+   3. Add the following title to the plot: "Single-Slit diffraction pattern"
 
 ```{python}
 # python code here
@@ -617,7 +619,8 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
     - $h = 6.26 \times 10^34$ m$^2$ kg /s is Plank's constant.
     - $k_B = 1.38 \times 10^{-23}$ m$^2$kg s$^{-2}$ K$^{-1}$ is the Boltzmann constant.
     - T is temperature in Kelvins.
-    - $\lambda$ is wavelength in meters.
+    - $\lambda$ is wavelength in meters.  
+
    Follow the steps below to plot this function for several different temperatures:  
      1. Copy the function that you made previously into the cell below. (or build it from scratch)
      2. Use `numpy.vectorize` to vectorize your function.
@@ -626,4 +629,12 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
      5. Plot intensity vs. $\lambda$ .  
      6. Repeat steps 4 and 5 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
      7. Add a legend to the figure. Use the temperatures as the labels.
+
+
+3. [This file](https://lancejnelson.github.io/PH135/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of the data.  Add axes and plot labels to your plot.
+
+
+4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you. 
+
+5. (Extra Credit)  The 8th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred per year from 1973 to 2021. 
 

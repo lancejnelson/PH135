@@ -230,56 +230,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/advancedPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Advanced Plotting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pandas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/sympy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The <code>sympy</code> module</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Numerical Methods</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Function Fitting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Derivatives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Integration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -340,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="the-range-function" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="the-range-function"><span class="header-section-number">5.1.1</span> The <code>range</code> function</h3>
 <p>Often it will be necessary to generate a (possibly very long) list of integers. Instead of constructing the list by typing these numbers one by one, Python has a built-in function called <code>range()</code> that will do it for you. The <code>range()</code> function requires at least one argument to tell it how high the range should be.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>)  <span class="co"># Generate a list of integers up to 10</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -348,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>This output probably wasn’t what you expected. Instead of generating the full list of numbers, Python generates a <code>range</code> object that stands in place of it because it requires less memory. (Consider what might happen to your computer’s memory if you did <code>range(1000000000000)</code>.) To force Python to generate the list, you can convert the <code>range</code> object into a list using the <code>list()</code> function.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>)  <span class="co"># Generate a list of integers up to 10</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -356,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The <code>range</code> function can be called with up to three arguments: <code>range(start,end,stepsize)</code>. Consistent with indexing, the range includes the start value and excludes the end value. Below we generate a list of integers starting at 5, ending at 100 with a step size of 5.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">100</span>,<span class="dv">5</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -400,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </blockquote>
 <p>Since lists are <em>mutable</em>, we can modify the value of an element in a list using the <code>=</code> operator.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>conductivity <span class="op">=</span> [<span class="st">"Gold"</span>,<span class="fl">4.10e7</span>,<span class="st">"Copper"</span>,<span class="fl">5.96e7</span>,<span class="st">"Aluminum"</span>,<span class="fl">3.5e7</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>conductivity[<span class="dv">1</span>] <span class="op">=</span> <span class="fl">4.15e7</span></span>
@@ -437,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="tests-for-inclusion" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="tests-for-inclusion"><span class="header-section-number">5.3</span> Tests for Inclusion</h2>
 <p>Just as with strings, the <code>in</code> operator can be used with lists to determine if a list element is present. Suppose you have a list of all the known radioactive elements on the periodic table and you’d like to know if Iridium is in the list. The <code>in</code> statement let’s us quickly test to see if it is in the list. (see example below)</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>radioactiveElements <span class="op">=</span> [<span class="st">"Technetium"</span>,<span class="st">"Promethium"</span>,<span class="st">"Polonium"</span>,<span class="st">"Astatine"</span>,<span class="st">"Radon"</span>,<span class="st">"Francium"</span>,<span class="st">"Radium"</span>, <span class="st">"Actinium"</span>, <span class="st">"Thorium"</span>, <span class="st">"Protactinium"</span>,<span class="st">"Uranium"</span>,<span class="st">"Neptunium"</span>,<span class="st">"Plutonium"</span>,<span class="st">"Americium"</span>,<span class="st">"Curium"</span>,<span class="st">"Berkelium"</span>,<span class="st">"Californium"</span>,<span class="st">"Einsteinium"</span>,<span class="st">"Fermium"</span>,<span class="st">"Mendelevium"</span>,<span class="st">"Nobelium"</span>,<span class="st">"Lawrencium"</span>,<span class="st">"Rutherfordium"</span>,<span class="st">"Dubnium"</span>,<span class="st">"Seaborgium"</span>,<span class="st">"Bohrium"</span>,<span class="st">"Hassium"</span>,<span class="st">"Meitnerium"</span>,<span class="st">"Darmstadtium"</span>,<span class="st">"Roentenium"</span>,<span class="st">"Copernicium"</span>,<span class="st">"Nihonium"</span>,<span class="st">"Flerovium"</span>,<span class="st">"Moscovium"</span>,<span class="st">"Livermorium"</span>,<span class="st">"Tennessine"</span>, <span class="st">"Oganesson"</span>]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">"Iridium"</span> <span class="kw">in</span> radioactiveElements</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -446,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The <code>in</code> operator will work with numerical data as well.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="kw">in</span> numbers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -487,7 +437,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>Counts the number of occurrences of <code>element</code> in the list.</td>
 </tr>
 <tr class="odd">
-<td><code>extend(elements)</code></td>
+<td><code>extend([a,b,c,...])</code></td>
 <td>Adds multiple elements to the end of the list.</td>
 </tr>
 <tr class="even">
@@ -601,7 +551,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="5.6" class="anchored" data-anchor-id="tuples"><span class="header-section-number">5.6</span> Tuples</h2>
 <p><em>Tuples</em> are another object type similar to lists except that they are <em>immutable</em>… that is to say, they cannot be modified once created. They look similar to lists except that they are created using parenthesis instead of brackets. Because you can’t change the elements of a tuple, they are often used so that you don’t inadvertently modify (and lose) critical data. You can think of it as locking a file on your computer to avoid inadvertently modifying it and losing the original content.</p>
 <p>Below is a tuple containing the Balmer series, which are the wavelengths of visible light emitted by Hydrogen gas. These values are well known and you most likely wouldn’t want to make any modifications to this list which makes them a prime candidate for a tuple. Storing them in a tuple will help prevent you from inadvertently modifying the list. Indexing and slicing work exactly the same as with lists and strings, so we can still use the values inside of a tuple to perform simple calculations. There are only two methods associated with tuples: <code>count(element)</code> and <code>index(element)</code>. Their usage is identical to the list methods.</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>balmer <span class="op">=</span> (<span class="fl">383.5384</span>,<span class="fl">388.9049</span>,<span class="fl">397.0072</span>,<span class="fl">410.174</span>,<span class="fl">434.047</span>,<span class="fl">486.133</span>,<span class="fl">656.272</span>,<span class="fl">656.2852</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>balmer.index(<span class="fl">410.174</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(balmer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
