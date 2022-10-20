@@ -8,3 +8,43 @@ execute:
 
 # Pandas
 
+Pandas is a Python package built to work with spreadsheet-like data, and it is very good at its job.  Pandas stores data in something called a "dataframe". A dataframe is simply data stored in rows and columns. As an example, here is some sample data taken by an accelerometer sitting on an elevator floor:
+
+time,gFx,gFy,gFz  
+0.007,-0.0056,-0.0046,1.012  
+0.008,0.0007,0.0024,1.0022  
+0.008,0,0.0059,1.0039  
+0.009,0.0054,-0.0022,1.0032  
+0.009,-0.0015,-0.0056,1.0042  
+0.009,0.0037,-0.002,0.9951  
+0.01,-0.002,-0.002,1.002  
+0.014,0.009,-0.0024,1.0159  
+0.015,0.0012,-0.0037,1.01  
+0.017,-0.0115,-0.002,1.0012  
+0.019,-0.0022,-0.0015,1.001  
+0.021,0.0024,-0.0022,1.0166  
+
+and here is the same data loaded into a dataframe.
+
+```
+   time     gFx     gFy     gFz  
+0  0.007 -0.0056 -0.0046  1.0120  
+1  0.008  0.0007  0.0024  1.0022  
+2  0.008  0.0000  0.0059  1.0039  
+3  0.009  0.0054 -0.0022  1.0032  
+4  0.009 -0.0015 -0.0056  1.0042  
+5  0.009  0.0037 -0.0020  0.9951  
+6  0.010 -0.0020 -0.0020  1.0020  
+7  0.014  0.0090 -0.0024  1.0159  
+8  0.015  0.0012 -0.0037  1.0100  
+9  0.017 -0.0115 -0.0020  1.0012 
+``` 
+
+The most-used function from the pandas module is `read_csv` which is used to read a csv-formatted file into a dataframe:
+
+```{python}
+from pandas import read_csv
+
+elevator_data = read_csv("elevator.csv")
+print(elevator_data)
+```

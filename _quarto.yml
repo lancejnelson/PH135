@@ -29,7 +29,7 @@ book:
       - chapters/numpy.qmd
       - chapters/io.qmd
       - chapters/basicPlotting.qmd
-#      - chapters/advancedPlotting.qmd
+      - chapters/advancedPlotting.qmd
 #      - chapters/pandas.qmd
 #      - chapters/sympy.qmd
 #    - part: "Numerical Methods"

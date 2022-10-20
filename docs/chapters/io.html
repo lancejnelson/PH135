@@ -230,6 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/advancedPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Advanced Plotting</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -331,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="10.2" class="anchored" data-anchor-id="reading-files"><span class="header-section-number">10.2</span> Reading Files</h2>
 <section id="reading-line-by-line" class="level3" data-number="10.2.1">
 <h3 data-number="10.2.1" class="anchored" data-anchor-id="reading-line-by-line"><span class="header-section-number">10.2.1</span> Reading Line by Line</h3>
-<p>The first way to read a file is using a <code>for</code> loop to iterate over the file line by line. Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works. First, the file is opened using the <code>open</code> command. The file should be attached to a variable for later use. Next, the data is read one line at a time using the <code>readlines()</code> method. We should use a <code>for</code> loop for this. Finally, it is a good idea to close the file when you’re finished. Let’s see an example for reading in the following file, which will be named <code>squares.csv</code></p>
+<p>The first way to read a file is using a <code>for</code> loop to iterate over the file line by line. Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works. First, the file is opened using the <code>open</code> command. The file should be attached to a variable for later use. Next, the data is read one line at a time using the <code>readlines()</code> method. We should use a <code>for</code> loop for this. Finally, it is a good idea to close the file when you’re finished. Let’s see an example for reading in the following file, which will be named <code>squares.csv</code>. (You can download <a href="https://lancejnelson.github.io/PH135/files/squares.csv">squares.csv here</a> if you want to execute the cells below without an error.)</p>
 <pre><code>1, 1
 2, 4
 3, 9
@@ -542,6 +547,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="ss">f"</span><span class="sc">{</span>planet<span class="sc">:10s}</span><span class="ss">  </span><span class="sc">{</span>g[idx]<span class="sc">:5.2f}</span><span class="ss"> </span><span class="ch">\n</span><span class="ss">"</span> )</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Forgetting to close a file that you are writing to can be problematic so you should always include the <code>close()</code> function when you are done. If you are worried about forgetting it, you can use a <code>with</code> block that will automatically close the file once the block terminates. An example is given below:</p>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Earth"</span>,<span class="st">"Moon"</span>,<span class="st">"Mars"</span>,<span class="st">"Venus"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>,<span class="st">"Pluto"</span>,<span class="st">"Jupiter"</span>,<span class="st">"Sun"</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>[<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"planets.txt"</span>,<span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">"Planet   g (m/s^2)</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">"------------------</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx,planet <span class="kw">in</span> <span class="bu">enumerate</span>(planets):</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="ss">f"</span><span class="sc">{</span>planet<span class="sc">:10s}</span><span class="ss">  </span><span class="sc">{</span>g[idx]<span class="sc">:5.2f}</span><span class="ss"> </span><span class="ch">\n</span><span class="ss">"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Even though no <code>close()</code> function is called, the file <code>planets.txt</code> will be automatically closed once the <code>with</code> block is terminated.</p>
 </section>
 <section id="using-numpys-savetxt-function" class="level3" data-number="10.3.2">
 <h3 data-number="10.3.2" class="anchored" data-anchor-id="using-numpys-savetxt-function"><span class="header-section-number">10.3.2</span> Using NumPy’s <code>savetxt</code> function</h3>
@@ -612,17 +628,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> savetxt</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span>[[<span class="fl">6.37</span>,<span class="fl">59.8</span>,<span class="fl">9.8</span>],[<span class="fl">1.74</span>,<span class="fl">0.736</span>,<span class="fl">1.6</span>],[<span class="fl">3.38</span>,<span class="fl">6.42</span>,<span class="fl">3.7</span>],[<span class="fl">6.07</span>,<span class="fl">48.8</span>,<span class="fl">8.83</span>],[<span class="fl">58.2</span>,<span class="dv">5680</span>,<span class="fl">11.2</span>],[<span class="fl">23.5</span>,<span class="dv">868</span>,<span class="fl">10.5</span>],[<span class="fl">22.7</span>,<span class="dv">1030</span>,<span class="fl">13.3</span>],[<span class="fl">1.15</span>,<span class="fl">.131</span>,<span class="fl">0.61</span>],[<span class="fl">69.8</span>,<span class="dv">19000</span>,<span class="fl">24.5</span>],[<span class="dv">696</span>,<span class="dv">19890000</span>,<span class="dv">275</span>]]</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsData.txt"</span>,data,fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>fmt</code> keyword argument can be be added to specify how to format the data. If the data is stored in separate one-dimensional arrays, you can pack them into a single list(tuple) when using the <code>savetxt</code> function and it will write each data set to it’s own line in the file.</p>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> [<span class="fl">6.37</span>,<span class="fl">1.74</span>,<span class="fl">3.38</span>,<span class="fl">6.07</span>,<span class="fl">58.2</span>,<span class="fl">23.5</span>,<span class="fl">22.7</span>,<span class="fl">1.15</span>,<span class="fl">69.8</span>,<span class="dv">696</span>]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">59.8</span>,<span class="fl">0.736</span>,<span class="fl">6.42</span>,<span class="fl">48.8</span>,<span class="dv">5680</span>,<span class="dv">868</span>,<span class="dv">1030</span>,<span class="fl">0.131</span>,<span class="dv">19000</span>,<span class="dv">19890000</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> [<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> savetxt</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span>[[<span class="fl">6.37</span>,<span class="fl">59.8</span>,<span class="fl">9.8</span>],[<span class="fl">1.74</span>,<span class="fl">0.736</span>,<span class="fl">1.6</span>],[<span class="fl">3.38</span>,<span class="fl">6.42</span>,<span class="fl">3.7</span>],[<span class="fl">6.07</span>,<span class="fl">48.8</span>,<span class="fl">8.83</span>],[<span class="fl">58.2</span>,<span class="dv">5680</span>,<span class="fl">11.2</span>],[<span class="fl">23.5</span>,<span class="dv">868</span>,<span class="fl">10.5</span>],[<span class="fl">22.7</span>,<span class="dv">1030</span>,<span class="fl">13.3</span>],[<span class="fl">1.15</span>,<span class="fl">.131</span>,<span class="fl">0.61</span>],[<span class="fl">69.8</span>,<span class="dv">19000</span>,<span class="fl">24.5</span>],[<span class="dv">696</span>,<span class="dv">19890000</span>,<span class="dv">275</span>]]</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsDataTwo.txt"</span>,(radius,mass,g),fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsData.txt"</span>,data,fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>fmt</code> keyword argument can be be added to specify how to format the data. If the data is stored in separate one-dimensional arrays, you can pack them into a single list(tuple) when using the <code>savetxt</code> function and it will write each data set to it’s own line in the file.</p>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> [<span class="fl">6.37</span>,<span class="fl">1.74</span>,<span class="fl">3.38</span>,<span class="fl">6.07</span>,<span class="fl">58.2</span>,<span class="fl">23.5</span>,<span class="fl">22.7</span>,<span class="fl">1.15</span>,<span class="fl">69.8</span>,<span class="dv">696</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">59.8</span>,<span class="fl">0.736</span>,<span class="fl">6.42</span>,<span class="fl">48.8</span>,<span class="dv">5680</span>,<span class="dv">868</span>,<span class="dv">1030</span>,<span class="fl">0.131</span>,<span class="dv">19000</span>,<span class="dv">19890000</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> [<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsDataTwo.txt"</span>,(radius,mass,g),fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Other optional arguments that can be used with the <code>savetxt</code> function are given in the table below:</p>
 <table class="table">
 <colgroup>
@@ -680,7 +696,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use all of the functions from the <code>os</code> library that we mentioned in the text. I’ll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.</li>
 </ol>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>In a previous homework problem you calculated the moments of inertia for a data set. In the cell below, you will find arrays containing 1000 values for for mass, length, and radius just as you did in the other homework problem.
 <ol type="1">
@@ -689,11 +705,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Repeat exercise 2 but using the <code>numpy.savetxt</code> function. Open the file and inspect it to verify that you did it right.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> normal(<span class="dv">2</span>,<span class="fl">.2</span>,<span class="dv">1000</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> normal(<span class="dv">2</span>,<span class="fl">.2</span>,<span class="dv">1000</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li><a href="https://lancejnelson.github.io/PH135/files/planets.csv">This file</a> contains planetary data for all of the planets in our solar system formatted as a “.csv” file.
 <ol type="1">
@@ -705,7 +721,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 Tip: You’ll need to use the <code>skip_header</code> and <code>usecols</code> keyword arguments to tell <code>genfromtxt</code> to skip the first row and column.</li>
 </ol>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li><a href="https://lancejnelson.github.io/PH135/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this:<br>
 <code>free energy     TOTEN =             -72.3092</code><br>
@@ -723,7 +739,7 @@ When you have built the list of energies, determine:
 <li>The minimum and maximum energies in your list.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

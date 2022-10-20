@@ -631,11 +631,33 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
      7. Add a legend to the figure. Use the temperatures as the labels.
 
 
+```{python}
+# Python code here
+```
+
+
 3. [This file](https://lancejnelson.github.io/PH135/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of the data.  Add axes and plot labels to your plot.
 
+```{python}
+# Python code here
+```
 
 4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021.  The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
 
-5. (Extra Credit)  The 8th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred per year from 1973 to 2021. 
- 
+```{python}
+# Python code here
+```
+
+5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta\Delta t $$ $$ y(t) = y_i + v_i \sin \theta + {1\over 2} a \Delta t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + a \Delta t$$  Place the following plots on a 3 x 2 grid for $ 0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, first column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
+
+```{python}
+# Python code here
+```
+
+6. (Extra Credit)  The 8th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred each year from 1973 to 2021. (The horizontal axis is year and the vertical axis is the number of earthquakes.)
+
+```{python}
+# Python code here
+```
+
 

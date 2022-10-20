@@ -230,6 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/advancedPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Advanced Plotting</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -279,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We have already been using functions here and there but in this chapter we will introduce them formally and get into the details. A function encapsulates a block of code designed to perform a specific task or set of tasks. To perform the task correctly, most functions require that you provide some information (called arguments) when you call them. To call a function you type the name of the function followed by the needed arguments enclosed in parenthesis (<code>()</code>).</p>
 <pre><code>functionName(argument1, argument2, argument3...)</code></pre>
 <p>The <strong>number and type</strong> of arguments allowed is different for every function. As a first example, let’s consider the <code>print</code> function, which is the simplest (and most familiar) function that we have used so far.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"print is a function"</span>)  <span class="co">#Single string argument</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"print"</span>, <span class="st">"is"</span>, <span class="st">"a"</span>, <span class="st">"function"</span>) <span class="co"># Multiple string arguments</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span>) <span class="co"># Single integer argument</span></span>
@@ -360,7 +365,7 @@ print is a function
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Body of Function</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Body of Function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>As an example, let’s construct a function that calculates the distance between two atoms. The function will need to know the location of each atom, which means that there should be two arguments: the xyz coordinates of both atoms passed as a pair of lists or tuples.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> distance(coords1,coords2):</span>
@@ -383,7 +388,7 @@ The distance is 7.2560.</code></pre>
 <section id="the-return-statement" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="the-return-statement"><span class="header-section-number">8.3.1</span> The <code>return</code> statement</h3>
 <p>The <code>distance</code> function prints out the value for the distance, but what if we want to use this distance in a subsequent calculation? Maybe we want to calculate the average distance between several pairs of atoms. We can instruct the function to return the final distance using the <code>return</code> statement. If the arguments to the function are the inputs, the <code>return</code> statement specifies what the output is. Let’s modify the function above to include a <code>return</code> statement.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> distance(coords1,coords2):</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    dx <span class="op">=</span> coords1[<span class="dv">0</span>] <span class="op">-</span> coords2[<span class="dv">0</span>]</span>
@@ -434,7 +439,7 @@ The distance is 7.2560.</code></pre>
 <section id="positional-vs.-keyword-arguments" class="level3 page-columns page-full" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="positional-vs.-keyword-arguments"><span class="header-section-number">8.3.3</span> Positional vs.&nbsp;Keyword Arguments</h3>
 <p>The function arguments we have been using so far are called <em>positional arguments</em> because they are required to be in a specific position inside the parenthesis. To see what I mean consider the example below.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> example(a,b):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -449,7 +454,7 @@ The distance is 7.2560.</code></pre>
 </div>
 <div class="page-columns page-full"><p>In the first call to <code>example</code> the local variable <code>a</code> gets assigned to be 5 and the local variable <code>b</code> gets assigned 2. In the second call the order of the arguments is switched and the subsequent assignments to <code>a</code> and <code>b</code> switch with it. This produces a different result from the function. Positional arguments are very common but the user must know what information goes where when calling the function.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn3" role="doc-endnote"><p><sup>3</sup>&nbsp;This is another reason why you want to choose meaningful variable names for your arguments.</p></li></div></div>
 <p>The other type of argument is the <em>keyword argument</em>. These arguments are attached to a keyword inside of the parenthesis. The advantage of a keyword argument is that the user does not need to be concerned about the location of the argument as long as it has the proper label.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> example(a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -463,7 +468,7 @@ The distance is 7.2560.</code></pre>
 </div>
 </div>
 <p>Another advantage to using keyword arguments is that a default value can be coded into the function. This means that we can call the function with some arguments missing and default values will be used for them. In the example above, the default value of <code>b</code> is 2 and if the function is called without specifying a value for that argument, the function will proceed as usual using the default value for <code>b</code>.</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> example(a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">**</span>b</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,7 +484,7 @@ The distance is 7.2560.</code></pre>
 <section id="splatting" class="level3" data-number="8.3.4">
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="splatting"><span class="header-section-number">8.3.4</span> Splatting</h3>
 <p>Functions can potentially require dozens of arguments to be passed in which can make calling the function long and difficult to look at. One way to shorten the code is to put all of the arguments in a list or tuple.</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(a,b,c,d):</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">**</span>b <span class="op">+</span> c<span class="op">/</span>d</span>
@@ -496,7 +501,7 @@ The distance is 7.2560.</code></pre>
 <section id="lambda-functions" class="level3" data-number="8.3.5">
 <h3 data-number="8.3.5" class="anchored" data-anchor-id="lambda-functions"><span class="header-section-number">8.3.5</span> Lambda Functions</h3>
 <p>When the function you want to construct is very simple (one line), there is a shortcut code for making it called a <em>lambda function</em>. The benefit is that they occupy less lines of code than the standard <code>def</code> functions. A lambda function is defined as shown below with the variable immediately after the <code>lambda</code> statement as the independent variable in the function.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -505,7 +510,7 @@ The distance is 7.2560.</code></pre>
 </div>
 </div>
 <p>As a simple application of lambda functions let’s consider a function from the <code>scipy.integrate</code> library called <code>quad</code> which will perform a numerical integration of a function. The <code>quad</code> function takes three arguments: the function to be integrated, and the upper and lower bound on the integral. We can use a lambda function for the first argument rather than using several lines of code to build one in the traditional fashion.</p>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> quad</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sin, pi</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>

@@ -51,7 +51,7 @@ The `os` module has many, many more functions that do useful things but you will
 ## Reading Files
 ### Reading Line by Line
 
-The first way to read a file is using a `for` loop to iterate over the file line by line.  Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works.  First, the file is opened using the `open` command.  The file should be attached to a variable for later use.   Next, the data is read one line at a time using the `readlines()` method.  We should use a `for` loop for this.  Finally, it is a good idea to close the file when you're finished.  Let's see an example for reading in the following file, which will be named `squares.csv`
+The first way to read a file is using a `for` loop to iterate over the file line by line.  Admittedly, this is not the most elegant or efficient way to read a file but we present it first because it always works.  First, the file is opened using the `open` command.  The file should be attached to a variable for later use.   Next, the data is read one line at a time using the `readlines()` method.  We should use a `for` loop for this.  Finally, it is a good idea to close the file when you're finished.  Let's see an example for reading in the following file, which will be named `squares.csv`.  (You can download  [squares.csv here](https://lancejnelson.github.io/PH135/files/squares.csv) if you want to execute the cells below without an error.)
 
 
 ```
@@ -189,6 +189,22 @@ for idx,planet in enumerate(planets):
 f.close()
 ```
 
+Forgetting to close a file that you are writing to can be problematic so you should always include the `close()` function when you are done.  If you are worried about forgetting it, you can use a `with` block that will automatically close the file once the block terminates. An example is given below:
+
+
+```{python}
+planets = ["Earth","Moon","Mars","Venus","Saturn","Uranus","Neptune","Pluto","Jupiter","Sun"]
+g=[9.8,1.6,3.7,8.83,11.2,10.5,13.3,0.61,24.5,275]
+
+with open("planets.txt","w") as f:
+    f.write("Planet   g (m/s^2)\n")
+    f.write("------------------\n")
+
+    for idx,planet in enumerate(planets):
+        f.write(f"{planet:10s}  {g[idx]:5.2f} \n" )
+
+```
+Even though no `close()` function is called, the file `planets.txt` will be automatically closed once the `with` block is terminated.
 
 ### Using NumPy's `savetxt` function
 
