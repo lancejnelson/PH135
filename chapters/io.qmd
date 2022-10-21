@@ -189,6 +189,8 @@ for idx,planet in enumerate(planets):
 f.close()
 ```
 
+
+## The `with` statement
 Forgetting to close a file that you are writing to can be problematic so you should always include the `close()` function when you are done.  If you are worried about forgetting it, you can use a `with` block that will automatically close the file once the block terminates. An example is given below:
 
 

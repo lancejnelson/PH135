@@ -255,10 +255,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#writing-files" id="toc-writing-files" class="nav-link" data-scroll-target="#writing-files"> <span class="header-section-number">10.3</span> Writing Files</a>
   <ul class="collapse">
   <li><a href="#writing-line-by-line" id="toc-writing-line-by-line" class="nav-link" data-scroll-target="#writing-line-by-line"> <span class="header-section-number">10.3.1</span> Writing Line by Line</a></li>
-  <li><a href="#using-numpys-savetxt-function" id="toc-using-numpys-savetxt-function" class="nav-link" data-scroll-target="#using-numpys-savetxt-function"> <span class="header-section-number">10.3.2</span> Using NumPy’s <code>savetxt</code> function</a></li>
   </ul></li>
-  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">10.4</span> Flashcards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">10.5</span> Exercises</a></li>
+  <li><a href="#the-with-statement" id="toc-the-with-statement" class="nav-link" data-scroll-target="#the-with-statement"> <span class="header-section-number">10.4</span> The <code>with</code> statement</a>
+  <ul class="collapse">
+  <li><a href="#using-numpys-savetxt-function" id="toc-using-numpys-savetxt-function" class="nav-link" data-scroll-target="#using-numpys-savetxt-function"> <span class="header-section-number">10.4.1</span> Using NumPy’s <code>savetxt</code> function</a></li>
+  </ul></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">10.5</span> Flashcards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">10.6</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -344,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 5, 25
 6, 36
 7, 49</code></pre>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>.readlines():</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(line)</span>
@@ -373,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>You can see how each line gets read separately and printed off. But this isn’t super useful yet because we’d probably like to have the numbers stored in lists for our forthcoming analysis. We can fix this by creating some empty lists and appending the appropriate values as they are read in.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -393,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now the data from the file is saved in Python lists and our analysis can proceed.</p>
 <p>One final note: if all you want to do is read your file in as a list of strings (one string for each line), that can be done without a <code>for</code> loop using the <code>readlines</code> function (rather than <code>readline</code>).</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> <span class="bu">file</span>.readlines()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span>.close()</span>
@@ -407,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="using-numpys-genfromtxt-function" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="using-numpys-genfromtxt-function"><span class="header-section-number">10.2.2</span> Using NumPy’s <code>genfromtxt</code> function</h3>
 <p>If the data file is highly structured (every line looks the same, separator character is consistent across the file, etc) then NumPy’s <code>genfromtxt</code> function can read the data very efficiently into an array. The <code>genfromtxt</code> function requires only one argument (the file name) with another optional argument (<code>delimiter</code>) that is typically included to specify the character used to separate the data. Below is an example for using this function to read in the .csv data we have been working with.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
@@ -427,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Notice that the data was read into a NumPy array (2D in this case because there were two columns of data), which means that we can easily slice off the individual columns if needed.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> genfromtxt</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
@@ -547,6 +550,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="ss">f"</span><span class="sc">{</span>planet<span class="sc">:10s}</span><span class="ss">  </span><span class="sc">{</span>g[idx]<span class="sc">:5.2f}</span><span class="ss"> </span><span class="ch">\n</span><span class="ss">"</span> )</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="the-with-statement" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="the-with-statement"><span class="header-section-number">10.4</span> The <code>with</code> statement</h2>
 <p>Forgetting to close a file that you are writing to can be problematic so you should always include the <code>close()</code> function when you are done. If you are worried about forgetting it, you can use a <code>with</code> block that will automatically close the file once the block terminates. An example is given below:</p>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Earth"</span>,<span class="st">"Moon"</span>,<span class="st">"Mars"</span>,<span class="st">"Venus"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>,<span class="st">"Pluto"</span>,<span class="st">"Jupiter"</span>,<span class="st">"Sun"</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>[<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
@@ -558,9 +565,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx,planet <span class="kw">in</span> <span class="bu">enumerate</span>(planets):</span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        f.write(<span class="ss">f"</span><span class="sc">{</span>planet<span class="sc">:10s}</span><span class="ss">  </span><span class="sc">{</span>g[idx]<span class="sc">:5.2f}</span><span class="ss"> </span><span class="ch">\n</span><span class="ss">"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Even though no <code>close()</code> function is called, the file <code>planets.txt</code> will be automatically closed once the <code>with</code> block is terminated.</p>
-</section>
-<section id="using-numpys-savetxt-function" class="level3" data-number="10.3.2">
-<h3 data-number="10.3.2" class="anchored" data-anchor-id="using-numpys-savetxt-function"><span class="header-section-number">10.3.2</span> Using NumPy’s <code>savetxt</code> function</h3>
+<section id="using-numpys-savetxt-function" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="using-numpys-savetxt-function"><span class="header-section-number">10.4.1</span> Using NumPy’s <code>savetxt</code> function</h3>
 <p>If the data is strictly numerical and contains no text, the <code>savetxt</code> function is a fast and efficient way to write the data to file. For example, maybe you have a two dimensional array containing various columns of planetary data.</p>
 <table class="table">
 <colgroup>
@@ -676,8 +682,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </section>
 </section>
-<section id="flashcards" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">10.4</span> Flashcards</h2>
+<section id="flashcards" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">10.5</span> Flashcards</h2>
 <ol type="1">
 <li>What does <code>os.getcwd()</code> do?</li>
 <li>What does <code>os.chdir()</code> do?</li>
@@ -691,8 +697,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Where are the sacrament prayers located? (They are found in more than one location)</li>
 </ol>
 </section>
-<section id="exercises" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.5</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.6</span> Exercises</h2>
 <ol type="1">
 <li>Use all of the functions from the <code>os</code> library that we mentioned in the text. I’ll let you choose where to change your directory to and the name of the directory to create. I just want you to use all of them until you feel comfortable.</li>
 </ol>

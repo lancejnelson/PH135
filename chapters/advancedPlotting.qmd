@@ -7,6 +7,10 @@ execute:
 ---
 
 # Advanced Plotting
+
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/advancedPlotting.ipynb)
+
+
 In this chapter you will learn how to plot functions of more than one variable $F(x,y)$. Functions like this can be visualized by making a contour plots (like a topographic map) or by displaying the function value as height above the $x-y$ plane like a perspective drawing. You can also display vector-valued function $\mathbf{F}(x,y)$ using vector field plots.
 
 
@@ -291,7 +295,7 @@ while t < 10:
 5. What does the `levels` keyword argument do when making a contour plot? (What possible values can this argument take?)
 6. What is a vector-field plot and how do you generate one in python?
 7. What keyword argument controls the color of the vectors in a vector-field plot?
-8. 
+8. Where can you find the parable of the laborers in the vineyard?
 
 ## Exercises
 1. Plot the following function from $-5 < x,y < 5$ $$ f(x,y) = {\sin (x y)\over x^2 + y^2}$$
@@ -314,7 +318,7 @@ while t < 10:
 ```
 
 
-4. (Extra Credit) The angle of impact for a projectile launched with initial speed $v$, launch angle $\theta$, and initial height $y_i$ is given by: $$ \phi = \tan^{-1} \left( {\sqrt{v^2 \sin^2\theta + 2 g y_0} \over v \cos \theta} \right) $$  Plot the impact angle as a function of $v$ and $\theta$ ($\phi(v,\theta)$) for $0 < v_i < 50$ m/s and $0 < \theta < 90^\circ$ and $y_i = 10 $ m.   Then write a single sentence summarizing the results of the plot.
+4. (Extra Credit) The angle of impact for a projectile launched with initial speed $v$, launch angle $\theta$, and initial height $y_i$ is given by: $$ \phi = \tan^{-1} \left( {\sqrt{v^2 \sin^2\theta + 2 g y_0} \over v \cos \theta} \right) $$  Plot the impact angle as a function of $v$ and $\theta$ ($\phi(v,\theta)$) for $0 < v_i < 50$ m/s and $0 < \theta < 90^\circ$ and $y_i = 10$ m.   Then write a single sentence summarizing the results of the plot.
 
 ```{python}
 # Python code here
