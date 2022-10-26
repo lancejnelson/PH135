@@ -8,6 +8,9 @@ execute:
 
 # Pandas
 
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/pandas.ipynb)
+
+
 Pandas is a Python package built to work with spreadsheet-like data, and it is very good at its job.  Pandas stores data in something called a "dataframe". A dataframe is simply data stored in rows and columns. As an example, here is some sample data taken by an accelerometer sitting on an elevator floor:
 
 time,gFx,gFy,gFz  
@@ -39,13 +42,13 @@ and here is the same data loaded into a dataframe.
 8  0.015  0.0012 -0.0037  1.0100  
 9  0.017 -0.0115 -0.0020  1.0012 
 ``` 
-Every dataframe has labels attached to its columns and rows.  This can be handy when we want to extract data from it but might not remember it's index location.  In the dataframe above, the row labels are integers and the column labels are "time", "gFx", "gFy", and , "gFz".  
+Every dataframe has labels attached to its columns and rows.  In this example, the row labels are just the first 10 integers and the column labels are "time", "gFx", "gFy", and , "gFz".  Labeling the rows and columns is nice because you can access data using the row and column labels instead of indices.  
 
 ## Creating dataframes
-There are several ways to initialize a dataframe depending on the format of the data that you want to put in the dataframe.  We'll cover the most common methods below.
+A dataframe can be initiated in many ways but the most common are: from file, from a dictionary, and from an array or list.  We'll discuss each way separately.
 
 ### Reading from a .csv file.
-The most-used function from the pandas module is `read_csv` which is used to read a csv-formatted file into a data frame. To use it, simply call the `pandas.read_csv` function and pass in the path to the .csv file.
+The most-used function from the pandas module is `read_csv` which is used to read a csv-formatted file into a data frame. To use it, simply call the `pandas.read_csv` function and pass in the path to the .csv file. ([Here](https://lancejnelson.github.io/PH135/files/elevator.csv) is a link to the file.)
 
 ```{python}
 from pandas import read_csv
@@ -54,7 +57,7 @@ elevator_data = read_csv("elevator.csv",index_col = 0)
 print(elevator_data)
 ```
 
-The keyword argument `index_col = 0` indicates that the first column in the csv file should be used as the index value.  There are many, many possible keyword arguments that can be used to customize the way Python reads a dataframe from file.  I'll highlight just a few and refer you to the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html?highlight=read_csv#pandas.read_csv) for the rest:
+The keyword argument `index_col = 0` indicates that the row labels should be taken from the first column in the csv file.  There are many, many possible keyword arguments that can be used to customize the way `read_csv` reads a file into a dataframe.  I'll highlight just a few and refer you to the [documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html?highlight=read_csv#pandas.read_csv) for the rest:
 
 1. `delimiter`- use this to specify the character that separates the data from each other. The default is "," for .csv files.
 2. `header` - use this to specify which row contains the column names.  Usually this occurs on the first row (`header = 0`) but not always.
@@ -94,7 +97,7 @@ print(elevator_data)
 
 
 ### Create from a list
-
+Sometimes you have data in a list or multiple list and would like to combine all of that data and form a dataframe.  This can also be done using the `DataFrame` function (case sensitive remember!).  When initializing with lists, you have to also use the `columns` keyword argument to specify what you want the column labels to be.  
 ```{python}
 from pandas import DataFrame
 from numpy import transpose
@@ -106,7 +109,7 @@ gFz = [1.012,1.0022,1.0039,1.0032,1.0042,0.9951,1.002,1.0159,1.01,1.0012]
 elevator_data = DataFrame(transpose([time,gFx,gFy,gFz]),columns = ["time", "gFx","gFy", "gFz"])
 ```
 
-Just as when you intialize with dictionaries, the row indices will default to the a set of integers starting at 0.  If you want to index the rows with other labels, use the `index` keyword argument.
+The row labels will default to integers unless you specify otherwise with the `index` keyword.
 
 
 ```{python}
@@ -124,7 +127,15 @@ elevator_data = DataFrame(transpose([time,gFx,gFy,gFz]),columns = ["time", "gFx"
 
 
 ## Extracting data
-Once the data frame object is created, there are several useful methods that you can use to extract the data. These range from extracting a single number from the dataframe to a range of columns or rows or even a slice through the middle of the dataframe.  We'll explore all of these possibilities below.
+Extracting data from the dataframe could mean several things. The most common possibilities include:
+
+1. accessing a single number using row and column labels or row and column indices.
+2. accessing one or several columns of the dataframe.
+3. accessing one or several rows of the dataframe.
+4. slicing from the "middle" of the dataframe.  (i.e. Not entire columns or entire rows.)
+5. accessing only elements in the dataframe that meet a certain criteria.
+
+We'll cover each of these tasks one at a time.
 
 ### Extracting General Information
 Sometimes the dataframe is quite large and you'd like to inspect just a small portion of it.  You can use `dataframe.head(n)` to look at the **first** `n` rows in the dataframe and `dataframe.tail(n)` to look at the **last** `n` rows.
@@ -138,16 +149,16 @@ elevator_data.tail(4)
 ```
 To get a list of the column or row labels, use the variables `dataframe.columns` and `dataframe.index`.
 
-```python
+```{python}
 elevator_data.columns
 elevator_data.index
 
 ```
 ### Extracting a single number
-To extract a single number from a dataframe, use the `dataframe.at[]` or `dataframe.iat[]` dictionaries.  The `at` dictionary should be used if you want to locate the number using row and column **labels** and `iat` should be used when you want to access the number using row and column **indices**.  Let's see an example:
+To extract a single number from a dataframe, use the `dataframe.at[]` or `dataframe.iat[]` objects.  The `at` object should be used if you want to locate the number using row and column **labels** and `iat` should be used when you want to access the number using row and column **indices**.  Let's see an example:
 
 
-```python
+```{python}
 from pandas import DataFrame
 from numpy import transpose
 
@@ -175,7 +186,7 @@ elevator_data["time"][0:3]
 
 ```
 
-You can bundle the column names up in to a list and extract multiple columns at once.
+You can bundle the column names into a list and extract multiple columns at once.
 
 ```python
 elevator_data[["gFx", "gFy", "gFz"]]
@@ -185,7 +196,7 @@ elevator_data[["gFx", "gFy", "gFz"]]
 ### Accessing entire rows
 Accessing rows in a dataframe is done with the help of the `dataframe.loc[n]` or `dataframe.iloc[n]` dictionary.  `loc` should be used if you want to slice using row and column labels whereas `iloc` should be used if you want to slice out using indices.
 
-```python
+```{python}
 
 from pandas import DataFrame
 from numpy import transpose
@@ -203,7 +214,7 @@ elevator_data.iloc[0]
  Multiple rows can be accessed using the `A:B` syntax to slice out the desired rows.
 
 
-```python
+```{python}
 
 from pandas import DataFrame
 from numpy import transpose
@@ -222,7 +233,7 @@ elevator_data.iloc[0:4]
 
 The `loc` and `iloc` dictionaries can be used to slice across rows and columns.  Simple separate the two slices with a comma:
 
-```python
+```{python}
 
 from pandas import DataFrame
 from numpy import transpose
@@ -243,7 +254,7 @@ elevator_data.iloc[0:4,0:2]
 
 We have already seen boolean slicing in Numpy Arrays and we can use something similar on Pandas. Let's see an example:
 
-```python
+```{python}
 
 from pandas import DataFrame
 from numpy import transpose
@@ -263,7 +274,7 @@ The statement `elevator_data["time"] < 0.01` produces a boolean sequence which c
 More complex boolean slicing can be done with the use of the `query` function which allows you to be more specific about your boolean conditions. The example below will extract all rows in the dataframe where time > 0.008 and gFz is greater than 1.
 
 
-```python
+```{python}
 
 from pandas import DataFrame
 from numpy import transpose
@@ -286,8 +297,9 @@ elevator_data.query("time > 0.008 and gFz > 1")
 
 ## Adding to and Modifying the data frame
 
-### Modifying the dataframe
-Entries in the dataframe can be made by first accessing the elements that you want to change and performing the mathematical operation desired, then reassigning them to the appropriate location in the dataframe.  Dataframe sequences are similar to numpy arrays in that you can do math across an entire dataset.
+### Performing Calculations
+Dataframes are similar to numpy arrays in that you can do math across an entire dataset.  This makes mathematical calculations very easy.  Look at the example below and try to guess what calculation is being performed
+
 
 ```{python}
 from numpy import sqrt
@@ -300,14 +312,26 @@ max_accel = a_magnitude.max()
 elevator_data
 
 ```
+You may have noticed that `sum` method that was used to sum up each column.  The keyword argument `axis = 1` indicates that you want to sum over rows, not over columns. (`axis = 0` would result in summing over columns.) There are a few other handy methods for common mathematical operations.
+
+1. `min()` - Find the minimum value.
+2. `max()` - Find the maximum value.
+3. `cumsum()` - Cumulative sum, just like in numpy.
+4. `std()` - Standard deviation.
+5. `mean()` - Mean or average.
+6. `quantile(q)` - Find value of a give quantile `q`. 
 
 
+There are a multitude of other useful math functions available.  See [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.quantile.html) for a more comprehensive list.  Basically, any function that numpy has, pandas will also have.
+
+
+### Modifying the dataframe
 
 ### Adding new columns
 
 A new column can be added to a dataframe by typing `dataframe[columnname] =` followed by a list,tuple, or array containing the new entries.  For example:
 
-```python
+```{python}
 elevator_data["a_mag"]  = sqrt( (elevator_data[["gFx", "gFy", "gFz"]]**2).sum(axis = 1))
 
 ```
@@ -316,7 +340,7 @@ elevator_data["a_mag"]  = sqrt( (elevator_data[["gFx", "gFy", "gFz"]]**2).sum(ax
 
 A row can be added to a dataframe with the `append()` function.  The argument to this function must be either i) another dataframe or ii) a dictionary.  Let's see examples of both.
 
-```python
+```{python}
 from pandas import DataFrame
 elevator_data.append({"time":0.02,"gFx":-0.028,"gFy":0.018,"gFz":1.028},ignore_index = True)  # Append using a dictionary.
 
@@ -333,7 +357,7 @@ elevator_data.append(elevator_data2)
 
 The `describe()` function will calculate several useful statistical quantities and display them in a dataframe.
 
-```python
+```{python}
 elevator_data.describe()
 ```
 
@@ -341,13 +365,13 @@ elevator_data.describe()
 
 A histogram of each column can be easily generate with the `dataframe.hist()` function. 
 
-```python
+```{python}
 elevator_data.hist()
 ```
 
 To make a scatter plot of a chosen set of data, use `dataframe.plot.scatter()`. The `x` and `y` keyword arguments should be used to specify which data to plot.
 
-```python
+```{python}
 elevator_data.plot.scatter(x = "time", y = "gFz")
 ```
 
@@ -356,7 +380,61 @@ elevator_data.plot.scatter(x = "time", y = "gFz")
 A wealth of other functions exist for pandas and I will not exemplify or explain them here because it is beyond the scope of the class. A nice summary sheet for pandas can be found [here](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 
 
+### Writing your dataframe to file
+You have already used `savetxt` to save an entire array of numbers to a file in one step.  If your data is in a pandas dataframe, saving that dataframe to file couldn't be easier; just use `dataframe.to_csv("filename")`.
+
+```{python}
+elevator_data.to_csv("myelevatorData.csv")
+```
+
+Several helpful keyword arguments are available when writing to a file.  I'll list a few of them below.
+
+1. `sep` - Delimiter or character used to separate the data as a length-one string.  Default is a comma (",").
+2. `columns` - specify which columns in your dataframe to write as a list of column labels.
+3. `index` - `True` if you want the row labels written and `False` if you don't
+4. `compression` - specify the compression scheme as a string.  Options are 'zip','gzip', 'bz2','zstd', and 'tar'. 
+
+
+Depending on the type of data you are working with, there is a good argument for always using `to_csv` to write data to file, never needing `savetxt`.
+
+
 
 ## Flashcards
+1. How does `read_csv` work? Give a short example.
+2. What is the keyword argument `usecols` used for when reading a dataframe from file?
+3. How does the `DataFrame` function work and what type of arguments can you pass it?  Give a few short examples.
+4. How do you access/extract multiple columns in their entirety from a dataframe.
+5. How do you access/extract multiple rows in their entirety from a dataframe.
+6. How do you access/extract the middle part of a dataframe?
+7. How do you access/extract only the numbers in a dataframe that meet a given criteria?
+8. How do you add a new column to a dataframe?
+9. How do you add a new row to a dataframe?
+10. Recite Mosiah 4:27.
 
 ## Exercises
+1. In homework problem 3 from the chapter on dictionaries and sets, you built a dictionary containing planetary information for your top three favorite planets.  
+   1. Create a dataframe from this dictionary.
+   2. Make the name of the planet be the row label.
+   3. Write this dataframe to a csv file.
+
+2. In homework problem 2 from the chapter on numpy, you calculated the moment of inertia for 1000 different objects.  
+   1. Create a dataframe out of the mass, radius, length, and inertia data.  The dataframe should have four columns and 1000 rows.
+   2. Use `describe` to get a summary of the data.
+   3. Write the data to a .csv file and inspect the file to ensure that you did it correctly.
+
+3. In homework problem 3 from the chapter on I/O, you read in planetary data into a .csv file using `genfromtxt`.
+   1. Read the same file into a dataframe using `read_csv`.  Let the name of the planets be the row label and the physical property be the column label.
+   2. The sixth column contains the acceleration due to gravity for all of the planets in units of m/s$^2$.  Recalculate these values to be in terms of earth's value ($g = 9.78$ m/s$^2$) and modify the sixth column.
+   3. The seventh column contains the orbital period for all of the planets in units of earth years.  Recalculate these values to be in earth days and modify that column accordingly. 
+   4. Add a new column labeled "Surface Temperature" that contains the surface temperature for each planet in Kelvins as given [here](https://solarsystem.nasa.gov/resources/681/solar-system-temperatures/).
+   5. Add a new row for a hypothetical planet ("planet X") and set its physical properties equal to the average of the other 9 planets that are already in the dataframe.
+   6. Determine which planets have an acceleration due to gravity that is less than earth's value ($9.8 $ m/s$^2$)
+   7. Determine which planets have an eccentricity that is greater than $0.04$.
+   8. Determine which planet(s) have an inclination greater than $1.5^\circ$ **and** have 10 or more satellites.
+   9. Write the a .csv file containing the following columns in the dataframe: "Name", "SurfaceGravity", "OrbitalPeriod", and "Satellites".
+   10. Write the entire dataframe to a separate file.  
+
+   Hints:  
+      1. For part 5 you will want to use `describe` to generate a dataframe of summary statistics. Then use `append` to add the row labeled "mean" to your original planetary database. Then use `rename` to rename that row from `mean` to `Planet X`.  
+      2. The column labels start with a space: " SurfaceGravity" not "SurfaceGravity".
+      3. For part 8 use `query`.  To include the space in the column names, enclose the name in backticks "`". (i.e. " ` Inclination` > 0.04")
