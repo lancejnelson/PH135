@@ -323,7 +323,7 @@ radius = normal(1,.1,1000)
 
 
 4. [This file](https://lancejnelson.github.io/PH135/files/OUTCAR.static) contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside.  Reading this file is definitely a job for `open` and `readlines` rather than `numpy.genfromtxt()`.  Periodically in this file there are lines that look like this:  
-`  free energy     TOTEN =             -72.3092`  
+`  free energy     TOTEN =             -72.3092 eV`  
 and you need to extract the numbers from all of these lines.  Use the following steps to build a list containing these numbers:  
     1. Use the `open` and `readlines` functions to read this file into a list of strings.
     2. Iterate over this list and look for lines that contain the string "TOTEN".

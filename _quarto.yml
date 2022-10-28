@@ -31,7 +31,7 @@ book:
       - chapters/basicPlotting.qmd
       - chapters/advancedPlotting.qmd
       - chapters/pandas.qmd
-#      - chapters/sympy.qmd
+      - chapters/sympy.qmd
 #    - part: "Numerical Methods"
 #      chapters:
 #      - chapters/extrapolation_interpolation.qmd

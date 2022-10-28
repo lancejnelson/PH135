@@ -88,6 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../chapters/sympy.html" rel="next">
 <link href="../chapters/advancedPlotting.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -240,6 +241,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/pandas.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pandas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/sympy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The <code>sympy</code> module</span></a>
   </div>
 </li>
       </ul>
@@ -1285,11 +1291,15 @@ Name: A, dtype: float64</code></pre>
 <li>Determine which planet(s) have an inclination greater than <span class="math inline">\(1.5^\circ\)</span> <strong>and</strong> have 10 or more satellites.</li>
 <li>Write the a .csv file containing the following columns in the dataframe: “Name”, “SurfaceGravity”, “OrbitalPeriod”, and “Satellites”.</li>
 <li>Write the entire dataframe to a separate file.</li>
+</ol>
+Hints:
+<ol type="1">
+<li>For part 5 you will want to use <code>describe</code> to generate a dataframe of summary statistics. Then use <code>append</code> to add the row labeled “mean” to your original planetary database. Then use <code>rename</code> to rename that row from <code>mean</code> to <code>Planet X</code>.<br>
+</li>
+<li>The column labels start with a space: ” SurfaceGravity” not “SurfaceGravity”.</li>
+<li>For part 8 use <code>query</code>. To include the space in the column names, enclose the name in backticks “<code>". (i.e. "</code> Inclination` &gt; 0.04”)</li>
 </ol></li>
 </ol>
-<p>Hints:<br>
-1. For part 5 you will want to use <code>describe</code> to generate a dataframe of summary statistics. Then use <code>append</code> to add the row labeled “mean” to your original planetary database. Then use <code>rename</code> to rename that row from <code>mean</code> to <code>Planet X</code>.<br>
-2. The column labels start with a space: ” SurfaceGravity” not “SurfaceGravity”. 3. For part 8 use <code>query</code>. To include the space in the column names, enclose the name in backticks “<code>". (i.e. "</code> Inclination` &gt; 0.04”)</p>
 
 
 </section>
@@ -1502,6 +1512,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../chapters/sympy.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The <code>sympy</code> module</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

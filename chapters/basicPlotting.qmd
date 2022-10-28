@@ -616,7 +616,7 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 
 2. Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) $$ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}$$ where
     - $c = 3.0 \times 10^8$ m/s is the speed of light.
-    - $h = 6.26 \times 10^34$ m$^2$ kg /s is Plank's constant.
+    - $h = 6.26 \times 10^{34}$ m$^2$ kg /s is Plank's constant.
     - $k_B = 1.38 \times 10^{-23}$ m$^2$kg s$^{-2}$ K$^{-1}$ is the Boltzmann constant.
     - T is temperature in Kelvins.
     - $\lambda$ is wavelength in meters.  

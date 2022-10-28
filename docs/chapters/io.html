@@ -240,6 +240,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pandas</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/sympy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The <code>sympy</code> module</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -735,7 +740,7 @@ Tip: You’ll need to use the <code>skip_header</code> and <code>usecols</code> 
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li><a href="https://lancejnelson.github.io/PH135/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this:<br>
-<code>free energy     TOTEN =             -72.3092</code><br>
+<code>free energy     TOTEN =             -72.3092 eV</code><br>
 and you need to extract the numbers from all of these lines. Use the following steps to build a list containing these numbers:
 <ol type="1">
 <li>Use the <code>open</code> and <code>readlines</code> functions to read this file into a list of strings.</li>
