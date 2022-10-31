@@ -274,21 +274,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#slicing-rows-and-columns" id="toc-slicing-rows-and-columns" class="nav-link" data-scroll-target="#slicing-rows-and-columns"> <span class="header-section-number">13.2.5</span> Slicing rows and columns</a></li>
   <li><a href="#boolean-slicing" id="toc-boolean-slicing" class="nav-link" data-scroll-target="#boolean-slicing"> <span class="header-section-number">13.2.6</span> Boolean Slicing</a></li>
   </ul></li>
-  <li><a href="#adding-to-and-modifying-the-data-frame" id="toc-adding-to-and-modifying-the-data-frame" class="nav-link" data-scroll-target="#adding-to-and-modifying-the-data-frame"> <span class="header-section-number">13.3</span> Adding to and Modifying the data frame</a>
+  <li><a href="#performing-calculations" id="toc-performing-calculations" class="nav-link" data-scroll-target="#performing-calculations"> <span class="header-section-number">13.3</span> Performing Calculations</a></li>
+  <li><a href="#modifying-the-dataframe" id="toc-modifying-the-dataframe" class="nav-link" data-scroll-target="#modifying-the-dataframe"> <span class="header-section-number">13.4</span> Modifying the dataframe</a>
   <ul class="collapse">
-  <li><a href="#performing-calculations" id="toc-performing-calculations" class="nav-link" data-scroll-target="#performing-calculations"> <span class="header-section-number">13.3.1</span> Performing Calculations</a></li>
-  <li><a href="#modifying-the-dataframe" id="toc-modifying-the-dataframe" class="nav-link" data-scroll-target="#modifying-the-dataframe"> <span class="header-section-number">13.3.2</span> Modifying the dataframe</a></li>
-  <li><a href="#adding-new-columns" id="toc-adding-new-columns" class="nav-link" data-scroll-target="#adding-new-columns"> <span class="header-section-number">13.3.3</span> Adding new columns</a></li>
-  <li><a href="#adding-a-new-row" id="toc-adding-a-new-row" class="nav-link" data-scroll-target="#adding-a-new-row"> <span class="header-section-number">13.3.4</span> Adding a new row</a></li>
+  <li><a href="#adding-new-columns" id="toc-adding-new-columns" class="nav-link" data-scroll-target="#adding-new-columns"> <span class="header-section-number">13.4.1</span> Adding new columns</a></li>
+  <li><a href="#adding-a-new-row" id="toc-adding-a-new-row" class="nav-link" data-scroll-target="#adding-a-new-row"> <span class="header-section-number">13.4.2</span> Adding a new row</a></li>
   </ul></li>
-  <li><a href="#other-useful-methods" id="toc-other-useful-methods" class="nav-link" data-scroll-target="#other-useful-methods"> <span class="header-section-number">13.4</span> Other useful methods</a>
+  <li><a href="#other-useful-methods" id="toc-other-useful-methods" class="nav-link" data-scroll-target="#other-useful-methods"> <span class="header-section-number">13.5</span> Other useful methods</a>
   <ul class="collapse">
-  <li><a href="#getting-a-summary-of-your-dataframe." id="toc-getting-a-summary-of-your-dataframe." class="nav-link" data-scroll-target="#getting-a-summary-of-your-dataframe."> <span class="header-section-number">13.4.1</span> Getting a summary of your dataframe.</a></li>
-  <li><a href="#plotting-your-dataframe." id="toc-plotting-your-dataframe." class="nav-link" data-scroll-target="#plotting-your-dataframe."> <span class="header-section-number">13.4.2</span> Plotting your dataframe.</a></li>
-  <li><a href="#writing-your-dataframe-to-file" id="toc-writing-your-dataframe-to-file" class="nav-link" data-scroll-target="#writing-your-dataframe-to-file"> <span class="header-section-number">13.4.3</span> Writing your dataframe to file</a></li>
+  <li><a href="#getting-a-summary-of-your-dataframe." id="toc-getting-a-summary-of-your-dataframe." class="nav-link" data-scroll-target="#getting-a-summary-of-your-dataframe."> <span class="header-section-number">13.5.1</span> Getting a summary of your dataframe.</a></li>
+  <li><a href="#plotting-your-dataframe." id="toc-plotting-your-dataframe." class="nav-link" data-scroll-target="#plotting-your-dataframe."> <span class="header-section-number">13.5.2</span> Plotting your dataframe.</a></li>
+  <li><a href="#writing-your-dataframe-to-file" id="toc-writing-your-dataframe-to-file" class="nav-link" data-scroll-target="#writing-your-dataframe-to-file"> <span class="header-section-number">13.5.3</span> Writing your dataframe to file</a></li>
   </ul></li>
-  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">13.5</span> Flashcards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">13.6</span> Exercises</a></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">13.6</span> Flashcards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">13.7</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -861,10 +860,8 @@ Name: A, dtype: float64</code></pre>
 </blockquote>
 </section>
 </section>
-<section id="adding-to-and-modifying-the-data-frame" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="adding-to-and-modifying-the-data-frame"><span class="header-section-number">13.3</span> Adding to and Modifying the data frame</h2>
-<section id="performing-calculations" class="level3" data-number="13.3.1">
-<h3 data-number="13.3.1" class="anchored" data-anchor-id="performing-calculations"><span class="header-section-number">13.3.1</span> Performing Calculations</h3>
+<section id="performing-calculations" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="performing-calculations"><span class="header-section-number">13.3</span> Performing Calculations</h2>
 <p>Dataframes are similar to numpy arrays in that you can do math across an entire dataset. This makes mathematical calculations very easy. Look at the example below and try to guess what calculation is being performed</p>
 <div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> sqrt</span>
@@ -976,16 +973,15 @@ Name: A, dtype: float64</code></pre>
 </ol>
 <p>There are a multitude of other useful math functions available. See <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.quantile.html">here</a> for a more comprehensive list. Basically, any function that numpy has, pandas will also have.</p>
 </section>
-<section id="modifying-the-dataframe" class="level3" data-number="13.3.2">
-<h3 data-number="13.3.2" class="anchored" data-anchor-id="modifying-the-dataframe"><span class="header-section-number">13.3.2</span> Modifying the dataframe</h3>
-</section>
-<section id="adding-new-columns" class="level3" data-number="13.3.3">
-<h3 data-number="13.3.3" class="anchored" data-anchor-id="adding-new-columns"><span class="header-section-number">13.3.3</span> Adding new columns</h3>
+<section id="modifying-the-dataframe" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="modifying-the-dataframe"><span class="header-section-number">13.4</span> Modifying the dataframe</h2>
+<section id="adding-new-columns" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="adding-new-columns"><span class="header-section-number">13.4.1</span> Adding new columns</h3>
 <p>A new column can be added to a dataframe by typing <code>dataframe[columnname] =</code> followed by a list,tuple, or array containing the new entries. For example:</p>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>elevator_data[<span class="st">"a_mag"</span>]  <span class="op">=</span> sqrt( (elevator_data[[<span class="st">"gFx"</span>, <span class="st">"gFy"</span>, <span class="st">"gFz"</span>]]<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="adding-a-new-row" class="level3" data-number="13.3.4">
-<h3 data-number="13.3.4" class="anchored" data-anchor-id="adding-a-new-row"><span class="header-section-number">13.3.4</span> Adding a new row</h3>
+<section id="adding-a-new-row" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="adding-a-new-row"><span class="header-section-number">13.4.2</span> Adding a new row</h3>
 <p>A row can be added to a dataframe with the <code>append()</code> function. The argument to this function must be either i) another dataframe or ii) a dictionary. Let’s see examples of both.</p>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
@@ -1113,10 +1109,10 @@ Name: A, dtype: float64</code></pre>
 </div>
 </section>
 </section>
-<section id="other-useful-methods" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="other-useful-methods"><span class="header-section-number">13.4</span> Other useful methods</h2>
-<section id="getting-a-summary-of-your-dataframe." class="level3" data-number="13.4.1">
-<h3 data-number="13.4.1" class="anchored" data-anchor-id="getting-a-summary-of-your-dataframe."><span class="header-section-number">13.4.1</span> Getting a summary of your dataframe.</h3>
+<section id="other-useful-methods" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="other-useful-methods"><span class="header-section-number">13.5</span> Other useful methods</h2>
+<section id="getting-a-summary-of-your-dataframe." class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="getting-a-summary-of-your-dataframe."><span class="header-section-number">13.5.1</span> Getting a summary of your dataframe.</h3>
 <p>The <code>describe()</code> function will calculate several useful statistical quantities and display them in a dataframe.</p>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>elevator_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1206,8 +1202,8 @@ Name: A, dtype: float64</code></pre>
 </div>
 </div>
 </section>
-<section id="plotting-your-dataframe." class="level3" data-number="13.4.2">
-<h3 data-number="13.4.2" class="anchored" data-anchor-id="plotting-your-dataframe."><span class="header-section-number">13.4.2</span> Plotting your dataframe.</h3>
+<section id="plotting-your-dataframe." class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="plotting-your-dataframe."><span class="header-section-number">13.5.2</span> Plotting your dataframe.</h3>
 <p>A histogram of each column can be easily generate with the <code>dataframe.hist()</code> function.</p>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>elevator_data.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1235,8 +1231,8 @@ Name: A, dtype: float64</code></pre>
 </div>
 <p>A wealth of other functions exist for pandas and I will not exemplify or explain them here because it is beyond the scope of the class. A nice summary sheet for pandas can be found <a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">here</a></p>
 </section>
-<section id="writing-your-dataframe-to-file" class="level3" data-number="13.4.3">
-<h3 data-number="13.4.3" class="anchored" data-anchor-id="writing-your-dataframe-to-file"><span class="header-section-number">13.4.3</span> Writing your dataframe to file</h3>
+<section id="writing-your-dataframe-to-file" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="writing-your-dataframe-to-file"><span class="header-section-number">13.5.3</span> Writing your dataframe to file</h3>
 <p>You have already used <code>savetxt</code> to save an entire array of numbers to a file in one step. If your data is in a pandas dataframe, saving that dataframe to file couldn’t be easier; just use <code>dataframe.to_csv("filename")</code>.</p>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>elevator_data.to_csv(<span class="st">"myelevatorData.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Several helpful keyword arguments are available when writing to a file. I’ll list a few of them below.</p>
@@ -1249,8 +1245,8 @@ Name: A, dtype: float64</code></pre>
 <p>Depending on the type of data you are working with, there is a good argument for always using <code>to_csv</code> to write data to file, never needing <code>savetxt</code>.</p>
 </section>
 </section>
-<section id="flashcards" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">13.5</span> Flashcards</h2>
+<section id="flashcards" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">13.6</span> Flashcards</h2>
 <ol type="1">
 <li>How does <code>read_csv</code> work? Give a short example.</li>
 <li>What is the keyword argument <code>usecols</code> used for when reading a dataframe from file?</li>
@@ -1264,8 +1260,8 @@ Name: A, dtype: float64</code></pre>
 <li>Recite Mosiah 4:27.</li>
 </ol>
 </section>
-<section id="exercises" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.6</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.7</span> Exercises</h2>
 <ol type="1">
 <li>In homework problem 3 from the chapter on dictionaries and sets, you built a dictionary containing planetary information for your top three favorite planets.
 <ol type="1">
@@ -1279,7 +1275,7 @@ Name: A, dtype: float64</code></pre>
 <li>Use <code>describe</code> to get a summary of the data.</li>
 <li>Write the data to a .csv file and inspect the file to ensure that you did it correctly.</li>
 </ol></li>
-<li>In homework problem 3 from the chapter on I/O, you read in planetary data into a .csv file using <code>genfromtxt</code>.
+<li>In homework problem 3 from the chapter on I/O, you read planetary data into a .csv file using <code>genfromtxt</code>.
 <ol type="1">
 <li>Read the same file into a dataframe using <code>read_csv</code>. Let the name of the planets be the row label and the physical property be the column label.</li>
 <li>The sixth column contains the acceleration due to gravity for all of the planets in units of m/s<span class="math inline">\(^2\)</span>. Recalculate these values to be in terms of earth’s value (<span class="math inline">\(g = 9.78\)</span> m/s<span class="math inline">\(^2\)</span>) and modify the sixth column.</li>
@@ -1296,8 +1292,8 @@ Hints:
 <ol type="1">
 <li>For part 5 you will want to use <code>describe</code> to generate a dataframe of summary statistics. Then use <code>append</code> to add the row labeled “mean” to your original planetary database. Then use <code>rename</code> to rename that row from <code>mean</code> to <code>Planet X</code>.<br>
 </li>
-<li>The column labels start with a space: ” SurfaceGravity” not “SurfaceGravity”.</li>
-<li>For part 8 use <code>query</code>. To include the space in the column names, enclose the name in backticks “<code>". (i.e. "</code> Inclination` &gt; 0.04”)</li>
+<li>The column label for the acceleration due to gravity start with a space: ” SurfaceGravity” not “SurfaceGravity”.</li>
+<li>For part 8 use <code>query</code>. To include the space in the column names, enclose the name in backticks “`”. (i.e.&nbsp;” <code>Inclination</code> &gt; 0.04”)</li>
 </ol></li>
 </ol>
 

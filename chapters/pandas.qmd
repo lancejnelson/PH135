@@ -295,9 +295,8 @@ elevator_data.query("time > 0.008 and gFz > 1")
 >1. Add print statements to the cell above until you understand what each line of code does.
 >2. Add comments next to the line of code to help you remember.
 
-## Adding to and Modifying the data frame
 
-### Performing Calculations
+## Performing Calculations
 Dataframes are similar to numpy arrays in that you can do math across an entire dataset.  This makes mathematical calculations very easy.  Look at the example below and try to guess what calculation is being performed
 
 
@@ -325,7 +324,7 @@ You may have noticed that `sum` method that was used to sum up each column.  The
 There are a multitude of other useful math functions available.  See [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.quantile.html) for a more comprehensive list.  Basically, any function that numpy has, pandas will also have.
 
 
-### Modifying the dataframe
+## Modifying the dataframe
 
 ### Adding new columns
 
@@ -422,7 +421,7 @@ Depending on the type of data you are working with, there is a good argument for
    2. Use `describe` to get a summary of the data.
    3. Write the data to a .csv file and inspect the file to ensure that you did it correctly.
 
-3. In homework problem 3 from the chapter on I/O, you read in planetary data into a .csv file using `genfromtxt`.
+3. In homework problem 3 from the chapter on I/O, you read planetary data into a .csv file using `genfromtxt`.
    1. Read the same file into a dataframe using `read_csv`.  Let the name of the planets be the row label and the physical property be the column label.
    2. The sixth column contains the acceleration due to gravity for all of the planets in units of m/s$^2$.  Recalculate these values to be in terms of earth's value ($g = 9.78$ m/s$^2$) and modify the sixth column.
    3. The seventh column contains the orbital period for all of the planets in units of earth years.  Recalculate these values to be in earth days and modify that column accordingly. 
@@ -436,5 +435,5 @@ Depending on the type of data you are working with, there is a good argument for
 
    Hints:  
       1. For part 5 you will want to use `describe` to generate a dataframe of summary statistics. Then use `append` to add the row labeled "mean" to your original planetary database. Then use `rename` to rename that row from `mean` to `Planet X`.  
-      2. The column labels start with a space: " SurfaceGravity" not "SurfaceGravity".
-      3. For part 8 use `query`.  To include the space in the column names, enclose the name in backticks "`". (i.e. " ` Inclination` > 0.04")
+      2. The column label for the acceleration due to gravity start with a space: " SurfaceGravity" not "SurfaceGravity".
+      3. For part 8 use `query`.  To include the space in the column names, enclose the name in backticks "\`". (i.e. " ` Inclination` > 0.04")
