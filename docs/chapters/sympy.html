@@ -256,7 +256,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#simple-calculations" id="toc-simple-calculations" class="nav-link active" data-scroll-target="#simple-calculations"> <span class="header-section-number">14.1</span> Simple Calculations</a></li>
-  <li><a href="#forming-mathematical-expressions" id="toc-forming-mathematical-expressions" class="nav-link" data-scroll-target="#forming-mathematical-expressions"> <span class="header-section-number">14.2</span> Forming Mathematical Expressions</a></li>
+  <li><a href="#forming-mathematical-expressions" id="toc-forming-mathematical-expressions" class="nav-link" data-scroll-target="#forming-mathematical-expressions"> <span class="header-section-number">14.2</span> Forming Mathematical Expressions</a>
+  <ul class="collapse">
+  <li><a href="#defining-symbols-mathematical-variables" id="toc-defining-symbols-mathematical-variables" class="nav-link" data-scroll-target="#defining-symbols-mathematical-variables"> <span class="header-section-number">14.2.1</span> Defining Symbols (Mathematical Variables)</a></li>
+  <li><a href="#mathematical-expressions" id="toc-mathematical-expressions" class="nav-link" data-scroll-target="#mathematical-expressions"> <span class="header-section-number">14.2.2</span> Mathematical Expressions</a></li>
+  </ul></li>
   <li><a href="#simplifying-expressions" id="toc-simplifying-expressions" class="nav-link" data-scroll-target="#simplifying-expressions"> <span class="header-section-number">14.3</span> Simplifying Expressions</a>
   <ul class="collapse">
   <li><a href="#the-simplify-function" id="toc-the-simplify-function" class="nav-link" data-scroll-target="#the-simplify-function"> <span class="header-section-number">14.3.1</span> The <code>simplify</code> function</a></li>
@@ -332,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="sympy_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>The <code>init_printing(use_unicode=True)</code> function calls tells sympy to display mathematical expressions using “pretty” formatting. Fraction appear with the numerator on top of the denominator, powers are displayed as superscripts and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions. For example, <span class="math inline">\(\sqrt{8} = 2 \sqrt{2}\)</span> and sympy automatically performs this simplification for us:</p>
+<p>The <code>init_printing(use_unicode=True)</code> function call tells sympy to display mathematical expressions using “pretty” formatting. Fraction appear with the numerator on top of the denominator, powers are displayed as superscripts, and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions. For example, <span class="math inline">\(\sqrt{8} = 2 \sqrt{2}\)</span> and sympy automatically performs this simplification for us:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> sqrt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -353,6 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="forming-mathematical-expressions" class="level2" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="forming-mathematical-expressions"><span class="header-section-number">14.2</span> Forming Mathematical Expressions</h2>
+<section id="defining-symbols-mathematical-variables" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="defining-symbols-mathematical-variables"><span class="header-section-number">14.2.1</span> Defining Symbols (Mathematical Variables)</h3>
 <p>A common equation that comes up in physics is quadratic function with constant coefficients <span class="math display">\[ax^2 + bx + c\]</span>. To form this expression, we must first define the variables that appear in the expression: <code>x</code>, <code>a</code>, <code>b</code>, and <code>c</code>. The <code>Symbol</code> function (case sensitive) can be used to define these <strong>mathematical</strong> variables. The argument to the <code>Symbol</code> function should be a string containing the desired name of the variable.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol</span>
@@ -365,26 +371,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="sympy_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>A mathematical expression, which is composed of multiple mathematical variables, can now be created using the python variables that we just created</p>
+<p>Instead of using the <code>Symbol</code> function to initialize variables one at a time, you can initialize multiple variables in one line using the <code>symbols</code> function. The argument to the <code>symbols</code> function should be a string with the names of each variables inside the string and separated by a space.</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Symbol(<span class="st">"a"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> Symbol(<span class="st">"b"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> Symbol(<span class="st">"c"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> a <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>expression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>x,a,b,c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <p><img src="sympy_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>Instead of using the <code>Symbol</code> function to initialize variables one at a time, you can initialize multiple variables in one line using the <code>symbols</code> function. The argument to the <code>symbols</code> function should be a string with the names of each variables inside the string and separated by a space.</p>
+</section>
+<section id="mathematical-expressions" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="mathematical-expressions"><span class="header-section-number">14.2.2</span> Mathematical Expressions</h3>
+<p>A mathematical expression, which is composed of multiple mathematical variables (symbols), can now be created using the python variables that we just created</p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> a <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>expression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> a <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>expression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <p><img src="sympy_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
@@ -402,6 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="sympy_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
 </section>
 <section id="simplifying-expressions" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="simplifying-expressions"><span class="header-section-number">14.3</span> Simplifying Expressions</h2>
@@ -752,7 +758,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>How do you solve an equation in Python?</li>
 <li>How do you solve a system of equations in Python?</li>
 <li>How do you evaluate a definite integral at infinity (<span class="math inline">\(\infty\)</span>)?</li>
-<li></li>
+<li>Recite 1 Ne 4:6</li>
 </ol>
 </section>
 <section id="exercises" class="level2" data-number="14.9">
@@ -773,11 +779,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
-<li>A projectile is thrown directly downward from the top of a tall building (<span class="math inline">\(h = 150\)</span> meters) and lands with a thud on the ground <span class="math inline">\(4\)</span> seconds later. The position equation for the projectile is <span class="math display">\[y_f = y_i + v_i \Delta t + {1\over 2} g \Delta t^2\]</span> Use <code>sympy</code> to solve this equation for the initial velocity. Note <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span> Answer: You should find the initial speed to be <span class="math inline">\(\approx 18\)</span> m/s</li>
+<li>A projectile is thrown directly downward from the top of a tall building (<span class="math inline">\(y_i = 150\)</span> meters) and lands with a thud on the ground (<span class="math inline">\(y_f = 0\)</span>) <span class="math inline">\(4\)</span> seconds later. The position equation for the projectile is <span class="math display">\[y_f = y_i + v_i \Delta t + {1\over 2} g \Delta t^2\]</span> Use <code>sympy</code> to solve this equation for the initial velocity. Note <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span> Answer: You should find the initial speed to be <span class="math inline">\(\approx 18\)</span> m/s</li>
 </ol>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
-<li>A projectile is launched from the top of a building (<span class="math inline">\(y_i = 23\)</span> m) with an initial speed of <span class="math inline">\(v_i = 60\)</span> m/s and a launch angle of <span class="math inline">\(\theta_i = 32^\circ\)</span>. The vertical position of the projectile is given by <span class="math display">\[y_f = y_i + v_i \sin \theta \Delta t - {1\over 2}g \Delta t^2\]</span>. Determine the time it takes before the projectile impacts the ground by solving this equation for <span class="math inline">\(\Delta t\)</span>.</li>
+<li>A projectile is launched from the top of a building (<span class="math inline">\(y_i = 23\)</span> m) with an initial speed of <span class="math inline">\(v_i = 60\)</span> m/s and a launch angle of <span class="math inline">\(\theta_i = 32^\circ\)</span>. The vertical position of the projectile is given by <span class="math display">\[y_f = y_i + v_i \sin \theta_i \Delta t - {1\over 2}g \Delta t^2\]</span>. Determine the time it takes before the projectile impacts the ground by solving this equation for <span class="math inline">\(\Delta t\)</span>.</li>
 </ol>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
@@ -801,7 +807,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
-<li>Impulse is defined as the integral of the Force vs.&nbsp;time graph. <span class="math display">\[I = \int F dt\]</span>. Calculate the impulse imparted to an object if the force that it experiences is given by <span class="math display">\[F(t) = e^{-(x - 4)}\]</span> from <span class="math inline">\(0&lt; t &lt; 10\)</span>.</li>
+<li>Impulse is defined as the integral of the Force vs.&nbsp;time graph. <span class="math display">\[I = \int F dt\]</span>. Calculate the impulse imparted to an object from <span class="math inline">\(0&lt; t &lt; 10\)</span> if the force that it experiences is given by <span class="math display">\[F(t) = e^{-(t - 4)}\]</span>.</li>
 </ol>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 

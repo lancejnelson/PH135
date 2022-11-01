@@ -35,7 +35,7 @@ cos(pi/6)
 ```
 
 
-The `init_printing(use_unicode=True)` function calls tells sympy to display mathematical expressions using "pretty" formatting.  Fraction appear with the numerator on top of the denominator,  powers are displayed as superscripts and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions.  For example, $\sqrt{8} = 2 \sqrt{2}$ and sympy automatically performs this simplification for us:
+The `init_printing(use_unicode=True)` function call tells sympy to display mathematical expressions using "pretty" formatting.  Fraction appear with the numerator on top of the denominator,  powers are displayed as superscripts, and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions.  For example, $\sqrt{8} = 2 \sqrt{2}$ and sympy automatically performs this simplification for us:
 
 ```{python}
 from sympy import sqrt
@@ -56,6 +56,8 @@ N(sqrt(8))
 ```
 
 ## Forming Mathematical Expressions
+
+### Defining Symbols (Mathematical Variables)
 A common equation that comes up in physics is quadratic function with constant coefficients $$ax^2 + bx + c$$. To form this expression, we must first define the variables that appear in the expression: `x`, `a`, `b`, and `c`. The `Symbol` function (case sensitive) can be used to define these **mathematical** variables. The argument to the `Symbol` function should be a string containing the desired name of the variable. 
 
 ```{python}
@@ -67,27 +69,26 @@ c = Symbol("c")
 x,a,b,c
 ```
 
-A mathematical expression, which is composed of multiple mathematical variables, can now be created using the python variables that we just created
-
-```{python}
-from sympy import Symbol
-x = Symbol("x")
-a = Symbol("a")
-b = Symbol("b")
-c = Symbol("c")
-expression = a * x**2 + b * x + c
-expression
-```
-
 
 Instead of using the `Symbol` function to initialize variables one at a time, you can initialize multiple variables in one line using the `symbols` function.  The argument to the `symbols` function should be a string with the names of each variables inside the string and separated by a space. 
 ```{python}
 from sympy import symbols
 
 x,a,b,c = symbols("x a b c")
+x,a,b,c
+```
+
+### Mathematical Expressions
+
+A mathematical expression, which is composed of multiple mathematical variables (symbols), can now be created using the python variables that we just created
+
+```{python}
+from sympy import Symbol
+x,a,b,c = symbols("x a b c")
 expression = a * x**2 + b * x + c
 expression
 ```
+
 
 Expressions can be used to form new expressions by performing mathematical operations on them
 
@@ -469,7 +470,7 @@ nonlinsolve([eqOne,eqTwo],(x,y))
 8. How do you solve an equation in Python?
 9. How do you solve a system of equations in Python?
 10. How do you evaluate a definite integral at infinity ($\infty$)?
-11. 
+11. Recite 1 Ne 4:6
 
 
 ## Exercises
@@ -488,14 +489,14 @@ nonlinsolve([eqOne,eqTwo],(x,y))
 ```
 
 
-2. A projectile is thrown directly downward from the top of a tall building ($h = 150$ meters) and lands with a thud on the ground $4$ seconds later. The position equation for the projectile is $$y_f = y_i + v_i \Delta t + {1\over 2} g \Delta t^2$$  Use `sympy` to solve this equation for the initial velocity. Note $g = 9.8$ m/s$^2$   Answer: You should find the initial speed to be $\approx 18$ m/s
+2. A projectile is thrown directly downward from the top of a tall building ($y_i = 150$ meters) and lands with a thud on the ground ($y_f = 0$) $4$ seconds later. The position equation for the projectile is $$y_f = y_i + v_i \Delta t + {1\over 2} g \Delta t^2$$  Use `sympy` to solve this equation for the initial velocity. Note $g = 9.8$ m/s$^2$   Answer: You should find the initial speed to be $\approx 18$ m/s
 
 ```{python}
 # Python code here
 ```
 
 
-3. A projectile is launched from the top of a building ($y_i = 23$ m) with an initial speed of $v_i = 60$ m/s and a launch angle of $\theta_i = 32^\circ$.  The vertical position of the projectile is given by $$y_f = y_i + v_i \sin \theta \Delta t - {1\over 2}g \Delta t^2$$.  Determine the time it takes before the projectile impacts the ground by solving this equation for $\Delta t$.
+3. A projectile is launched from the top of a building ($y_i = 23$ m) with an initial speed of $v_i = 60$ m/s and a launch angle of $\theta_i = 32^\circ$.  The vertical position of the projectile is given by $$y_f = y_i + v_i \sin \theta_i \Delta t - {1\over 2}g \Delta t^2$$.  Determine the time it takes before the projectile impacts the ground by solving this equation for $\Delta t$.
 
 ```{python}
 # Python code here
@@ -522,7 +523,7 @@ nonlinsolve([eqOne,eqTwo],(x,y))
 ```
 
 
-6. Impulse is defined as the integral of the Force vs. time graph. $$I = \int F dt$$.  Calculate the impulse imparted to an object if the force that it experiences is given by $$F(t) = e^{-(x - 4)}$$ from $0< t < 10$.
+6. Impulse is defined as the integral of the Force vs. time graph. $$I = \int F dt$$.  Calculate the impulse imparted to an object from $0< t < 10$ if the force that it experiences is given by $$F(t) = e^{-(t - 4)}$$.
 
 
 ```{python}
