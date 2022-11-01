@@ -348,7 +348,7 @@ equation
 ```
 
 
-## Solving single equations
+### Solving single equations
 Once an equation is created, the `solveset` function attempts to solve the function for the desired variables. To use `solveset`, pass the equation as the first argument and the variable being solved for as the second.  Here we solve the equation $$3 x^2 - 5 x =8$$ for $x$
 
 
@@ -362,7 +362,7 @@ solveset(equation,x)
 ```
 
 
-### No analytic solution
+#### No analytic solution
 In some instances, `sympy` will not be able to find any solutions to the equation.  For example, the solution to $${\sin(x)\over x} = 1$$ cannot be determined through analytical technique even though there are values of x that solve the equation.  For situations like this, `sympy` will output an expression that is meant to indicate that it can't find a solution.
 
 
@@ -377,7 +377,7 @@ solveset(equation,x)
 ```
 
 
-### No solution... period
+#### No solution... period
 Some equations really don't have solutions and  `sympy` can correctly identify these cases.  For example, the equation $$\exp(x) = 0$$  has no solutions.  Let's see what `sympy` tells us when we try to solve this one.
 
 
@@ -393,7 +393,7 @@ solveset(equation,x)
 
 The $\emptyset$ symbol means an empty set or there are no solutions to this equation. 
 
-### Many or Infinite Solutions
+#### Many or Infinite Solutions
 Some equations have infinitely many solutions.  For example the following equation $$x - x = 0$$ is satisfied for any complex or real value of $x$.  Let's see what sympy does when we ask it to solve this one.
 
 
@@ -411,10 +411,10 @@ solveset(equation,x)
 The output ($\mathbb{C}$) is communicating that the set of all complex numbers are the solution to this equation. (Meaning you can choose any number and it will be a solution to this equation.) 
 
 
-## Solving Systems of equations
+### Solving Systems of equations
 Often you will have multiple equations with multiple unknown variables that you want to solve for.  They call this a system of equations.  An example would be the following system $$3 x - 5 y = 8$$ $$8x + 2y = 3$$.  The normal process for solving this system is to solve one equation for $x$ and then plug the expression that results into the other equation.  That equations will only have $y$ as a variable and you can do algebra to solve for it.  
 
-### Linear Systems
+#### Linear Systems
 The example given above is called a linear system because none of the variables are raised to a power.  To solve a system like this, use `sympy`'s  `linsolve` function.
 
 
@@ -442,7 +442,7 @@ linsolve([equationOne,equationTwo],(x,y))
 ```
 
 
-### Nonlinear Systems
+#### Nonlinear Systems
 
 If the equations involve variables being raised to powers, we call it a non linear system and you must use `sympy`'s `nonlinsolve` to solve the system.  For example, here is a nonlinear system $$3 x^2 + 5 y^2 = 8$$ $$8x^2 - 12y^2 = 13$$
 
