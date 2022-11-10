@@ -247,6 +247,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Numerical Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -292,7 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this chapter you will learn how to plot functions of more than one variable <span class="math inline">\(F(x,y)\)</span>. Functions like this can be visualized by making a contour plots (like a topographic map) or by displaying the function value as height above the <span class="math inline">\(x-y\)</span> plane like a perspective drawing. You can also display vector-valued function <span class="math inline">\(\mathbf{F}(x,y)\)</span> using vector field plots.</p>
 <section id="making-2-d-grids" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="making-2-d-grids"><span class="header-section-number">12.1</span> Making 2-D Grids</h2>
-<p>When plotting a function of one variable, recall that the first step was to use <code>linspace</code> or <code>arange</code> to construct a grid of points spanning the domain of the function. For a function of two variables the domain is two-dimensional and hence the grid will also need to be two-dimensional. In other words, we need to construct a set of x-y pairs the spans the two-dimensional domain. We can do this using <code>numpy.meshgrid</code> and <code>numpy.mgrid</code>. Let’s see an example and then explain the pieces. Below you will find some code to plot the function: <span class="math display">\[f(x,y) = \cos({\pi \over 2} x) \exp(-y^2)\]</span> (see the code comments)</p>
+<p>When plotting a function of one variable, recall that the first step was to use <code>linspace</code> or <code>arange</code> to construct a grid of points spanning the domain of the function. For a function of two variables the domain is two-dimensional and hence the grid will also need to be two-dimensional. In other words, we need to construct a set of x-y pairs that spans the two-dimensional domain. We can do this using <code>numpy.meshgrid</code> and <code>numpy.mgrid</code>. Let’s see an example and then explain the pieces. Below you will find some code to plot the function: <span class="math display">\[f(x,y) = \cos({\pi \over 2} x) \exp(-y^2)\]</span> (see the code comments)</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,meshgrid,cos,exp,pi,mgrid</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot</span>

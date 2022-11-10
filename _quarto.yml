@@ -32,9 +32,9 @@ book:
       - chapters/advancedPlotting.qmd
       - chapters/pandas.qmd
       - chapters/sympy.qmd
-#    - part: "Numerical Methods"
-#      chapters:
-#      - chapters/extrapolation_interpolation.qmd
+    - part: "Numerical Methods"
+      chapters:
+      - chapters/extrapolation_interpolation.qmd
 #      - chapters/fitting.qmd
 #      - chapters/derivatives.qmd
 #      - chapters/integration.qmd

@@ -250,6 +250,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Numerical Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -344,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="reading-from-a-.csv-file." class="level3" data-number="13.1.1">
 <h3 data-number="13.1.1" class="anchored" data-anchor-id="reading-from-a-.csv-file."><span class="header-section-number">13.1.1</span> Reading from a .csv file.</h3>
 <p>The most-used function from the pandas module is <code>read_csv</code> which is used to read a csv-formatted file into a data frame. To use it, simply call the <code>pandas.read_csv</code> function and pass in the path to the .csv file. (<a href="https://lancejnelson.github.io/PH135/files/elevator.csv">Here</a> is a link to the file.)</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> read_csv</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>elevator_data <span class="op">=</span> read_csv(<span class="st">"elevator.csv"</span>,index_col <span class="op">=</span> <span class="dv">0</span>)</span>
@@ -371,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>skiprows</code> - line numbers to skip when building the dataframe. Can be either a single integer (skip the first <code>n</code> lines) or a list of integers and it will skip all rows in the list.</li>
 </ol>
 <p>The <code>rename()</code> function can be used if you don’t like the default index values (integers if you read from file) and want to reassign them.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> read_csv</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>elevator_data <span class="op">=</span> read_csv(<span class="st">"elevator.csv"</span>,index_col <span class="op">=</span> <span class="dv">0</span>)</span>
@@ -395,7 +410,7 @@ J  0.017 -0.0115 -0.0020  1.0012</code></pre>
 <section id="create-from-a-dictionary" class="level3" data-number="13.1.2">
 <h3 data-number="13.1.2" class="anchored" data-anchor-id="create-from-a-dictionary"><span class="header-section-number">13.1.2</span> Create from a dictionary</h3>
 <p>If your data is in a dictionary you can use the <code>DataFrame</code> function (case sensitive) to initialize the dataframe. Key values in the dictionary correspond to columns in the dataframe.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>elevator <span class="op">=</span> {<span class="st">"time"</span>:[<span class="fl">0.007</span>,<span class="fl">0.008</span>,<span class="fl">0.008</span>,<span class="fl">0.009</span>,<span class="fl">0.009</span>,<span class="fl">0.009</span>,<span class="fl">0.01</span>,<span class="fl">0.014</span>,<span class="fl">0.015</span>,<span class="fl">0.017</span>],<span class="st">"gFx"</span>:[<span class="op">-</span><span class="fl">0.0056</span>,<span class="fl">0.007</span>,<span class="dv">0</span>,<span class="fl">0.0054</span>,<span class="op">-</span><span class="fl">0.0015</span>,<span class="fl">0.0037</span>,<span class="op">-</span><span class="fl">0.002</span>,<span class="fl">0.009</span>,<span class="fl">0.0012</span>,<span class="op">-</span><span class="fl">0.0115</span>],<span class="st">"gFy"</span>:[<span class="op">-</span><span class="fl">0.0046</span>,<span class="fl">0.0024</span>,<span class="fl">0.0059</span>,<span class="op">-</span><span class="fl">0.0022</span>,<span class="op">-</span><span class="fl">0.0056</span>,<span class="op">-</span><span class="fl">0.002</span>,<span class="op">-</span><span class="fl">0.002</span>,<span class="op">-</span><span class="fl">0.0025</span>,<span class="op">-</span><span class="fl">0.0037</span>,<span class="op">-</span><span class="fl">0.002</span>],<span class="st">"gFz"</span>:[<span class="fl">1.012</span>,<span class="fl">1.0022</span>,<span class="fl">1.0039</span>,<span class="fl">1.0032</span>,<span class="fl">1.0042</span>,<span class="fl">0.9951</span>,<span class="fl">1.002</span>,<span class="fl">1.0159</span>,<span class="fl">1.01</span>,<span class="fl">1.0012</span>]}</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>elevator_data <span class="op">=</span> DataFrame(elevator)</span>
@@ -415,7 +430,7 @@ J  0.017 -0.0115 -0.0020  1.0012</code></pre>
 </div>
 </div>
 <p>The row indices will default to the a set of integers starting at 0. If you want to index the rows with other labels, use the <code>index</code> keyword argument.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>elevator <span class="op">=</span> {<span class="st">"time"</span>:[<span class="fl">0.007</span>,<span class="fl">0.008</span>,<span class="fl">0.008</span>,<span class="fl">0.009</span>,<span class="fl">0.009</span>,<span class="fl">0.009</span>,<span class="fl">0.01</span>,<span class="fl">0.014</span>,<span class="fl">0.015</span>,<span class="fl">0.017</span>],<span class="st">"gFx"</span>:[<span class="op">-</span><span class="fl">0.0056</span>,<span class="fl">0.007</span>,<span class="dv">0</span>,<span class="fl">0.0054</span>,<span class="op">-</span><span class="fl">0.0015</span>,<span class="fl">0.0037</span>,<span class="op">-</span><span class="fl">0.002</span>,<span class="fl">0.009</span>,<span class="fl">0.0012</span>,<span class="op">-</span><span class="fl">0.0115</span>],<span class="st">"gFy"</span>:[<span class="op">-</span><span class="fl">0.0046</span>,<span class="fl">0.0024</span>,<span class="fl">0.0059</span>,<span class="op">-</span><span class="fl">0.0022</span>,<span class="op">-</span><span class="fl">0.0056</span>,<span class="op">-</span><span class="fl">0.002</span>,<span class="op">-</span><span class="fl">0.002</span>,<span class="op">-</span><span class="fl">0.0025</span>,<span class="op">-</span><span class="fl">0.0037</span>,<span class="op">-</span><span class="fl">0.002</span>],<span class="st">"gFz"</span>:[<span class="fl">1.012</span>,<span class="fl">1.0022</span>,<span class="fl">1.0039</span>,<span class="fl">1.0032</span>,<span class="fl">1.0042</span>,<span class="fl">0.9951</span>,<span class="fl">1.002</span>,<span class="fl">1.0159</span>,<span class="fl">1.01</span>,<span class="fl">1.0012</span>]}</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>elevator_data <span class="op">=</span> DataFrame(elevator,index <span class="op">=</span> [<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>,<span class="st">"D"</span>,<span class="st">"E"</span>,<span class="st">"F"</span>,<span class="st">"G"</span>,<span class="st">"H"</span>,<span class="st">"J"</span>,<span class="st">"K"</span>])</span>
@@ -471,7 +486,7 @@ K  0.017 -0.0115 -0.0020  1.0012</code></pre>
 <section id="extracting-general-information" class="level3" data-number="13.2.1">
 <h3 data-number="13.2.1" class="anchored" data-anchor-id="extracting-general-information"><span class="header-section-number">13.2.1</span> Extracting General Information</h3>
 <p>Sometimes the dataframe is quite large and you’d like to inspect just a small portion of it. You can use <code>dataframe.head(n)</code> to look at the <strong>first</strong> <code>n</code> rows in the dataframe and <code>dataframe.tail(n)</code> to look at the <strong>last</strong> <code>n</code> rows.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>elevator_data.head(<span class="dv">3</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>elevator_data.tail(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -523,7 +538,7 @@ K  0.017 -0.0115 -0.0020  1.0012</code></pre>
 </div>
 </div>
 <p>To get a list of the column or row labels, use the variables <code>dataframe.columns</code> and <code>dataframe.index</code>.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>elevator_data.columns</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>elevator_data.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -534,7 +549,7 @@ K  0.017 -0.0115 -0.0020  1.0012</code></pre>
 <section id="extracting-a-single-number" class="level3" data-number="13.2.2">
 <h3 data-number="13.2.2" class="anchored" data-anchor-id="extracting-a-single-number"><span class="header-section-number">13.2.2</span> Extracting a single number</h3>
 <p>To extract a single number from a dataframe, use the <code>dataframe.at[]</code> or <code>dataframe.iat[]</code> objects. The <code>at</code> object should be used if you want to locate the number using row and column <strong>labels</strong> and <code>iat</code> should be used when you want to access the number using row and column <strong>indices</strong>. Let’s see an example:</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> transpose</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -564,7 +579,7 @@ K  0.017 -0.0115 -0.0020  1.0012</code></pre>
 <section id="accessing-entire-rows" class="level3" data-number="13.2.4">
 <h3 data-number="13.2.4" class="anchored" data-anchor-id="accessing-entire-rows"><span class="header-section-number">13.2.4</span> Accessing entire rows</h3>
 <p>Accessing rows in a dataframe is done with the help of the <code>dataframe.loc[n]</code> or <code>dataframe.iloc[n]</code> dictionary. <code>loc</code> should be used if you want to slice using row and column labels whereas <code>iloc</code> should be used if you want to slice out using indices.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> transpose</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -585,7 +600,7 @@ Name: A, dtype: float64</code></pre>
 </div>
 </div>
 <p>Multiple rows can be accessed using the <code>A:B</code> syntax to slice out the desired rows.</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> transpose</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -649,7 +664,7 @@ Name: A, dtype: float64</code></pre>
 <section id="slicing-rows-and-columns" class="level3" data-number="13.2.5">
 <h3 data-number="13.2.5" class="anchored" data-anchor-id="slicing-rows-and-columns"><span class="header-section-number">13.2.5</span> Slicing rows and columns</h3>
 <p>The <code>loc</code> and <code>iloc</code> dictionaries can be used to slice across rows and columns. Simple separate the two slices with a comma:</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> transpose</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -703,7 +718,7 @@ Name: A, dtype: float64</code></pre>
 <section id="boolean-slicing" class="level3" data-number="13.2.6">
 <h3 data-number="13.2.6" class="anchored" data-anchor-id="boolean-slicing"><span class="header-section-number">13.2.6</span> Boolean Slicing</h3>
 <p>We have already seen boolean slicing in Numpy Arrays and we can use something similar on Pandas. Let’s see an example:</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> transpose</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -778,7 +793,7 @@ Name: A, dtype: float64</code></pre>
 </div>
 <p>The statement <code>elevator_data["time"] &lt; 0.01</code> produces a boolean sequence which can be used as a set of indices to access only those entries where time is less than 0.01.</p>
 <p>More complex boolean slicing can be done with the use of the <code>query</code> function which allows you to be more specific about your boolean conditions. The example below will extract all rows in the dataframe where time &gt; 0.008 and gFz is greater than 1.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> transpose</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -863,7 +878,7 @@ Name: A, dtype: float64</code></pre>
 <section id="performing-calculations" class="level2" data-number="13.3">
 <h2 data-number="13.3" class="anchored" data-anchor-id="performing-calculations"><span class="header-section-number">13.3</span> Performing Calculations</h2>
 <p>Dataframes are similar to numpy arrays in that you can do math across an entire dataset. This makes mathematical calculations very easy. Look at the example below and try to guess what calculation is being performed</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> sqrt</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>elevator_data[[<span class="st">"gFx"</span>, <span class="st">"gFy"</span>, <span class="st">"gFz"</span>]] <span class="op">*=</span> <span class="fl">9.8</span></span>
@@ -983,7 +998,7 @@ Name: A, dtype: float64</code></pre>
 <section id="adding-a-new-row" class="level3" data-number="13.4.2">
 <h3 data-number="13.4.2" class="anchored" data-anchor-id="adding-a-new-row"><span class="header-section-number">13.4.2</span> Adding a new row</h3>
 <p>A row can be added to a dataframe with the <code>append()</code> function. The argument to this function must be either i) another dataframe or ii) a dictionary. Let’s see examples of both.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>elevator_data.append({<span class="st">"time"</span>:<span class="fl">0.02</span>,<span class="st">"gFx"</span>:<span class="op">-</span><span class="fl">0.028</span>,<span class="st">"gFy"</span>:<span class="fl">0.018</span>,<span class="st">"gFz"</span>:<span class="fl">1.028</span>},ignore_index <span class="op">=</span> <span class="va">True</span>)  <span class="co"># Append using a dictionary.</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1114,7 +1129,7 @@ Name: A, dtype: float64</code></pre>
 <section id="getting-a-summary-of-your-dataframe." class="level3" data-number="13.5.1">
 <h3 data-number="13.5.1" class="anchored" data-anchor-id="getting-a-summary-of-your-dataframe."><span class="header-section-number">13.5.1</span> Getting a summary of your dataframe.</h3>
 <p>The <code>describe()</code> function will calculate several useful statistical quantities and display them in a dataframe.</p>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>elevator_data.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 
@@ -1205,7 +1220,7 @@ Name: A, dtype: float64</code></pre>
 <section id="plotting-your-dataframe." class="level3" data-number="13.5.2">
 <h3 data-number="13.5.2" class="anchored" data-anchor-id="plotting-your-dataframe."><span class="header-section-number">13.5.2</span> Plotting your dataframe.</h3>
 <p>A histogram of each column can be easily generate with the <code>dataframe.hist()</code> function.</p>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>elevator_data.hist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>array([[&lt;AxesSubplot:title={'center':'time'}&gt;,
@@ -1219,8 +1234,8 @@ Name: A, dtype: float64</code></pre>
 <p><img src="pandas_files/figure-html/cell-20-output-2.png" width="558" height="424"></p>
 </div>
 </div>
-<p>To make a scatter plot of a chosen set of data, use <code>dataframe.plot.scatter()</code>. The <code>x</code> and <code>y</code> keyword arguments should be used to specify which data to plot.</p>
-<div class="cell" data-execution_count="21">
+<p>To make a scatter plot of two columns in your dataframe, use <code>dataframe.plot.scatter()</code>. The <code>x</code> and <code>y</code> keyword arguments should be used to specify which columns to plot.</p>
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>elevator_data.plot.scatter(x <span class="op">=</span> <span class="st">"time"</span>, y <span class="op">=</span> <span class="st">"gFz"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>&lt;AxesSubplot:xlabel='time', ylabel='gFz'&gt;</code></pre>
@@ -1229,12 +1244,32 @@ Name: A, dtype: float64</code></pre>
 <p><img src="pandas_files/figure-html/cell-21-output-2.png" width="606" height="422"></p>
 </div>
 </div>
+<p>You can also plot a single column vs.&nbsp;the row labels using the <code>plot</code> function</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>elevator_data[<span class="st">"gFz"</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="pandas_files/figure-html/cell-22-output-2.png" width="588" height="404"></p>
+</div>
+</div>
+<p>You can also use this function to plot a single row vs the column labels.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>elevator_data.iloc[<span class="dv">2</span>].plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="pandas_files/figure-html/cell-23-output-2.png" width="566" height="404"></p>
+</div>
+</div>
 <p>A wealth of other functions exist for pandas and I will not exemplify or explain them here because it is beyond the scope of the class. A nice summary sheet for pandas can be found <a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">here</a></p>
 </section>
 <section id="writing-your-dataframe-to-file" class="level3" data-number="13.5.3">
 <h3 data-number="13.5.3" class="anchored" data-anchor-id="writing-your-dataframe-to-file"><span class="header-section-number">13.5.3</span> Writing your dataframe to file</h3>
 <p>You have already used <code>savetxt</code> to save an entire array of numbers to a file in one step. If your data is in a pandas dataframe, saving that dataframe to file couldn’t be easier; just use <code>dataframe.to_csv("filename")</code>.</p>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>elevator_data.to_csv(<span class="st">"myelevatorData.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>elevator_data.to_csv(<span class="st">"myelevatorData.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Several helpful keyword arguments are available when writing to a file. I’ll list a few of them below.</p>
 <ol type="1">
 <li><code>sep</code> - Delimiter or character used to separate the data as a length-one string. Default is a comma (“,”).</li>
