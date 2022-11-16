@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 16&nbsp; Function Fitting</title>
+<title>Scientific Computing - 16&nbsp; Curve Fitting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -25,7 +88,6 @@ ul.task-list{list-style: none;}
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/derivatives.html" rel="next">
 <link href="../chapters/extrapolation_interpolation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -58,6 +120,7 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -67,7 +130,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Function Fitting</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -198,22 +261,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Function Fitting</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Derivatives</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Integration</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
+  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
   </div>
 </li>
       </ul>
@@ -223,14 +271,26 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#fitting-to-a-polynomial" id="toc-fitting-to-a-polynomial" class="nav-link active" data-scroll-target="#fitting-to-a-polynomial"> <span class="header-section-number">16.1</span> Fitting to a polynomial</a>
+  <ul class="collapse">
+  <li><a href="#assessing-the-quality-of-the-fit" id="toc-assessing-the-quality-of-the-fit" class="nav-link" data-scroll-target="#assessing-the-quality-of-the-fit"> <span class="header-section-number">16.1.1</span> Assessing the quality of the fit</a></li>
+  </ul></li>
+  <li><a href="#other-functions-for-curve-fitting." id="toc-other-functions-for-curve-fitting." class="nav-link" data-scroll-target="#other-functions-for-curve-fitting."> <span class="header-section-number">16.2</span> Other functions for curve fitting.</a></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">16.3</span> Flashcards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">16.4</span> Exercises</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Function Fitting</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></h1>
 </div>
 
 
@@ -244,8 +304,447 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<p><a href="https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb">Jupyter Notebook</a> Often in science you will gather data as a way to explore the relationship between two physical quantities and/or to validate your theories. For example, perhaps you are interested how the amount of fertilizer applied to your tomato plants affect the final size of the fruit. Or maybe you want to know how a planet’s distance from the sun affects it’s orbital period. Investigating these kinds of questions are the very essence of science and great scientific discoveries begin with simple questions posed by curious minds. As a brief reminder, the steps to the scientific process are:<br>
+1. Formulate a question.<br>
+2. Form a hypothesis.<br>
+3. Use your hypothesis to make a prediction.<br>
+4. Test your prediction.<br>
+5. Analyze the results and fine tune your theory.</p>
+<p>The process of gathering data and analyzing it, hoping to draw conclusions and establish physical laws are what steps 4 and 5 are all about. One computational tool that will help you establish firm relationships is called curve fitting. Curve fitting is the process of finding a function that matches your data as closely as possible. Finding a best-fit function that agrees with your hypothesis can be a valuable step in verifying or proving a theory. Other useful mathematical conclusions can be drawn from it as well.</p>
+<p>As a simple example consider the stopping time for a car with its brakes locked up (most modern cars are designed to prevent this). The question is: How does the stopping time depend on the car’s initial speed. If you are familiar with Newtonian mechanics at all, you might hypothesize that the acceleration of the car should not depend on the initial velocity and hence the stopping time will increase linearly with the initial speed. Furthermore, the following kinematic equation</p>
+<p><span class="math display">\[
+\begin{align*}
+v_f &amp;= v_i - a \Delta t\\
+0 &amp;= v_i - \mu_k g \Delta t\\
+\Delta t &amp;= {v_i\over \mu_k g}
+\end{align*}
+\]</span></p>
+<p>would suggest that the slope of <span class="math inline">\(\Delta t\)</span> vs.&nbsp;<span class="math inline">\(v_i\)</span> function is <span class="math inline">\({1\over a} = {1\over \mu g}\)</span>. In other words, the theory of kinematics suggest that the acceleration should be independent of initial speed. To prove your idea, you should first measure the stopping time for cars with a variety of initial speeds (shown below).</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Initial Speed (m/s)</th>
+<th>Skid time (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12</td>
+<td>3.23</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>3.43</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>4.67</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>5.45</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>6.00</td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td>8.52</td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>Text(0.5, 1.0, 'Skid time vs initial speed')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="fitting_files/figure-html/cell-2-output-2.png" width="576" height="442"></p>
+</div>
+</div>
+<p>We notice that the data <strong>looks</strong> linear which matches our hypothesis that the acceleration is constant.</p>
+<section id="fitting-to-a-polynomial" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="fitting-to-a-polynomial"><span class="header-section-number">16.1</span> Fitting to a polynomial</h2>
+<p>The next thing to do is to find the line that passes through the data points as close as possible. When the fit function is a polynomial , we can use the <code>polyfit</code> function from numpy. This function takes three argument: the independent data set, the dependent data set, and the order of the polynomial</p>
+<pre><code>polyfit(x,y,order)</code></pre>
+<p>The <code>polyfit</code> function returns a list of numbers containing the function parameters for the best fit function.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> polyfit</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="fl">3.23</span>,<span class="fl">3.43</span>,<span class="fl">4.67</span>,<span class="fl">5.45</span>,<span class="dv">6</span>,<span class="fl">8.52</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> [<span class="dv">12</span>,<span class="dv">17</span>,<span class="dv">22</span>,<span class="dv">25</span>,<span class="dv">29</span>,<span class="dv">38</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> polyfit(vi,t,<span class="dv">1</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>slope <span class="op">=</span> params[<span class="dv">0</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>yint <span class="op">=</span> params[<span class="dv">1</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span><span class="fl">9.8</span> <span class="co">#Acceleration due to gravity</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(slope <span class="op">*</span> g)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(params)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[0.20971747 0.21840032]
+0.48656326406696415</code></pre>
+</div>
+</div>
+<p>In this case, <span class="math inline">\(0.2097\)</span> is the slope of the best-fit function and <span class="math inline">\(0.2184\)</span> is the y-intercept of the best fit function. Remembering our theory from above, we notice that the slope of this fit function can be used to calculate the coefficient of friction between the rubber tires and the roadway.</p>
+<p><span class="math display">\[
+\begin{align*}
+m &amp;= {1\over \mu g}\\
+\mu &amp;= {1\over m g}
+\end{align*}
+\]</span></p>
+<p>It is often useful to plot the fit function on top of the data to verify that it really matches the data.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> polyfit,linspace</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="fl">3.23</span>,<span class="fl">3.43</span>,<span class="fl">4.67</span>,<span class="fl">5.45</span>,<span class="dv">6</span>,<span class="fl">8.52</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> [<span class="dv">12</span>,<span class="dv">17</span>,<span class="dv">22</span>,<span class="dv">25</span>,<span class="dv">29</span>,<span class="dv">38</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> polyfit(vi,t,<span class="dv">1</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>vDense <span class="op">=</span> linspace(<span class="dv">8</span>,<span class="dv">40</span>,<span class="dv">100</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>tDense <span class="op">=</span> params[<span class="dv">0</span>] <span class="op">*</span> vDense <span class="op">+</span> params[<span class="dv">1</span>]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.plot(vi,t,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">16</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.plot(vDense,tDense,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="fitting_files/figure-html/cell-4-output-1.png" width="558" height="404"></p>
+</div>
+</div>
+<section id="assessing-the-quality-of-the-fit" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="assessing-the-quality-of-the-fit"><span class="header-section-number">16.1.1</span> Assessing the quality of the fit</h3>
+<p>Sometimes it might not be clear what type of function you should fit to. A good way to measure the quality of a fit it so sum the square of the difference between the fit function and the data.</p>
+<p><span class="math display">\[
+\sum_i (y_i - f(x_i))^2
+\]</span></p>
+<p>You can make <code>polyfit</code> do this for you using the <code>full = True</code> keyword argument. Now the function will return a list of 5 things: the first is the list of fitting parameters and the second thing is the sum of the square of the errors. Fits with big values for this sum are not as good as those with lower values.</p>
+<div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> polyfit,linspace</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="fl">3.23</span>,<span class="fl">3.43</span>,<span class="fl">4.67</span>,<span class="fl">5.45</span>,<span class="dv">6</span>,<span class="fl">8.52</span>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> [<span class="dv">12</span>,<span class="dv">17</span>,<span class="dv">22</span>,<span class="dv">25</span>,<span class="dv">29</span>,<span class="dv">38</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>paramsLinear <span class="op">=</span> polyfit(vi,t,<span class="dv">1</span>,full<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>paramsQuadratic <span class="op">=</span> polyfit(vi,t,<span class="dv">2</span>,full<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>vDense <span class="op">=</span> linspace(<span class="dv">8</span>,<span class="dv">40</span>,<span class="dv">100</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>tDenseLinear <span class="op">=</span> paramsLinear[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> vDense <span class="op">+</span> paramsLinear[<span class="dv">0</span>][<span class="dv">1</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>tDenseQuadratic <span class="op">=</span> paramsQuadratic[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> vDense<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> paramsQuadratic[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">*</span> vDense <span class="op">+</span> paramsQuadratic[<span class="dv">0</span>][<span class="dv">2</span>]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>errorLinear <span class="op">=</span> paramsLinear[<span class="dv">1</span>][<span class="dv">0</span>]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>errorQuadratic <span class="op">=</span> paramsQuadratic[<span class="dv">1</span>][<span class="dv">0</span>]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.plot(vi,t,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">16</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.plot(vDense,tDenseLinear,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Error: </span><span class="sc">{</span>errorLinear<span class="sc">:1.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.plot(vi,t,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">16</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.plot(vDense,tDenseQuadratic,<span class="st">'b'</span>,lw <span class="op">=</span> <span class="dv">3</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Error: </span><span class="sc">{</span>errorQuadratic<span class="sc">:1.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-execution_count="4">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="fitting_files/figure-html/cell-5-output-1.png" class="img-fluid" width="558"></p>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="fitting_files/figure-html/cell-5-output-2.png" class="img-fluid" width="558"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="other-functions-for-curve-fitting." class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="other-functions-for-curve-fitting."><span class="header-section-number">16.2</span> Other functions for curve fitting.</h2>
+<p>If the fit function is a polynomial, <code>polyfit</code> is a great choice but there are times when the hypothesized functions is not a polynomial. In cases like this, the function <code>scipy.optimize.curve_fit</code> should work. As an example, let’s say that you have the following intensity vs.&nbsp;wavelength data.</p>
+<div class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<p><img src="fitting_files/figure-html/cell-6-output-1.png" width="604" height="404"></p>
+</div>
+</div>
+<p>If you suspected that the fit function looked like this <span class="math display">\[I(\lambda) = a \lambda^{-5} {1\over \exp{b\over \lambda} - 1}\]</span>, you could find the values of a and b that made the function fit the data like this:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> exp,log</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_function(wvlength,a,b):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> wvlength<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(b<span class="op">/</span>wvlength) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>wavelength <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">1.1</span>, <span class="fl">1.6</span>, <span class="fl">2.1</span>, <span class="fl">2.6</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">4.1</span>, <span class="fl">4.6</span>, <span class="fl">5.1</span>, <span class="fl">5.6</span>, <span class="fl">6.1</span>]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> [<span class="dv">0</span>, <span class="fl">7.43023e-7</span>, <span class="fl">0.0000699768</span>, <span class="fl">0.000184459</span>, <span class="op">\</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fl">0.000211137</span>, <span class="fl">0.000183716</span>, <span class="fl">0.000144493</span>, <span class="fl">0.000109646</span>, <span class="fl">0.0000825034</span>, <span class="op">\</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fl">0.0000623056</span>, <span class="fl">0.0000474756</span>, <span class="fl">0.0000365799</span>, <span class="fl">0.0000285178</span>]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> curve_fit(fit_function,wavelength,intensity)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(params)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>wDense <span class="op">=</span> linspace(<span class="fl">0.1</span>,<span class="dv">7</span>,<span class="dv">100</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>iDense <span class="op">=</span> params[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> wDense<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(params[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">/</span>wDense) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.plot(wavelength,intensity,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.plot(wDense,iDense,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(array([ 1.21509047, 10.32796789]), array([[0.00225532, 0.0038109 ],
+       [0.0038109 , 0.00717859]]))</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="fitting_files/figure-html/cell-7-output-2.png" width="604" height="404"></p>
+</div>
+</div>
+<p>Notice that the <code>curve_fit</code> function returns more than just the fit paramters. It also returns a <span class="math inline">\(2\)</span> x <span class="math inline">\(2\)</span> matrix containing the uncertainties on the fit parameters. If you want to calculate the fit error, you’ll have to do it manually, using the equation</p>
+<p><span class="math display">\[
+\sum_i (y_i - f(x_i))^2
+\]</span></p>
+<div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> exp,log,diagonal,sqrt,array</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_function(wvlength,a,b):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> wvlength<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(b<span class="op">/</span>wvlength) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_function_two(wvlength,a,b):</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> wvlength<span class="op">**-</span><span class="dv">6</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(b<span class="op">/</span>wvlength) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>wavelength <span class="op">=</span> array([<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">1.1</span>, <span class="fl">1.6</span>, <span class="fl">2.1</span>, <span class="fl">2.6</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">4.1</span>, <span class="fl">4.6</span>, <span class="fl">5.1</span>, <span class="fl">5.6</span>, <span class="fl">6.1</span>])</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> array([<span class="dv">0</span>, <span class="fl">7.43023e-7</span>, <span class="fl">0.0000699768</span>, <span class="fl">0.000184459</span>, <span class="fl">0.000211137</span>, <span class="fl">0.000183716</span>, <span class="fl">0.000144493</span>, <span class="fl">0.000109646</span>, <span class="fl">0.0000825034</span>, <span class="fl">0.0000623056</span>, <span class="fl">0.0000474756</span>, <span class="fl">0.0000365799</span>, <span class="fl">0.0000285178</span>])</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>paramsOne <span class="op">=</span> curve_fit(fit_function,wavelength,intensity)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>paramsTwo <span class="op">=</span> curve_fit(fit_function_two,wavelength,intensity)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>wDense <span class="op">=</span> linspace(<span class="fl">0.1</span>,<span class="dv">7</span>,<span class="dv">100</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>iDenseOne <span class="op">=</span> paramsOne[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> wDense<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(paramsOne[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">/</span>wDense) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>iDenseTwo <span class="op">=</span> paramsTwo[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> wDense<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(paramsTwo[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">/</span>wDense) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>errorOne <span class="op">=</span> <span class="bu">sum</span>(sqrt( (intensity <span class="op">-</span> fit_function(wavelength,paramsOne[<span class="dv">0</span>][<span class="dv">0</span>],paramsOne[<span class="dv">0</span>][<span class="dv">1</span>]))<span class="op">**</span><span class="dv">2</span> ))</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>errorTwo <span class="op">=</span> <span class="bu">sum</span>(sqrt( (intensity <span class="op">-</span> fit_function(wavelength,paramsTwo[<span class="dv">0</span>][<span class="dv">0</span>],paramsTwo[<span class="dv">0</span>][<span class="dv">1</span>]))<span class="op">**</span><span class="dv">2</span> ))</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.plot(wavelength,intensity,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>plt.plot(wDense,iDenseOne,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Error: </span><span class="sc">{</span>errorOne<span class="sc">:1.3e}</span><span class="ss">"</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>plt.plot(wavelength,intensity,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>plt.plot(wDense,iDenseTwo,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Error: </span><span class="sc">{</span>errorTwo<span class="sc">:1.3e}</span><span class="ss">"</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-execution_count="7">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.3%;justify-content: center;">
+<p><img src="fitting_files/figure-html/cell-8-output-1.png" class="img-fluid" width="604"></p>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 49.7%;justify-content: center;">
+<p><img src="fitting_files/figure-html/cell-8-output-2.png" class="img-fluid" width="596"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="flashcards" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">16.3</span> Flashcards</h2>
+<ol type="1">
+<li>What python function should you use to fit a polynomial to your data? Give an example of its usage.</li>
+<li>What python function should you use to fit a function that is not a polynomial to your data. Give an example of how to use this function.</li>
+<li>What is the output from the <code>polyfit</code> function?</li>
+<li>What is the output from the <code>curve_fit</code> function?</li>
+<li>How can you assess the quality of a fit function?</li>
+<li>Why did the Savior teach in parables?</li>
+</ol>
+</section>
+<section id="exercises" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">16.4</span> Exercises</h2>
+<ol type="1">
+<li><p>You push a box with five known forces while using a motion detector to measure the cart’s acceleration. The data are shown below.</p>
+<ol type="1">
+<li>Plot the data with force on the vertical axis and acceleration on the horizontal axis.<br>
+</li>
+<li>Fit a polynomial function of order one (linear function) to this data.</li>
+<li>Fit a polynomial function of order two (quadratic function) to this data.</li>
+<li>Determine which is the better fit.</li>
+<li>Plot the best-fit functions on top of the data.</li>
+<li>Determine the mass of the box.</li>
+</ol></li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Force (N)</th>
+<th>acceleration (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.25</td>
+<td>0.5</td>
+</tr>
+<tr class="even">
+<td>0.50</td>
+<td>0.8</td>
+</tr>
+<tr class="odd">
+<td>0.75</td>
+<td>1.3</td>
+</tr>
+<tr class="even">
+<td>1.0</td>
+<td>1.8</td>
+</tr>
+<tr class="odd">
+<td>1.25</td>
+<td>2.1</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Your friend wants to know the acceleration of his car and asks you to help him. You set up a motion detector that allows you to measure the position of the car at regular intervals. Your data are as follows:
+<ol type="1">
+<li>Plot the data with time on the horizontal axis and position on the vertical.</li>
+<li>Fit a polynomial function of order one (linear function) to this data.</li>
+<li>Fit a polynomial function of order two (quadratic function) to this data.</li>
+<li>Determine which is the better fit.</li>
+<li>Plot the best-fit functions on top of the data.</li>
+<li>Calculate the acceleration of the car using the best fit.</li>
+</ol></li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Time (s)</th>
+<th>Position (m)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.0</td>
+<td>0.256</td>
+</tr>
+<tr class="even">
+<td>0.1</td>
+<td>0.249</td>
+</tr>
+<tr class="odd">
+<td>0.2</td>
+<td>0.195</td>
+</tr>
+<tr class="even">
+<td>0.3</td>
+<td>0.514</td>
+</tr>
+<tr class="odd">
+<td>0.4</td>
+<td>0.538</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0.785</td>
+</tr>
+<tr class="odd">
+<td>0.6</td>
+<td>1.11</td>
+</tr>
+<tr class="even">
+<td>0.7</td>
+<td>1.31</td>
+</tr>
+<tr class="odd">
+<td>0.8</td>
+<td>1.81</td>
+</tr>
+<tr class="even">
+<td>0.9</td>
+<td>2.32</td>
+</tr>
+<tr class="odd">
+<td>1.0</td>
+<td>2.74</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>The takeoff speed for a passenger airline jet is <span class="math inline">\(80\)</span> m/s. Velocity data measured during takeoff are given in the table below.
+<ol type="1">
+<li>Plot the data and fit a linear function to the data set. Do you find good evidence that the acceleration of the airplane is constant.</li>
+<li>Plot the best-fit function on top of the data.</li>
+<li>At what time will the airplane achieve liftoff?</li>
+</ol></li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Time (s)</th>
+<th>Velocity (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>46</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>69</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>In PH123 you’ll learn about ideal gases and the processes associated with them. One such process is called an adiabatic process. The relationship between the temperature and the volume in an adiabatic process is</li>
+</ol>
+<p><span class="math display">\[
+T(V) = {C\over V^{\gamma -1}}
+\]</span></p>
+<p>For your experiment you compress a cylinder of gas four different times and measure the temperature of the gas.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Volume (m<span class="math inline">\(^3\)</span>)</th>
+<th>Temperature (<span class="math inline">\(^\circ\)</span> C)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.481</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>0.412</td>
+<td>68</td>
+</tr>
+<tr class="odd">
+<td>0.347</td>
+<td>110</td>
+</tr>
+<tr class="even">
+<td>0.299</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Plot temperature vs.&nbsp;volume. Make sure the volumes are in cubic <em>meters</em> and the temperatures are in Kelvins: <span class="math display">\[T_K = T_C + 273\]</span>.</li>
+<li>Fit the function mentioned above to this data.</li>
+<li>Plot the best-fit function on top of the data.</li>
+<li>Calculate gamma. The value of gamma is an indication of what type of gas is present in the cylinder. <span class="math inline">\(\gamma = 1.4\)</span> for a diatomic gas and <span class="math inline">\(\gamma = 1.67\)</span> for a monatomic gas.</li>
+</ol>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -455,9 +954,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/derivatives.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Derivatives</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
