@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Scientific Computing - 17&nbsp; Numerical Calculus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/fitting.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Scientific Computing</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Basic Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Python and Jupyter Notebooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables and Numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/strings.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/listsAndTuples.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Lists and Tuples</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/dictionarySet.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Dictionaries and Sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Intermediate Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/numpy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">The <code>numpy</code> module</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/io.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">File I/O (Input/Output)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/basicPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Basic Plotting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/advancedPlotting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Advanced Plotting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/pandas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Pandas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/sympy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The <code>sympy</code> module</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Numerical Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#numerical-derivatives" id="toc-numerical-derivatives" class="nav-link active" data-scroll-target="#numerical-derivatives"> <span class="header-section-number">18</span> Numerical Derivatives</a>
+  <ul class="collapse">
+  <li><a href="#numerical-second-derivatives" id="toc-numerical-second-derivatives" class="nav-link" data-scroll-target="#numerical-second-derivatives"> <span class="header-section-number">18.0.1</span> Numerical second derivatives</a></li>
+  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration"> <span class="header-section-number">18.1</span> Integration</a>
+  <ul class="collapse">
+  <li><a href="#definite-integrals" id="toc-definite-integrals" class="nav-link" data-scroll-target="#definite-integrals"> <span class="header-section-number">18.1.1</span> Definite Integrals</a></li>
+  <li><a href="#trapezoid-integration" id="toc-trapezoid-integration" class="nav-link" data-scroll-target="#trapezoid-integration"> <span class="header-section-number">18.1.2</span> Trapezoid Integration</a></li>
+  <li><a href="#indefinite-integrals" id="toc-indefinite-integrals" class="nav-link" data-scroll-target="#indefinite-integrals"> <span class="header-section-number">18.1.3</span> Indefinite Integrals</a></li>
+  </ul></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">18.2</span> Flashcards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">18.3</span> Exercises</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><a href="https://lancejnelson.github.io/PH135/jupyter/numericalCalculus.ipynb">Jupyter Notebook</a></p>
+<p>If you have taken a calculus class, you probably know what a derivative and anti-derivative are and how to calculate them. (If you haven’t taken calculus, you will understand these concepts soon.) The techniques that you learned in calculus class are called analytical methods, which means that the derivative (or anti-derivative) are calculated using pencil, paper, and some mathematical rules to guide you. In this chapter, we will explore how to find the derivative (or anti-derivative) of a discrete set of data rather than a continuous function.</p>
+<section id="numerical-derivatives" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Numerical Derivatives</h1>
+<p>Let’s start with a simple data set that gives the position of an object dropped from a tall building at various times.</p>
+<div class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-2-output-1.png" width="593" height="422"></p>
+</div>
+</div>
+<p>There are three possible ways that we could find the slope at a single point: the forward difference, the backward difference, and the center difference.</p>
+<p><span class="math display">\[
+f'(x) = {f(x + h) - f(x - h)\over 2h} \text{ (center-difference)}
+\]</span></p>
+<p><span class="math display">\[
+f'(x) = {f(x + h) - f(x )\over h} \text{ (forward-difference)}
+\]</span></p>
+<p><span class="math display">\[
+f'(x) = {f(x) - f(x - h)\over h} \text{ (backward-difference)}
+\]</span></p>
+<p>We illustrate them in the figure below.</p>
+<div class="cell fig-cap-location-bottom quarto-layout-panel" data-execution_count="2">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<pre><code>(0.75, 3.5, 6.5, 8.25)</code></pre>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p>Figure 1: Illustration of the forward difference derivative (blue solid line), the backward difference (blue dashed line) and the center difference (red dashed line)</p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="numericalCalculus_files/figure-html/cell-3-output-2.png" class="img-fluid" width="540"></p>
+</div>
+</div>
+</div>
+<p>Clearly, the centered-difference is the best way to calculate slopes and it is the method you should always strive for. Let’s see how to use the center-difference equation in python to calculate the slope at every point in a data set.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,array</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> array([<span class="fl">0.0</span>, <span class="fl">0.21052631578947367</span>, <span class="fl">0.42105263157894735</span>, <span class="fl">0.631578947368421</span>, <span class="fl">0.8421052631578947</span>, <span class="fl">1.0526315789473684</span>, <span class="fl">1.263157894736842</span>, <span class="fl">1.4736842105263157</span>, <span class="fl">1.6842105263157894</span>, <span class="fl">1.894736842105263</span>, <span class="fl">2.1052631578947367</span>, <span class="fl">2.3157894736842106</span>, <span class="fl">2.526315789473684</span>, <span class="fl">2.7368421052631575</span>, <span class="fl">2.9473684210526314</span>, <span class="fl">3.1578947368421053</span>, <span class="fl">3.3684210526315788</span>, <span class="fl">3.578947368421052</span>, <span class="fl">3.789473684210526</span>, <span class="fl">4.0</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> array([<span class="fl">100.0</span>, <span class="fl">99.78282548476454</span>, <span class="fl">99.13130193905818</span>, <span class="fl">98.04542936288088</span>, <span class="fl">96.52520775623269</span>, <span class="fl">94.57063711911357</span>, <span class="fl">92.18171745152354</span>, <span class="fl">89.35844875346261</span>, <span class="fl">86.10083102493076</span>, <span class="fl">82.40886426592797</span>, <span class="fl">78.2825484764543</span>, <span class="fl">73.72188365650969</span>, <span class="fl">68.72686980609419</span>, <span class="fl">63.29750692520776</span>, <span class="fl">57.43379501385042</span>, <span class="fl">51.13573407202215</span>, <span class="fl">44.403324099722994</span>, <span class="fl">37.23656509695292</span>, <span class="fl">29.63545706371191</span>, <span class="fl">21.599999999999994</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> t[<span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>yprime <span class="op">=</span> (y[<span class="dv">2</span>:] <span class="op">-</span> y[:<span class="op">-</span><span class="dv">2</span>])<span class="op">/</span>(<span class="dv">2</span> <span class="op">*</span> dt)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.plot(t,y,<span class="st">'r--.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.plot(t[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>],yprime,<span class="st">'b--.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"time (s)"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"height (m)"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-4-output-1.png" width="596" height="422"></p>
+</div>
+</div>
+<p>Pay special attention to this line: <code>yprime = (y[2:] - y[:-2])/(2 * dt)</code>. By slicing the array of function values carefully, I can calculate the center-difference derivative for all points in the data set simultaneously. (see figure below) Also note that when using the center difference formula, you are unable to calculate the slope at the endpoints of the dataset. Hence, your array of slope values is two shorter than your original list. When I plot the derivative, the time array has to be trimmed to get the slopes to match up correctly with times.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lancejnelson.github.io/PH135/figures/centerdifference.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Illustration of center-difference derivative on a discrete grid. Using array slicing the slope can be calculated at all points simultaneously.</figcaption><p></p>
+</figure>
+</div>
+<p>Here is another example for a dataset that exhibits a few more features. Take a second to verify that the blue function is giving the slope of the red function.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> array([<span class="fl">0.0</span>, <span class="fl">0.10204081632653061</span>, <span class="fl">0.20408163265306123</span>, <span class="fl">0.30612244897959184</span>, <span class="fl">0.40816326530612246</span>, <span class="fl">0.5102040816326531</span>, <span class="fl">0.6122448979591837</span>, <span class="fl">0.7142857142857143</span>, <span class="fl">0.8163265306122449</span>, <span class="fl">0.9183673469387755</span>, <span class="fl">1.0204081632653061</span>, <span class="fl">1.1224489795918369</span>, <span class="fl">1.2244897959183674</span>, <span class="fl">1.3265306122448979</span>, <span class="fl">1.4285714285714286</span>, <span class="fl">1.5306122448979593</span>, <span class="fl">1.6326530612244898</span>, <span class="fl">1.7346938775510203</span>, <span class="fl">1.836734693877551</span>, <span class="fl">1.9387755102040818</span>, <span class="fl">2.0408163265306123</span>, <span class="fl">2.142857142857143</span>, <span class="fl">2.2448979591836737</span>, <span class="fl">2.3469387755102042</span>, <span class="fl">2.4489795918367347</span>, <span class="fl">2.5510204081632653</span>, <span class="fl">2.6530612244897958</span>, <span class="fl">2.7551020408163267</span>, <span class="fl">2.857142857142857</span>, <span class="fl">2.9591836734693877</span>, <span class="fl">3.0612244897959187</span>, <span class="fl">3.163265306122449</span>, <span class="fl">3.2653061224489797</span>, <span class="fl">3.36734693877551</span>, <span class="fl">3.4693877551020407</span>, <span class="fl">3.5714285714285716</span>, <span class="fl">3.673469387755102</span>, <span class="fl">3.7755102040816326</span>, <span class="fl">3.8775510204081636</span>, <span class="fl">3.979591836734694</span>, <span class="fl">4.081632653061225</span>, <span class="fl">4.183673469387755</span>, <span class="fl">4.285714285714286</span>, <span class="fl">4.387755102040816</span>, <span class="fl">4.4897959183673475</span>, <span class="fl">4.591836734693878</span>, <span class="fl">4.6938775510204085</span>, <span class="fl">4.795918367346939</span>, <span class="fl">4.8979591836734695</span>, <span class="fl">5.0</span>, <span class="fl">5.1020408163265305</span>, <span class="fl">5.204081632653061</span>, <span class="fl">5.3061224489795915</span>, <span class="fl">5.408163265306123</span>, <span class="fl">5.510204081632653</span>, <span class="fl">5.612244897959184</span>, <span class="fl">5.714285714285714</span>, <span class="fl">5.816326530612245</span>, <span class="fl">5.918367346938775</span>, <span class="fl">6.020408163265306</span>, <span class="fl">6.122448979591837</span>, <span class="fl">6.224489795918368</span>, <span class="fl">6.326530612244898</span>, <span class="fl">6.428571428571429</span>, <span class="fl">6.530612244897959</span>, <span class="fl">6.63265306122449</span>, <span class="fl">6.73469387755102</span>, <span class="fl">6.836734693877551</span>, <span class="fl">6.938775510204081</span>, <span class="fl">7.040816326530613</span>, <span class="fl">7.142857142857143</span>, <span class="fl">7.244897959183674</span>, <span class="fl">7.346938775510204</span>, <span class="fl">7.448979591836735</span>, <span class="fl">7.551020408163265</span>, <span class="fl">7.653061224489796</span>, <span class="fl">7.755102040816327</span>, <span class="fl">7.857142857142858</span>, <span class="fl">7.959183673469388</span>, <span class="fl">8.061224489795919</span>, <span class="fl">8.16326530612245</span>, <span class="fl">8.26530612244898</span>, <span class="fl">8.36734693877551</span>, <span class="fl">8.46938775510204</span>, <span class="fl">8.571428571428571</span>, <span class="fl">8.673469387755102</span>, <span class="fl">8.775510204081632</span>, <span class="fl">8.877551020408163</span>, <span class="fl">8.979591836734695</span>, <span class="fl">9.081632653061225</span>, <span class="fl">9.183673469387756</span>, <span class="fl">9.285714285714286</span>, <span class="fl">9.387755102040817</span>, <span class="fl">9.489795918367347</span>, <span class="fl">9.591836734693878</span>, <span class="fl">9.693877551020408</span>, <span class="fl">9.795918367346939</span>, <span class="fl">9.89795918367347</span>, <span class="fl">10.0</span>])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> array([<span class="fl">1.0</span>, <span class="fl">0.9867106049449835</span>, <span class="fl">0.9633896110036303</span>, <span class="fl">0.930441653845362</span>, <span class="fl">0.8883647907109408</span>, <span class="fl">0.8377438153135915</span>, <span class="fl">0.7792427802562372</span>, <span class="fl">0.7135968174516216</span>, <span class="fl">0.641603352856869</span>, <span class="fl">0.5641128165642914</span>, <span class="fl">0.4820189528946211</span>, <span class="fl">0.3962488375981065</span>, <span class="fl">0.30775271057607917</span>, <span class="fl">0.217493732695753</span>, <span class="fl">0.12643777430107145</span>, <span class="fl">0.03554334095074269</span>, <span class="op">-</span><span class="fl">0.05424826121944644</span>, <span class="op">-</span><span class="fl">0.1420224222596137</span>, <span class="op">-</span><span class="fl">0.22690029414347004</span>, <span class="op">-</span><span class="fl">0.30804733831471925</span>, <span class="op">-</span><span class="fl">0.38468127466905855</span>, <span class="op">-</span><span class="fl">0.4560793591162092</span>, <span class="op">-</span><span class="fl">0.5215849250188013</span>, <span class="op">-</span><span class="fl">0.5806131324972382</span>, <span class="op">-</span><span class="fl">0.6326558787228784</span>, <span class="op">-</span><span class="fl">0.6772858317939752</span>, <span class="op">-</span><span class="fl">0.7141595604960038</span>, <span class="op">-</span><span class="fl">0.743019742085619</span>, <span class="op">-</span><span class="fl">0.7636964401012755</span>, <span class="op">-</span><span class="fl">0.7761074539906521</span>, <span class="op">-</span><span class="fl">0.7802577519550382</span>, <span class="op">-</span><span class="fl">0.7762380077468505</span>, <span class="op">-</span><span class="fl">0.7642222711259269</span>, <span class="op">-</span><span class="fl">0.7444648101959878</span>, <span class="op">-</span><span class="fl">0.7172961718235661</span>, <span class="op">-</span><span class="fl">0.6831185137135822</span>, <span class="op">-</span><span class="fl">0.6424002684118669</span>, <span class="op">-</span><span class="fl">0.5956702054667365</span>, <span class="op">-</span><span class="fl">0.5435109631591742</span>, <span class="op">-</span><span class="fl">0.4865521255631921</span>, <span class="op">-</span><span class="fl">0.42546292419273285</span>, <span class="op">-</span><span class="fl">0.3609446461065957</span>, <span class="op">-</span><span class="fl">0.29372283206542116</span>, <span class="op">-</span><span class="fl">0.2245393491613234</span>, <span class="op">-</span><span class="fl">0.15414442227722988</span>, <span class="op">-</span><span class="fl">0.083288707794463</span>, <span class="op">-</span><span class="fl">0.012715491177467673</span>, <span class="fl">0.05684691254372852</span>, <span class="fl">0.12469247975946875</span>, <span class="fl">0.19014444921827992</span>, <span class="fl">0.2525618761933174</span>, <span class="fl">0.31134570856282195</span>, <span class="fl">0.36594432944772914</span>, <span class="fl">0.4158585174857275</span>, <span class="fl">0.4606457826610142</span>, <span class="fl">0.49992404277520236</span>, <span class="fl">0.5333746130575407</span>, <span class="fl">0.5607444889909092</span>, <span class="fl">0.5818479100925077</span>, <span class="fl">0.5965672000538682</span>, <span class="fl">0.6048528862341104</span>, <span class="fl">0.60672310893566</span>, <span class="fl">0.6022623380982411</span>, <span class="fl">0.5916194219536842</span>, <span class="fl">0.5750049987241208</span>, <span class="fl">0.5526883085574614</span>, <span class="fl">0.5249934485201562</span>, <span class="fl">0.49229511855756375</span>, <span class="fl">0.45501391084259973</span>, <span class="fl">0.4136111988262666</span>, <span class="fl">0.3685836855487481</span>, <span class="fl">0.32045767334377057</span>, <span class="fl">0.26978311895604673</span>, <span class="fl">0.21712753928331918</span>, <span class="fl">0.16306983344972584</span>, <span class="fl">0.10819408672204209</span>, <span class="fl">0.0530834209080176</span>, <span class="op">-</span><span class="fl">0.0016860456534446109</span>, <span class="op">-</span><span class="fl">0.05555106756061642</span>, <span class="op">-</span><span class="fl">0.10796691308417367</span>, <span class="op">-</span><span class="fl">0.15841272129543982</span>, <span class="op">-</span><span class="fl">0.20639652454758026</span>, <span class="op">-</span><span class="fl">0.2514598895714763</span>, <span class="op">-</span><span class="fl">0.29318213516550146</span>, <span class="op">-</span><span class="fl">0.33118408953590006</span>, <span class="op">-</span><span class="fl">0.36513135572337047</span>, <span class="op">-</span><span class="fl">0.3947370591710421</span>, <span class="op">-</span><span class="fl">0.41976405728705063</span>, <span class="op">-</span><span class="fl">0.4400265967682593</span>, <span class="op">-</span><span class="fl">0.45539141041706666</span>, <span class="op">-</span><span class="fl">0.4657782511379014</span>, <span class="op">-</span><span class="fl">0.4711598666822405</span>, <span class="op">-</span><span class="fl">0.47156142446092897</span>, <span class="op">-</span><span class="fl">0.46705940130261336</span>, <span class="op">-</span><span class="fl">0.45777995835259105</span>, <span class="op">-</span><span class="fl">0.44389682632607497</span>, <span class="op">-</span><span class="fl">0.4256287310064338</span>, <span class="op">-</span><span class="fl">0.4032363931693947</span>, <span class="op">-</span><span class="fl">0.3770191409801755</span>])</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> t[<span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>yprime <span class="op">=</span> (y[<span class="dv">2</span>:] <span class="op">-</span> y[:<span class="op">-</span><span class="dv">2</span>])<span class="op">/</span>(<span class="dv">2</span> <span class="op">*</span> dt)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.plot(t,y,<span class="st">'r'</span>,label <span class="op">=</span> <span class="st">'y(t)'</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.plot(t[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>],yprime,<span class="st">'b'</span>,label <span class="op">=</span> <span class="st">"y'(t)"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"time (s)"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"height (m)"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>&lt;matplotlib.legend.Legend at 0x114b56880&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-5-output-2.png" width="608" height="422"></p>
+</div>
+</div>
+<section id="numerical-second-derivatives" class="level3" data-number="18.0.1">
+<h3 data-number="18.0.1" class="anchored" data-anchor-id="numerical-second-derivatives"><span class="header-section-number">18.0.1</span> Numerical second derivatives</h3>
+<p>We can derive a formula for a second derivative as follows:</p>
+<p><span class="math display">\[
+\begin{align*}
+f''(x) &amp;= {f'(x + {h\over 2}) - f'(x - {h\over 2}) \over  h}\\
+&amp;= {1\over h} \left({f(x + h) - f(x)\over  h} - {f(x)  - f(x -  h) \over  h} \right)\\
+&amp;= {1\over h} \left({f(x +  h) - 2 f(x) + f(x -  h) \over  h} - {f(x)  - f'(x -  h) \over  h} \right)\\
+&amp;= {f(x +  h) - 2 f(x) + f(x -  h) \over  h^2} \\
+\end{align*}
+\]</span></p>
+<p>And here is an example of doing this in python.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> array([<span class="fl">0.0</span>, <span class="fl">0.10204081632653061</span>, <span class="fl">0.20408163265306123</span>, <span class="fl">0.30612244897959184</span>, <span class="fl">0.40816326530612246</span>, <span class="fl">0.5102040816326531</span>, <span class="fl">0.6122448979591837</span>, <span class="fl">0.7142857142857143</span>, <span class="fl">0.8163265306122449</span>, <span class="fl">0.9183673469387755</span>, <span class="fl">1.0204081632653061</span>, <span class="fl">1.1224489795918369</span>, <span class="fl">1.2244897959183674</span>, <span class="fl">1.3265306122448979</span>, <span class="fl">1.4285714285714286</span>, <span class="fl">1.5306122448979593</span>, <span class="fl">1.6326530612244898</span>, <span class="fl">1.7346938775510203</span>, <span class="fl">1.836734693877551</span>, <span class="fl">1.9387755102040818</span>, <span class="fl">2.0408163265306123</span>, <span class="fl">2.142857142857143</span>, <span class="fl">2.2448979591836737</span>, <span class="fl">2.3469387755102042</span>, <span class="fl">2.4489795918367347</span>, <span class="fl">2.5510204081632653</span>, <span class="fl">2.6530612244897958</span>, <span class="fl">2.7551020408163267</span>, <span class="fl">2.857142857142857</span>, <span class="fl">2.9591836734693877</span>, <span class="fl">3.0612244897959187</span>, <span class="fl">3.163265306122449</span>, <span class="fl">3.2653061224489797</span>, <span class="fl">3.36734693877551</span>, <span class="fl">3.4693877551020407</span>, <span class="fl">3.5714285714285716</span>, <span class="fl">3.673469387755102</span>, <span class="fl">3.7755102040816326</span>, <span class="fl">3.8775510204081636</span>, <span class="fl">3.979591836734694</span>, <span class="fl">4.081632653061225</span>, <span class="fl">4.183673469387755</span>, <span class="fl">4.285714285714286</span>, <span class="fl">4.387755102040816</span>, <span class="fl">4.4897959183673475</span>, <span class="fl">4.591836734693878</span>, <span class="fl">4.6938775510204085</span>, <span class="fl">4.795918367346939</span>, <span class="fl">4.8979591836734695</span>, <span class="fl">5.0</span>, <span class="fl">5.1020408163265305</span>, <span class="fl">5.204081632653061</span>, <span class="fl">5.3061224489795915</span>, <span class="fl">5.408163265306123</span>, <span class="fl">5.510204081632653</span>, <span class="fl">5.612244897959184</span>, <span class="fl">5.714285714285714</span>, <span class="fl">5.816326530612245</span>, <span class="fl">5.918367346938775</span>, <span class="fl">6.020408163265306</span>, <span class="fl">6.122448979591837</span>, <span class="fl">6.224489795918368</span>, <span class="fl">6.326530612244898</span>, <span class="fl">6.428571428571429</span>, <span class="fl">6.530612244897959</span>, <span class="fl">6.63265306122449</span>, <span class="fl">6.73469387755102</span>, <span class="fl">6.836734693877551</span>, <span class="fl">6.938775510204081</span>, <span class="fl">7.040816326530613</span>, <span class="fl">7.142857142857143</span>, <span class="fl">7.244897959183674</span>, <span class="fl">7.346938775510204</span>, <span class="fl">7.448979591836735</span>, <span class="fl">7.551020408163265</span>, <span class="fl">7.653061224489796</span>, <span class="fl">7.755102040816327</span>, <span class="fl">7.857142857142858</span>, <span class="fl">7.959183673469388</span>, <span class="fl">8.061224489795919</span>, <span class="fl">8.16326530612245</span>, <span class="fl">8.26530612244898</span>, <span class="fl">8.36734693877551</span>, <span class="fl">8.46938775510204</span>, <span class="fl">8.571428571428571</span>, <span class="fl">8.673469387755102</span>, <span class="fl">8.775510204081632</span>, <span class="fl">8.877551020408163</span>, <span class="fl">8.979591836734695</span>, <span class="fl">9.081632653061225</span>, <span class="fl">9.183673469387756</span>, <span class="fl">9.285714285714286</span>, <span class="fl">9.387755102040817</span>, <span class="fl">9.489795918367347</span>, <span class="fl">9.591836734693878</span>, <span class="fl">9.693877551020408</span>, <span class="fl">9.795918367346939</span>, <span class="fl">9.89795918367347</span>, <span class="fl">10.0</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> array([<span class="fl">1.0</span>, <span class="fl">0.9867106049449835</span>, <span class="fl">0.9633896110036303</span>, <span class="fl">0.930441653845362</span>, <span class="fl">0.8883647907109408</span>, <span class="fl">0.8377438153135915</span>, <span class="fl">0.7792427802562372</span>, <span class="fl">0.7135968174516216</span>, <span class="fl">0.641603352856869</span>, <span class="fl">0.5641128165642914</span>, <span class="fl">0.4820189528946211</span>, <span class="fl">0.3962488375981065</span>, <span class="fl">0.30775271057607917</span>, <span class="fl">0.217493732695753</span>, <span class="fl">0.12643777430107145</span>, <span class="fl">0.03554334095074269</span>, <span class="op">-</span><span class="fl">0.05424826121944644</span>, <span class="op">-</span><span class="fl">0.1420224222596137</span>, <span class="op">-</span><span class="fl">0.22690029414347004</span>, <span class="op">-</span><span class="fl">0.30804733831471925</span>, <span class="op">-</span><span class="fl">0.38468127466905855</span>, <span class="op">-</span><span class="fl">0.4560793591162092</span>, <span class="op">-</span><span class="fl">0.5215849250188013</span>, <span class="op">-</span><span class="fl">0.5806131324972382</span>, <span class="op">-</span><span class="fl">0.6326558787228784</span>, <span class="op">-</span><span class="fl">0.6772858317939752</span>, <span class="op">-</span><span class="fl">0.7141595604960038</span>, <span class="op">-</span><span class="fl">0.743019742085619</span>, <span class="op">-</span><span class="fl">0.7636964401012755</span>, <span class="op">-</span><span class="fl">0.7761074539906521</span>, <span class="op">-</span><span class="fl">0.7802577519550382</span>, <span class="op">-</span><span class="fl">0.7762380077468505</span>, <span class="op">-</span><span class="fl">0.7642222711259269</span>, <span class="op">-</span><span class="fl">0.7444648101959878</span>, <span class="op">-</span><span class="fl">0.7172961718235661</span>, <span class="op">-</span><span class="fl">0.6831185137135822</span>, <span class="op">-</span><span class="fl">0.6424002684118669</span>, <span class="op">-</span><span class="fl">0.5956702054667365</span>, <span class="op">-</span><span class="fl">0.5435109631591742</span>, <span class="op">-</span><span class="fl">0.4865521255631921</span>, <span class="op">-</span><span class="fl">0.42546292419273285</span>, <span class="op">-</span><span class="fl">0.3609446461065957</span>, <span class="op">-</span><span class="fl">0.29372283206542116</span>, <span class="op">-</span><span class="fl">0.2245393491613234</span>, <span class="op">-</span><span class="fl">0.15414442227722988</span>, <span class="op">-</span><span class="fl">0.083288707794463</span>, <span class="op">-</span><span class="fl">0.012715491177467673</span>, <span class="fl">0.05684691254372852</span>, <span class="fl">0.12469247975946875</span>, <span class="fl">0.19014444921827992</span>, <span class="fl">0.2525618761933174</span>, <span class="fl">0.31134570856282195</span>, <span class="fl">0.36594432944772914</span>, <span class="fl">0.4158585174857275</span>, <span class="fl">0.4606457826610142</span>, <span class="fl">0.49992404277520236</span>, <span class="fl">0.5333746130575407</span>, <span class="fl">0.5607444889909092</span>, <span class="fl">0.5818479100925077</span>, <span class="fl">0.5965672000538682</span>, <span class="fl">0.6048528862341104</span>, <span class="fl">0.60672310893566</span>, <span class="fl">0.6022623380982411</span>, <span class="fl">0.5916194219536842</span>, <span class="fl">0.5750049987241208</span>, <span class="fl">0.5526883085574614</span>, <span class="fl">0.5249934485201562</span>, <span class="fl">0.49229511855756375</span>, <span class="fl">0.45501391084259973</span>, <span class="fl">0.4136111988262666</span>, <span class="fl">0.3685836855487481</span>, <span class="fl">0.32045767334377057</span>, <span class="fl">0.26978311895604673</span>, <span class="fl">0.21712753928331918</span>, <span class="fl">0.16306983344972584</span>, <span class="fl">0.10819408672204209</span>, <span class="fl">0.0530834209080176</span>, <span class="op">-</span><span class="fl">0.0016860456534446109</span>, <span class="op">-</span><span class="fl">0.05555106756061642</span>, <span class="op">-</span><span class="fl">0.10796691308417367</span>, <span class="op">-</span><span class="fl">0.15841272129543982</span>, <span class="op">-</span><span class="fl">0.20639652454758026</span>, <span class="op">-</span><span class="fl">0.2514598895714763</span>, <span class="op">-</span><span class="fl">0.29318213516550146</span>, <span class="op">-</span><span class="fl">0.33118408953590006</span>, <span class="op">-</span><span class="fl">0.36513135572337047</span>, <span class="op">-</span><span class="fl">0.3947370591710421</span>, <span class="op">-</span><span class="fl">0.41976405728705063</span>, <span class="op">-</span><span class="fl">0.4400265967682593</span>, <span class="op">-</span><span class="fl">0.45539141041706666</span>, <span class="op">-</span><span class="fl">0.4657782511379014</span>, <span class="op">-</span><span class="fl">0.4711598666822405</span>, <span class="op">-</span><span class="fl">0.47156142446092897</span>, <span class="op">-</span><span class="fl">0.46705940130261336</span>, <span class="op">-</span><span class="fl">0.45777995835259105</span>, <span class="op">-</span><span class="fl">0.44389682632607497</span>, <span class="op">-</span><span class="fl">0.4256287310064338</span>, <span class="op">-</span><span class="fl">0.4032363931693947</span>, <span class="op">-</span><span class="fl">0.3770191409801755</span>])</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> t[<span class="dv">1</span>] <span class="op">-</span> t[<span class="dv">0</span>]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>yprime <span class="op">=</span> (y[<span class="dv">2</span>:] <span class="op">-</span> y[:<span class="op">-</span><span class="dv">2</span>])<span class="op">/</span>(<span class="dv">2</span> <span class="op">*</span> dt)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>yprimeprime <span class="op">=</span> (y[<span class="dv">2</span>:] <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> y[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> y[:<span class="op">-</span><span class="dv">2</span>])<span class="op">/</span>dt<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.plot(t,y,<span class="st">'r--.'</span>,label <span class="op">=</span> <span class="st">'y(t)'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.plot(t[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>],yprime,<span class="st">'b--.'</span>,label <span class="op">=</span> <span class="st">"y'(t)"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.plot(t[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>],yprimeprime,<span class="st">'m--.'</span>,label <span class="op">=</span> <span class="st">"y''(t)"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"time (s)"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"height (m)"</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>&lt;matplotlib.legend.Legend at 0x114b0ebb0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-6-output-2.png" width="608" height="422"></p>
+</div>
+</div>
+</section>
+<section id="integration" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="integration"><span class="header-section-number">18.1</span> Integration</h2>
+<p>In calculus you learn rules for finding anti-derivatives, or undoing the derivative. In this section we will learn how to find anti-derivatives of functions that are represented by discrete sets of data. The mathematical notation for an anti-derivative (also called an integral) is</p>
+<p><span class="math display">\[
+\int y(x) dx
+\]</span></p>
+<p>For example, the anti-derivative of <span class="math inline">\(x^2\)</span> is <span class="math inline">\({x^3 \over 3}\)</span> or</p>
+<p><span class="math display">\[
+\int x^2 dx = {x^3\over 3} + C
+\]</span></p>
+<p>Any constant <span class="math inline">\(C\)</span> can be added to the anti-derivative and the equality still holds. You can see this by taking the derivative of the right hand side and noticing that the derivative of the constant is zero.</p>
+<section id="definite-integrals" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="definite-integrals"><span class="header-section-number">18.1.1</span> Definite Integrals</h3>
+<p>An alternate interpretation of the integral is that of the area created by the function and the horizontal axis. When thinking of an anti-derivative like this, we should put bounds on the integral to specify where to start counting the area and when to stop. These bounds show up as a subscript and superscript to the integral symbol (<span class="math inline">\(\int\)</span>). Here is a definite integral of the function <span class="math inline">\(\sin(x)\)</span> from <span class="math inline">\(0 &lt; x &lt; \pi\)</span>.</p>
+<p><span class="math display">\[
+\int_0^\pi \sin(x) dx
+\]</span></p>
+<p>To perform a definite integral, the anti-derivative should first be evaluated at the upper and lower bounds. Then subtract these two numbers to obtain the final result.</p>
+<p><span class="math display">\[
+\int_a^b f'(x) dx = f(b) - f(a)
+\]</span></p>
+<p>The definite integral of <span class="math inline">\(\sin(x)\)</span> from <span class="math inline">\(0 &lt; x &lt; \pi\)</span> would be.</p>
+<p><span class="math display">\[
+\int_0^\pi \sin(x) dx = -\cos(x)|_0^\pi = -\cos(\pi) -(-\cos(0)) = 2
+\]</span></p>
+<p>And corresponds to the area shown in the figure below.</p>
+<div class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>(-0.3141592653589793,
+ 6.5973445725385655,
+ -1.0998615404412626,
+ 1.0998615404412626)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-7-output-2.png" width="590" height="404"></p>
+</div>
+</div>
+<p>When working with discrete data, the integral of the underlying function can be approximated as a sum of the area of many rectangles. This can be written mathematically as</p>
+<p><span class="math display">\[
+\begin{align*}
+\int f(x) dx &amp;\approx  dx  f(x_1) + dx f(x_2) + \dots\\
+&amp;= dx \sum_i f(x_i)
+\end{align*}
+\]</span></p>
+<p>The smaller the width of the rectangles, the better the approximation.</p>
+<div class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(-0.6440264939859076,
+ 6.613052535806514,
+ -1.0998615404412626,
+ 1.0998615404412626)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-8-output-2.png" width="962" height="331"></p>
+</div>
+</div>
+<p>Let’s use the rectangle rule to approximate the integral of a simple function and compare to the true answer to check for accuracy.</p>
+<p><span class="math display">\[
+\int_0^\pi \sin(x) dx
+\]</span></p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sin,cos,pi</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x,dx <span class="op">=</span> linspace(<span class="dv">0</span>,pi,<span class="dv">100</span>,retstep<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sin(x)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>integral <span class="op">=</span> dx <span class="op">*</span> <span class="bu">sum</span>(y)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(integral)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="op">-</span>(cos(pi) <span class="op">-</span> cos(<span class="dv">0</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.9998321638939924
+2.0</code></pre>
+</div>
+</div>
+<p>Notice that I used the <code>retstep = True</code> keyword argument when calling <code>linspace</code> to retrieve the width of the rectangles.</p>
+</section>
+<section id="trapezoid-integration" class="level3" data-number="18.1.2">
+<h3 data-number="18.1.2" class="anchored" data-anchor-id="trapezoid-integration"><span class="header-section-number">18.1.2</span> Trapezoid Integration</h3>
+<p>We can improve upon the rectangle approximation to the integral by replacing the rectangles with trapezoids. You may recall that the area of a trapezoid is</p>
+<p><span class="math display">\[
+A = {\Delta x \over 2} \left( f(a) + f(b)\right)
+\]</span></p>
+<div class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>(-0.15707963267948966,
+ 3.2986722862692828,
+ -0.049993706383693756,
+ 1.049867834057569)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-10-output-2.png" width="571" height="404"></p>
+</div>
+</div>
+<p>If we add up the area of all of these trapezoids we get</p>
+<p><span class="math display">\[
+\begin{align*}
+\int_a^b f(x) dx &amp;= {\Delta x \over 2} \left( f(x_0) + f(x_1)\right) + {\Delta x \over 2} \left( f(x_1) + f(x_2)\right) + {\Delta x \over 2} \left( f(x_2) + f(x_3)\right) \dots \\
+&amp;= {\Delta x \over 2} \left( f(x_0) + 2 f(x_1) + 2 f(x_2) + \dots 2 f(x_{n-1}) + f(x_n)\right)
+\end{align*}
+\]</span></p>
+<p>Let’s use the trapezoid rule to integrate the function</p>
+<p><span class="math display">\[
+y(x) = \exp{-0.05 x} \cos(x)
+\]</span></p>
+<p>and see how it compares to the rectangle rule. We’ll also use sympy to see that the exact value is for comparison.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,exp,cos,pi</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x,dx <span class="op">=</span> linspace(<span class="dv">0</span>,pi,<span class="dv">6</span>,retstep<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> exp(<span class="op">-</span><span class="fl">0.05</span> <span class="op">*</span> x) <span class="op">*</span> cos(x)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>integralrectangle <span class="op">=</span> dx <span class="op">*</span> <span class="bu">sum</span>(y)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>integraltrapezoid <span class="op">=</span> dx <span class="op">/</span><span class="dv">2</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> <span class="bu">sum</span>(y[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>]) <span class="op">+</span> y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>xvar <span class="op">=</span> sp.Symbol(<span class="st">"x"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> sp.exp(<span class="op">-</span><span class="fl">0.05</span> <span class="op">*</span> xvar) <span class="op">*</span> sp.cos(xvar)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>exact <span class="op">=</span> sp.integrate(expression,(xvar,<span class="dv">0</span>,sp.pi))</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(integralrectangle)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(integraltrapezoid)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>display(sp.N(exact))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.14127987124712144
+0.0956124235314592</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>0.0925005485861962</code></pre>
+</div>
+</div>
+<p>Notice that even with only 6 data points, using trapezoids did quite a bit better than using rectangles. There are other more sophisticated methods for integrating a function that you will learn about in other classes.</p>
+</section>
+<section id="indefinite-integrals" class="level3" data-number="18.1.3">
+<h3 data-number="18.1.3" class="anchored" data-anchor-id="indefinite-integrals"><span class="header-section-number">18.1.3</span> Indefinite Integrals</h3>
+<p>The result of a definite integral is a single number; the area under the curve from the lower bound to the upper bound. The result of an indefinite integral is a function which gives the area under the curve starting at <span class="math inline">\(x = 0\)</span> and ending at any value of <span class="math inline">\(x\)</span> of your choosing. To perform an indefinite integral using a discrete data set, simply perform a definite integral from <span class="math inline">\(x = 0\)</span> to every other x value in your range separately, saving each value in a list for later use. Let’s demonstrate this in the cell below.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, sin,cos,pi</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>x,dx <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">2</span> <span class="op">*</span> pi,<span class="dv">100</span>,retstep <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> cos(x)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>integral <span class="op">=</span> [dx <span class="op">*</span> <span class="bu">sum</span>(y[:n]) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(x))]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'r'</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x,integral,<span class="st">'b--.'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-12-output-1.png" width="590" height="404"></p>
+</div>
+</div>
+<p>The value of the blue curve gives the area under the red curve from <span class="math inline">\(x = 0\)</span> to any value of x you want to consider. You should verify that this is true for a few points.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, sin,cos,pi</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>x,dx <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">2</span> <span class="op">*</span> pi,<span class="dv">100</span>,retstep <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sin(x)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>integral <span class="op">=</span> [dx <span class="op">*</span> <span class="bu">sum</span>(y[:n]) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(x))]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'r'</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x,integral,<span class="st">'b--.'</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="numericalCalculus_files/figure-html/cell-13-output-1.png" width="582" height="404"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="flashcards" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">18.2</span> Flashcards</h2>
+<ol type="1">
+<li>Write down the equation for the center difference first derivative.</li>
+<li>Write down the equation for the center difference second derivative.</li>
+<li>Write down the equation for the integral approximation using rectangles.</li>
+<li>Write down the equation for the integral approximation using trapezoids.</li>
+</ol>
+</section>
+<section id="exercises" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">18.3</span> Exercises</h2>
+<ol type="1">
+<li><p>Follow the steps below to calculate the first and second derivative of the following function <span class="math display">\[y(x) = {\sin(x) \over x}\]</span></p>
+<ol type="1">
+<li>Generate a discrete grid of 20 equally-spaced points from <span class="math inline">\(0&lt; x &lt; 10\)</span>.</li>
+<li>Generate an array of function values by evaluating the function above on the grid of points from step 1.</li>
+<li>Use the center-difference equation to generate an array of slope values.</li>
+<li>Use the center-difference second derivative equation to generate an array of second derivatives.</li>
+<li>Plot all three functions on the same axes and verify that they look right.</li>
+</ol></li>
+<li><p>Follow the steps below to calculate the definite and indefinite integral of the following function <span class="math display">\[F(t) = e^{-(t - 5)^2 \over .05} \]</span> from <span class="math inline">\(0&lt;t&lt;10\)</span> seconds.</p>
+<ol type="1">
+<li>Generate a discrete grid of 20 equally-spaced points from <span class="math inline">\(0&lt; t &lt; 10\)</span>.</li>
+<li>Generate an array of function values by evaluating the function above on the grid of points from step 1.</li>
+<li>Using the rectangle equation, approximate the integral.</li>
+<li>Using the trapezoid equation, approximate the integral.</li>
+<li>Using <code>sympy</code> evaluate the integral and compare to your approximations.</li>
+<li>Modify the number of grid points until your approximations are within <span class="math inline">\(0.001\)</span> of the true result.</li>
+</ol></li>
+<li><p><a href="https://lancejnelson.github.io/PH135/files/Redbull_jump_full.ipynb">This file</a> contains data from Felix Baumgartner’s 2012 jump from an altitude of <span class="math inline">\(39\)</span> km above the surface of the earth. Complete the following:</p>
+<ol type="1">
+<li>Read the data file into a pandas dataframe.</li>
+<li>Plot altitude vs.&nbsp;time.</li>
+<li>Using the center-difference formula, calculate the derivative of this data. What quantity do you get when you take a derivative of position vs.&nbsp;time data?</li>
+<li>Calculate the second derivative of this data. What quantity do you get when you take a second derivative of position vs.&nbsp;time data?</li>
+<li>Plot the derivatives and inspect them to verify that they make sense.</li>
+<li>The original data set has a column that contains the Felix’s speed and the y-component of his acceleration. Plot this column vs.&nbsp;time and compare to the derivatives you performed to see if they match (or are close).</li>
+</ol></li>
+<li><p><a href="https://lancejnelson.github.io/PH135/files/Redbull_jump_full.ipynb">This file</a> contains data from Felix Baumgartner’s 2012 jump from an altitude of <span class="math inline">\(39\)</span> km above the surface of the earth. Complete the following:</p>
+<ol type="1">
+<li>Read the data file into a pandas dataframe.</li>
+<li>Plot the y-component of acceleration vs.&nbsp;time.</li>
+<li>Using rectangles, calculate the indefinite integral of this data.</li>
+<li>Repeat step 3 but with trapezoids this time.</li>
+<li>Plot the integral vs time. You may recall that the integral of acceleration is velocity (or rather the change in velocity). Does the plot look right.</li>
+<li>The original data set has a column that contains the Felix’s speed. Plot this column vs.&nbsp;time and compare to the integral you performed to see if they match (or are close).</li>
+</ol></li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/fitting.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

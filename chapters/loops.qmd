@@ -18,7 +18,7 @@ execute:
 
 ## `for` loops
 
-The `for` loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over.  Here is an example of of `for` loop that is used to add up the elements of a list.
+The `for` loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over.  Here is an example of a `for` loop that is used to add up the elements of a list.
 
 ```{python}
 thesum = 0

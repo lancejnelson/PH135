@@ -882,7 +882,7 @@ We can find the position and velocity vectors of the boat after the wind has die
 
     1. Generate an array of $n$ values from $1 \rightarrow 10$ (inclusive).
     2. Using a single line of code, calculate the first 10 allowed energies for this harmonic oscillator. (Don't forget to convert the mass to kg so everything is in SI units.)
-    3. Combine these two arrays into a single $11$ x $2$ array with the first column containing $n$ values and the second column containing the corresponding energies.
+    3. Combine these two arrays into a single $10$ x $2$ array with the first column containing $n$ values and the second column containing the corresponding energies.
 
 ```{python}
 # Python code here.

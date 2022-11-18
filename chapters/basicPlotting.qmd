@@ -452,91 +452,13 @@ plt.polar(theta,r)
 
 ```
 ## Multifigure Plots
-To generate multiple, independent plots in the same figure a few more lines of code are necessary to specify how you want the plots arranged.   There are two general methods for doing that and we will demonstrate both of them.  In the first method, you'll first use the `figure()` command to generate a figure and the `subplot()` function to generate the individual plots in the figure.  The `subplot` function take three arguments.
+To generate multiple, independent plots in the same figure a few more lines of code are necessary to specify how you want the plots arranged.   We start with the `figure` function which generates the canvas upon which the plots will appear. Assign this object to a variable so you can refer to it later. To create each subplot, the `fig.add_subplot(rows,columns, plot_number)` function is used.  There are three arguments to this function; the first two indicate the shape of the grid and the third indicates which position on the grid this plot will be assigned.
 
 ```
-subplot(rows,columns,plot_number)
+fig.add_subplot(rows,columns,plot_location)
 ```
 
-As an example, to generate a figure of two plots side by side.
-
-```{python}
-from matplotlib import pyplot as plt
-%matplotlib inline
-from numpy import linspace,sqrt
-
-r = linspace(0.9,4,50)
-
-sigmaOne = 1
-epsilonOne = 1
-sigmaTwo = 2
-epsilonTwo = 2
-energyOne = 4 * sigmaOne* ((epsilonOne/r)**12 - (epsilonOne/r)**6)
-energyTwo = 4 * sigmaTwo * ((epsilonTwo/r)**12 - (epsilonTwo/r)**6)
-
-plt.figure()
-plt.subplot(1,2,1)
-plt.plot(r,energyOne,marker = '+',color = 'k')
-plt.xlim(0.5,3.0)
-plt.ylim(-1.5,5)
-plt.xlabel("Separation Distance")
-plt.ylabel("Energy")
-plt.title("Lennard-Jones Potential")
-plt.subplot(1,2,2)
-plt.plot(r,energyTwo,marker = 'o',color = 'r')
-plt.xlim(0.5,4.0)
-plt.ylim(-2,5)
-plt.xlabel("Separation Distance")
-plt.ylabel("Energy")
-plt.title("Lennard-Jones Potential")
-```
-
-Pay close attention to the `subplot` function.  `subplot(1,2,1)` will generate a $1$ x $2$ grid of plots and place the next plot generated at the 1st location. Below is an example of a more advanced array of plots.  Pay close attention to the `subplot` functions until you understand. 
-
-
-
-```{python}
-from matplotlib import pyplot as plt
-%matplotlib inline
-from numpy import linspace,sqrt
-
-r = linspace(0.9,4,50)
-
-sigmaOne = 1
-epsilonOne = 1
-sigmaTwo = 2
-epsilonTwo = 2
-energyOne = 4 * sigmaOne* ((epsilonOne/r)**12 - (epsilonOne/r)**6)
-energyTwo = 4 * sigmaTwo * ((epsilonTwo/r)**12 - (epsilonTwo/r)**6)
-
-plt.figure()
-plt.subplot(2,1,1)
-plt.plot(r,energyOne,marker = '+',color = 'k')
-plt.xlim(0.5,3.0)
-plt.ylim(-1.5,5)
-plt.xlabel("Separation Distance")
-plt.ylabel("Energy")
-plt.title("Lennard-Jones Potential")
-plt.subplot(2,2,3)
-plt.plot(r,energyTwo,marker = 'o',color = 'r')
-plt.xlim(0.5,4.0)
-plt.ylim(-2,5)
-plt.xlabel("Separation Distance")
-plt.ylabel("Energy")
-plt.title("Lennard-Jones Potential")
-plt.subplot(2,2,4)
-plt.plot(r,energyTwo,marker = 'o',color = 'r')
-plt.xlim(0.5,4.0)
-plt.ylim(-2,5)
-plt.xlabel("Separation Distance")
-plt.ylabel("Energy")
-plt.title("Lennard-Jones Potential")
-plt.tight_layout()
-```
-
-
-
-The other method for generating an array of plots is similar to the first but different functions are used and a little more control over the plots is gained.  In this approach, functions to explicitly creates and links subplots, called *axes*  are used.  Just as before, the `figure` function is used to generate the overall figure. The create each subplot, the `add_subplot(rows,columns, plot_number)` function is used.  The arguments to this function are the same as for `subplot` in the previous method.  After the plot object has been created, we can call the `plot` function again, but this time preceded by the axes object that you just created.  Here is an example.
+  After the axes object has been created, we can call the `plot` function again, and a plot will be generated at its location.  Here is an example that will generate two plots side by side.
 
 
 ```{python}
@@ -554,7 +476,9 @@ energyOne = 4 * sigmaOne* ((epsilonOne/r)**12 - (epsilonOne/r)**6)
 energyTwo = 4 * sigmaTwo * ((epsilonTwo/r)**12 - (epsilonTwo/r)**6)
 
 fig = plt.figure()
-ax1 = fig.add_subplot(2,1,1)
+ax1 = fig.add_subplot(1,2,1)
+ax2 = fig.add_subplot(1,2,2)
+
 ax1.plot(r,energyOne,marker = '+',color = 'k')
 ax1.set_xlim(0.5,3.0)
 ax1.set_ylim(-1.5,5)
@@ -562,7 +486,41 @@ ax1.set_xlabel("Separation Distance")
 ax1.set_ylabel("Energy")
 ax1.set_title("Lennard-Jones Potential")
 
+ax2.plot(r,energyTwo,marker = 'o',color = 'r')
+ax2.set_xlim(0.5,4.0)
+ax2.set_ylim(-2,5)
+ax2.set_xlabel("Separation Distance")
+ax2.set_ylabel("Energy")
+ax2.set_title("Lennard-Jones Potential")
+```
+Pay close attention to the `add_subplot` function.  `ax1=add_subplot(1,2,1)` will generate a $1$ x $2$ grid of plots and `ax1` will correspond plot at the 1st location. Below is an example of a more advanced array of plots.  Pay close attention to the `add_subplot` functions until you understand. 
+
+```{python}
+from matplotlib import pyplot as plt
+%matplotlib inline
+from numpy import linspace,sqrt
+
+r = linspace(0.9,4,50)
+
+sigmaOne = 1
+epsilonOne = 1
+sigmaTwo = 2
+epsilonTwo = 2
+energyOne = 4 * sigmaOne* ((epsilonOne/r)**12 - (epsilonOne/r)**6)
+energyTwo = 4 * sigmaTwo * ((epsilonTwo/r)**12 - (epsilonTwo/r)**6)
+
+fig = plt.figure()
+ax1 = fig.add_subplot(2,1,1)
 ax2= fig.add_subplot(2,2,3)
+ax3 = fig.add_subplot(2,2,4)
+
+ax1.plot(r,energyOne,marker = '+',color = 'k')
+ax1.set_xlim(0.5,3.0)
+ax1.set_ylim(-1.5,5)
+ax1.set_xlabel("Separation Distance")
+ax1.set_ylabel("Energy")
+ax1.set_title("Lennard-Jones Potential")
+
 ax2.plot(r,energyTwo,marker = 'o',color = 'r')
 ax2.set_xlim(0.5,4.0)
 ax2.set_ylim(-2,5)
@@ -570,7 +528,6 @@ ax2.set_xlabel("Separation Distance")
 ax2.set_ylabel("Energy")
 ax2.set_title("Lennard-Jones Potential")
 
-ax3 = fig.add_subplot(2,2,4)
 ax3.plot(r,energyTwo,marker = 'o',color = 'r')
 ax3.set_xlim(0.5,4.0)
 ax3.set_ylim(-2,5)
@@ -581,7 +538,8 @@ plt.tight_layout()
 ```
 
 
-Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to customize each individual plot. There are a host of other methods available for further customization.  [This][axes] website has a comprehensive list of them.
+
+Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to customize each individual plot. There are a host of other methods available for further customization.  [This][axes] website has a comprehensive list of them.
 
 
 [axes]: https://matplotlib.org/stable/api/axes_api.html#subplots
@@ -616,19 +574,19 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 
 2. Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) $$ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}$$ where
     - $c = 3.0 \times 10^8$ m/s is the speed of light.
-    - $h = 6.26 \times 10^{34}$ m$^2$ kg /s is Plank's constant.
+    - $h = 6.26 \times 10^{-34}$ m$^2$ kg /s is Plank's constant.
     - $k_B = 1.38 \times 10^{-23}$ m$^2$kg s$^{-2}$ K$^{-1}$ is the Boltzmann constant.
     - T is temperature in Kelvins.
     - $\lambda$ is wavelength in meters.  
 
    Follow the steps below to plot this function for several different temperatures:  
      1. Copy the function that you made previously into the cell below. (or build it from scratch)
-     2. Use `numpy.vectorize` to vectorize your function.
-     3. Use `numpy.linspace` to generate a grid of 500 $\lambda$ values from $0 \rightarrow 3 \times 10^{-6}$ m.
-     4. Call your vectorized function for $T = 5780$ K (temperature of the sun), producing a list of intensities.
-     5. Plot intensity vs. $\lambda$ .  
-     6. Repeat steps 4 and 5 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
-     7. Add a legend to the figure. Use the temperatures as the labels.
+     2. Use `numpy.linspace` to generate a grid of 500 $\lambda$ values from $0.1 \times 10^{-6} \rightarrow 3 \times 10^{-6}$ m.
+     3. Call your vectorized function for $T = 5780$ K (temperature of the sun), producing a list of intensities.
+     4. Plot intensity vs. $\lambda$ .  
+     5. Repeat steps 4 and 5 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
+     6. Add a legend to the figure. Use the temperatures as the labels.
+     7. Go [here](https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html) and compare your results with the plots there to make sure you did it right.
 
 
 ```{python}
@@ -636,25 +594,25 @@ Notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used to cu
 ```
 
 
-3. [This file](https://lancejnelson.github.io/PH135/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of the data.  Add axes and plot labels to your plot.
+3. [This file](https://lancejnelson.github.io/PH135/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of speed vs. altitude.  Add axes labels and plot labels to your plot.
 
 ```{python}
 # Python code here
 ```
 
-4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021.  The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
+4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. Set `bins = 200` to make 200, equally-spaced bins on the histogram.  The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
 
 ```{python}
 # Python code here
 ```
 
-5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta\Delta t $$ $$ y(t) = y_i + v_i \sin \theta + {1\over 2} a \Delta t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + a \Delta t$$  Place the following plots on a 3 x 2 grid for $ 0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, first column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
+5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta\Delta t $$ $$ y(t) = y_i + v_i \sin \theta \Delta t + {1\over 2} a \Delta t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + a \Delta t$$  Place the following plots on a 3 x 2 grid for $ 0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, first column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
 
 ```{python}
 # Python code here
 ```
 
-6. (Extra Credit)  The 8th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred each year from 1973 to 2021. (The horizontal axis is year and the vertical axis is the number of earthquakes.)
+6. (Extra Credit)  The 7th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred each year from 1973 to 2021. (The horizontal axis is year and the vertical axis is the number of earthquakes.)
 
 ```{python}
 # Python code here

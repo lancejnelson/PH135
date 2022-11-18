@@ -88,6 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../chapters/numericalCalculus.html" rel="next">
 <link href="../chapters/extrapolation_interpolation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -264,6 +265,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -304,7 +310,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb">Jupyter Notebook</a> Often in science you will gather data as a way to explore the relationship between two physical quantities and/or to validate your theories. For example, perhaps you are interested how the amount of fertilizer applied to your tomato plants affect the final size of the fruit. Or maybe you want to know how a planet’s distance from the sun affects it’s orbital period. Investigating these kinds of questions are the very essence of science and great scientific discoveries begin with simple questions posed by curious minds. As a brief reminder, the steps to the scientific process are:<br>
+<p><a href="https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb">Jupyter Notebook</a> .</p>
+<p>Often in science you will gather data as a way to explore the relationship between two physical quantities and/or to validate your theories. For example, perhaps you are interested how the amount of fertilizer applied to your tomato plants affect the final size of the fruit. Or maybe you want to know how a planet’s distance from the sun affects it’s orbital period. Investigating these kinds of questions are the very essence of science and great scientific discoveries begin with simple questions posed by curious minds. As a brief reminder, the steps to the scientific process are:<br>
 1. Formulate a question.<br>
 2. Form a hypothesis.<br>
 3. Use your hypothesis to make a prediction.<br>
@@ -509,7 +516,7 @@ m &amp;= {1\over \mu g}\\
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> wvlength<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(b<span class="op">/</span>wvlength) <span class="op">+</span> <span class="dv">1</span>)</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit_function_two(wvlength,a,b):</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> wvlength<span class="op">**-</span><span class="dv">6</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(b<span class="op">/</span>wvlength) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a <span class="op">*</span> wvlength<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(b<span class="op">/</span>wvlength) <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>wavelength <span class="op">=</span> array([<span class="fl">0.1</span>, <span class="fl">0.6</span>, <span class="fl">1.1</span>, <span class="fl">1.6</span>, <span class="fl">2.1</span>, <span class="fl">2.6</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">4.1</span>, <span class="fl">4.6</span>, <span class="fl">5.1</span>, <span class="fl">5.6</span>, <span class="fl">6.1</span>])</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> array([<span class="dv">0</span>, <span class="fl">7.43023e-7</span>, <span class="fl">0.0000699768</span>, <span class="fl">0.000184459</span>, <span class="fl">0.000211137</span>, <span class="fl">0.000183716</span>, <span class="fl">0.000144493</span>, <span class="fl">0.000109646</span>, <span class="fl">0.0000825034</span>, <span class="fl">0.0000623056</span>, <span class="fl">0.0000474756</span>, <span class="fl">0.0000365799</span>, <span class="fl">0.0000285178</span>])</span>
@@ -517,11 +524,11 @@ m &amp;= {1\over \mu g}\\
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>paramsOne <span class="op">=</span> curve_fit(fit_function,wavelength,intensity)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>paramsTwo <span class="op">=</span> curve_fit(fit_function_two,wavelength,intensity)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>wDense <span class="op">=</span> linspace(<span class="fl">0.1</span>,<span class="dv">7</span>,<span class="dv">100</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>iDenseOne <span class="op">=</span> paramsOne[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> wDense<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(paramsOne[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">/</span>wDense) <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>iDenseTwo <span class="op">=</span> paramsTwo[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">*</span> wDense<span class="op">**-</span><span class="dv">5</span> <span class="op">*</span> <span class="dv">1</span><span class="op">/</span>(exp(paramsTwo[<span class="dv">0</span>][<span class="dv">1</span>]<span class="op">/</span>wDense) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>iDenseOne <span class="op">=</span> fit_function(wDense,paramsOne[<span class="dv">0</span>][<span class="dv">0</span>],paramsOne[<span class="dv">0</span>][<span class="dv">1</span>])</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>iDenseTwo <span class="op">=</span> fit_function_two(wDense,paramsTwo[<span class="dv">0</span>][<span class="dv">0</span>],paramsTwo[<span class="dv">0</span>][<span class="dv">1</span>])</span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>errorOne <span class="op">=</span> <span class="bu">sum</span>(sqrt( (intensity <span class="op">-</span> fit_function(wavelength,paramsOne[<span class="dv">0</span>][<span class="dv">0</span>],paramsOne[<span class="dv">0</span>][<span class="dv">1</span>]))<span class="op">**</span><span class="dv">2</span> ))</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>errorTwo <span class="op">=</span> <span class="bu">sum</span>(sqrt( (intensity <span class="op">-</span> fit_function(wavelength,paramsTwo[<span class="dv">0</span>][<span class="dv">0</span>],paramsTwo[<span class="dv">0</span>][<span class="dv">1</span>]))<span class="op">**</span><span class="dv">2</span> ))</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>errorOne <span class="op">=</span> <span class="bu">sum</span>((intensity <span class="op">-</span> fit_function(wavelength,paramsOne[<span class="dv">0</span>][<span class="dv">0</span>],paramsOne[<span class="dv">0</span>][<span class="dv">1</span>]))<span class="op">**</span><span class="dv">2</span> )</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>errorTwo <span class="op">=</span> <span class="bu">sum</span>( (intensity <span class="op">-</span> fit_function_two(wavelength,paramsTwo[<span class="dv">0</span>][<span class="dv">0</span>],paramsTwo[<span class="dv">0</span>][<span class="dv">1</span>]))<span class="op">**</span><span class="dv">2</span> )</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.plot(wavelength,intensity,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>plt.plot(wDense,iDenseOne,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">2</span>)</span>
@@ -535,11 +542,11 @@ m &amp;= {1\over \mu g}\\
 <span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell quarto-layout-panel" data-execution_count="7">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.3%;justify-content: center;">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="fitting_files/figure-html/cell-8-output-1.png" class="img-fluid" width="604"></p>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 49.7%;justify-content: center;">
-<p><img src="fitting_files/figure-html/cell-8-output-2.png" class="img-fluid" width="596"></p>
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="fitting_files/figure-html/cell-8-output-2.png" class="img-fluid" width="604"></p>
 </div>
 </div>
 </div>
@@ -954,6 +961,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../chapters/numericalCalculus.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

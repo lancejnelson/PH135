@@ -8,7 +8,9 @@ execute:
 
 # Curve Fitting
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb)
+[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb) . 
+
+
 Often in science you will gather data as a way to explore the relationship between two physical quantities and/or to validate your theories.  For example, perhaps you are interested how the amount of fertilizer applied to your tomato plants affect the final size of the fruit. Or maybe you want to know how a planet's distance from the sun affects it's orbital period. Investigating these kinds of questions are the very essence of science and great scientific discoveries begin with simple questions posed by curious minds.  As a brief reminder, the steps to the scientific process are:  
    1. Formulate a question.  
    2. Form a hypothesis.  
@@ -214,7 +216,7 @@ def fit_function(wvlength,a,b):
   return a * wvlength**-5 * 1/(exp(b/wvlength) + 1)
 
 def fit_function_two(wvlength,a,b):
-  return a * wvlength**-6 * 1/(exp(b/wvlength) + 1)
+  return a * wvlength**-5 * 1/(exp(b/wvlength) - 1)
 
 wavelength = array([0.1, 0.6, 1.1, 1.6, 2.1, 2.6, 3.1, 3.6, 4.1, 4.6, 5.1, 5.6, 6.1])
 intensity = array([0, 7.43023e-7, 0.0000699768, 0.000184459, 0.000211137, 0.000183716, 0.000144493, 0.000109646, 0.0000825034, 0.0000623056, 0.0000474756, 0.0000365799, 0.0000285178])
@@ -222,11 +224,11 @@ intensity = array([0, 7.43023e-7, 0.0000699768, 0.000184459, 0.000211137, 0.0001
 paramsOne = curve_fit(fit_function,wavelength,intensity)
 paramsTwo = curve_fit(fit_function_two,wavelength,intensity)
 wDense = linspace(0.1,7,100)
-iDenseOne = paramsOne[0][0] * wDense**-5 * 1/(exp(paramsOne[0][1]/wDense) + 1)
-iDenseTwo = paramsTwo[0][0] * wDense**-5 * 1/(exp(paramsTwo[0][1]/wDense) + 1)
+iDenseOne = fit_function(wDense,paramsOne[0][0],paramsOne[0][1])
+iDenseTwo = fit_function_two(wDense,paramsTwo[0][0],paramsTwo[0][1])
 
-errorOne = sum(sqrt( (intensity - fit_function(wavelength,paramsOne[0][0],paramsOne[0][1]))**2 ))
-errorTwo = sum(sqrt( (intensity - fit_function(wavelength,paramsTwo[0][0],paramsTwo[0][1]))**2 ))
+errorOne = sum((intensity - fit_function(wavelength,paramsOne[0][0],paramsOne[0][1]))**2 )
+errorTwo = sum( (intensity - fit_function_two(wavelength,paramsTwo[0][0],paramsTwo[0][1]))**2 )
 
 plt.plot(wavelength,intensity,'r.',ms = 13)
 plt.plot(wDense,iDenseOne,'k',lw = 2)

@@ -368,10 +368,22 @@ A histogram of each column can be easily generate with the `dataframe.hist()` fu
 elevator_data.hist()
 ```
 
-To make a scatter plot of a chosen set of data, use `dataframe.plot.scatter()`. The `x` and `y` keyword arguments should be used to specify which data to plot.
+To make a scatter plot of two columns in your dataframe, use `dataframe.plot.scatter()`. The `x` and `y` keyword arguments should be used to specify which columns to plot.  
 
 ```{python}
 elevator_data.plot.scatter(x = "time", y = "gFz")
+```
+
+You can also plot a single column vs. the row labels using the `plot` function
+
+```{python}
+elevator_data["gFz"].plot()
+```
+
+You can also use this function to plot a single row vs the column labels.
+
+```{python}
+elevator_data.iloc[2].plot()
 ```
 
 
