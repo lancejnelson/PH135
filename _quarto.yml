@@ -37,7 +37,7 @@ book:
       - chapters/extrapolation_interpolation.qmd
       - chapters/fitting.qmd
       - chapters/numericalCalculus.qmd
-#      - chapters/eulers.qmd
+      - chapters/eulers.qmd
 bibliography: references.bib
 
 format:
