@@ -122,6 +122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -293,13 +294,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks"> <span class="header-section-number">1.3</span> Jupyter Notebooks</a>
   <ul class="collapse">
   <li><a href="#notebook-structure" id="toc-notebook-structure" class="nav-link" data-scroll-target="#notebook-structure"> <span class="header-section-number">1.3.1</span> Notebook Structure</a></li>
-  <li><a href="#navigating-jupyter-notebooks" id="toc-navigating-jupyter-notebooks" class="nav-link" data-scroll-target="#navigating-jupyter-notebooks"> <span class="header-section-number">1.3.2</span> Navigating Jupyter Notebooks</a></li>
+  <li><a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"> <span class="header-section-number">1.3.2</span> Latex</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"> <span class="header-section-number">1.3.3</span> Tables</a></li>
+  <li><a href="#navigating-jupyter-notebooks" id="toc-navigating-jupyter-notebooks" class="nav-link" data-scroll-target="#navigating-jupyter-notebooks"> <span class="header-section-number">1.3.4</span> Navigating Jupyter Notebooks</a></li>
   </ul></li>
   <li><a href="#tips-for-studying-jupyter-notebooks" id="toc-tips-for-studying-jupyter-notebooks" class="nav-link" data-scroll-target="#tips-for-studying-jupyter-notebooks"> <span class="header-section-number">1.4</span> Tips for studying Jupyter notebooks</a>
   <ul class="collapse">
   <li><a href="#print-statements" id="toc-print-statements" class="nav-link" data-scroll-target="#print-statements"> <span class="header-section-number">1.4.1</span> Print Statements</a></li>
   <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"> <span class="header-section-number">1.4.2</span> Comments</a></li>
   </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">1.5</span> Exercises</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -337,6 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="python-and-jupyter-notebooks" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Python and Jupyter Notebooks</h1>
+<p><a href="https://lancejnelson.github.io/PH135/jupyter/intro.ipynb">Jupyter Notebook</a> .</p>
 <section id="python" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="python"><span class="header-section-number">1.1</span> Python</h2>
 <p>Python is a computer programming language available on all major platforms (Mac, Windows, Linux). Python is a scripting language which means that the computer interprets and runs your code at the moment you run it. In contrast, with a compiled language like C the code must first be converted into binary before it can run (called “compiling” the code). There are pros and cons to both types of languages. The on-the-fly interpretation of Python makes it quick and easy to write code and provides fast results for simple calculations. When codes become longer and more complex, on-the-fly interpretation becomes less efficient and execution time will be much slower than it would be with a compiled language. The pros and cons flip for a compiled language; writing code in a compiled language can be cumbersome and slow, but the execution time is typically much faster. Out of necessity, most programmers become proficient in both types of languages. Python(or another interpreted language) is used to “toy around” with your problem and build familiarity. As the complexity of the code increases the user is then forced to transition to a compiled language to get the needed speed. This is the famous “two language” problem and there is a new programming language designed to eliminate this problem by combining the pros from both into one language. (The name of the language is <a href="https://docs.julialang.org/en/v1/">Julia</a>)</p>
@@ -366,11 +371,167 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <section id="notebook-structure" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="notebook-structure"><span class="header-section-number">1.3.1</span> Notebook Structure</h3>
-<p>There are two types of “cells” in a Jupyter notebook: code cells and text cells (also called Markdown cell). Code cells contain “live” Python code that can be run inside of the notebook with any output appearing directly below it. Markdown cells are designed to contain explanatory information about what is happening inside of the code cells. They can contain text, math equations, and images. Markdown cells support markdown, html, and Latex (for generating pretty math equations).</p>
+<p>There are two types of “cells” in a Jupyter notebook: code cells and text cells (also called Markdown cell). Code cells contain “live” Python code that can be run inside of the notebook with any output appearing directly below it. An example of a code cell is given below:</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>accel <span class="op">=</span> <span class="fl">9.8</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>vf <span class="op">=</span> vi <span class="op">+</span> a <span class="op">*</span> dt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Markdown cells are designed to contain explanatory information about what is happening inside of the code cells. They can contain text, math equations, and images. Markdown cells support markdown, html, and Latex (for generating pretty math equations).</p>
 <p>Both markdown and code cells can be executed by either selecting <strong>Run Selected Cells</strong> in the <strong>Run</strong> menu, by clicking the <strong>Play</strong> icon at the top of the notebook, or by using the <strong>Shift-Return</strong> shortcut when your cursor is in the desired cell.</p>
 </section>
-<section id="navigating-jupyter-notebooks" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="navigating-jupyter-notebooks"><span class="header-section-number">1.3.2</span> Navigating Jupyter Notebooks</h3>
+<section id="latex" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="latex"><span class="header-section-number">1.3.2</span> Latex</h3>
+<p>Often you will want to include math equations as part of your explanation/text. Below is an example of what your math should and should not look like.</p>
+<ul>
+<li><span class="math inline">\(|\vec{v}| = \sqrt{v_x^2 + v_y^2}\)</span> (like this)<br>
+</li>
+<li>v = sqrt(vx^2 + vy^2) (not like this)</li>
+</ul>
+<p>To make your math equations look like the first example, you must enclose your math equation in “$$”, one pair at the beginnning of the equation and one pair at the end. To generate the math symbols that often show up in equations, you’ll need to know the correct syntax. A table of commonly used math symbols is given below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 32%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Math symbol</th>
+<th>Example</th>
+<th>Latex syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Subscript</td>
+<td><span class="math inline">\(v_x\)</span></td>
+<td><code>v_x</code></td>
+</tr>
+<tr class="even">
+<td>Powers</td>
+<td><span class="math inline">\(v^2\)</span></td>
+<td><code>v^2</code></td>
+</tr>
+<tr class="odd">
+<td>Powers with more than one digit</td>
+<td><span class="math inline">\(v^{10}\)</span></td>
+<td><code>v^{10}</code></td>
+</tr>
+<tr class="even">
+<td>Square root</td>
+<td><span class="math inline">\(\sqrt{a + b}\)</span></td>
+<td><code>\sqrt{a + b}</code></td>
+</tr>
+<tr class="odd">
+<td>Fractions</td>
+<td><span class="math inline">\({a \over b}\)</span></td>
+<td><code>{a \over b}</code></td>
+</tr>
+<tr class="even">
+<td>Vectors</td>
+<td><span class="math inline">\(\vec{x}\)</span></td>
+<td><code>\vec{x}</code></td>
+</tr>
+<tr class="odd">
+<td>Integrals</td>
+<td><span class="math inline">\(\int x^2 dx\)</span></td>
+<td><code>\int x^2 dx</code></td>
+</tr>
+<tr class="even">
+<td>Partial Derivatives</td>
+<td><span class="math inline">\({\partial f \over \partial x}\)</span></td>
+<td><code>{\partial f \over \partial x}</code></td>
+</tr>
+<tr class="odd">
+<td>Summations</td>
+<td><span class="math inline">\(\sum_{i = 1}^{10} x_i^2\)</span></td>
+<td><code>\sum_{i = 1}^{10} x_i^2</code></td>
+</tr>
+<tr class="even">
+<td>Infinity</td>
+<td><span class="math inline">\(\infty\)</span></td>
+<td><code>\infty</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can include greek letters in your expressions if you know the corresponding syntax. The table below shows some of the more common greek letters used in physics.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Greek Letter</th>
+<th>Latex syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td><code>\alpha</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta\)</span></td>
+<td><code>\beta</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\gamma\)</span></td>
+<td><code>\gamma</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Delta\)</span></td>
+<td><code>\Delta</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\epsilon\)</span></td>
+<td><code>\epsilon</code></td>
+</tr>
+</tbody>
+</table>
+<p>A more comprehensive list of math symbols available can be found <a href="https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf">here</a></p>
+</section>
+<section id="tables" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="tables"><span class="header-section-number">1.3.3</span> Tables</h3>
+<p>Tables are often useful for presenting data. You can make a table in a jupyter notebook using the following syntax</p>
+<pre><code>|t (s)       | v (m/s)     |
+|------------|-------------|
+| 0          | 10          |
+| 1.2        | 22          |
+| 2.3        | 25          |
+| 3.0        | 38          |
+| 5.5        | 56          |</code></pre>
+<p>which will generate the following table:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>t (s)</th>
+<th>v (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>1.2</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>2.3</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>3.0</td>
+<td>38</td>
+</tr>
+<tr class="odd">
+<td>5.5</td>
+<td>56</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="navigating-jupyter-notebooks" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="navigating-jupyter-notebooks"><span class="header-section-number">1.3.4</span> Navigating Jupyter Notebooks</h3>
 <p>Navigating a Jupyter notebook is fairly straightforward but there are a few handy shortcuts/hotkeys that will make navigation quicker and your workflow more efficient. When working in a Jupyter notebook, you are always operating in one of two modes: edit mode or navigate mode. In edit mode you can make modifications to the text or code in a cell and in navigate mode you can add/delete cells and modify the cell type. If you can see a blinking cursor in one of the cells you are in edit mode. Otherwise you are in navigate mode. To exit edit mode, simply press the <code>esc</code> key and you will enter navigate mode. To exit navigate mode, simply press the <code>enter</code> key and you will enter edit mode for the cell you were focused on. (You can also double click on a cell with your mouse to enter edit mode.) The <code>shift</code> + <code>enter</code> key sequence will “execute” a cell and produce the associated output. For text cells, executing just means to render the text in a nicely formatted fashion. “Executing” a code cell will actually execute the code block contained in the cell. You also enter navigate mode every time you execute a cell using the <code>shift</code> + <code>enter</code> key sequence. A summary of these shortcuts is given below:</p>
 <ul>
 <li>Up/down arrows - Navigate to different cells in the notebook.</li>
@@ -383,21 +544,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>shift</code> + <code>enter</code> - execute a cell.</li>
 <li><code>esc</code> - enter navigate mode.</li>
 </ul>
-<p>You should take some time now to practice these shortcut keys until you become good at navigating a jupyter notebook. Consider attempting the following actions using the shortcuts above:</p>
-<ol type="1">
-<li>Add a cell below this one.</li>
-<li>Turn the cell into a code cell (observe the distinct appearance of code cells).</li>
-<li>Type the following code into the cell:
-<ul>
-<li><code>print("I did it!")</code></li>
-</ul></li>
-<li>Execute the cell using <code>shift</code> + <code>enter</code>. Observe the output.</li>
-<li>Delete the cell.</li>
-<li>Enter edit mode for this text cell.</li>
-<li>Add a sentence of your choice at the end of the cell.</li>
-<li>“Execute” the cell and observe the new output.</li>
-<li>Remove the sentence to restore the cell to it’s previous state.</li>
-</ol>
 </section>
 </section>
 <section id="tips-for-studying-jupyter-notebooks" class="level2" data-number="1.4">
@@ -415,19 +561,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>For longer comments that will span several lines, use triple double quotes to begin and end the comment (<code>"""</code>)</li>
 </ol>
 <p>The cell below illustrates these two ways to make comments:</p>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Speed of light in a vacuum</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">3e8</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">300</span> <span class="co"># Speed of sound in air</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">The variables below are the initial conditions for a cannon</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">launching a ball at a 30 degree angle with an initial speed of</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">50 m/s.  The initial height of the cannon ball is 1000 m</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>h_i <span class="op">=</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Speed of light in a vacuum</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">3e8</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">300</span> <span class="co"># Speed of sound in air</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">The variables below are the initial conditions for a cannon</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">launching a ball at a 30 degree angle with an initial speed of</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">50 m/s.  The initial height of the cannon ball is 1000 m</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>h_i <span class="op">=</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p><strong><em>To Do:</em></strong></p>
 <ol type="1">
@@ -436,18 +582,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add simple comments next to each line explaining the code.</li>
 </ol>
 </blockquote>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a<span class="op">**</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> install(package):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    subprocess.check_call([sys.executable, <span class="st">"-m"</span>, <span class="st">"pip"</span>, <span class="st">"install"</span>, package])</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>install(<span class="st">"numpy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a<span class="op">**</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
+<section id="exercises" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">1.5</span> Exercises</h2>
+<ol type="1">
+<li><p>Perform the following actions using the shortcuts above:</p>
+<ol type="1">
+<li>Add a cell below this one.</li>
+<li>Turn the cell into a code cell (observe the distinct appearance of code cells).</li>
+<li>In the code cell, calculate the Stefan-Boltzmann constant using the equation given in the first column of the table found <a href="https://en.wikipedia.org/wiki/List_of_physical_constants">here</a>. Add a print statement so you can verify that you did it correctly.</li>
+<li>Execute the cell using <code>shift</code> + <code>enter</code>. Observe the output.</li>
+<li>Create another cell just below the code cell you just created.</li>
+<li>Turn it into a text/markdown cell if it isn’t already.</li>
+<li>Using Latex syntax, write the equation from the table that you used to peform the calculation.</li>
+<li>“Execute” the cell and observe the new output.</li>
+</ol></li>
+<li><p>Recreate the first three columns of your top 10 favorite physical constants found <a href="https://en.wikipedia.org/wiki/List_of_physical_constants">here</a> (same table as given in exercise 1). Pick constants that have greek letters and fun mathematical equations associated with them.</p></li>
+</ol>
+
+
 </section>
 </section>
 
