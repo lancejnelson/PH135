@@ -295,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions"> <span class="header-section-number">4.2</span> Conditions</a>
   <ul class="collapse">
   <li><a href="#if-statement" id="toc-if-statement" class="nav-link" data-scroll-target="#if-statement"> <span class="header-section-number">4.2.1</span> <code>if</code> statement</a></li>
-  <li><a href="#else-statment" id="toc-else-statment" class="nav-link" data-scroll-target="#else-statment"> <span class="header-section-number">4.2.2</span> <code>else</code> Statment</a></li>
+  <li><a href="#else-statement" id="toc-else-statement" class="nav-link" data-scroll-target="#else-statement"> <span class="header-section-number">4.2.2</span> <code>else</code> Statement</a></li>
   </ul></li>
   <li><a href="#flash-cards" id="toc-flash-cards" class="nav-link" data-scroll-target="#flash-cards"> <span class="header-section-number">4.3</span> Flash Cards</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">4.4</span> Exercises</a></li>
@@ -325,17 +325,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="boolean-variables" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="boolean-variables"><span class="header-section-number">4.1</span> Boolean Variables</h2>
 <p>We have learned about three types of variables in Python: ints, floats, and strings. Another variable type is a boolean, which can be one of two values: <code>True</code> or <code>False</code>. You can assign a boolean variable in the same way that you assign numbers or string, using <code>=</code></p>
-<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>myBool <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p><code>True</code> <em>must be</em> capitalized so don’t try <code>true</code> or it won’t be a boolean</p>
-<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>myBool <span class="op">=</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <section id="boolean-logic" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="boolean-logic"><span class="header-section-number">4.1.1</span> Boolean Logic</h3>
 <p>Often you will want to check to see if some condition is true. For example, maybe you want to know if the radius of a certain satellite’s orbit is bigger or smaller than Mercury’s orbit. To perform this check, there are several boolean operators that will return <code>True</code> or <code>False</code>. Take note of the boolean operators shown in the cell below along with the comments added to explain what they do.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> <span class="fl">3.5e8</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> <span class="fl">2.7e6</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -350,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>A word of caution about comparing Python floats using <code>==</code> is in order here. Python floats are stored as a 53-digit, base-2 binary number(that’s a mouthful). If you’re interested in what that means, we can talk more. If you’re not that interested, just know that when you define a float in Python, the number that is stored in the computer is not <em>exactly</em> the number that you think it is. This can cause problems when you are comparing two numbers that you think should be equal but actually aren’t equal in the computer.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The code below illustrates this problem.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> a</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.3</span></span>
@@ -369,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The first two print statements display the value of <code>b</code> and <code>c</code> to five decimal places. The second two print statements force Python to display the value of <code>b</code> and <code>c</code> out to 45 decimal places. Notice that the true value of <code>b</code> is not <em>exactly</em> equal to 0.3. This is why the statement <code>print(b==c)</code> returns <code>False</code>. The take home message here is that comparing two floats to see if they are equal <strong>is always a bad idea.</strong> A better way to check to see if two floats are equal (or close enough that we can say they are equal) is to check if the absolute value of their difference is very small, like this:</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> a</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.3</span></span>
@@ -451,7 +447,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Modify your guess as needed and discuss any questions with a neighbor.</li>
 </ol>
 </blockquote>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> <span class="fl">2.5e8</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> <span class="fl">2.48e8</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ρ<span class="dv">1</span> <span class="op">=</span> <span class="dv">450</span></span>
@@ -475,7 +471,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="tests-for-inclusion" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="tests-for-inclusion"><span class="header-section-number">4.1.3</span> Tests for Inclusion</h3>
 <p>You can check for inclusion using the Python <code>in</code> operator. This provides an easy way to see if a character (or word) is present in a long string. Let’s say you have a long string that contains the names of Jupyter’s moons (there are 79 of them!!) and you want to see if a certain moon is included in the list. The <code>in</code> statement let’s us quickly test to see if it is in the list. (see example below)</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>jupytermoons <span class="op">=</span> <span class="st">"Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">"Cyllene"</span> <span class="kw">in</span> jupytermoons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -491,7 +487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="if-statement" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="if-statement"><span class="header-section-number">4.2.1</span> <code>if</code> statement</h3>
 <p>The <code>if</code> statement is used to control when a block of code runs. It’s usage is shown below ending in a colon and the block of code below indented with <em>four spaces</em>. Using the <strong>Tab</strong> key will also produce four spaces.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>jupytermoons <span class="op">=</span> <span class="st">"Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"Cyllene"</span> <span class="kw">in</span> jupytermoons:</span>
@@ -507,10 +503,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>If the boolean statement after <code>if</code> is true, the indented code below it will run. If the statement is false, Python just skips the indented lines below.</p>
 </section>
-<section id="else-statment" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="else-statment"><span class="header-section-number">4.2.2</span> <code>else</code> Statment</h3>
+<section id="else-statement" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="else-statement"><span class="header-section-number">4.2.2</span> <code>else</code> Statement</h3>
 <p>Sometimes there will be an alternate block of code that you want to run if the <code>if</code> statement evaluates to <code>False</code>. The <code>else</code> statement is used to specify this block of code, as shown below.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>jupytermoons <span class="op">=</span> <span class="st">"Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"Cyllene"</span> <span class="kw">in</span> jupytermoons:</span>
@@ -534,7 +530,7 @@ Did not find Matis in the string</code></pre>
 </div>
 <p>Notice that the <code>else</code> statement must be followed by a colon and the block of code to be executed is indented, just as in the <code>if</code> block.</p>
 <p>There is an additional statement called the <code>elif</code> statement, short for “else if”, which is used to add extra conditions below the initial <code>if</code> statement. The block of code below the <code>elif</code> statement only runs if the <code>if</code> statement is false and the <code>elif</code> statement is true. An example is given below.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>jupytermoons <span class="op">=</span> <span class="st">"Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"Matis"</span> <span class="kw">in</span> jupytermoons:</span>
@@ -576,10 +572,10 @@ Did not find Matis in the string</code></pre>
 <li>Modify your guess until both branches of your <code>if</code>-<code>else</code> trigger.</li>
 <li>Repeat for Earth. Earth has a mass of <span class="math inline">\(M = 5.98 \times 10^{24}\)</span> kg and a radius of <span class="math inline">\(r = 6.37 \times 10^6\)</span> meters.</li>
 </ol>
-<p>::: {.cell execution_count=11} <code>{.python .cell-code}  G = 6.67e-11</code> :::</p></li>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> <span class="fl">6.67e-11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>(Thermoelectrics) A thermoelectric is a material that converts thermal energy into electrical energy and much research is devoted to finding new materials that exhibit this behavior. Good thermoelectrics tend to be materials with high electrical conducitivity (<span class="math inline">\(\sigma &gt; 7 \times 10^5~\Omega^{-1} \text{m}^{-1}\)</span> ) <strong>and</strong> low thermal conductivity (<span class="math inline">\(\kappa&lt; 2.0\)</span> W/ m K ). Write an <code>if</code>-<code>else</code> code block that checks to see if a material’s electrical conductivity is above the threshold <strong>and</strong> its thermal conductivity is below the threshold. Then choose some values for the conductivities and test your <code>if</code>-<code>else</code> block.</p>
-<p>::: {.cell execution_count=12} ``` {.python .cell-code} sigma = 0 # Electrical Conductivity kappa = 0 # Thermal Conductivity</p>
-<p>``` :::</p></li>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">0</span>     <span class="co"># Electrical Conductivity</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>kappa <span class="op">=</span> <span class="dv">0</span>    <span class="co"># Thermal Conductivity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Alloys are often represented by a string containing the elements in the alloy and the relative number of atoms for each element. For example, “Cu2Au” (Copper-2-Gold) means that the alloy is made of copper and gold and there are two copper atoms for every gold atom. Write some python code that calculates the total number of atoms in an alloy. The code should include a print statement to display the result. Then check your code on the alloys in the table below. You can assume that all elements have two-character symbols even though that isn’t true; we won’t consider any one-character symbols in this problem.</p></li>
 </ol>
 <p>Hints:</p>
@@ -609,18 +605,14 @@ Did not find Matis in the string</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>alloy <span class="op">=</span> <span class="st">"CaIn2"</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>alloy <span class="op">=</span> <span class="st">"CaIn2"</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li>The quadratic equation has two solutions and they can be positive, negative, or complex. Often the complex and/or negative solutions are not relavant/meaningful. Write an <code>if/elif/else</code> block of code that checks what type of solutions will result and only displays the real, positive solution(s) if they exist. If there is no positive solution, the code should display a message indicating such. Then check your code with the values given below. As a reminder, here is the quadratic equation: <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span></li>
 </ol>
 <p><code>a = 2, b = 3, c = 8</code> (no real solutions)</p>
 <p><code>a = 1, b = -3, c = 2</code> (two positive solutions)</p>
 <p><code>a = 1, b = -3, c = -2</code> (one positive solution and one negative solution)</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
 <li><p>(Triangle Classification) There is a simple criteria to determine whether a triangle can be formed from a set of specified side lengths. The criteria states that the sum of any two sides must be larger than the third side. This criteria must be satisified for all possible combinations of two sides if the triangle is to be valid. If the triangle is valid, the angles can be found by first using the law of cosines to find the first two angles <span class="math display">\[c^2 = a^2 + b^2 - 2 a b \cos(C)\]</span> and then choosing the third angle so that the sum of the three angles add up to <span class="math inline">\(180^\circ\)</span>.</p>
 <ol type="1">
@@ -630,13 +622,11 @@ Did not find Matis in the string</code></pre>
 <li>All valid triangles are classified according to the largest angle present (acute, obtuse, and right) and also according to their side lengths (scalene - no sides equal, isoscelese - two sides equal and equilateral - all sides equal). Modify your code to determine the classification of a triangle (i.e.&nbsp;obtuse scalene) and print that classification to screen.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos,pi</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#a = # Side length 1</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#b = # Side length 1</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#c = # Side length 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos,pi</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#a = # Side length 1</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#b = # Side length 1</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#c = # Side length 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

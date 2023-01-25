@@ -345,7 +345,9 @@ Finally, the `pass` statement does nothing.  Seriously!!  It is merely a place h
 9. Where is the account of Jesus walking on the water?
 
 ## Exercises
-1. Use a loop to construct a list containing the first 1000 numbers that are multiples of both $5$ and $3$. (The modulo operator (`%`) is a good and efficient way to see if a number is a multiple of another.)
+1. Use a loop to construct a list containing the first 10 fibonacci numbers  that are multiples of $5$. (The modulo operator (`%`) is a good and efficient way to see if a number is a multiple of another.)
+
+Hint/Answer: The 10th fibonacci number that is a multiple of 5 is: 12,586,269,025
 
 ```{python}
 
@@ -416,12 +418,12 @@ planetData = {"Mercury": [0.33e24,4.879e6],"Venus":[4.87e24,1.2104e7],"Earth":[5
 
 (Extra Credit) A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: $$ {\sin x \over x} = 1$$  One numerical method for solving an equation like this involves first rearranging it to look like this: $$ x = \sin x$$ and then using a loop to repeatedly evaluating the right hand side, using the result of the previous evaluation as the input, until subsequent evaluations differ very little ($1 \times 10^{-3}$ would be fine). [^relax] The first few iterations of this process might look something like this: $$(x_\text{old})_1 = 2 \text{ (starting guess)}$$ $$(x_\text{new})_1 = \sin((x_\text{old})_1)$$ $$(x_\text{old})_2 = (x_\text{new})_1$$ $$(x_\text{new})_2 = \sin((x_\text{old})_2)$$ $$(x_\text{old})_3 = (x_\text{new})_2$$ $$(x_\text{new})_3 = \sin((x_\text{old})_3)$$
 
-    1. Use a `while` loop to solve this equation and report the correct value for x.  
-    2. Plug the answer back into the equation to verify that it indeed does satisfy the equation.
-    3. Report how many iterations it took to solve the problem.
-    3. Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.
+   1. Use a `while` loop to solve this equation and report the correct value for x.  
+   2. Plug the answer back into the equation to verify that it indeed does satisfy the equation.
+   3. Report how many iterations it took to solve the problem.
+   4. Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.  
 
-    Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't equal or your stopping criteria will trigger on the first iteration and the loop won't run at all.
+      Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't equal or your stopping criteria will trigger on the first iteration and the loop won't run at all.
 
 
 ```{python}

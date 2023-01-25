@@ -640,8 +640,9 @@ mass = [1,4,7,9,11,12]</code></pre>
 <section id="exercises" class="level2 page-columns page-full" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
 <ol type="1">
-<li>Use a loop to construct a list containing the first 1000 numbers that are multiples of both <span class="math inline">\(5\)</span> and <span class="math inline">\(3\)</span>. (The modulo operator (<code>%</code>) is a good and efficient way to see if a number is a multiple of another.)</li>
+<li>Use a loop to construct a list containing the first 10 fibonacci numbers that are multiples of <span class="math inline">\(5\)</span>. (The modulo operator (<code>%</code>) is a good and efficient way to see if a number is a multiple of another.)</li>
 </ol>
+<p>Hint/Answer: The 10th fibonacci number that is a multiple of 5 is: 12,586,269,025</p>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li><p>Summations appear often in science and mathematics. One such summation is called the Riemann Zeta function and is given by <span class="math display">\[ \zeta(n) = \sum_{k=1}^\infty {1\over k^n} = {1\over 1^n} + {1\over 2^n} + {1\over 3^n} + \dots\]</span></p>
@@ -683,13 +684,15 @@ mass = [1,4,7,9,11,12]</code></pre>
 </ol>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>planetData <span class="op">=</span> {<span class="st">"Mercury"</span>: [<span class="fl">0.33e24</span>,<span class="fl">4.879e6</span>],<span class="st">"Venus"</span>:[<span class="fl">4.87e24</span>,<span class="fl">1.2104e7</span>],<span class="st">"Earth"</span>:[<span class="fl">5.97e24</span>,<span class="fl">1.2756e7</span>],<span class="st">"Mars"</span>:[<span class="fl">0.642e24</span>,<span class="fl">6.792e6</span>],<span class="st">"Jupiter"</span>:[<span class="fl">1.898e27</span>,<span class="fl">1.42984e8</span>],<span class="st">"Saturn"</span>:[<span class="fl">5.68e26</span>,<span class="fl">1.20536e8</span>],<span class="st">"Uranus"</span>:[<span class="fl">8.68e25</span>,<span class="fl">5.1118e7</span>],<span class="st">"Neptune"</span>:[<span class="fl">1.02e26</span>,<span class="fl">4.9528e7</span>],<span class="st">"Pluto"</span>:[<span class="fl">0.013e24</span>,<span class="fl">2.376e7</span>]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="page-columns page-full"><p>(Extra Credit) A transcendental equation is one that cannot be solved analytically (with pencil and paper). Try solving the following equation for x to see what I mean: <span class="math display">\[ {\sin x \over x} = 1\]</span> One numerical method for solving an equation like this involves first rearranging it to look like this: <span class="math display">\[ x = \sin x\]</span> and then using a loop to repeatedly evaluating the right hand side, using the result of the previous evaluation as the input, until subsequent evaluations differ very little (<span class="math inline">\(1 \times 10^{-3}\)</span> would be fine). <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The first few iterations of this process might look something like this: <span class="math display">\[(x_\text{old})_1 = 2 \text{ (starting guess)}\]</span> <span class="math display">\[(x_\text{new})_1 = \sin((x_\text{old})_1)\]</span> <span class="math display">\[(x_\text{old})_2 = (x_\text{new})_1\]</span> <span class="math display">\[(x_\text{new})_2 = \sin((x_\text{old})_2)\]</span> <span class="math display">\[(x_\text{old})_3 = (x_\text{new})_2\]</span> <span class="math display">\[(x_\text{new})_3 = \sin((x_\text{old})_3)\]</span></p><div class="no-row-height column-margin column-container"><li id="fn1" role="doc-endnote"><p><sup>1</sup>&nbsp;This is called successive relaxation.</p></li></div></div>
-<pre><code>1. Use a `while` loop to solve this equation and report the correct value for x.  
-2. Plug the answer back into the equation to verify that it indeed does satisfy the equation.
-3. Report how many iterations it took to solve the problem.
-3. Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.
-
-Hint: You'll have to define two variables: one to hold the old guess and one to hold the updated guess.  Initialize these variables to any old values but make sure that they aren't equal or your stopping criteria will trigger on the first iteration and the loop won't run at all.</code></pre>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>xold <span class="op">=</span> <span class="dv">2</span> <span class="co"># starting guess</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><p>Use a <code>while</code> loop to solve this equation and report the correct value for x.<br>
+</p></li>
+<li><p>Plug the answer back into the equation to verify that it indeed does satisfy the equation.</p></li>
+<li><p>Report how many iterations it took to solve the problem.</p></li>
+<li><p>Decrease the value in the termination condition and observe how the number of iterations and the accuracy of the answer change.</p>
+<p>Hint: You’ll have to define two variables: one to hold the old guess and one to hold the updated guess. Initialize these variables to any old values but make sure that they aren’t equal or your stopping criteria will trigger on the first iteration and the loop won’t run at all.</p></li>
+</ol>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>xold <span class="op">=</span> <span class="dv">2</span> <span class="co"># starting guess</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
