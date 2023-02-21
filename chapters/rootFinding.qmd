@@ -80,7 +80,7 @@ print(mid)
 
 ```
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width = 75%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=75%}
 
 ## Secant Method
 
@@ -116,7 +116,7 @@ print(x,np.cos(x))
 
 If the function of interest has multiple zeros (like the cosine function we did above), one must give careful consideration to the initial guess.  Making a poor choice can lead to the algorithm finding a different zero than what was intended. 
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width = 75%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=75%}
 
 ## Fixed-Point Iteration
 Suppose you want to solve the following equation:
@@ -135,7 +135,7 @@ while abs(x - np.cos(x)) > 1e-5:
 ```
 
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width = 75%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width=75%}
 
 Fixed-point iteration can also be used to find the zeros or extrema of a function if you can first algebraically manipulate the equation to take the form shown in the equation above. For example, the following equation
 
