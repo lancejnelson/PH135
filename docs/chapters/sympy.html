@@ -88,7 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/extrapolation_interpolation.html" rel="next">
+<link href="../chapters/rootFinding.html" rel="next">
 <link href="../chapters/pandas.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -257,22 +257,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  <a href="../chapters/rootFinding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
+  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
   </div>
 </li>
       </ul>
@@ -294,13 +299,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#simplifying-expressions" id="toc-simplifying-expressions" class="nav-link" data-scroll-target="#simplifying-expressions"> <span class="header-section-number">14.3</span> Simplifying Expressions</a>
   <ul class="collapse">
-  <li><a href="#the-simplify-function" id="toc-the-simplify-function" class="nav-link" data-scroll-target="#the-simplify-function"> <span class="header-section-number">14.3.1</span> The <code>simplify</code> function</a></li>
-  <li><a href="#the-expand-function" id="toc-the-expand-function" class="nav-link" data-scroll-target="#the-expand-function"> <span class="header-section-number">14.3.2</span> The <code>expand</code> function</a></li>
-  <li><a href="#the-factor-function" id="toc-the-factor-function" class="nav-link" data-scroll-target="#the-factor-function"> <span class="header-section-number">14.3.3</span> The <code>factor</code> function</a></li>
-  <li><a href="#the-collect-function" id="toc-the-collect-function" class="nav-link" data-scroll-target="#the-collect-function"> <span class="header-section-number">14.3.4</span> The <code>collect</code> function</a></li>
-  <li><a href="#the-cancel-function" id="toc-the-cancel-function" class="nav-link" data-scroll-target="#the-cancel-function"> <span class="header-section-number">14.3.5</span> The <code>cancel</code> function</a></li>
-  <li><a href="#the-trigsimp-function" id="toc-the-trigsimp-function" class="nav-link" data-scroll-target="#the-trigsimp-function"> <span class="header-section-number">14.3.6</span> The <code>trigsimp</code> function</a></li>
-  <li><a href="#the-expand_trig-function" id="toc-the-expand_trig-function" class="nav-link" data-scroll-target="#the-expand_trig-function"> <span class="header-section-number">14.3.7</span> The <code>expand_trig</code> function</a></li>
+  <li><a href="#evaluating-expressions" id="toc-evaluating-expressions" class="nav-link" data-scroll-target="#evaluating-expressions"> <span class="header-section-number">14.3.1</span> Evaluating expressions</a></li>
+  <li><a href="#the-simplify-function" id="toc-the-simplify-function" class="nav-link" data-scroll-target="#the-simplify-function"> <span class="header-section-number">14.3.2</span> The <code>simplify</code> function</a></li>
+  <li><a href="#the-expand-function" id="toc-the-expand-function" class="nav-link" data-scroll-target="#the-expand-function"> <span class="header-section-number">14.3.3</span> The <code>expand</code> function</a></li>
+  <li><a href="#the-factor-function" id="toc-the-factor-function" class="nav-link" data-scroll-target="#the-factor-function"> <span class="header-section-number">14.3.4</span> The <code>factor</code> function</a></li>
+  <li><a href="#the-collect-function" id="toc-the-collect-function" class="nav-link" data-scroll-target="#the-collect-function"> <span class="header-section-number">14.3.5</span> The <code>collect</code> function</a></li>
+  <li><a href="#the-cancel-function" id="toc-the-cancel-function" class="nav-link" data-scroll-target="#the-cancel-function"> <span class="header-section-number">14.3.6</span> The <code>cancel</code> function</a></li>
+  <li><a href="#the-trigsimp-function" id="toc-the-trigsimp-function" class="nav-link" data-scroll-target="#the-trigsimp-function"> <span class="header-section-number">14.3.7</span> The <code>trigsimp</code> function</a></li>
+  <li><a href="#the-expand_trig-function" id="toc-the-expand_trig-function" class="nav-link" data-scroll-target="#the-expand_trig-function"> <span class="header-section-number">14.3.8</span> The <code>expand_trig</code> function</a></li>
   </ul></li>
   <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"> <span class="header-section-number">14.4</span> Calculus</a>
   <ul class="collapse">
@@ -342,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="simple-calculations" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="simple-calculations"><span class="header-section-number">14.1</span> Simple Calculations</h2>
 <p>You should be very comfortable performing simple calculations by now. Up to this point all of the calculations that you have performed have been represented <strong>approximately</strong>, rather than exactly. For example, <span class="math inline">\(\cos({\pi \over 6}) = {\sqrt{3} \over 2} \text{ (exact)} \approx 0.8660254 \text{ (approximate)}\)</span> and when you perform this calculation in Python using the <code>math</code> module, the result is approximate:</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> cos,pi</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cos(pi<span class="op">/</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -351,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><span class="math inline">\(0.8660254\)</span> is an approximate result; it’s very close to the true value but not exact. Sympy can also perform this calculation and the results are represented exactly.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> cos,pi,init_printing</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>init_printing(use_unicode <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -361,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The <code>init_printing(use_unicode=True)</code> function call tells sympy to display mathematical expressions using “pretty” formatting. Fraction appear with the numerator on top of the denominator, powers are displayed as superscripts, and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions. For example, <span class="math inline">\(\sqrt{8} = 2 \sqrt{2}\)</span> and sympy automatically performs this simplification for us:</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> sqrt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sqrt(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -370,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>If you prefer to have your expression approximated numerically, you can use the <code>N</code> function.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> sqrt,N</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>N(sqrt(<span class="dv">8</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -384,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="defining-symbols-mathematical-variables" class="level3" data-number="14.2.1">
 <h3 data-number="14.2.1" class="anchored" data-anchor-id="defining-symbols-mathematical-variables"><span class="header-section-number">14.2.1</span> Defining Symbols (Mathematical Variables)</h3>
 <p>A common equation that comes up in physics is quadratic function with constant coefficients <span class="math display">\[ax^2 + bx + c\]</span>. To form this expression, we must first define the variables that appear in the expression: <code>x</code>, <code>a</code>, <code>b</code>, and <code>c</code>. The <code>Symbol</code> function (case sensitive) can be used to define these <strong>mathematical</strong> variables. The argument to the <code>Symbol</code> function should be a string containing the desired name of the variable.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Symbol(<span class="st">"a"</span>)</span>
@@ -396,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Instead of using the <code>Symbol</code> function to initialize variables one at a time, you can initialize multiple variables in one line using the <code>symbols</code> function. The argument to the <code>symbols</code> function should be a string with the names of each variables inside the string and separated by a space.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
@@ -409,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="mathematical-expressions" class="level3" data-number="14.2.2">
 <h3 data-number="14.2.2" class="anchored" data-anchor-id="mathematical-expressions"><span class="header-section-number">14.2.2</span> Mathematical Expressions</h3>
 <p>A mathematical expression, which is composed of multiple mathematical variables (symbols), can now be created using the python variables that we just created</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> a <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
@@ -419,7 +425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Expressions can be used to form new expressions by performing mathematical operations on them</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
@@ -435,112 +441,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="simplifying-expressions" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="simplifying-expressions"><span class="header-section-number">14.3</span> Simplifying Expressions</h2>
-<p><code>sympy</code> has several handy functions that can perform algebraic manipulations to your expressions.</p>
-<section id="the-simplify-function" class="level3" data-number="14.3.1">
-<h3 data-number="14.3.1" class="anchored" data-anchor-id="the-simplify-function"><span class="header-section-number">14.3.1</span> The <code>simplify</code> function</h3>
-<p>If you don’t know exactly how you want your expression simplified, you should first try the <code>simplify</code> function. <code>simplify</code> attempts to apply all of the more specialized functions in a smart way to produce a simpler looking result. To use <code>simplify</code> simply send the desired expression in as an argument.</p>
-<pre><code>simplify(expression)</code></pre>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,cos,sin,simplify</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>simplify(x<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> z <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> x <span class="op">*</span>y<span class="op">*</span>z <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span><span class="op">*</span>z)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>simplify(cos(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sin(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>sympy</code> has several handy functions that can perform algebraic manipulations to your expressions. Below you will find some of the most useful functions for simplifying expressions.</p>
+<section id="evaluating-expressions" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="evaluating-expressions"><span class="header-section-number">14.3.1</span> Evaluating expressions</h3>
+<p>Once an expression is defined, you can evaluate the expression using the <code>subs</code> method. The argument to this method is a dictionary containing the values to be inserted for the associated variables. An example is given below</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> a <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>evalDict <span class="op">=</span>{a:<span class="dv">2</span>,b:<span class="dv">4</span>,c:<span class="dv">9</span>,x:<span class="dv">4</span>}</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>expression.subs(evalDict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <p><img src="sympy_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>When <code>simplify</code> doesn’t do what you were hoping, you’ll have to think a little bit harder about how you want to simplify your expression. The functions described in the rest of this section will help you in your choice.</p>
 </section>
-<section id="the-expand-function" class="level3" data-number="14.3.2">
-<h3 data-number="14.3.2" class="anchored" data-anchor-id="the-expand-function"><span class="header-section-number">14.3.2</span> The <code>expand</code> function</h3>
-<p>The expand function will put a polynomial function into its canonical monomial form. For example, expanding the following polynomial <span class="math display">\[(x + 1)^2\]</span> will produce the standard form of the polynomial <span class="math display">\[x^2 + 2x + 1\]</span>. This may not seem like a simplification but nevertheless it can be helpful at times. To expand a polynomial, call the <code>expand</code> function and send in the expression that you want expanded.</p>
-<pre><code>expand(expression)</code></pre>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,expand</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>expand((x <span class="op">+</span> <span class="dv">2</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">3</span>))</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>expand((x<span class="op">+</span><span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="the-simplify-function" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="the-simplify-function"><span class="header-section-number">14.3.2</span> The <code>simplify</code> function</h3>
+<p>If you don’t know exactly how you want your expression simplified, you should first try the <code>simplify</code> function. <code>simplify</code> attempts to apply all of the more specialized functions in a smart way to produce a simpler looking result. To use <code>simplify</code> simply send the desired expression in as an argument.</p>
+<pre><code>simplify(expression)</code></pre>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,cos,sin,simplify</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>simplify(x<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> z <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> x <span class="op">*</span>y<span class="op">*</span>z <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span><span class="op">*</span>z)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>simplify(cos(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sin(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <p><img src="sympy_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>Sometimes expanding an expression can result in a single number due to cancellation.</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol,expand</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>expand((x <span class="op">+</span> <span class="dv">1</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">2</span>) <span class="op">-</span> (x <span class="op">-</span> <span class="dv">1</span>)<span class="op">*</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When <code>simplify</code> doesn’t do what you were hoping, you’ll have to think a little bit harder about how you want to simplify your expression. The functions described in the rest of this section will help you in your choice.</p>
+</section>
+<section id="the-expand-function" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="the-expand-function"><span class="header-section-number">14.3.3</span> The <code>expand</code> function</h3>
+<p>The expand function will put a polynomial function into its canonical monomial form. For example, expanding the following polynomial <span class="math display">\[(x + 1)^2\]</span> will produce the standard form of the polynomial <span class="math display">\[x^2 + 2x + 1\]</span>. This may not seem like a simplification but nevertheless it can be helpful at times. To expand a polynomial, call the <code>expand</code> function and send in the expression that you want expanded.</p>
+<pre><code>expand(expression)</code></pre>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,expand</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>expand((x <span class="op">+</span> <span class="dv">2</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">3</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>expand((x<span class="op">+</span><span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <p><img src="sympy_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</section>
-<section id="the-factor-function" class="level3" data-number="14.3.3">
-<h3 data-number="14.3.3" class="anchored" data-anchor-id="the-factor-function"><span class="header-section-number">14.3.3</span> The <code>factor</code> function</h3>
-<p>The <code>factor</code> function does the opposite of <code>expand</code>, taking a canonical polynomial and attempting to factor it into its irreducible parts. For example, factoring the equation below <span class="math display">\[x^3 - x^2 + x -1\]</span> will produce <span class="math display">\[(x-1)(x^2 + 1)\]</span></p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,factor</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> z <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> x <span class="op">*</span>y<span class="op">*</span>z <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span><span class="op">*</span>z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sometimes expanding an expression can result in a single number due to cancellation.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> Symbol,expand</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>expand((x <span class="op">+</span> <span class="dv">1</span>)<span class="op">*</span>(x <span class="op">-</span> <span class="dv">2</span>) <span class="op">-</span> (x <span class="op">-</span> <span class="dv">1</span>)<span class="op">*</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <p><img src="sympy_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>You can also factor an expression that isn’t a polynomial. The following trigonometric function can be factored <span class="math display">\[\cos(x)^2 + 2 \cos(x)\sin(x) + \sin(x)^2\]</span> into <span class="math display">\[(\sin(x) + \cos(x))^2\]</span></p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,factor,cos,sin</span>
+</section>
+<section id="the-factor-function" class="level3" data-number="14.3.4">
+<h3 data-number="14.3.4" class="anchored" data-anchor-id="the-factor-function"><span class="header-section-number">14.3.4</span> The <code>factor</code> function</h3>
+<p>The <code>factor</code> function does the opposite of <code>expand</code>, taking a canonical polynomial and attempting to factor it into its irreducible parts. For example, factoring the equation below <span class="math display">\[x^3 - x^2 + x -1\]</span> will produce <span class="math display">\[(x-1)(x^2 + 1)\]</span></p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,factor</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>factor(cos(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> cos(x) <span class="op">*</span> sin(x) <span class="op">+</span> sin(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>factor(x<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> z <span class="op">+</span> <span class="dv">4</span> <span class="op">*</span> x <span class="op">*</span>y<span class="op">*</span>z <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span><span class="op">*</span>z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <p><img src="sympy_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</section>
-<section id="the-collect-function" class="level3" data-number="14.3.4">
-<h3 data-number="14.3.4" class="anchored" data-anchor-id="the-collect-function"><span class="header-section-number">14.3.4</span> The <code>collect</code> function</h3>
-<p>The <code>collect</code> function gathers terms with common powers in an expression. The function takes two arguments: the first is the expression and the second specifies which variable’s powers should be collected.</p>
-<pre><code>collect(expression, variable)</code></pre>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,collect</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>collect(x<span class="op">*</span>y <span class="op">+</span> x <span class="op">-</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> z <span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x<span class="op">**</span><span class="dv">3</span>,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also factor an expression that isn’t a polynomial. The following trigonometric function can be factored <span class="math display">\[\cos(x)^2 + 2 \cos(x)\sin(x) + \sin(x)^2\]</span> into <span class="math display">\[(\sin(x) + \cos(x))^2\]</span></p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,factor,cos,sin</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>factor(cos(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> cos(x) <span class="op">*</span> sin(x) <span class="op">+</span> sin(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <p><img src="sympy_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="the-cancel-function" class="level3" data-number="14.3.5">
-<h3 data-number="14.3.5" class="anchored" data-anchor-id="the-cancel-function"><span class="header-section-number">14.3.5</span> The <code>cancel</code> function</h3>
-<p>The <code>cancel</code> function is helpful for simplifying an expression by canceling out like terms where possible. This function takes just a single argument, which is the expression to be simplified. The code below will simplify the following expression by canceling the common <code>(x+1)</code> that appears in both the numerator and denominator. <span class="math display">\[{x^2 + 2 x + 1 \over x^2 + x}\]</span></p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,cancel</span>
+<section id="the-collect-function" class="level3" data-number="14.3.5">
+<h3 data-number="14.3.5" class="anchored" data-anchor-id="the-collect-function"><span class="header-section-number">14.3.5</span> The <code>collect</code> function</h3>
+<p>The <code>collect</code> function gathers terms with common powers in an expression. The function takes two arguments: the first is the expression and the second specifies which variable’s powers should be collected.</p>
+<pre><code>collect(expression, variable)</code></pre>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,collect</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>cancel((x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>collect(x<span class="op">*</span>y <span class="op">+</span> x <span class="op">-</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> z <span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x<span class="op">**</span><span class="dv">3</span>,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <p><img src="sympy_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="the-trigsimp-function" class="level3" data-number="14.3.6">
-<h3 data-number="14.3.6" class="anchored" data-anchor-id="the-trigsimp-function"><span class="header-section-number">14.3.6</span> The <code>trigsimp</code> function</h3>
-<p>If you want to use trigonometric identities to simplify your expression use the <code>trigsimp</code> function. For example, most of us know that <span class="math inline">\(\cos(x)^2 + \sin(x)^2 = 1\)</span>. <code>trigsimp</code> will perform this simplification for us.</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,trigsimp,cos,sin</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>trigsimp(cos(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sin(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="the-cancel-function" class="level3" data-number="14.3.6">
+<h3 data-number="14.3.6" class="anchored" data-anchor-id="the-cancel-function"><span class="header-section-number">14.3.6</span> The <code>cancel</code> function</h3>
+<p>The <code>cancel</code> function is helpful for simplifying an expression by canceling out like terms where possible. This function takes just a single argument, which is the expression to be simplified. The code below will simplify the following expression by canceling the common <code>(x+1)</code> that appears in both the numerator and denominator. <span class="math display">\[{x^2 + 2 x + 1 \over x^2 + x}\]</span></p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,cancel</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>cancel((x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span>(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <p><img src="sympy_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="the-expand_trig-function" class="level3" data-number="14.3.7">
-<h3 data-number="14.3.7" class="anchored" data-anchor-id="the-expand_trig-function"><span class="header-section-number">14.3.7</span> The <code>expand_trig</code> function</h3>
-<p><code>expand_trig</code> is the opposite of <code>trigsimp</code> and usually makes trig functions longer, but that can still be a useful way to view the function. Below we expand the expression <span class="math display">\[\sin(x + y)\]</span> using a trig identity.</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,expand_trig</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>expand_trig(sin(x <span class="op">+</span> y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="the-trigsimp-function" class="level3" data-number="14.3.7">
+<h3 data-number="14.3.7" class="anchored" data-anchor-id="the-trigsimp-function"><span class="header-section-number">14.3.7</span> The <code>trigsimp</code> function</h3>
+<p>If you want to use trigonometric identities to simplify your expression use the <code>trigsimp</code> function. For example, most of us know that <span class="math inline">\(\cos(x)^2 + \sin(x)^2 = 1\)</span>. <code>trigsimp</code> will perform this simplification for us.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,trigsimp,cos,sin</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>trigsimp(cos(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sin(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <p><img src="sympy_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="the-expand_trig-function" class="level3" data-number="14.3.8">
+<h3 data-number="14.3.8" class="anchored" data-anchor-id="the-expand_trig-function"><span class="header-section-number">14.3.8</span> The <code>expand_trig</code> function</h3>
+<p><code>expand_trig</code> is the opposite of <code>trigsimp</code> and usually makes trig functions longer, but that can still be a useful way to view the function. Below we expand the expression <span class="math display">\[\sin(x + y)\]</span> using a trig identity.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,expand_trig</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>expand_trig(sin(x <span class="op">+</span> y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<p><img src="sympy_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -552,90 +574,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="14.4.1" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">14.4.1</span> Derivatives</h3>
 <p>To calculate the derivative of an expression, use the <code>diff</code> function, which takes two arguments. The first is the expression that you want to take the derivative of and the second is the differentiating variable. In the cell below we calculate the derivative <span class="math display">\[{d\over dx} \cos(x)\]</span></p>
 <div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,diff,cos</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>diff(cos(x),x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<p><img src="sympy_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>To take multiple derivatives, simply add more <code>x</code>s to the <code>diff</code> function call. Below we calculate the derivative <span class="math display">\[{d^2\over dx^2} \cos(x)\]</span></p>
-<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,diff,cos</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>diff(cos(x),x,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>diff(cos(x),x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <p><img src="sympy_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>diff</code> can perform partial derivatives too. Below we perform the following partial derivatives <span class="math display">\[{\partial^2 \over \partial z^2} {\partial \over \partial y} {\partial \over \partial x} \exp(x y z)\]</span></p>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,diff,exp</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>diff(exp(x <span class="op">*</span> y <span class="op">*</span> z),x,y,z,z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To take multiple derivatives, simply add more <code>x</code>s to the <code>diff</code> function call. Below we calculate the derivative <span class="math display">\[{d^2\over dx^2} \cos(x)\]</span></p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,diff,cos</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>diff(cos(x),x,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <p><img src="sympy_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>diff</code> can perform partial derivatives too. Below we perform the following partial derivatives <span class="math display">\[{\partial^2 \over \partial z^2} {\partial \over \partial y} {\partial \over \partial x} \exp(x y z)\]</span></p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,diff,exp</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> symbols(<span class="st">"x y z"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>diff(exp(x <span class="op">*</span> y <span class="op">*</span> z),x,y,z,z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<p><img src="sympy_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>A differentiated function is a sympy expression just as good as any other and we can make a plot of it by evaluating the expression over a grid of values.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,diff</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>x,a,b,c <span class="op">=</span> symbols(<span class="st">"x a b c"</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> a <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>newexpression <span class="op">=</span> diff(expression,x)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>xarray <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">5</span>,<span class="fl">0.1</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [expression.subs({a:<span class="op">-</span><span class="dv">2</span>,b:<span class="dv">4</span>,c:<span class="dv">9</span>,x:X}) <span class="cf">for</span> X <span class="kw">in</span> xarray]</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>yprime <span class="op">=</span> [newexpression.subs({a:<span class="op">-</span><span class="dv">2</span>,b:<span class="dv">4</span>,c:<span class="dv">9</span>,x:X}) <span class="cf">for</span> X <span class="kw">in</span> xarray]</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>plt.plot(xarray,yprime,<span class="st">'r.-'</span>,label<span class="op">=</span> <span class="st">"y'(x)"</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>plt.plot(xarray,y,<span class="st">'b.-'</span>,label<span class="op">=</span> <span class="st">"y(x)"</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="sympy_files/figure-html/cell-23-output-1.png" width="577" height="404"></p>
 </div>
 </div>
 </section>
 <section id="integrals" class="level3" data-number="14.4.2">
 <h3 data-number="14.4.2" class="anchored" data-anchor-id="integrals"><span class="header-section-number">14.4.2</span> Integrals</h3>
 <p>Use the <code>integrate</code> function to perform definite and indefinite integrals. For definite integral, the function should be called with two arguments; the first is the expression to be integrated and the second is the tuple containing the integration limits. Below we integrate <span class="math display">\[ \int_0^5 \exp(-x) dx\]</span></p>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, Symbol</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>integrate(exp(<span class="op">-</span>x),(x,<span class="dv">0</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<p><img src="sympy_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>The limits of your integral can be at infinity by importing <code>oo</code> and using it in the limit specification.</p>
 <div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, Symbol,oo</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>integrate(exp(<span class="op">-</span>x),(x,<span class="dv">0</span>,oo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
-<p><img src="sympy_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Multiple integrations can be carried out by adding more arguments to the <code>integrate</code> function, each one specifying the limits for that variable. Here we integrate <span class="math display">\[\int_0^\infty \int_0^\infty \exp(-x^2 -y^2) dx dy \]</span></p>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, symbols,oo</span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, Symbol</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>integrate(exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>),(x,<span class="dv">0</span>,oo),(y,<span class="dv">0</span>,oo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>integrate(exp(<span class="op">-</span>x),(x,<span class="dv">0</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <p><img src="sympy_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>Indefinite integrals can be performed by omitting the limit specification and just indicating the variable to be integrated over. Below we perform the following indefinite integral <span class="math display">\[\int \int x^2 + y^2 dx dy \]</span></p>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, symbols</span>
+<p>The limits of your integral can be at infinity by importing <code>oo</code> and using it in the limit specification.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, Symbol,oo</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>integrate(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>,x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>integrate(exp(<span class="op">-</span>x),(x,<span class="dv">0</span>,oo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <p><img src="sympy_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Multiple integrations can be carried out by adding more arguments to the <code>integrate</code> function, each one specifying the limits for that variable. Here we integrate <span class="math display">\[\int_0^\infty \int_0^\infty \exp(-x^2 -y^2) dx dy \]</span></p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, symbols,oo</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>integrate(exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span>),(x,<span class="dv">0</span>,oo),(y,<span class="dv">0</span>,oo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<p><img src="sympy_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Indefinite integrals can be performed by omitting the limit specification and just indicating the variable to be integrated over. Below we perform the following indefinite integral <span class="math display">\[\int \int x^2 + y^2 dx dy \]</span></p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> integrate, symbols</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>integrate(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span>,x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<p><img src="sympy_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="limits" class="level3" data-number="14.4.3">
 <h3 data-number="14.4.3" class="anchored" data-anchor-id="limits"><span class="header-section-number">14.4.3</span> Limits</h3>
 <p><code>sympy</code> can compute limits symbolically with the <code>limit</code> function. The function takes three arguments: the expression, the variable of interest, and the limiting value for that variable. Below we take the following limit <span class="math display">\[\lim_{x \to 0} {\sin(x)\over x}\]</span></p>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> limit, Symbol,sin</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>limit(sin(x)<span class="op">/</span>x,x,<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<p><img src="sympy_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> limit, Symbol,sin</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Symbol(<span class="st">"x"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>limit(sin(x)<span class="op">/</span>x,x,<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<p><img src="sympy_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -645,58 +688,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So far we have seen how to construct expressions but not solve equations. The difference is that an equation is expressing some sort of equality between an multiple expressions. For example, the following is an equation <span class="math display">\[5 x^2 + 3 x - 2 = 10\]</span> To form an equation, you can use the <code>Eq</code> function. To use it, send in the expression on the left hand side of the equation for the first argument and the expression on the right hand side of the equation for the second argument.</p>
 <pre><code>Eq(lhs,rhs)</code></pre>
 <p>Below we form the equation <span class="math display">\[5 x + 2y = 8\]</span></p>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(<span class="dv">5</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> y , <span class="dv">8</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>equation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<p><img src="sympy_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(<span class="dv">5</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> y , <span class="dv">8</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>equation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<p><img src="sympy_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="solving-single-equations" class="level3" data-number="14.5.1">
 <h3 data-number="14.5.1" class="anchored" data-anchor-id="solving-single-equations"><span class="header-section-number">14.5.1</span> Solving single equations</h3>
 <p>Once an equation is created, the <code>solveset</code> function attempts to solve the function for the desired variables. To use <code>solveset</code>, pass the equation as the first argument and the variable being solved for as the second. Here we solve the equation <span class="math display">\[3 x^2 - 5 x =8\]</span> for <span class="math inline">\(x\)</span></p>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(<span class="dv">3</span><span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> x, <span class="dv">8</span>)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
-<p><img src="sympy_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(<span class="dv">3</span><span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> x, <span class="dv">8</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<p><img src="sympy_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="no-analytic-solution" class="level4" data-number="14.5.1.1">
 <h4 data-number="14.5.1.1" class="anchored" data-anchor-id="no-analytic-solution"><span class="header-section-number">14.5.1.1</span> No analytic solution</h4>
 <p>In some instances, <code>sympy</code> will not be able to find any solutions to the equation. For example, the solution to <span class="math display">\[{\sin(x)\over x} = 1\]</span> cannot be determined through analytical technique even though there are values of x that solve the equation. For situations like this, <code>sympy</code> will output an expression that is meant to indicate that it can’t find a solution.</p>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset,sin</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(sin(x)<span class="op">/</span>x, <span class="dv">1</span>)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
-<p><img src="sympy_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset,sin</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(sin(x)<span class="op">/</span>x, <span class="dv">1</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<p><img src="sympy_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="no-solution-period" class="level4" data-number="14.5.1.2">
 <h4 data-number="14.5.1.2" class="anchored" data-anchor-id="no-solution-period"><span class="header-section-number">14.5.1.2</span> No solution… period</h4>
 <p>Some equations really don’t have solutions and <code>sympy</code> can correctly identify these cases. For example, the equation <span class="math display">\[\exp(x) = 0\]</span> has no solutions. Let’s see what <code>sympy</code> tells us when we try to solve this one.</p>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset,exp</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(exp(x), <span class="dv">0</span>)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<p><img src="sympy_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset,exp</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(exp(x), <span class="dv">0</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<p><img src="sympy_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The <span class="math inline">\(\emptyset\)</span> symbol means an empty set or there are no solutions to this equation.</p>
@@ -704,15 +747,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="many-or-infinite-solutions" class="level4" data-number="14.5.1.3">
 <h4 data-number="14.5.1.3" class="anchored" data-anchor-id="many-or-infinite-solutions"><span class="header-section-number">14.5.1.3</span> Many or Infinite Solutions</h4>
 <p>Some equations have infinitely many solutions. For example the following equation <span class="math display">\[x - x = 0\]</span> is satisfied for any complex or real value of <span class="math inline">\(x\)</span>. Let’s see what sympy does when we ask it to solve this one.</p>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(x<span class="op">-</span>x, <span class="dv">0</span>)</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-<p><img src="sympy_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,solveset</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">"x"</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> Eq(x<span class="op">-</span>x, <span class="dv">0</span>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>solveset(equation,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<p><img src="sympy_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The output (<span class="math inline">\(\mathbb{C}\)</span>) is communicating that the set of all complex numbers are the solution to this equation. (Meaning you can choose any number and it will be a solution to this equation.)</p>
@@ -724,46 +767,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="linear-systems" class="level4" data-number="14.5.2.1">
 <h4 data-number="14.5.2.1" class="anchored" data-anchor-id="linear-systems"><span class="header-section-number">14.5.2.1</span> Linear Systems</h4>
 <p>The example given above is called a linear system because none of the variables are raised to a power. To solve a system like this, use <code>sympy</code>’s <code>linsolve</code> function.</p>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,linsolve</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>equationOne <span class="op">=</span> Eq(<span class="dv">3</span><span class="op">*</span> x <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> y, <span class="dv">8</span>)</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>equationTwo <span class="op">=</span> Eq(<span class="dv">8</span><span class="op">*</span> x <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> y, <span class="dv">3</span>)</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>linsolve([equationOne,equationTwo],(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
-<p><img src="sympy_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,linsolve</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>equationOne <span class="op">=</span> Eq(<span class="dv">3</span><span class="op">*</span> x <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> y, <span class="dv">8</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>equationTwo <span class="op">=</span> Eq(<span class="dv">8</span><span class="op">*</span> x <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> y, <span class="dv">3</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>linsolve([equationOne,equationTwo],(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<p><img src="sympy_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>It isn’t hard to find a system of equations that doesn’t have a solution. <span class="math display">\[12 x - 3 y = 8\]</span> <span class="math display">\[8x - 2y = 3\]</span> As with single equations, <code>sympy</code> will indicate this with the empty set symbol (<span class="math inline">\(\emptyset\)</span>).</p>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,linsolve</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>equationOne <span class="op">=</span> Eq(<span class="dv">12</span><span class="op">*</span> x <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> y, <span class="dv">8</span>)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>equationTwo <span class="op">=</span> Eq(<span class="dv">8</span><span class="op">*</span> x <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> y, <span class="dv">3</span>)</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>linsolve([equationOne,equationTwo],(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
-<p><img src="sympy_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,linsolve</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>equationOne <span class="op">=</span> Eq(<span class="dv">12</span><span class="op">*</span> x <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> y, <span class="dv">8</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>equationTwo <span class="op">=</span> Eq(<span class="dv">8</span><span class="op">*</span> x <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> y, <span class="dv">3</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>linsolve([equationOne,equationTwo],(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<p><img src="sympy_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="nonlinear-systems" class="level4" data-number="14.5.2.2">
 <h4 data-number="14.5.2.2" class="anchored" data-anchor-id="nonlinear-systems"><span class="header-section-number">14.5.2.2</span> Nonlinear Systems</h4>
 <p>If the equations involve variables being raised to powers, we call it a non linear system and you must use <code>sympy</code>’s <code>nonlinsolve</code> to solve the system. For example, here is a nonlinear system <span class="math display">\[3 x^2 + 5 y^2 = 8\]</span> <span class="math display">\[8x^2 - 12y^2 = 13\]</span></p>
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,nonlinsolve</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>eqOne <span class="op">=</span> Eq(<span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span>,<span class="dv">8</span>)</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>eqTwo <span class="op">=</span> Eq(<span class="dv">8</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">12</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span>,<span class="dv">13</span>)</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>nonlinsolve([eqOne,eqTwo],(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
-<p><img src="sympy_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols,Eq,nonlinsolve</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> symbols(<span class="st">"x y"</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>eqOne <span class="op">=</span> Eq(<span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span>,<span class="dv">8</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>eqTwo <span class="op">=</span> Eq(<span class="dv">8</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">12</span><span class="op">*</span>y<span class="op">**</span><span class="dv">2</span>,<span class="dv">13</span>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>nonlinsolve([eqOne,eqTwo],(x,y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<p><img src="sympy_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -801,15 +844,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(\sqrt{1 - \sin(x)^2}\)</span></li>
 </ul></li>
 </ol>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>A projectile is thrown directly downward from the top of a tall building (<span class="math inline">\(y_i = 150\)</span> meters) and lands with a thud on the ground (<span class="math inline">\(y_f = 0\)</span>) <span class="math inline">\(4\)</span> seconds later. The position equation for the projectile is <span class="math display">\[y_f = y_i + v_i \Delta t + {1\over 2} g \Delta t^2\]</span> Use <code>sympy</code> to solve this equation for the initial velocity. Note <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span> Answer: You should find the initial speed to be <span class="math inline">\(\approx 18\)</span> m/s</li>
 </ol>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>A projectile is launched from the top of a building (<span class="math inline">\(y_i = 23\)</span> m) with an initial speed of <span class="math inline">\(v_i = 60\)</span> m/s and a launch angle of <span class="math inline">\(\theta_i = 32^\circ\)</span>. The vertical position of the projectile is given by <span class="math display">\[y_f = y_i + v_i \sin \theta_i \Delta t - {1\over 2}g \Delta t^2\]</span>. Determine the time it takes before the projectile impacts the ground by solving this equation for <span class="math inline">\(\Delta t\)</span>.</li>
 </ol>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
 <li>An elastic collision is one where the total energy of the particles is the same before and after the collision. The equations that define an elastic collision where one of the objects is initially at rest are <span class="math display">\[{1\over 2} m_1 (v_1)_i^2 = {1\over 2} m_1 (v_1)_f^2 +{1\over 2} m_2 (v_2)_f^2\]</span> <span class="math display">\[m_1 (v_1)_i = m_1 (v_1)_f  + m_2 (v_2)_f\]</span>. Consider a situation where particle 1 (<span class="math inline">\(m_1 = 5 \text{ kg}\)</span>) is initially moving to the right with speed <span class="math inline">\((v_1)_i = 10 \text{ m/s}\)</span> and particle 2 is stationary (<span class="math inline">\(m_2 = 2 \text{ kg}\)</span>). Solve this system of equations for<span class="math inline">\((v_1)_f\)</span> and <span class="math inline">\((v_2)_f\)</span>. Do the results make sense? Then do the following
 <ol type="1">
@@ -819,7 +862,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Make the mass of particle 1 much greater than particle 2. What do you expect will happen? Verify that the results match your guess.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
 <li>Define a <code>sympy</code> variable for <span class="math inline">\(x\)</span> and then calculate the following derivatives:
 <ol type="1">
@@ -829,11 +872,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\({d\over dx} (x^3 - 5x^2 + 10 x)\)</span></li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">
 <li>Impulse is defined as the integral of the Force vs.&nbsp;time graph. <span class="math display">\[I = \int F dt\]</span>. Calculate the impulse imparted to an object from <span class="math inline">\(0&lt; t &lt; 10\)</span> if the force that it experiences is given by <span class="math display">\[F(t) = e^{-(t - 4)}\]</span>.</li>
 </ol>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -1046,8 +1089,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/extrapolation_interpolation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/rootFinding.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

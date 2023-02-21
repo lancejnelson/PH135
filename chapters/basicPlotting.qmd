@@ -606,7 +606,7 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
 # Python code here
 ```
 
-5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta\Delta t $$ $$ y(t) = y_i + v_i \sin \theta \Delta t + {1\over 2} a \Delta t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + a \Delta t$$  Place the following plots on a 3 x 2 grid for $ 0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, first column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
+5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta\Delta t $$ $$ y(t) = y_i + v_i \sin \theta \Delta t + {1\over 2} a \Delta t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + a \Delta t$$  Place the following plots on a 3 x 2 grid for $0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, first column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
 
 ```{python}
 # Python code here

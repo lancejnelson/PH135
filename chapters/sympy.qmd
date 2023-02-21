@@ -103,7 +103,21 @@ newexpression
 ```
 
 ## Simplifying Expressions
-`sympy` has several handy functions that can perform algebraic manipulations to your expressions.
+`sympy` has several handy functions that can perform algebraic manipulations to your expressions. Below you will find some of the most useful functions for simplifying expressions.
+
+### Evaluating expressions
+Once an expression is defined, you can evaluate the expression using the `subs` method.  The argument to this method is a dictionary containing the values to be inserted for the associated variables.  An example is given below
+
+```{python}
+from sympy import symbols
+
+x,a,b,c = symbols("x a b c")
+expression = a * x**2 + b * x + c
+
+evalDict ={a:2,b:4,c:9,x:4}
+expression.subs(evalDict)
+
+```
 
 ### The `simplify` function
 If you don't know exactly how you want your expression simplified, you should first try the `simplify` function.  `simplify` attempts to apply all of the more specialized functions in a smart way to produce a simpler looking result.  To use `simplify` simply send the desired expression in as an argument.
@@ -260,6 +274,25 @@ diff(exp(x * y * z),x,y,z,z)
 
 ```
 
+A differentiated function is a sympy expression just as good as any other and we can make a plot of it by evaluating the expression over a grid of values.
+
+```{python}
+from sympy import symbols,diff
+import numpy as np
+import matplotlib.pyplot as plt
+x,a,b,c = symbols("x a b c")
+expression = a * x**2 + b * x + c
+
+newexpression = diff(expression,x)
+xarray = np.arange(0,5,0.1)
+y = [expression.subs({a:-2,b:4,c:9,x:X}) for X in xarray]
+yprime = [newexpression.subs({a:-2,b:4,c:9,x:X}) for X in xarray]
+plt.plot(xarray,yprime,'r.-',label= "y'(x)")
+plt.plot(xarray,y,'b.-',label= "y(x)")
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 ### Integrals
 

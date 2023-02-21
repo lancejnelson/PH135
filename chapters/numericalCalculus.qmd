@@ -12,7 +12,7 @@ execute:
 
 If you have taken a calculus class, you probably know what a derivative and anti-derivative are and how to calculate them. (If you haven't taken calculus, you will understand these concepts soon.)  The techniques that you learned in calculus class are called analytical methods, which means that  the derivative (or anti-derivative) are calculated using pencil, paper, and some mathematical rules to guide you.  In this chapter, we will explore how to find the derivative (or anti-derivative) of a discrete set of data rather than a continuous function.  
 
-# Numerical Derivatives
+## Numerical Derivatives
 Let's start with a simple data set that gives the position of an object dropped from a tall building at various times.  
 
 
@@ -443,14 +443,6 @@ plt.show()
    3. Using the center-difference formula, calculate the derivative of this data.  What quantity do you get when you take a derivative of position vs. time data?
    3. Calculate the second derivative of this data.  What quantity do you get when you take a second derivative of position vs. time data?
    4. Plot the derivatives and inspect them to verify that they make sense.
-   5. The original data set has a column that contains the Felix's speed and the y-component of his acceleration. Plot this column vs. time and compare to the derivatives you performed to see if they match (or are close).
+   5. The original data set has a column that contains the Felix's airspeed (in km/hour). Plot this column vs. time and compare to the derivative you performed to see if they match (or are close).
 
 
-4. [This file](https://lancejnelson.github.io/PH135/files/Redbull_jump_full.csv) contains data from Felix Baumgartner's 2012 jump from an altitude of $39$ km above the surface of the earth.  Complete the following:
-
-   1. Read the data file into a pandas dataframe.
-   2. Plot the y-component of acceleration vs. time.
-   3. Using rectangles, calculate the indefinite integral of this data. 
-   4. Repeat step 3 but with trapezoids this time.
-   5. Plot the integral vs time.  You may recall that the integral of acceleration is velocity (or rather the change in velocity).  Does the plot look right.
-   6. The original data set has a column that contains the Felix's speed. Plot this column vs. time and compare to the integral you performed to see if they match (or are close).

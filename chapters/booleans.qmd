@@ -180,7 +180,7 @@ if "Matis" in jupytermoons:
 
 If the boolean statement after `if` is true, the indented code below it will run.  If the statement is false, Python just skips the indented lines below.
 
-### `else` Statment
+### `else` Statement
 
 Sometimes there will be an alternate block of code that you want to run if the `if` statement evaluates to `False`.  The `else` statement is used to specify this block of code, as shown below.
 

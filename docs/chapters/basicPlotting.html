@@ -257,22 +257,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  <a href="../chapters/rootFinding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
+  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
   </div>
 </li>
       </ul>
@@ -339,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. If you want to plot a function, the list of x coordinates should be chosen to be a dense array of points spanning the function’s domain and the list of y coordinates should be the function values at those points. A good choice for generating the x-coordinates is either <code>linspace</code> or <code>arange</code> from NumPy. Let’s consider an example. The function shown below is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance</p>
 <p><span class="math display">\[ E = 4\sigma\left[ \left({\epsilon\over r} \right)^{12} - \left({\epsilon\over r} \right)^{6}\right]\]</span></p>
 <p>Let’s plot this function from <span class="math inline">\(0.9\)</span> to <span class="math inline">\(4.0\)</span>.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -495,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Here is the plot from above with some of these keyword arguments added.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -513,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="labeling-plots" class="level3" data-number="11.1.2">
 <h3 data-number="11.1.2" class="anchored" data-anchor-id="labeling-plots"><span class="header-section-number">11.1.2</span> Labeling Plots</h3>
 <p>All good plots have axes labels and a title and you can add them to a matplotlib plot using the <code>xlabel()</code>, <code>ylabel()</code>, and <code>title()</code> functions which are placed on their own line after the <code>plot</code> command.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -537,7 +542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="greek-letters" class="level3" data-number="11.1.3">
 <h3 data-number="11.1.3" class="anchored" data-anchor-id="greek-letters"><span class="header-section-number">11.1.3</span> Greek Letters</h3>
 <p>In physics, Greek letters get used all the time and you may find yourself wanting to use one in a plot title or axes label. This can be accomplished by placing an <code>r</code> in front of the title string and then placing the name of the greek variable inside of <code>$</code> with a backslash in front of it. This is better illustrated with an example.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -641,7 +646,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="controlling-the-axes" class="level3" data-number="11.1.4">
 <h3 data-number="11.1.4" class="anchored" data-anchor-id="controlling-the-axes"><span class="header-section-number">11.1.4</span> Controlling the Axes</h3>
 <p>By default, matplotlib will size the plot window to include all of the points. If you want to zoom in our out, you can do so with the <code>xlim</code> and <code>ylim</code> functions. These functions should be placed after the plot command on their own line just like the label commands.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -667,7 +672,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="overlaying-plots" class="level3" data-number="11.1.5">
 <h3 data-number="11.1.5" class="anchored" data-anchor-id="overlaying-plots"><span class="header-section-number">11.1.5</span> Overlaying Plots</h3>
 <p>Often you will want to plot more than one set of data on the same set of axes. This can be accomplished two ways. The first way is to call the <code>plot</code> function twice in the same Jupyter notebook cell. Matplotlib will automatically place the plots on the same figure and scale it appropriately. Below you will find a plot of the Lennard-Jones potential for two choices of the parameters <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -697,7 +702,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The other way to overlay plots is to include both sets of data into a single <code>plot</code> command.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -729,7 +734,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="plot-legends" class="level3" data-number="11.1.6">
 <h3 data-number="11.1.6" class="anchored" data-anchor-id="plot-legends"><span class="header-section-number">11.1.6</span> Plot Legends</h3>
 <p>Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, you must first use the keyword argument <code>label</code> to each <code>plot</code> command to specify each plot’s label. To add the legend, use the command <code>pyplot.ledend()</code>. An example is given below:</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -767,7 +772,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="logarithmic-plots" class="level3" data-number="11.2.1">
 <h3 data-number="11.2.1" class="anchored" data-anchor-id="logarithmic-plots"><span class="header-section-number">11.2.1</span> Logarithmic Plots</h3>
 <p>Sometimes the function being plotted increases or decreases by many orders of magnitude and a normal linear plot would not be particularly useful. Logarithmic plots can be made with the use of the <code>semilogx</code>, <code>semilogy</code>, or <code>loglog</code> functions depending on which axes you want to be on a logarithmic scale. Consider the first plot produced below. Notice that it rises from <span class="math inline">\(0\)</span> at <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(10^{45}\)</span> at <span class="math inline">\(x = 100\)</span>. Plotting this function with the y-axis scaled logarithmically will smooth out the plot and make it easier to analyze.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,exp</span>
@@ -790,7 +795,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="bar-plots" class="level3" data-number="11.2.2">
 <h3 data-number="11.2.2" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">11.2.2</span> Bar Plots</h3>
 <p>A bar plot and a scatter plot are quite similar except that instead of a plot marker indicating the associated value, the height of the bar represents the value. You can make a bar plot using the <code>bar</code> function inside of <code>pyplot</code>.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -847,7 +852,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="errorbar-plots" class="level3" data-number="11.2.3">
 <h3 data-number="11.2.3" class="anchored" data-anchor-id="errorbar-plots"><span class="header-section-number">11.2.3</span> Errorbar Plots</h3>
 <p>To make plots with error bars use matplotlilb’s <code>errorbar</code> function. You can choose to add error bars on the x or y axis using the keyword arguments <code>xerr</code> and <code>yerr</code>.</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange</span>
@@ -871,7 +876,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="scatter-plots" class="level3" data-number="11.2.4">
 <h3 data-number="11.2.4" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">11.2.4</span> Scatter Plots</h3>
 <p>We have already generated scatter plots using the <code>plot</code> function but you can also use the <code>scatter</code> command to do the same thing. The only other additional functionality with <code>scatter</code> is the ability to specify the color, shape, and size of each plot marker individually.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
@@ -898,7 +903,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="histograms" class="level3" data-number="11.2.5">
 <h3 data-number="11.2.5" class="anchored" data-anchor-id="histograms"><span class="header-section-number">11.2.5</span> Histograms</h3>
 <p>Histograms display bars representing the frequency of values in a given data set. Unlike bar plots, the width of the bar is meaningful since the each bar represents the number of x-values that fall within a range given by the width of the bar. A histogram can be constructed using the <code>hist</code> function. There is only one required argument, which is the data set. Some commonly used keyword arguments are <code>bins</code> which specifies how many equally-spaced groups (called <em>bins</em>) to generate and <code>edgecolor</code> which can be used to specify the color of the bar’s edges.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
@@ -917,7 +922,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Here we have used <code>bins = 5</code> which will produce a histogram with <span class="math inline">\(5\)</span> equal-size bins. Alternatively, we can specify the exact locations of all the bin edges by placing them in a list.</p>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
@@ -939,7 +944,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="polar-plots" class="level3" data-number="11.2.6">
 <h3 data-number="11.2.6" class="anchored" data-anchor-id="polar-plots"><span class="header-section-number">11.2.6</span> Polar Plots</h3>
 <p>In a polar plot instead of providing <span class="math inline">\((x,y)\)</span> coordinates, you provide <span class="math inline">\((r,\theta)\)</span> coordinates, where <span class="math inline">\(r\)</span> is the radial distance from the origin and <span class="math inline">\(\theta\)</span> is the angular location on the unit circle.</p>
-<div class="cell" data-execution_count="16">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,pi,sin</span>
@@ -960,7 +965,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To generate multiple, independent plots in the same figure a few more lines of code are necessary to specify how you want the plots arranged. We start with the <code>figure</code> function which generates the canvas upon which the plots will appear. Assign this object to a variable so you can refer to it later. To create each subplot, the <code>fig.add_subplot(rows,columns, plot_number)</code> function is used. There are three arguments to this function; the first two indicate the shape of the grid and the third indicates which position on the grid this plot will be assigned.</p>
 <pre><code>fig.add_subplot(rows,columns,plot_location)</code></pre>
 <p>After the axes object has been created, we can call the <code>plot</code> function again, and a plot will be generated at its location. Here is an example that will generate two plots side by side.</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -999,7 +1004,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Pay close attention to the <code>add_subplot</code> function. <code>ax1=add_subplot(1,2,1)</code> will generate a <span class="math inline">\(1\)</span> x <span class="math inline">\(2\)</span> grid of plots and <code>ax1</code> will correspond plot at the 1st location. Below is an example of a more advanced array of plots. Pay close attention to the <code>add_subplot</code> functions until you understand.</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -1105,7 +1110,7 @@ Follow the steps below to plot this function for several different temperatures:
 </ol>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
-<li>The position and velocity coordinates for a projectile launched at angle <span class="math inline">\(\theta\)</span> are given by: <span class="math display">\[x(t) = x_i + v_i \cos \theta\Delta t \]</span> <span class="math display">\[ y(t) = y_i + v_i \sin \theta \Delta t + {1\over 2} a \Delta t^2\]</span> <span class="math display">\[v_x(t) = v_i \cos \theta\]</span> <span class="math display">\[v_y(t) = v_i \sin \theta + a \Delta t\]</span> Place the following plots on a 3 x 2 grid for $ 0 &lt; t &lt; 5.5$ seconds: <span class="math inline">\(x\)</span> vs <span class="math inline">\(y\)</span> (first row, spans both columns), <span class="math inline">\(x\)</span> vs <span class="math inline">\(t\)</span> (second row, first column), <span class="math inline">\(y\)</span> vs <span class="math inline">\(t\)</span>(second row, first column), <span class="math inline">\(v_x\)</span> vs <span class="math inline">\(t\)</span>(third row, first column), and <span class="math inline">\(v_y\)</span> vs <span class="math inline">\(t\)</span>(third row, second column). Make sure that all of the plots have titles and axes labels. Use the following initial conditions: <span class="math display">\[v_i = 60 \text{ m/s}\]</span> <span class="math display">\[\theta = 22^\circ\]</span> <span class="math display">\[x_i = 0 \text{ m}\]</span> <span class="math display">\[y_i = 15 \text{ m}\]</span></li>
+<li>The position and velocity coordinates for a projectile launched at angle <span class="math inline">\(\theta\)</span> are given by: <span class="math display">\[x(t) = x_i + v_i \cos \theta\Delta t \]</span> <span class="math display">\[ y(t) = y_i + v_i \sin \theta \Delta t + {1\over 2} a \Delta t^2\]</span> <span class="math display">\[v_x(t) = v_i \cos \theta\]</span> <span class="math display">\[v_y(t) = v_i \sin \theta + a \Delta t\]</span> Place the following plots on a 3 x 2 grid for <span class="math inline">\(0 &lt; t &lt; 5.5\)</span> seconds: <span class="math inline">\(x\)</span> vs <span class="math inline">\(y\)</span> (first row, spans both columns), <span class="math inline">\(x\)</span> vs <span class="math inline">\(t\)</span> (second row, first column), <span class="math inline">\(y\)</span> vs <span class="math inline">\(t\)</span>(second row, first column), <span class="math inline">\(v_x\)</span> vs <span class="math inline">\(t\)</span>(third row, first column), and <span class="math inline">\(v_y\)</span> vs <span class="math inline">\(t\)</span>(third row, second column). Make sure that all of the plots have titles and axes labels. Use the following initial conditions: <span class="math display">\[v_i = 60 \text{ m/s}\]</span> <span class="math display">\[\theta = 22^\circ\]</span> <span class="math display">\[x_i = 0 \text{ m}\]</span> <span class="math display">\[y_i = 15 \text{ m}\]</span></li>
 </ol>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="6" type="1">

@@ -21,7 +21,7 @@ When plotting a function of one variable, recall that the first step was to use 
 
 ```{python}
 from numpy import arange,meshgrid,cos,exp,pi,mgrid
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 #from mpl_toolkits.mplot3d import Axes3D  #<- You need this to make 3D plots
 # Define the arrays x and y
 # Don't make the step size too small or you will kill the
@@ -36,12 +36,12 @@ X,Y=meshgrid(x,y)
 # rather than with x and y
 F=cos(pi/2*X)*exp(-Y**2)
 # Plot the function
-fig = pyplot.figure()
-ax=fig.gca(projection='3d')
+fig = plt.figure()
+ax = plt.axes(projection = '3d')
 ax.plot_surface(X,Y,F)
-pyplot.xlabel('x')
-pyplot.ylabel('y')
-pyplot.show()
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
 ```
 
 

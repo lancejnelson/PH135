@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 19&nbsp; Euler’s Method</title>
+<title>Scientific Computing - 15&nbsp; Root Finding and Optimization Algorithms</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/numericalCalculus.html" rel="prev">
+<link href="../chapters/extrapolation_interpolation.html" rel="next">
+<link href="../chapters/sympy.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -130,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -256,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/rootFinding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></a>
+  <a href="../chapters/rootFinding.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -276,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
+  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
   </div>
 </li>
       </ul>
@@ -290,10 +291,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#air-drag---one-dimensional" id="toc-air-drag---one-dimensional" class="nav-link active" data-scroll-target="#air-drag---one-dimensional"> <span class="header-section-number">19.1</span> Air Drag - One dimensional</a></li>
-  <li><a href="#air-drag-two-dimensional" id="toc-air-drag-two-dimensional" class="nav-link" data-scroll-target="#air-drag-two-dimensional"> <span class="header-section-number">19.2</span> Air Drag (two dimensional)</a></li>
-  <li><a href="#rocket-propulsion" id="toc-rocket-propulsion" class="nav-link" data-scroll-target="#rocket-propulsion"> <span class="header-section-number">19.3</span> Rocket Propulsion</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">19.4</span> Exercises</a></li>
+  <li><a href="#secant-method" id="toc-secant-method" class="nav-link active" data-scroll-target="#secant-method"> <span class="header-section-number">15.1</span> Secant Method</a></li>
+  <li><a href="#newtons-method" id="toc-newtons-method" class="nav-link" data-scroll-target="#newtons-method"> <span class="header-section-number">15.2</span> Newton’s Method</a></li>
+  <li><a href="#fixed-point-iteration" id="toc-fixed-point-iteration" class="nav-link" data-scroll-target="#fixed-point-iteration"> <span class="header-section-number">15.3</span> Fixed-Point Iteration</a></li>
+  <li><a href="#finding-extrema" id="toc-finding-extrema" class="nav-link" data-scroll-target="#finding-extrema"> <span class="header-section-number">15.4</span> Finding Extrema</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">15.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -302,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></h1>
 </div>
 
 
@@ -316,133 +318,184 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/eulers.ipynb">Jupyter Notebook</a></p>
-<p>In PH121 you will learn(or have already learned) how the position, velocity, and acceleration of an object are related to one another. One of the more challenging cases occurs when the acceleration of the object is not constant. The acceleration could vary with position, velocity, or time. In these cases, you may not be able to use calculus to find the position and/or velocity of an object. Instead, you’ll have to repeatedly use these equations</p>
-<p><span class="math display">\[
-v_{i+1} = v_i  + a_i \Delta t
-\]</span></p>
-<p><span class="math display">\[
-x_{i+1} = x_i + v_i \Delta t
-\]</span></p>
-<p>with a very small <span class="math inline">\(\Delta t\)</span>. If <span class="math inline">\(\Delta t\)</span> is sufficiently small, assuming that the acceleration is constant is a reasonable approximation. Below we will explain the physics of a few important situations where Euler’s method is a good choice to solve the problem.</p>
-<section id="air-drag---one-dimensional" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="air-drag---one-dimensional"><span class="header-section-number">19.1</span> Air Drag - One dimensional</h2>
-<p>The drag force (due to air resistance) is given by:</p>
-<p><span class="math display">\[
-F_\text{drag} = {1\over 2} C \cdot \rho_\mathrm{air} \cdot A \cdot v^2
-\]</span></p>
-<p>where <span class="math inline">\(C\)</span> is the drag coefficient, <span class="math inline">\(\rho_\mathrm{air}\)</span> is the density of air, and <span class="math inline">\(A\)</span> is the cross-sectional area of the projectile. For an object that is dropped (or thrown) vertically, the acceleration is given by the following</p>
-<p><span class="math display">\[
-\begin{align*}
--m g - {1\over 2} \rho A C v^2 &amp;= m a\\
--g - {1\over 2 m} \rho A C v^2 &amp;= a\\
-\end{align*}
-\]</span></p>
-<p>and we can use the standard kinematic equations with a very small <span class="math inline">\(\Delta t\)</span> to determine the position and velocity at future times.</p>
-<p><span class="math display">\[
-y_\mathrm{n+1} = y_n + v_n  \Delta t
-\]</span></p>
-<p><span class="math display">\[
-v_{n+1} = v_n - a \Delta t
-\]</span></p>
-<p>In the code cell below you will find an example of Euler’s method for a small styrofoam ball that is dropped from the top of a <span class="math inline">\(100\)</span>-m-tall building. The styrofoam ball has a mass <span class="math inline">\(m = 100\)</span> g, drag constant <span class="math inline">\(C = 0.02\)</span>, radius <span class="math inline">\(r = 0.25\)</span> m and the density of air is <span class="math inline">\(1.29\)</span> kg/m<span class="math inline">\(^3\)</span>.</p>
+<p><a href="https://lancejnelson.github.io/PH135/jupyter/rootFinding.ipynb">Jupyter Notebook</a></p>
+<p>Often in science, we find ourselves wanting to do one of the following: 1. Solve an equation for a specified variable 2. Find the zeros of a function (equivalent to solving an equation that is equal to zero) 3.Find the extrema (maxima or minima) of a function.</p>
+<p>As an example, consider the function shown below</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> pi</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.01</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> [<span class="dv">0</span>]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span>[<span class="dv">100</span>]</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="dv">0</span>]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> <span class="fl">0.02</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="fl">1.29</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">.25</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> pi <span class="op">*</span> r<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="fl">.1</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> y[<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span><span class="op">/</span>m <span class="op">*</span> rho <span class="op">*</span> A <span class="op">*</span> C <span class="op">*</span> v[<span class="op">-</span><span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> g</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  v.append(v[<span class="op">-</span><span class="dv">1</span>]<span class="op">+</span> a <span class="op">*</span> dt)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  y.append(y[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> v[<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> dt)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  t.append(t[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> dt)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ax1.plot(t,y,<span class="st">'r.'</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>ax2.plot(t,v,<span class="st">'r.'</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="eulers_files/figure-html/cell-2-output-1.png" width="577" height="404"></p>
+<p><img src="rootFinding_files/figure-html/cell-2-output-1.png" width="590" height="404"></p>
+</div>
+</div>
+<p>When the function of interest is unsolvable using standard algebraic techniques, we must resort to a numerical algorithm to find the solution.</p>
+<!--  Finding the zero of this function means finding the x-value where the function is equal to zero (red dot).  Finding the min or max of the function means finding the x value where the slope of the function is zero (blue and green dots). When algebra techniques fail to solve the equation, we can use one of several numerical algorithms to solve it instead. 
+You probably remember being asked to find the roots of a function in your math class. Finding the roots means finding the x values that make $y(x) = 0$. For example, the following polynomial equation has two solutions that can be found using the quadratic formula.
+
+
+
+$$
+4 x^2 + 2x - 2 = 0
+$$
+
+
+
+The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into the equation above to verify this. -->
+<p>In this chapter we will discuss various numerical methods for performing these tasks. ## Bisection The bisection method is a numerical algorithm for finding the zeros of a function, or the locations where the function is equal to zero. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function. The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function. Formally, the algorithm proceeds as follows: 1. Choose an interval wherein the function zero is certain to be located. Call the interval <span class="math inline">\((a,b)\)</span> 2. Calculate the midpoint of the interval <span class="math inline">\(c = {a+ b \over 2}\)</span> 3. Calculate the function value at the midpoint (<span class="math inline">\(f(c)\)</span>). 4. By examining the sign of <span class="math inline">\(f(c)\)</span> determine whether the interval <span class="math inline">\((a,c)\)</span> or <span class="math inline">\((c,b)\)</span> contains the zero of the function. 5. Repeat steps 2-4 until <span class="math inline">\(f(c)\)</span> is sufficiently small.</p>
+<p>In the code cell below, try to use the bisection method to solve the following equation.</p>
+<p><span class="math display">\[
+y(x) = 5 x^2 - 3x - 2 = 0
+\]</span></p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ab <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">3</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">5</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">-</span> <span class="dv">2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> ab[<span class="dv">1</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(y(mid)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  mid <span class="op">=</span> (ab[<span class="dv">0</span>] <span class="op">+</span> ab[<span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> np.sign(y(mid)) <span class="op">==</span> np.sign(ab[<span class="dv">1</span>]):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ab <span class="op">=</span> [ab[<span class="dv">0</span>],mid]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ab <span class="op">=</span> [mid,ab[<span class="dv">1</span>]]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.9999990463256836</code></pre>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lancejnelson.github.io/PH135/figures/Bisection_method.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg</figcaption><p></p>
+</figure>
+</div>
+<section id="secant-method" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="secant-method"><span class="header-section-number">15.1</span> Secant Method</h2>
+</section>
+<section id="newtons-method" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="newtons-method"><span class="header-section-number">15.2</span> Newton’s Method</h2>
+<p>Newton’s method uses the slope of a function to find a better approximation to the zeros. By repeatedly using the slope of the function to find a better and better approximation to the zero, the algorithm can find the zero to a desired level of accuracy. The algorithm begins with an initial guess for the zero that need not be very close, but shouldn’t be extremely far away either. An improvement on this initial guess is calculated with</p>
+<p><span class="math display">\[
+x_1 = x_0 - {f(x_0)\over f'(x_0)}
+\]</span></p>
+<p>where <span class="math inline">\(f'(x_0)\)</span> is the derivative of the function evaluated at the initial guess. The algorithm continues with repeated evaluation of the equation above until <span class="math inline">\(f(x_n)\)</span> evaluates to a sufficiently small number:</p>
+<p><span class="math display">\[
+x_n = x_{n-1} - {f(x_n)\over f'(x_n)}
+\]</span></p>
+<p>Below you will find a code example for solving the following equation:</p>
+<p><span class="math display">\[
+y(x) = \cos(x) = 0
+\]</span></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.3</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> x <span class="op">+</span> np.cos(x)<span class="op">/</span>np.sin(x) </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x,np.cos(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.5707963256833193 1.1115773359029342e-09</code></pre>
+</div>
+</div>
+<p>If the function of interest has multiple zeros (like the cosine function we did above), one must give careful consideration to the initial guess. Making a poor choice can lead to the algorithm finding a different zero than what was intended.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lancejnelson.github.io/PH135/figures/Newtons_method.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="fixed-point-iteration" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="fixed-point-iteration"><span class="header-section-number">15.3</span> Fixed-Point Iteration</h2>
+<p>Suppose you want to solve the following equation:</p>
+<p><span class="math display">\[
+x = \cos(x)$
+\]</span></p>
+<p>No matter how hard you try, you won’t be able to solve this equation for <span class="math inline">\(x\)</span>. Instead, you’ll need to use a numerical method called fixed-point iteration to solve it. In this method, you begin with an initial guess and then repeatedly evaluate the function of interest until $|x - (x)| $ is sufficiently small.</p>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> np.cos(x)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://lancejnelson.github.io/PH135/figures/Fixed_Point.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg</figcaption><p></p>
+</figure>
+</div>
+<p>Fixed-point iteration can also be used to find the zeros or extrema of a function if you can first algebraically manipulate the equation to take the form shown in the equation above. For example, the following equation</p>
+<p><span class="math display">\[
+2x^3 - 2 x - 5 =0
+\]</span></p>
+<p>Is equivalent to:</p>
+<p><span class="math display">\[
+x = (x+{5\over 2})^{1\over 3}
+\]</span></p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> (x<span class="op">+</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)) <span class="op">&gt;</span> <span class="fl">1e-8</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x<span class="op">+</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="finding-extrema" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="finding-extrema"><span class="header-section-number">15.4</span> Finding Extrema</h2>
+<p>Any of the methods discussed above can be used to find extrema by finding the zeros of the derivative. For example, to find the minimum of this function:</p>
+<p><span class="math display">\[
+y(x) = 5 x^3 - 2x^2 - 8 x + 2
+\]</span></p>
+<p>We can find the zeros of the derivative function:</p>
+<p><span class="math display">\[
+y'(x) = 15 x^2 - 4 x - 8
+\]</span></p>
+<p>Fixed-point iteration, or any of the other methods discussed, can then be used to solve this equation:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.sqrt(<span class="dv">4</span><span class="op">/</span><span class="dv">15</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">8</span><span class="op">/</span><span class="dv">15</span>)) <span class="op">&gt;</span> <span class="fl">1e-8</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.sqrt(<span class="dv">4</span><span class="op">/</span><span class="dv">15</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">8</span><span class="op">/</span><span class="dv">15</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"Too many iterations. Results may not be correct!"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.8757019168612669</code></pre>
 </div>
 </div>
 </section>
-<section id="air-drag-two-dimensional" class="level2" data-number="19.2">
-<h2 data-number="19.2" class="anchored" data-anchor-id="air-drag-two-dimensional"><span class="header-section-number">19.2</span> Air Drag (two dimensional)</h2>
-<p>For two dimensional motion, we need to decompose the drag force into x and y components.</p>
-<p><span class="math display">\[
-\begin{align*}
-F_x &amp;= F_D \cos(\theta)\\
-&amp;= F_D {v_x\over v}\\
-&amp;= -{1\over 2} \rho A C v^2 {v_x\over v}\\
-&amp;= -{1\over 2} \rho A C v v_x\\
-\end{align*}
-\]</span></p>
-<p>A similar expression for the y component of the drag force is</p>
-<p><span class="math display">\[
-F_y = -{1\over 2} \rho A C v v_y\\
-\]</span></p>
-</section>
-<section id="rocket-propulsion" class="level2" data-number="19.3">
-<h2 data-number="19.3" class="anchored" data-anchor-id="rocket-propulsion"><span class="header-section-number">19.3</span> Rocket Propulsion</h2>
-<p>The liftoff of a rocket provides some interesting physics to consider. The mass of the rocket + fuel is decreasing as the fuel burns off. Hence, the acceleration of the rocket is very much not a constant. However, in your code you don’t want to decrease the mass of the rocket-fuel system forever or the mass will become lower than the mass of the rocket alone, and eventually will go negative (yikes!). Watch out for that.</p>
-<p>The force of the thrust on the rocket is given by:</p>
-<p><span class="math display">\[ F = v_e {dM\over dt}\]</span></p>
-<p>where <span class="math inline">\({dM\over dt}\)</span> is the rate of mass loss due to the fuel burning and <span class="math inline">\(v_e\)</span> is the speed with which the exhaust exits the rocket. Can you do a unit analysis on this function and convince yourself that it has the right units?</p>
-<p>The force of air drag on the rocket is quadratic. In other words, it is given by:</p>
-<p><span class="math display">\[F_\text{drag} = {1\over 2} \rho A C v^2\]</span></p>
-<p>where <span class="math inline">\(\rho\)</span> is the density of air, <span class="math inline">\(A\)</span> is the cross-sectional area of the rocket, and <span class="math inline">\(C\)</span> is the drag coefficient. Also notice that the direction of the drag force changes at the peak of the trajectory. For the upward journey, the drag force points downward, and for the downward part of the journey, the drag force points upward. To handle this efficiently when writing your code, I recommend calculating this force like this:</p>
-<p><span class="math display">\[ F_D = {1\over 2} \rho A C v |v|\]</span></p>
-<p>so that the sign of this calculation changes naturally at the peak of the trajectory.</p>
-<p>Since the rocket may travel a considerable distance into the atmosphere, we must take into account that the density of the atmosphere varies with altitude according to:</p>
-<p><span class="math display">\[\rho(h) = (1.09 - {0.0065 h\over 300})^{2.5}\]</span></p>
-</section>
-<section id="exercises" class="level2" data-number="19.4">
-<h2 data-number="19.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">19.4</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">15.5</span> Exercises</h2>
 <ol type="1">
-<li>In 2012, Felix Baumgartner successfully jumped from a height of <span class="math inline">\(39.0\)</span> km above the surface of the Earth. Consider the complexities that this real-world examples provides:
-<ol type="1">
-<li>For this problem, we must include the force of air drag to get the calculation right. The force of air drag is given by: <span class="math inline">\(F_d = {1\over 2} \rho A C v^2\)</span>, with <span class="math inline">\(C = 0.58\)</span>, <span class="math inline">\(A = 1.04\)</span> m<span class="math inline">\(^2\)</span></li>
-<li>Because Felix jumped from such a high altitude, the density of the atmosphere changed as he fell. The density of the atmosphere changes with altitude according to the following equation: <span class="math inline">\(\rho = 1.2 \text{ (kg/m}^3\text{)} e^{-h\over 1 \times 10^4}\)</span></li>
-<li>The acceleration due to gravity, g, is not constant over the flight, but changes with altitude according to the following equation: <span class="math inline">\(g = {9.8 \text{ m/s}^2 \over (1 + {h\over R_E})^2}\)</span>, where <span class="math inline">\(R_E = 6.37 \times 10^6\)</span> m</li>
-<li>Assume that Felix’s mass is <span class="math inline">\(m = 73\)</span> kg and that he starts from rest.</li>
-</ol>
-Use Euler’s method to answer the following questions:
-<ol type="1">
-<li>How long does it take Felix to reach Earth’s surface. Give your answer to the nearest second. (Note: We are not considering a parachute in this case.. ouch.) Answer: You should find that his flight took <span class="math inline">\(\approx 400\)</span> s.</li>
-<li>Compare the real fall time you just calculated to the dragless, constant-g (<span class="math inline">\(9.8\)</span>m/s<span class="math inline">\(^2\)</span>) fall time. Answer: You should find that the fall time is <span class="math inline">\(\approx 90\)</span> s. (big difference eh.)</li>
-</ol></li>
-<li>A rocket has a total mass <span class="math inline">\(M_i = 180\)</span> kg, including <span class="math inline">\(130\)</span> kg of fuel and oxidizer. The rocket is launched from the ground, starting from rest at time <span class="math inline">\(t = 0\)</span> s, and puts out exhaust with a relative speed of <span class="math inline">\(v_e = 1500\)</span> m/s at a constant burn rate of <span class="math inline">\({dM \over dt} = 2.50\)</span> kg/s. The burn lasts until the fuel runs out. Assume a cylindrical rocket with a fuselage radius <span class="math inline">\(r = 20\)</span> cm, and a drag coefficient of <span class="math inline">\(C = 0.5\)</span>.
-<ol type="1">
-<li>Using Euler’s method, plot the position vs.&nbsp;time and velocity vs.&nbsp;time graphs for the rocket from the moment it lifts off until it hits the ground again. Note: We’re not modeling a parachute here.</li>
-<li>Make sure your code is well commented.</li>
-<li>How long was the flight?</li>
-<li>What is the rocket’s impact speed with the ground?</li>
-<li>Once you think your simulation is correct, play with some of the key parameters to ensure that the results of your simulation agree with your own intuition. Here are some things you could try:
-<ol type="1">
-<li>Change the mass of the rocket.</li>
-<li>Change the mass of the fuel.</li>
-<li>Change the exhaust speed of the fuel.</li>
-<li>Change the drag coefficient.</li>
-<li>Change the size of the rocket (cross-sectional area).</li>
-</ol></li>
-</ol></li>
-<li>The distance from home plate to the home run fence is <span class="math inline">\(550\)</span> feet. It is well known that it is easier to hit home run in Denver (where the altitude is higher and the air density is lower) than it is in a ballpark that is closer to sea level. Use Euler’s method to determine the initial speed needed to hit a home run at sea level where the air density is <span class="math inline">\(\rho = 1.225\)</span> kg/m<span class="math inline">\(^3\)</span>. Then repeat the calculation for a ballpark in Denver where the air density is <span class="math inline">\(82\%\)</span> of the sea level value. If you were a pitcher, would you feel inclined to pitch in Denver? The drag constant for a baseball is not constant with its speed. Experimental work has revealed the following expression for the group of variables that multiplies velocity in the drag equation (at sea level)</li>
+<li>Use the bisection method to find the zeros of the function</li>
 </ol>
 <p><span class="math display">\[
-{1\over 2 m} \rho A C  = {B \over m} = .0039 + {.0058\over 1 + e^{v - 35\over 5}}
+y(x) = 8x^3 - 15 x^2 - 4 x + 5
 \]</span></p>
+<p>Hint: This function has three zeros; one in the region [-1,0], one in the region [0,1] and another in the region [1.5,2.5]</p>
+<ol start="2" type="1">
+<li>Use Newton’s method to find the zero for the following function (slightly different from the one in problem 1):</li>
+</ol>
+<p><span class="math display">\[
+y(x) = 8x^3 - 15 x^2 - 4 x - 5
+\]</span></p>
+<p>Answer: You should find that the zero is located at <span class="math inline">\(\aprox 2.2257\)</span> 3. Use fixed-point iteration to solve the following equation</p>
+<p><span class="math display">\[
+{1\over 2}^x = x^2
+\]</span></p>
+<ol start="4" type="1">
+<li>Use Newton’s method to solve the following equation</li>
+</ol>
+<p><span class="math display">\[
+e^x = \cos(x)
+\]</span></p>
+<p>Note: This function has three solutions; one in the region [-5,-4], one in the region [-2,-1] and another in the region [-1,1]. See if you can find all of them by varying your initial guess.</p>
 
 
 </section>
@@ -650,11 +703,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/numericalCalculus.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></span>
+      <a href="../chapters/sympy.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">The <code>sympy</code> module</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../chapters/extrapolation_interpolation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

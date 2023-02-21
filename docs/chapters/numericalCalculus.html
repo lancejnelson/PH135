@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 17&nbsp; Numerical Calculus</title>
+<title>Scientific Computing - 18&nbsp; Numerical Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -257,22 +257,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  <a href="../chapters/rootFinding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
+  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
   </div>
 </li>
       </ul>
@@ -286,18 +291,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#numerical-derivatives" id="toc-numerical-derivatives" class="nav-link active" data-scroll-target="#numerical-derivatives"> <span class="header-section-number">17.1</span> Numerical Derivatives</a>
+  <li><a href="#numerical-derivatives" id="toc-numerical-derivatives" class="nav-link active" data-scroll-target="#numerical-derivatives"> <span class="header-section-number">18.1</span> Numerical Derivatives</a>
   <ul class="collapse">
-  <li><a href="#numerical-second-derivatives" id="toc-numerical-second-derivatives" class="nav-link" data-scroll-target="#numerical-second-derivatives"> <span class="header-section-number">17.1.1</span> Numerical second derivatives</a></li>
+  <li><a href="#numerical-second-derivatives" id="toc-numerical-second-derivatives" class="nav-link" data-scroll-target="#numerical-second-derivatives"> <span class="header-section-number">18.1.1</span> Numerical second derivatives</a></li>
   </ul></li>
-  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration"> <span class="header-section-number">17.2</span> Integration</a>
+  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration"> <span class="header-section-number">18.2</span> Integration</a>
   <ul class="collapse">
-  <li><a href="#definite-integrals" id="toc-definite-integrals" class="nav-link" data-scroll-target="#definite-integrals"> <span class="header-section-number">17.2.1</span> Definite Integrals</a></li>
-  <li><a href="#trapezoid-integration" id="toc-trapezoid-integration" class="nav-link" data-scroll-target="#trapezoid-integration"> <span class="header-section-number">17.2.2</span> Trapezoid Integration</a></li>
-  <li><a href="#indefinite-integrals" id="toc-indefinite-integrals" class="nav-link" data-scroll-target="#indefinite-integrals"> <span class="header-section-number">17.2.3</span> Indefinite Integrals</a></li>
+  <li><a href="#definite-integrals" id="toc-definite-integrals" class="nav-link" data-scroll-target="#definite-integrals"> <span class="header-section-number">18.2.1</span> Definite Integrals</a></li>
+  <li><a href="#trapezoid-integration" id="toc-trapezoid-integration" class="nav-link" data-scroll-target="#trapezoid-integration"> <span class="header-section-number">18.2.2</span> Trapezoid Integration</a></li>
+  <li><a href="#indefinite-integrals" id="toc-indefinite-integrals" class="nav-link" data-scroll-target="#indefinite-integrals"> <span class="header-section-number">18.2.3</span> Indefinite Integrals</a></li>
   </ul></li>
-  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">17.3</span> Flashcards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">17.4</span> Exercises</a></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">18.3</span> Flashcards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">18.4</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -306,7 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></h1>
 </div>
 
 
@@ -322,8 +327,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p><a href="https://lancejnelson.github.io/PH135/jupyter/numericalCalculus.ipynb">Jupyter Notebook</a></p>
 <p>If you have taken a calculus class, you probably know what a derivative and anti-derivative are and how to calculate them. (If you haven’t taken calculus, you will understand these concepts soon.) The techniques that you learned in calculus class are called analytical methods, which means that the derivative (or anti-derivative) are calculated using pencil, paper, and some mathematical rules to guide you. In this chapter, we will explore how to find the derivative (or anti-derivative) of a discrete set of data rather than a continuous function.</p>
-<section id="numerical-derivatives" class="level2" data-number="17.1">
-<h2 data-number="17.1" class="anchored" data-anchor-id="numerical-derivatives"><span class="header-section-number">17.1</span> Numerical Derivatives</h2>
+<section id="numerical-derivatives" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="numerical-derivatives"><span class="header-section-number">18.1</span> Numerical Derivatives</h2>
 <p>Let’s start with a simple data set that gives the position of an object dropped from a tall building at various times.</p>
 <div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
@@ -410,8 +415,8 @@ f'(x) = {f(x) - f(x - h)\over h} \text{ (backward-difference)}
 <p><img src="numericalCalculus_files/figure-html/cell-5-output-2.png" width="608" height="422"></p>
 </div>
 </div>
-<section id="numerical-second-derivatives" class="level3" data-number="17.1.1">
-<h3 data-number="17.1.1" class="anchored" data-anchor-id="numerical-second-derivatives"><span class="header-section-number">17.1.1</span> Numerical second derivatives</h3>
+<section id="numerical-second-derivatives" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="numerical-second-derivatives"><span class="header-section-number">18.1.1</span> Numerical second derivatives</h3>
 <p>We can derive a formula for a second derivative as follows:</p>
 <p><span class="math display">\[
 \begin{align*}
@@ -449,8 +454,8 @@ f''(x) &amp;= {f'(x + {h\over 2}) - f'(x - {h\over 2}) \over  h}\\
 </div>
 </section>
 </section>
-<section id="integration" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="integration"><span class="header-section-number">17.2</span> Integration</h2>
+<section id="integration" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="integration"><span class="header-section-number">18.2</span> Integration</h2>
 <p>In calculus you learn rules for finding anti-derivatives, or undoing the derivative. In this section we will learn how to find anti-derivatives of functions that are represented by discrete sets of data. The mathematical notation for an anti-derivative (also called an integral) is</p>
 <p><span class="math display">\[
 \int y(x) dx
@@ -460,8 +465,8 @@ f''(x) &amp;= {f'(x + {h\over 2}) - f'(x - {h\over 2}) \over  h}\\
 \int x^2 dx = {x^3\over 3} + C
 \]</span></p>
 <p>Any constant <span class="math inline">\(C\)</span> can be added to the anti-derivative and the equality still holds. You can see this by taking the derivative of the right hand side and noticing that the derivative of the constant is zero.</p>
-<section id="definite-integrals" class="level3" data-number="17.2.1">
-<h3 data-number="17.2.1" class="anchored" data-anchor-id="definite-integrals"><span class="header-section-number">17.2.1</span> Definite Integrals</h3>
+<section id="definite-integrals" class="level3" data-number="18.2.1">
+<h3 data-number="18.2.1" class="anchored" data-anchor-id="definite-integrals"><span class="header-section-number">18.2.1</span> Definite Integrals</h3>
 <p>An alternate interpretation of the integral is that of the area created by the function and the horizontal axis. When thinking of an anti-derivative like this, we should put bounds on the integral to specify where to start counting the area and when to stop. These bounds show up as a subscript and superscript to the integral symbol (<span class="math inline">\(\int\)</span>). Here is a definite integral of the function <span class="math inline">\(\sin(x)\)</span> from <span class="math inline">\(0 &lt; x &lt; \pi\)</span>.</p>
 <p><span class="math display">\[
 \int_0^\pi \sin(x) dx
@@ -524,8 +529,8 @@ f''(x) &amp;= {f'(x + {h\over 2}) - f'(x - {h\over 2}) \over  h}\\
 </div>
 <p>Notice that I used the <code>retstep = True</code> keyword argument when calling <code>linspace</code> to retrieve the width of the rectangles.</p>
 </section>
-<section id="trapezoid-integration" class="level3" data-number="17.2.2">
-<h3 data-number="17.2.2" class="anchored" data-anchor-id="trapezoid-integration"><span class="header-section-number">17.2.2</span> Trapezoid Integration</h3>
+<section id="trapezoid-integration" class="level3" data-number="18.2.2">
+<h3 data-number="18.2.2" class="anchored" data-anchor-id="trapezoid-integration"><span class="header-section-number">18.2.2</span> Trapezoid Integration</h3>
 <p>We can improve upon the rectangle approximation to the integral by replacing the rectangles with trapezoids. You may recall that the area of a trapezoid is</p>
 <p><span class="math display">\[
 A = {\Delta x \over 2} \left( f(a) + f(b)\right)
@@ -579,8 +584,8 @@ y(x) = \exp{-0.05 x} \cos(x)
 </div>
 <p>Notice that even with only 6 data points, using trapezoids did quite a bit better than using rectangles. There are other more sophisticated methods for integrating a function that you will learn about in other classes.</p>
 </section>
-<section id="indefinite-integrals" class="level3" data-number="17.2.3">
-<h3 data-number="17.2.3" class="anchored" data-anchor-id="indefinite-integrals"><span class="header-section-number">17.2.3</span> Indefinite Integrals</h3>
+<section id="indefinite-integrals" class="level3" data-number="18.2.3">
+<h3 data-number="18.2.3" class="anchored" data-anchor-id="indefinite-integrals"><span class="header-section-number">18.2.3</span> Indefinite Integrals</h3>
 <p>The result of a definite integral is a single number; the area under the curve from the lower bound to the upper bound. The result of an indefinite integral is a function which gives the area under the curve starting at <span class="math inline">\(x = 0\)</span> and ending at any value of <span class="math inline">\(x\)</span> of your choosing. To perform an indefinite integral using a discrete data set, simply perform a definite integral from <span class="math inline">\(x = 0\)</span> to every other x value in your range separately, saving each value in a list for later use. Let’s demonstrate this in the cell below.</p>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace, sin,cos,pi</span>
@@ -615,8 +620,8 @@ y(x) = \exp{-0.05 x} \cos(x)
 </div>
 </section>
 </section>
-<section id="flashcards" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">17.3</span> Flashcards</h2>
+<section id="flashcards" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">18.3</span> Flashcards</h2>
 <ol type="1">
 <li>Write down the equation for the center difference first derivative.</li>
 <li>Write down the equation for the center difference second derivative.</li>
@@ -624,8 +629,8 @@ y(x) = \exp{-0.05 x} \cos(x)
 <li>Write down the equation for the integral approximation using trapezoids.</li>
 </ol>
 </section>
-<section id="exercises" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">17.4</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">18.4</span> Exercises</h2>
 <ol type="1">
 <li><p>Follow the steps below to calculate the first and second derivative of the following function <span class="math display">\[y(x) = {\sin(x) \over x}\]</span></p>
 <ol type="1">
@@ -862,12 +867,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/fitting.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/eulers.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Euler’s Method</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing - 16&nbsp; Curve Fitting</title>
+<title>Scientific Computing - 17&nbsp; Curve Fitting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -257,22 +257,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
+  <a href="../chapters/rootFinding.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Root Finding and Optimization Algorithms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
+  <a href="../chapters/extrapolation_interpolation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  <a href="../chapters/fitting.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
+  <a href="../chapters/numericalCalculus.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/eulers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Euler’s Method</span></a>
   </div>
 </li>
       </ul>
@@ -286,13 +291,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#fitting-to-a-polynomial" id="toc-fitting-to-a-polynomial" class="nav-link active" data-scroll-target="#fitting-to-a-polynomial"> <span class="header-section-number">16.1</span> Fitting to a polynomial</a>
+  <li><a href="#fitting-to-a-polynomial" id="toc-fitting-to-a-polynomial" class="nav-link active" data-scroll-target="#fitting-to-a-polynomial"> <span class="header-section-number">17.1</span> Fitting to a polynomial</a>
   <ul class="collapse">
-  <li><a href="#assessing-the-quality-of-the-fit" id="toc-assessing-the-quality-of-the-fit" class="nav-link" data-scroll-target="#assessing-the-quality-of-the-fit"> <span class="header-section-number">16.1.1</span> Assessing the quality of the fit</a></li>
+  <li><a href="#assessing-the-quality-of-the-fit" id="toc-assessing-the-quality-of-the-fit" class="nav-link" data-scroll-target="#assessing-the-quality-of-the-fit"> <span class="header-section-number">17.1.1</span> Assessing the quality of the fit</a></li>
   </ul></li>
-  <li><a href="#other-functions-for-curve-fitting." id="toc-other-functions-for-curve-fitting." class="nav-link" data-scroll-target="#other-functions-for-curve-fitting."> <span class="header-section-number">16.2</span> Other functions for curve fitting.</a></li>
-  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">16.3</span> Flashcards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">16.4</span> Exercises</a></li>
+  <li><a href="#other-functions-for-curve-fitting." id="toc-other-functions-for-curve-fitting." class="nav-link" data-scroll-target="#other-functions-for-curve-fitting."> <span class="header-section-number">17.2</span> Other functions for curve fitting.</a></li>
+  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"> <span class="header-section-number">17.3</span> Flashcards</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">17.4</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -301,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Curve Fitting</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Curve Fitting</span></h1>
 </div>
 
 
@@ -375,8 +380,8 @@ v_f &amp;= v_i - a \Delta t\\
 </div>
 </div>
 <p>We notice that the data <strong>looks</strong> linear which matches our hypothesis that the acceleration is constant.</p>
-<section id="fitting-to-a-polynomial" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="fitting-to-a-polynomial"><span class="header-section-number">16.1</span> Fitting to a polynomial</h2>
+<section id="fitting-to-a-polynomial" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="fitting-to-a-polynomial"><span class="header-section-number">17.1</span> Fitting to a polynomial</h2>
 <p>The next thing to do is to find the line that passes through the data points as close as possible. When the fit function is a polynomial , we can use the <code>polyfit</code> function from numpy. This function takes three argument: the independent data set, the dependent data set, and the order of the polynomial</p>
 <pre><code>polyfit(x,y,order)</code></pre>
 <p>The <code>polyfit</code> function returns a list of numbers containing the function parameters for the best fit function.</p>
@@ -425,8 +430,8 @@ m &amp;= {1\over \mu g}\\
 <p><img src="fitting_files/figure-html/cell-4-output-1.png" width="558" height="404"></p>
 </div>
 </div>
-<section id="assessing-the-quality-of-the-fit" class="level3" data-number="16.1.1">
-<h3 data-number="16.1.1" class="anchored" data-anchor-id="assessing-the-quality-of-the-fit"><span class="header-section-number">16.1.1</span> Assessing the quality of the fit</h3>
+<section id="assessing-the-quality-of-the-fit" class="level3" data-number="17.1.1">
+<h3 data-number="17.1.1" class="anchored" data-anchor-id="assessing-the-quality-of-the-fit"><span class="header-section-number">17.1.1</span> Assessing the quality of the fit</h3>
 <p>Sometimes it might not be clear what type of function you should fit to. A good way to measure the quality of a fit it so sum the square of the difference between the fit function and the data.</p>
 <p><span class="math display">\[
 \sum_i (y_i - f(x_i))^2
@@ -471,8 +476,8 @@ m &amp;= {1\over \mu g}\\
 </div>
 </section>
 </section>
-<section id="other-functions-for-curve-fitting." class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="other-functions-for-curve-fitting."><span class="header-section-number">16.2</span> Other functions for curve fitting.</h2>
+<section id="other-functions-for-curve-fitting." class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="other-functions-for-curve-fitting."><span class="header-section-number">17.2</span> Other functions for curve fitting.</h2>
 <p>If the fit function is a polynomial, <code>polyfit</code> is a great choice but there are times when the hypothesized functions is not a polynomial. In cases like this, the function <code>scipy.optimize.curve_fit</code> should work. As an example, let’s say that you have the following intensity vs.&nbsp;wavelength data.</p>
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
@@ -557,8 +562,8 @@ m &amp;= {1\over \mu g}\\
 </div>
 </div>
 </section>
-<section id="flashcards" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">16.3</span> Flashcards</h2>
+<section id="flashcards" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">17.3</span> Flashcards</h2>
 <ol type="1">
 <li>What python function should you use to fit a polynomial to your data? Give an example of its usage.</li>
 <li>What python function should you use to fit a function that is not a polynomial to your data. Give an example of how to use this function.</li>
@@ -568,8 +573,8 @@ m &amp;= {1\over \mu g}\\
 <li>Why did the Savior teach in parables?</li>
 </ol>
 </section>
-<section id="exercises" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">16.4</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">17.4</span> Exercises</h2>
 <ol type="1">
 <li><p>You push a box with five known forces while using a motion detector to measure the cart’s acceleration. The data are shown below.</p>
 <ol type="1">
@@ -962,12 +967,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/extrapolation_interpolation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Extrapolation and Interpolation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/numericalCalculus.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Numerical Calculus</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
