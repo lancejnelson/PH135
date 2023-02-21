@@ -10,7 +10,7 @@ execute:
 
 [Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/rootFinding.ipynb)
 
-Often in science, we find ourselves wanting to do one of the following:
+Often in science, we find ourselves wanting to do one of the following:  
 1. Solve an equation for a specified variable
 2. Find the zeros of a function (equivalent to solving an equation that is equal to zero)
 3.Find the extrema (maxima or minima) of a function.
@@ -44,10 +44,11 @@ $$
 $$
 
 The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into the equation above to verify this. -->
-In this chapter we will discuss various numerical methods for performing these tasks. 
+In this chapter we will discuss various numerical methods for performing these tasks.   
+
 ## Bisection
 The bisection method is a numerical algorithm for finding the zeros of a function, or the locations where the function is equal to zero. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function. 
-The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function.  Formally, the algorithm proceeds as follows:
+The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function.  Formally, the algorithm proceeds as follows:  
 1. Choose an interval wherein the function zero is certain to be located. Call the interval $(a,b)$
 2. Calculate the midpoint of the interval $c = {a+ b \over 2}$
 3. Calculate the function value at the midpoint ($f(c)$).
@@ -118,7 +119,7 @@ If the function of interest has multiple zeros (like the cosine function we did 
 ## Fixed-Point Iteration
 Suppose you want to solve the following equation:
 $$
-x = \cos(x)$
+x = \cos(x)
 $$
 No matter how hard you try, you won't be able to solve this equation for $x$.  Instead, you'll need to use a numerical method called fixed-point iteration to solve it.  In this method, you begin with an initial guess and then repeatedly evaluate the function of interest until $|x - \cos(x)| $ is sufficiently small. 
 
@@ -202,7 +203,7 @@ Hint: This function has three zeros; one in the region [-1,0], one in the region
 $$
 y(x) = 8x^3 - 15 x^2 - 4 x - 5
 $$
-Answer: You should find that the zero is located at $\aprox 2.2257$
+Answer: You should find that the zero is located at $\approx 2.2257$
 3. Use fixed-point iteration to solve the following equation
 $$
 {1\over 2}^x = x^2
