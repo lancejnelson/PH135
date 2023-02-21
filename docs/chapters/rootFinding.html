@@ -320,15 +320,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p><a href="https://lancejnelson.github.io/PH135/jupyter/rootFinding.ipynb">Jupyter Notebook</a></p>
-<p>Often in science, we find ourselves wanting to do one of the following:<br>
-1. Solve an equation for a specified variable 2. Find the zeros of a function (equivalent to solving an equation that is equal to zero) 3.Find the extrema (maxima or minima) of a function.</p>
-<p>As an example, consider the function shown below</p>
-<div class="cell" data-execution_count="2">
+<p>Often in science, we find ourselves wanting to do one of the following: (See figure below)</p>
+<ol type="1">
+<li>Solve an equation for a specified variable</li>
+<li>Find the zeros of a function (equivalent to solving an equation that is equal to zero)</li>
+<li>Find the extrema (maxima or minima) of a function.</li>
+</ol>
+<div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
-<p><img src="rootFinding_files/figure-html/cell-2-output-1.png" width="590" height="404"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="rootFinding_files/figure-html/cell-2-output-1.png" width="441" height="404" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">The zero(red dot), maximum (green dot), and minimum (blue dot) of a function are illustrated.</figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>When the function of interest is unsolvable using standard algebraic techniques, we must resort to a numerical algorithm to find the solution.</p>
+</div>
+<p>When the function of interest is unsolvable using standard algebraic techniques, we must resort to a numerical algorithm to find the solution. In this chapter we will discuss various numerical methods for performing these tasks.</p>
 <!--  Finding the zero of this function means finding the x-value where the function is equal to zero (red dot).  Finding the min or max of the function means finding the x value where the slope of the function is zero (blue and green dots). When algebra techniques fail to solve the equation, we can use one of several numerical algorithms to solve it instead. 
 You probably remember being asked to find the roots of a function in your math class. Finding the roots means finding the x values that make $y(x) = 0$. For example, the following polynomial equation has two solutions that can be found using the quadratic formula.
 
@@ -341,16 +349,22 @@ $$
 
 
 The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into the equation above to verify this. -->
-<p>In this chapter we will discuss various numerical methods for performing these tasks.</p>
 <section id="bisection" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="bisection"><span class="header-section-number">15.1</span> Bisection</h2>
-<p>The bisection method is a numerical algorithm for finding the zeros of a function, or the locations where the function is equal to zero. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function. The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function. Formally, the algorithm proceeds as follows:<br>
-1. Choose an interval wherein the function zero is certain to be located. Call the interval <span class="math inline">\((a,b)\)</span> 2. Calculate the midpoint of the interval <span class="math inline">\(c = {a+ b \over 2}\)</span> 3. Calculate the function value at the midpoint (<span class="math inline">\(f(c)\)</span>). 4. By examining the sign of <span class="math inline">\(f(c)\)</span> determine whether the interval <span class="math inline">\((a,c)\)</span> or <span class="math inline">\((c,b)\)</span> contains the zero of the function. 5. Repeat steps 2-4 until <span class="math inline">\(f(c)\)</span> is sufficiently small.</p>
+<p>The bisection method is a numerical algorithm for finding the zeros of a function, or the locations where the function is equal to zero. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function.<br>
+The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function. Formally, the algorithm proceeds as follows:</p>
+<ol type="1">
+<li>Choose an interval wherein the function zero is certain to be located. Call the interval <span class="math inline">\((a,b)\)</span></li>
+<li>Calculate the midpoint of the interval <span class="math inline">\(c = {a+ b \over 2}\)</span></li>
+<li>Calculate the function value at the midpoint (<span class="math inline">\(f(c)\)</span>).</li>
+<li>By examining the sign of <span class="math inline">\(f(c)\)</span> determine whether the interval <span class="math inline">\((a,c)\)</span> or <span class="math inline">\((c,b)\)</span> contains the zero of the function.</li>
+<li>Repeat steps 2-4 until <span class="math inline">\(f(c)\)</span> is sufficiently small.</li>
+</ol>
 <p>In the code cell below, try to use the bisection method to solve the following equation.</p>
 <p><span class="math display">\[
 y(x) = 5 x^2 - 3x - 2 = 0
 \]</span></p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ab <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">3</span>]</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">5</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">-</span> <span class="dv">2</span></span>
@@ -369,12 +383,7 @@ y(x) = 5 x^2 - 3x - 2 = 0
 <pre><code>0.9999990463256836</code></pre>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Bisection_method.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg</figcaption><p></p>
-</figure>
-</div>
+<p><img src="https://lancejnelson.github.io/PH135/figures/Bisection_method.png" class="img-fluid" alt="Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg">{width = 75%}</p>
 </section>
 <section id="secant-method" class="level2" data-number="15.2">
 <h2 data-number="15.2" class="anchored" data-anchor-id="secant-method"><span class="header-section-number">15.2</span> Secant Method</h2>
@@ -393,7 +402,7 @@ x_n = x_{n-1} - {f(x_n)\over f'(x_n)}
 <p><span class="math display">\[
 y(x) = \cos(x) = 0
 \]</span></p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.3</span></span>
@@ -407,12 +416,7 @@ y(x) = \cos(x) = 0
 </div>
 </div>
 <p>If the function of interest has multiple zeros (like the cosine function we did above), one must give careful consideration to the initial guess. Making a poor choice can lead to the algorithm finding a different zero than what was intended.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Newtons_method.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg</figcaption><p></p>
-</figure>
-</div>
+<p><img src="https://lancejnelson.github.io/PH135/figures/Newtons_method.png" class="img-fluid" alt="Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg">{width = 75%}</p>
 </section>
 <section id="fixed-point-iteration" class="level2" data-number="15.4">
 <h2 data-number="15.4" class="anchored" data-anchor-id="fixed-point-iteration"><span class="header-section-number">15.4</span> Fixed-Point Iteration</h2>
@@ -427,12 +431,7 @@ x = \cos(x)
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> np.cos(x)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Fixed_Point.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg</figcaption><p></p>
-</figure>
-</div>
+<p><img src="https://lancejnelson.github.io/PH135/figures/Fixed_Point.png" class="img-fluid" alt="Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg">{width = 75%}</p>
 <p>Fixed-point iteration can also be used to find the zeros or extrema of a function if you can first algebraically manipulate the equation to take the form shown in the equation above. For example, the following equation</p>
 <p><span class="math display">\[
 2x^3 - 2 x - 5 =0
@@ -461,7 +460,7 @@ y(x) = 5 x^3 - 2x^2 - 8 x + 2
 y'(x) = 15 x^2 - 4 x - 8
 \]</span></p>
 <p>Fixed-point iteration, or any of the other methods discussed, can then be used to solve this equation:</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
