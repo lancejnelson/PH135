@@ -34,8 +34,7 @@ plt.grid()
 plt.show()
 ```
 
-
-When the function of interest is unsolvable using standard algebraic techniques, we must resort to a numerical algorithm to find the solution.  In this chapter we will discuss various numerical methods for performing these tasks.
+These skills are routinely covered in an algebra class but often the equation we encounter cannot be solved using these techniques. Instead we have to resort to a class of numerical algorithms generally referred to as root finding or optimization algorithms.  The algorithms described below can be applied to perform any of the tasks mentioned above.    In the remainder of this chapter we will discuss various numerical methods for finding the roots of an equation.
 
 <!--  Finding the zero of this function means finding the x-value where the function is equal to zero (red dot).  Finding the min or max of the function means finding the x value where the slope of the function is zero (blue and green dots). When algebra techniques fail to solve the equation, we can use one of several numerical algorithms to solve it instead. 
 You probably remember being asked to find the roots of a function in your math class. Finding the roots means finding the x values that make $y(x) = 0$. For example, the following polynomial equation has two solutions that can be found using the quadratic formula.
@@ -48,8 +47,7 @@ The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into
    
 
 ## Bisection  
-The bisection method is a numerical algorithm for finding the zeros of a function, or the locations where the function is equal to zero. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function.   
-The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function.  Formally, the algorithm proceeds as follows:  
+The bisection method finds the roots of a function by iteratively narrowing the interval where the zero is found until the interval becomes sufficiently small. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function.  To begin the bisection method, the user must choose an interval wherein the function zero is guaranteed to be found.  The midpoint of the interval is then found and a new, narrower interval is chosen.  By repeating this process until the interval becomes sufficiently small, the algorithm eventually finds the location where the function is equal to zero.  The steps to the algorithm are as follows:  
 
 1. Choose an interval wherein the function zero is certain to be located. Call the interval $(a,b)$
 2. Calculate the midpoint of the interval $c = {a+ b \over 2}$
@@ -62,39 +60,34 @@ $$
 y(x) = 5 x^2 - 3x - 2 = 0
 $$
 ```{python}
-import numpy as np
-ab = [0,3]
-y = lambda x: 5 * x**2 - 3 * x - 2
-mid = ab[1]
-while abs(y(mid)) > 1e-5:
-  mid = (ab[0] + ab[1])/2
-  
-  if np.sign(y(mid)) == np.sign(ab[1]):
-    ab = [ab[0],mid]
-  else:
-    ab = [mid,ab[1]]
-
-
-print(mid)
-
 
 ```
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=75%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=60%}
 
 ## Secant Method
 
 
 ## Newton's Method
-Newton's method uses the slope of a function to find a better approximation to the zeros. By repeatedly using the slope of the function to find a better and better approximation to the zero, the algorithm can find the zero to a desired level of accuracy. The algorithm begins with an initial guess for the zero that need not be very close, but shouldn't be extremely far away either.  An improvement on this initial guess is calculated with
+Newton's method uses the slope of the function to estimate a better approximation to the function's zero.  
+To understand how we can use the slope to approximate the zero, first let's write down an approximation to the slope. 
+
+$$
+f'(x_0) \approx {f(x_1) - f(x_0) \over x_1 - x_0}
+$$
+
+If the slope of the function were a constant, we could simply set $f(x_1) = 0$ and solve for $x_1$ and we would be done.
+
 $$
 x_1 = x_0 - {f(x_0)\over f'(x_0)}
 $$
-where $f'(x_0)$ is the derivative of the function evaluated at the initial guess.  The algorithm continues with repeated evaluation of the equation above until $f(x_n)$ evaluates to a sufficiently small number:
 
+In reality, the function will not have a constant slope but this equation will still get us closer to the zero than we were originally. (see figure)  By repeatedly evaluating the equation above, always using the most recent estimate as $x_0$, until $f(x_0)$ becomes sufficiently small, the location where the function is zero can be found. 
 $$
-x_n = x_{n-1} - {f(x_n)\over f'(x_n)}
+x_{n+1} = x_n - {f(x_n)\over f'(x_n)}
 $$
+
+To begin the algorithm, the user must choose an  initial guess for the zero that isn't very far away from the true value.  An improvement on this initial guess is calculated using the equation above  where $f'(x_n)$ is the derivative of the function evaluated at the current guess.  The algorithm continues with repeated evaluation of the equation above until $f(x_n)$ evaluates to a sufficiently small number.
 
 Below you will find a code example for solving the following equation:
 
@@ -116,14 +109,23 @@ print(x,np.cos(x))
 
 If the function of interest has multiple zeros (like the cosine function we did above), one must give careful consideration to the initial guess.  Making a poor choice can lead to the algorithm finding a different zero than what was intended. 
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=75%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=60%}
 
 ## Fixed-Point Iteration
-Suppose you want to solve the following equation:
+Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearrange to look similar to the function below.
 $$
 x = \cos(x)
 $$
-No matter how hard you try, you won't be able to solve this equation for $x$.  Instead, you'll need to use a numerical method called fixed-point iteration to solve it.  In this method, you begin with an initial guess and then repeatedly evaluate the function of interest until $|x - \cos(x)| $ is sufficiently small. 
+As opposed to the alternate form:
+
+$$
+y(x) = x - \cos(x) = 0
+$$
+
+
+Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms.  The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation.  This process repeats with the new guess always being used to evaluate the function until $|x - \cos(x)| $ is sufficiently small.   The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you'll never come up with an expression that solves this equation.
+
+The code cell below shows the fixed-point iteration algorithm used to find the zeros of the function mentioned above: $x = \cos(x)$
 
 ```{python}
 import numpy as np
@@ -135,9 +137,9 @@ while abs(x - np.cos(x)) > 1e-5:
 ```
 
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width=75%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width=60%}
 
-Fixed-point iteration can also be used to find the zeros or extrema of a function if you can first algebraically manipulate the equation to take the form shown in the equation above. For example, the following equation
+To find the zeros of a function that is not in the form: $x = f(x)$, you must first algebraically manipulate the equation to take this form. For example, the following equation
 
 $$
 2x^3 - 2 x - 5 =0 
@@ -148,6 +150,7 @@ $$
 x = (x+{5\over 2})^{1\over 3}
 $$
 
+And the fixed-point iteration algorithm can now be used to solve for $x$:
 ```{python}
 import numpy as np
 x = 3

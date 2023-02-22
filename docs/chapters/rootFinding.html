@@ -326,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find the zeros of a function (equivalent to solving an equation that is equal to zero)</li>
 <li>Find the extrema (maxima or minima) of a function.</li>
 </ol>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -336,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>When the function of interest is unsolvable using standard algebraic techniques, we must resort to a numerical algorithm to find the solution. In this chapter we will discuss various numerical methods for performing these tasks.</p>
+<p>These skills are routinely covered in an algebra class but often the equation we encounter cannot be solved using these techniques. Instead we have to resort to a class of numerical algorithms generally referred to as root finding or optimization algorithms. The algorithms described below can be applied to perform any of the tasks mentioned above. In the remainder of this chapter we will discuss various numerical methods for finding the roots of an equation.</p>
 <!--  Finding the zero of this function means finding the x-value where the function is equal to zero (red dot).  Finding the min or max of the function means finding the x value where the slope of the function is zero (blue and green dots). When algebra techniques fail to solve the equation, we can use one of several numerical algorithms to solve it instead. 
 You probably remember being asked to find the roots of a function in your math class. Finding the roots means finding the x values that make $y(x) = 0$. For example, the following polynomial equation has two solutions that can be found using the quadratic formula.
 
@@ -351,8 +351,7 @@ $$
 The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into the equation above to verify this. -->
 <section id="bisection" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="bisection"><span class="header-section-number">15.1</span> Bisection</h2>
-<p>The bisection method is a numerical algorithm for finding the zeros of a function, or the locations where the function is equal to zero. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function.<br>
-The bisection method consists of choosing an interval wherein the function zero is found and then narrowing that interval through repeated evaluation of the function. Formally, the algorithm proceeds as follows:</p>
+<p>The bisection method finds the roots of a function by iteratively narrowing the interval where the zero is found until the interval becomes sufficiently small. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function. To begin the bisection method, the user must choose an interval wherein the function zero is guaranteed to be found. The midpoint of the interval is then found and a new, narrower interval is chosen. By repeating this process until the interval becomes sufficiently small, the algorithm eventually finds the location where the function is equal to zero. The steps to the algorithm are as follows:</p>
 <ol type="1">
 <li>Choose an interval wherein the function zero is certain to be located. Call the interval <span class="math inline">\((a,b)\)</span></li>
 <li>Calculate the midpoint of the interval <span class="math inline">\(c = {a+ b \over 2}\)</span></li>
@@ -364,28 +363,9 @@ The bisection method consists of choosing an interval wherein the function zero 
 <p><span class="math display">\[
 y(x) = 5 x^2 - 3x - 2 = 0
 \]</span></p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ab <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">3</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">5</span> <span class="op">*</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">-</span> <span class="dv">2</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> ab[<span class="dv">1</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(y(mid)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  mid <span class="op">=</span> (ab[<span class="dv">0</span>] <span class="op">+</span> ab[<span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> np.sign(y(mid)) <span class="op">==</span> np.sign(ab[<span class="dv">1</span>]):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    ab <span class="op">=</span> [ab[<span class="dv">0</span>],mid]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    ab <span class="op">=</span> [mid,ab[<span class="dv">1</span>]]</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.9999990463256836</code></pre>
-</div>
-</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Bisection_method.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p><img src="https://lancejnelson.github.io/PH135/figures/Bisection_method.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg</figcaption><p></p>
 </figure>
 </div>
@@ -395,27 +375,33 @@ y(x) = 5 x^2 - 3x - 2 = 0
 </section>
 <section id="newtons-method" class="level2" data-number="15.3">
 <h2 data-number="15.3" class="anchored" data-anchor-id="newtons-method"><span class="header-section-number">15.3</span> Newton’s Method</h2>
-<p>Newton’s method uses the slope of a function to find a better approximation to the zeros. By repeatedly using the slope of the function to find a better and better approximation to the zero, the algorithm can find the zero to a desired level of accuracy. The algorithm begins with an initial guess for the zero that need not be very close, but shouldn’t be extremely far away either. An improvement on this initial guess is calculated with</p>
+<p>Newton’s method uses the slope of the function to estimate a better approximation to the function’s zero.<br>
+To understand how we can use the slope to approximate the zero, first let’s write down an approximation to the slope.</p>
+<p><span class="math display">\[
+f'(x_0) \approx {f(x_1) - f(x_0) \over x_1 - x_0}
+\]</span></p>
+<p>If the slope of the function were a constant, we could simply set <span class="math inline">\(f(x_1) = 0\)</span> and solve for <span class="math inline">\(x_1\)</span> and we would be done.</p>
 <p><span class="math display">\[
 x_1 = x_0 - {f(x_0)\over f'(x_0)}
 \]</span></p>
-<p>where <span class="math inline">\(f'(x_0)\)</span> is the derivative of the function evaluated at the initial guess. The algorithm continues with repeated evaluation of the equation above until <span class="math inline">\(f(x_n)\)</span> evaluates to a sufficiently small number:</p>
+<p>In reality, the function will not have a constant slope but this equation will still get us closer to the zero than we were originally. (see figure) By repeatedly evaluating the equation above, always using the most recent estimate as <span class="math inline">\(x_0\)</span>, until <span class="math inline">\(f(x_0)\)</span> becomes sufficiently small, the location where the function is zero can be found.</p>
 <p><span class="math display">\[
-x_n = x_{n-1} - {f(x_n)\over f'(x_n)}
+x_{n+1} = x_n - {f(x_n)\over f'(x_n)}
 \]</span></p>
+<p>To begin the algorithm, the user must choose an initial guess for the zero that isn’t very far away from the true value. An improvement on this initial guess is calculated using the equation above where <span class="math inline">\(f'(x_n)\)</span> is the derivative of the function evaluated at the current guess. The algorithm continues with repeated evaluation of the equation above until <span class="math inline">\(f(x_n)\)</span> evaluates to a sufficiently small number.</p>
 <p>Below you will find a code example for solving the following equation:</p>
 <p><span class="math display">\[
 y(x) = \cos(x) = 0
 \]</span></p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.3</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> x <span class="op">+</span> np.cos(x)<span class="op">/</span>np.sin(x) </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x,np.cos(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> x <span class="op">+</span> np.cos(x)<span class="op">/</span>np.sin(x) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x,np.cos(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.5707963256833193 1.1115773359029342e-09</code></pre>
 </div>
@@ -423,31 +409,36 @@ y(x) = \cos(x) = 0
 <p>If the function of interest has multiple zeros (like the cosine function we did above), one must give careful consideration to the initial guess. Making a poor choice can lead to the algorithm finding a different zero than what was intended.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Newtons_method.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p><img src="https://lancejnelson.github.io/PH135/figures/Newtons_method.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg</figcaption><p></p>
 </figure>
 </div>
 </section>
 <section id="fixed-point-iteration" class="level2" data-number="15.4">
 <h2 data-number="15.4" class="anchored" data-anchor-id="fixed-point-iteration"><span class="header-section-number">15.4</span> Fixed-Point Iteration</h2>
-<p>Suppose you want to solve the following equation:</p>
+<p>Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearrange to look similar to the function below.</p>
 <p><span class="math display">\[
 x = \cos(x)
 \]</span></p>
-<p>No matter how hard you try, you won’t be able to solve this equation for <span class="math inline">\(x\)</span>. Instead, you’ll need to use a numerical method called fixed-point iteration to solve it. In this method, you begin with an initial guess and then repeatedly evaluate the function of interest until $|x - (x)| $ is sufficiently small.</p>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> np.cos(x)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As opposed to the alternate form:</p>
+<p><span class="math display">\[
+y(x) = x - \cos(x) = 0
+\]</span></p>
+<p>Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms. The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation. This process repeats with the new guess always being used to evaluate the function until $|x - (x)| $ is sufficiently small. The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you’ll never come up with an expression that solves this equation.</p>
+<p>The code cell below shows the fixed-point iteration algorithm used to find the zeros of the function mentioned above: <span class="math inline">\(x = \cos(x)\)</span></p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.cos(x)) <span class="op">&gt;</span> <span class="fl">1e-5</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  x <span class="op">=</span> np.cos(x)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Fixed_Point.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p><img src="https://lancejnelson.github.io/PH135/figures/Fixed_Point.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <p></p><figcaption class="figure-caption">Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg</figcaption><p></p>
 </figure>
 </div>
-<p>Fixed-point iteration can also be used to find the zeros or extrema of a function if you can first algebraically manipulate the equation to take the form shown in the equation above. For example, the following equation</p>
+<p>To find the zeros of a function that is not in the form: <span class="math inline">\(x = f(x)\)</span>, you must first algebraically manipulate the equation to take this form. For example, the following equation</p>
 <p><span class="math display">\[
 2x^3 - 2 x - 5 =0
 \]</span></p>
@@ -455,14 +446,15 @@ x = \cos(x)
 <p><span class="math display">\[
 x = (x+{5\over 2})^{1\over 3}
 \]</span></p>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> (x<span class="op">+</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)) <span class="op">&gt;</span> <span class="fl">1e-8</span>:</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x<span class="op">+</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And the fixed-point iteration algorithm can now be used to solve for <span class="math inline">\(x\)</span>:</p>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> (x<span class="op">+</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)) <span class="op">&gt;</span> <span class="fl">1e-8</span>:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x<span class="op">+</span><span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="finding-extrema" class="level2" data-number="15.5">
 <h2 data-number="15.5" class="anchored" data-anchor-id="finding-extrema"><span class="header-section-number">15.5</span> Finding Extrema</h2>
@@ -475,17 +467,17 @@ y(x) = 5 x^3 - 2x^2 - 8 x + 2
 y'(x) = 15 x^2 - 4 x - 8
 \]</span></p>
 <p>Fixed-point iteration, or any of the other methods discussed, can then be used to solve this equation:</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.sqrt(<span class="dv">4</span><span class="op">/</span><span class="dv">15</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">8</span><span class="op">/</span><span class="dv">15</span>)) <span class="op">&gt;</span> <span class="fl">1e-8</span>:</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.sqrt(<span class="dv">4</span><span class="op">/</span><span class="dv">15</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">8</span><span class="op">/</span><span class="dv">15</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"Too many iterations. Results may not be correct!"</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">abs</span>(x <span class="op">-</span> np.sqrt(<span class="dv">4</span><span class="op">/</span><span class="dv">15</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">8</span><span class="op">/</span><span class="dv">15</span>)) <span class="op">&gt;</span> <span class="fl">1e-8</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.sqrt(<span class="dv">4</span><span class="op">/</span><span class="dv">15</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">8</span><span class="op">/</span><span class="dv">15</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">"Too many iterations. Results may not be correct!"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.8757019168612669</code></pre>
 </div>
