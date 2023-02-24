@@ -47,6 +47,8 @@ The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into
    
 
 ## Bisection  
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=60%}
+
 The bisection method finds the roots of a function by iteratively narrowing the interval where the zero is found until the interval becomes sufficiently small. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function.  To begin the bisection method, the user must choose an interval wherein the function zero is guaranteed to be found.  The midpoint of the interval is then found and a new, narrower interval is chosen.  By repeating this process until the interval becomes sufficiently small, the algorithm eventually finds the location where the function is equal to zero.  The steps to the algorithm are as follows:  
 
 1. Choose an interval wherein the function zero is certain to be located. Call the interval $(a,b)$
@@ -60,13 +62,15 @@ $$
 y(x) = 5 x^2 - 3x - 2 = 0
 $$
 ```{python}
-
+# Code here
 ```
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=60%}
+
 
 
 ## Newton's Method
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=60%}
+
 Newton's method uses the slope of the function to estimate a better approximation to the function's zero.  To understand how we can use the slope to approximate the zero, first let's write down an approximation to the slope of a function $f(x)$. 
 
 $$
@@ -106,9 +110,10 @@ print(x,np.cos(x))
 
 If the function of interest has multiple zeros (like the cosine function we did above), one must give careful consideration to the initial guess.  Making a poor choice can lead to the algorithm finding a different zero than what was intended. 
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=60%}
 
 ## Fixed-Point Iteration
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width=60%}
+
 Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearranged to look similar to the function below.
 $$
 x = \cos(x)
@@ -133,7 +138,6 @@ while abs(x - np.cos(x)) > 1e-5:
 ```
 
 
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width=60%}
 
 To find the zeros of a function that is not in the form: $x = f(x)$, you must first algebraically manipulate the equation to take this form. For example, the following equation
 
@@ -197,7 +201,7 @@ print(x)
 Hint: This function has three zeros; one in the region [-1,0], one in the region [0,1] and another in the region [1.5,2.5]
 
 ```{python}
-
+# Code Here
 ```
 
 2. Use Newton's method to find the zero for the following function (slightly different from the one in problem 1) $$y(x) = 8x^3 - 15 x^2 - 4 x - 5$$
@@ -208,16 +212,19 @@ $$
 y'(x) = 24 x^2 - 20 x - 4
 $$
 ```{python}
+# Code Here
 
 ```
 3. Use fixed-point iteration to solve the following equation$$\left({1\over 2}\right)^x = x^2$$
 ```{python}
+# Code Here
 
 ```
 4. Use Newton's method to solve the following equation $$e^x = \cos(x)$$
 Note: This function has three solutions; one in the region [-5,-4], one in the region [-2,-1] and another in the region [-1,1]. See if you can find all of them by varying your initial guess.
 
 ```{python}
+# Code Here
 
 ```
 
@@ -233,5 +240,6 @@ y''(x) = 20 \cos(\sqrt{x}) - {5\over 2} x \cos(\sqrt{x}) - {35\over 2} \sqrt{x} 
 $$
 
 ```{python}
+# Code Here
 
 ```
