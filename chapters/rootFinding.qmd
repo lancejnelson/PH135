@@ -12,8 +12,8 @@ execute:
 
 Often in science, we find ourselves wanting to do one of the following: (See figure below) 
 
-1. Solve an equation for a specified variable
-2. Find the zeros of a function (equivalent to solving an equation that is equal to zero)
+1. Solve an equation for a specified variable.
+2. Find the zeros of a function (equivalent to solving an equation that is equal to zero).
 3. Find the extrema (maxima or minima) of a function.
 
 
@@ -34,7 +34,7 @@ plt.grid()
 plt.show()
 ```
 
-These skills are routinely covered in an algebra class but often the equation we encounter cannot be solved using these techniques. Instead we have to resort to a class of numerical algorithms generally referred to as root finding or optimization algorithms.  The algorithms described below can be applied to perform any of the tasks mentioned above.    In the remainder of this chapter we will discuss various numerical methods for finding the roots of an equation.
+These skills are routinely covered in an algebra class but often the equation we encounter cannot be solved using standard algebraic techniques. Instead we have to resort to a class of numerical algorithms generally referred to as root finding or optimization algorithms.  In the remainder of this chapter we will discuss various numerical methods for finding the roots of an equation.  The algorithms described below can be used to perform any of the tasks mentioned above. 
 
 <!--  Finding the zero of this function means finding the x-value where the function is equal to zero (red dot).  Finding the min or max of the function means finding the x value where the slope of the function is zero (blue and green dots). When algebra techniques fail to solve the equation, we can use one of several numerical algorithms to solve it instead. 
 You probably remember being asked to find the roots of a function in your math class. Finding the roots means finding the x values that make $y(x) = 0$. For example, the following polynomial equation has two solutions that can be found using the quadratic formula.
@@ -65,12 +65,9 @@ $$
 
 ![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=60%}
 
-## Secant Method
-
 
 ## Newton's Method
-Newton's method uses the slope of the function to estimate a better approximation to the function's zero.  
-To understand how we can use the slope to approximate the zero, first let's write down an approximation to the slope. 
+Newton's method uses the slope of the function to estimate a better approximation to the function's zero.  To understand how we can use the slope to approximate the zero, first let's write down an approximation to the slope of a function $f(x)$. 
 
 $$
 f'(x_0) \approx {f(x_1) - f(x_0) \over x_1 - x_0}
@@ -112,7 +109,7 @@ If the function of interest has multiple zeros (like the cosine function we did 
 ![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=60%}
 
 ## Fixed-Point Iteration
-Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearrange to look similar to the function below.
+Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearranged to look similar to the function below.
 $$
 x = \cos(x)
 $$
@@ -122,8 +119,7 @@ $$
 y(x) = x - \cos(x) = 0
 $$
 
-
-Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms.  The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation.  This process repeats with the new guess always being used to evaluate the function until $|x - \cos(x)| $ is sufficiently small.   The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you'll never come up with an expression that solves this equation.
+If the function cannot be manipulated to look like the form above, it is not a good candidate for the fixed-point iteration method.  Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms.  The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation.  This process repeats with the new guess always being used to evaluate the function until $|x - \cos(x)|$ is sufficiently small.   The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you'll never come up with an expression that solves this equation.
 
 The code cell below shows the fixed-point iteration algorithm used to find the zeros of the function mentioned above: $x = \cos(x)$
 
@@ -178,7 +174,7 @@ $$
 y'(x) = 15 x^2 - 4 x - 8
 $$
 
-Fixed-point iteration, or any of the other methods discussed, can then be used to solve this equation:
+And then used fixed-point iteration, or any of the other methods discussed, to solve this equation for $x$:
 
 
 ```{python}
@@ -197,24 +193,45 @@ print(x)
 
 
 ## Exercises
-1. Use the bisection method to find the zeros of the function
-$$
-y(x) = 8x^3 - 15 x^2 - 4 x + 5
-$$
-
+1. Use the bisection method to find the zeros of the function $$ y(x) = 8x^3 - 15 x^2 - 4 x + 5$$
 Hint: This function has three zeros; one in the region [-1,0], one in the region [0,1] and another in the region [1.5,2.5]
 
-2. Use Newton's method to find the zero for the following function (slightly different from the one in problem 1):
+```{python}
+
+```
+
+2. Use Newton's method to find the zero for the following function (slightly different from the one in problem 1) $$y(x) = 8x^3 - 15 x^2 - 4 x - 5$$
+then use `sympy` to solve the equation and verify that the answer are the same.  
+Answer: You should find that the zero is located at $\approx 2.2257$  
+Hint: The derivative of this function is:
 $$
-y(x) = 8x^3 - 15 x^2 - 4 x - 5
+y'(x) = 24 x^2 - 20 x - 4
 $$
-Answer: You should find that the zero is located at $\approx 2.2257$
-3. Use fixed-point iteration to solve the following equation
-$$
-{1\over 2}^x = x^2
-$$
-4. Use Newton's method to solve the following equation
-$$
-e^x = \cos(x)
-$$
+```{python}
+
+```
+3. Use fixed-point iteration to solve the following equation$$\left({1\over 2}\right)^x = x^2$$
+```{python}
+
+```
+4. Use Newton's method to solve the following equation $$e^x = \cos(x)$$
 Note: This function has three solutions; one in the region [-5,-4], one in the region [-2,-1] and another in the region [-1,1]. See if you can find all of them by varying your initial guess.
+
+```{python}
+
+```
+
+5. Use a method of your choosing to find the **minimum** of the function $$y(x) = 10 x^2 \cos(\sqrt{x})$$
+Hint: If you choose to use the bisection method, you'll need the first derivative of this function. If you choose to use Newton's method, you'll need the first and second derivatives of this function.  Both of these functions are given below.
+
+$$
+y'(x) = 20 x \cos(\sqrt{x}) - 5 x^{3/2} \sin(\sqrt{x})
+$$
+
+$$
+y''(x) = 20 \cos(\sqrt{x}) - {5\over 2} x \cos(\sqrt{x}) - {35\over 2} \sqrt{x} \sin(\sqrt{x})
+$$
+
+```{python}
+
+```

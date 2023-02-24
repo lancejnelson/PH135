@@ -292,11 +292,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#bisection" id="toc-bisection" class="nav-link active" data-scroll-target="#bisection"> <span class="header-section-number">15.1</span> Bisection</a></li>
-  <li><a href="#secant-method" id="toc-secant-method" class="nav-link" data-scroll-target="#secant-method"> <span class="header-section-number">15.2</span> Secant Method</a></li>
-  <li><a href="#newtons-method" id="toc-newtons-method" class="nav-link" data-scroll-target="#newtons-method"> <span class="header-section-number">15.3</span> Newton’s Method</a></li>
-  <li><a href="#fixed-point-iteration" id="toc-fixed-point-iteration" class="nav-link" data-scroll-target="#fixed-point-iteration"> <span class="header-section-number">15.4</span> Fixed-Point Iteration</a></li>
-  <li><a href="#finding-extrema" id="toc-finding-extrema" class="nav-link" data-scroll-target="#finding-extrema"> <span class="header-section-number">15.5</span> Finding Extrema</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">15.6</span> Exercises</a></li>
+  <li><a href="#newtons-method" id="toc-newtons-method" class="nav-link" data-scroll-target="#newtons-method"> <span class="header-section-number">15.2</span> Newton’s Method</a></li>
+  <li><a href="#fixed-point-iteration" id="toc-fixed-point-iteration" class="nav-link" data-scroll-target="#fixed-point-iteration"> <span class="header-section-number">15.3</span> Fixed-Point Iteration</a></li>
+  <li><a href="#finding-extrema" id="toc-finding-extrema" class="nav-link" data-scroll-target="#finding-extrema"> <span class="header-section-number">15.4</span> Finding Extrema</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">15.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -322,11 +321,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://lancejnelson.github.io/PH135/jupyter/rootFinding.ipynb">Jupyter Notebook</a></p>
 <p>Often in science, we find ourselves wanting to do one of the following: (See figure below)</p>
 <ol type="1">
-<li>Solve an equation for a specified variable</li>
-<li>Find the zeros of a function (equivalent to solving an equation that is equal to zero)</li>
+<li>Solve an equation for a specified variable.</li>
+<li>Find the zeros of a function (equivalent to solving an equation that is equal to zero).</li>
 <li>Find the extrema (maxima or minima) of a function.</li>
 </ol>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -336,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<p>These skills are routinely covered in an algebra class but often the equation we encounter cannot be solved using these techniques. Instead we have to resort to a class of numerical algorithms generally referred to as root finding or optimization algorithms. The algorithms described below can be applied to perform any of the tasks mentioned above. In the remainder of this chapter we will discuss various numerical methods for finding the roots of an equation.</p>
+<p>These skills are routinely covered in an algebra class but often the equation we encounter cannot be solved using standard algebraic techniques. Instead we have to resort to a class of numerical algorithms generally referred to as root finding or optimization algorithms. In the remainder of this chapter we will discuss various numerical methods for finding the roots of an equation. The algorithms described below can be used to perform any of the tasks mentioned above.</p>
 <!--  Finding the zero of this function means finding the x-value where the function is equal to zero (red dot).  Finding the min or max of the function means finding the x value where the slope of the function is zero (blue and green dots). When algebra techniques fail to solve the equation, we can use one of several numerical algorithms to solve it instead. 
 You probably remember being asked to find the roots of a function in your math class. Finding the roots means finding the x values that make $y(x) = 0$. For example, the following polynomial equation has two solutions that can be found using the quadratic formula.
 
@@ -370,13 +369,9 @@ y(x) = 5 x^2 - 3x - 2 = 0
 </figure>
 </div>
 </section>
-<section id="secant-method" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="secant-method"><span class="header-section-number">15.2</span> Secant Method</h2>
-</section>
-<section id="newtons-method" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="newtons-method"><span class="header-section-number">15.3</span> Newton’s Method</h2>
-<p>Newton’s method uses the slope of the function to estimate a better approximation to the function’s zero.<br>
-To understand how we can use the slope to approximate the zero, first let’s write down an approximation to the slope.</p>
+<section id="newtons-method" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="newtons-method"><span class="header-section-number">15.2</span> Newton’s Method</h2>
+<p>Newton’s method uses the slope of the function to estimate a better approximation to the function’s zero. To understand how we can use the slope to approximate the zero, first let’s write down an approximation to the slope of a function <span class="math inline">\(f(x)\)</span>.</p>
 <p><span class="math display">\[
 f'(x_0) \approx {f(x_1) - f(x_0) \over x_1 - x_0}
 \]</span></p>
@@ -393,7 +388,7 @@ x_{n+1} = x_n - {f(x_n)\over f'(x_n)}
 <p><span class="math display">\[
 y(x) = \cos(x) = 0
 \]</span></p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.3</span></span>
@@ -414,9 +409,9 @@ y(x) = \cos(x) = 0
 </figure>
 </div>
 </section>
-<section id="fixed-point-iteration" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="fixed-point-iteration"><span class="header-section-number">15.4</span> Fixed-Point Iteration</h2>
-<p>Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearrange to look similar to the function below.</p>
+<section id="fixed-point-iteration" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="fixed-point-iteration"><span class="header-section-number">15.3</span> Fixed-Point Iteration</h2>
+<p>Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearranged to look similar to the function below.</p>
 <p><span class="math display">\[
 x = \cos(x)
 \]</span></p>
@@ -424,7 +419,7 @@ x = \cos(x)
 <p><span class="math display">\[
 y(x) = x - \cos(x) = 0
 \]</span></p>
-<p>Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms. The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation. This process repeats with the new guess always being used to evaluate the function until $|x - (x)| $ is sufficiently small. The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you’ll never come up with an expression that solves this equation.</p>
+<p>If the function cannot be manipulated to look like the form above, it is not a good candidate for the fixed-point iteration method. Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms. The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation. This process repeats with the new guess always being used to evaluate the function until <span class="math inline">\(|x - \cos(x)|\)</span> is sufficiently small. The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you’ll never come up with an expression that solves this equation.</p>
 <p>The code cell below shows the fixed-point iteration algorithm used to find the zeros of the function mentioned above: <span class="math inline">\(x = \cos(x)\)</span></p>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
@@ -456,8 +451,8 @@ x = (x+{5\over 2})^{1\over 3}
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">&gt;</span> <span class="dv">10000</span>:</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="finding-extrema" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="finding-extrema"><span class="header-section-number">15.5</span> Finding Extrema</h2>
+<section id="finding-extrema" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="finding-extrema"><span class="header-section-number">15.4</span> Finding Extrema</h2>
 <p>Any of the methods discussed above can be used to find extrema by finding the zeros of the derivative. For example, to find the minimum of this function:</p>
 <p><span class="math display">\[
 y(x) = 5 x^3 - 2x^2 - 8 x + 2
@@ -466,8 +461,8 @@ y(x) = 5 x^3 - 2x^2 - 8 x + 2
 <p><span class="math display">\[
 y'(x) = 15 x^2 - 4 x - 8
 \]</span></p>
-<p>Fixed-point iteration, or any of the other methods discussed, can then be used to solve this equation:</p>
-<div class="cell" data-execution_count="5">
+<p>And then used fixed-point iteration, or any of the other methods discussed, to solve this equation for <span class="math inline">\(x\)</span>:</p>
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
@@ -483,32 +478,28 @@ y'(x) = 15 x^2 - 4 x - 8
 </div>
 </div>
 </section>
-<section id="exercises" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">15.6</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">15.5</span> Exercises</h2>
 <ol type="1">
-<li>Use the bisection method to find the zeros of the function</li>
+<li><p>Use the bisection method to find the zeros of the function <span class="math display">\[ y(x) = 8x^3 - 15 x^2 - 4 x + 5\]</span> Hint: This function has three zeros; one in the region [-1,0], one in the region [0,1] and another in the region [1.5,2.5]</p></li>
+<li><p>Use Newton’s method to find the zero for the following function (slightly different from the one in problem 1) <span class="math display">\[y(x) = 8x^3 - 15 x^2 - 4 x - 5\]</span> then use <code>sympy</code> to solve the equation and verify that the answer are the same.<br>
+Answer: You should find that the zero is located at <span class="math inline">\(\approx 2.2257\)</span><br>
+Hint: The derivative of this function is:</p></li>
 </ol>
 <p><span class="math display">\[
-y(x) = 8x^3 - 15 x^2 - 4 x + 5
+y'(x) = 24 x^2 - 20 x - 4
 \]</span></p>
-<p>Hint: This function has three zeros; one in the region [-1,0], one in the region [0,1] and another in the region [1.5,2.5]</p>
-<ol start="2" type="1">
-<li>Use Newton’s method to find the zero for the following function (slightly different from the one in problem 1):</li>
+<ol start="3" type="1">
+<li><p>Use fixed-point iteration to solve the following equation<span class="math display">\[\left({1\over 2}\right)^x = x^2\]</span></p></li>
+<li><p>Use Newton’s method to solve the following equation <span class="math display">\[e^x = \cos(x)\]</span> Note: This function has three solutions; one in the region [-5,-4], one in the region [-2,-1] and another in the region [-1,1]. See if you can find all of them by varying your initial guess.</p></li>
+<li><p>Use a method of your choosing to find the <strong>minimum</strong> of the function <span class="math display">\[y(x) = 10 x^2 \cos(\sqrt{x})\]</span> Hint: If you choose to use the bisection method, you’ll need the first derivative of this function. If you choose to use Newton’s method, you’ll need the first and second derivatives of this function. Both of these functions are given below.</p></li>
 </ol>
 <p><span class="math display">\[
-y(x) = 8x^3 - 15 x^2 - 4 x - 5
+y'(x) = 20 x \cos(\sqrt{x}) - 5 x^{3/2} \sin(\sqrt{x})
 \]</span></p>
-<p>Answer: You should find that the zero is located at <span class="math inline">\(\approx 2.2257\)</span> 3. Use fixed-point iteration to solve the following equation</p>
 <p><span class="math display">\[
-{1\over 2}^x = x^2
+y''(x) = 20 \cos(\sqrt{x}) - {5\over 2} x \cos(\sqrt{x}) - {35\over 2} \sqrt{x} \sin(\sqrt{x})
 \]</span></p>
-<ol start="4" type="1">
-<li>Use Newton’s method to solve the following equation</li>
-</ol>
-<p><span class="math display">\[
-e^x = \cos(x)
-\]</span></p>
-<p>Note: This function has three solutions; one in the region [-5,-4], one in the region [-2,-1] and another in the region [-1,1]. See if you can find all of them by varying your initial guess.</p>
 
 
 </section>
