@@ -5,7 +5,7 @@ execute:
   cache: true
 ---
 
-# Boolean Variables and Conditionals
+# Boolean Variables and Conditional Execution
 
 
 [Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/booleans.ipynb)
@@ -164,7 +164,7 @@ jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themis
 
 ### `if` statement
 
-The `if` statement is used to control when a block of code runs.  It's usage is shown below ending in a colon and the block of code below indented with *four spaces*.  Using the **Tab** key will also produce four spaces.
+The `if` statement is used to control when a block of code runs.  Its usage is shown below ending in a colon and the block of code below indented with *four spaces*.  Using the **Tab** key will also produce four spaces.
 
 ```{python}
 jupytermoons = "Metis,Adrastea,Amalthea,Thebe,Io,Europa,Ganymede,Callisto,Themisto,Leda,Himalia,Lysithea,Elara,Dia,Carpo,Euporie,Thelxinoe,Euanthe,Helike,Orthosie,Iocaste,Praxidike,Harpalyke,Mneme,Hermippe,Thyone,Ananke,Herse,Aitne,Kale,Taygete,Chaldene,Erinome,Aoede,Kallichore,Kalyke,Carme,Callirrhoe,Eurydome,Pasithee,Kore,Cyllene,Eukelade,Pasiphae,Hegemone,Arche,Isonoe,Sinope,Sponde,Autonoe,Megaclite"
@@ -178,7 +178,7 @@ if "Matis" in jupytermoons:
     print("Found Matis in the list")
 ```
 
-If the boolean statement after `if` is true, the indented code below it will run.  If the statement is false, Python just skips the indented lines below.
+If the boolean statement after `if` is true, the indented code below it will run.  If the statement is false, Python just skips the indented lines below.  The end of an `if` code block is determined by the indentation; to signal the end of the block, simply step back the indentation. 
 
 ### `else` Statement
 

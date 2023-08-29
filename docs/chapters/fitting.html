@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditional Execution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -376,7 +376,7 @@ v_f &amp;= v_i - a \Delta t\\
 <pre><code>Text(0.5, 1.0, 'Skid time vs initial speed')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="fitting_files/figure-html/cell-2-output-2.png" width="576" height="442"></p>
+<p><img src="fitting_files/figure-html/cell-2-output-2.png" width="576" height="449"></p>
 </div>
 </div>
 <p>We notice that the data <strong>looks</strong> linear which matches our hypothesis that the acceleration is constant.</p>
@@ -427,7 +427,7 @@ m &amp;= {1\over \mu g}\\
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.plot(vi,t,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">16</span>)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.plot(vDense,tDense,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="fitting_files/figure-html/cell-4-output-1.png" width="558" height="404"></p>
+<p><img src="fitting_files/figure-html/cell-4-output-1.png" width="558" height="411"></p>
 </div>
 </div>
 <section id="assessing-the-quality-of-the-fit" class="level3" data-number="17.1.1">
@@ -481,7 +481,7 @@ m &amp;= {1\over \mu g}\\
 <p>If the fit function is a polynomial, <code>polyfit</code> is a great choice but there are times when the hypothesized functions is not a polynomial. In cases like this, the function <code>scipy.optimize.curve_fit</code> should work. As an example, let’s say that you have the following intensity vs.&nbsp;wavelength data.</p>
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
-<p><img src="fitting_files/figure-html/cell-6-output-1.png" width="604" height="404"></p>
+<p><img src="fitting_files/figure-html/cell-6-output-1.png" width="604" height="411"></p>
 </div>
 </div>
 <p>If you suspected that the fit function looked like this <span class="math display">\[I(\lambda) = a \lambda^{-5} {1\over \exp{b\over \lambda} - 1}\]</span>, you could find the values of a and b that made the function fit the data like this:</p>
@@ -510,7 +510,7 @@ m &amp;= {1\over \mu g}\\
        [0.0038109 , 0.00717859]]))</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="fitting_files/figure-html/cell-7-output-2.png" width="604" height="404"></p>
+<p><img src="fitting_files/figure-html/cell-7-output-2.png" width="604" height="411"></p>
 </div>
 </div>
 <p>Notice that the <code>curve_fit</code> function returns more than just the fit paramters. It also returns a <span class="math inline">\(2\)</span> x <span class="math inline">\(2\)</span> matrix containing the uncertainties on the fit parameters. If you want to calculate the fit error, you’ll have to do it manually, using the equation</p>

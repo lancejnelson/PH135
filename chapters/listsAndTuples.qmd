@@ -7,6 +7,7 @@ execute:
   cache: true
 ---
 
+
 # Lists and Tuples
 
 [Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/listsAndTuples.ipynb)
@@ -92,6 +93,9 @@ list(myList)
 >Use the range function to generate a list of **even** numbers from 8 to 88. (the list should include 88!)
 > 
 
+```{python}
+# Python Code Here!
+```
 
 
 ## Indexing and Slicing Lists
@@ -116,6 +120,10 @@ electrons[-1]
 >2. Use print statements to check your answers.
 >3. Discuss any misunderstandings with a peer.
 
+```{python}
+# Python Code Here!
+```
+
 
 Accessing elements of nested lists requires multiple sets of parenthesis.
 
@@ -135,6 +143,10 @@ y = conductivity[0][2]
 >2. Use print statements to check your answers.
 >3. Discuss any misunderstandings with a peer.
 
+```{python}
+# Python Code Here!
+```
+
 
 Since lists are _mutable_, we can modify the value of an element in a list using the `=` operator.
 
@@ -150,6 +162,10 @@ conductivity
 >
 >1. Use a print statement to verify that the `conductivity` list was indeed modified as expected.
 >2. Modify the third element to be "Platinum" and the fourth to be the conductivity of Platinum (`9.43e6`).
+
+```{python}
+# Python Code Here!
+```
 
 Multiple list elements can be retrieved at once (called _slicing_) by including the start and stop indices separated by a colon: `[start:stop:step]`.  A convention that occurs throughout python is that the first index is included in the slice but the second is _not_. (i.e. `[included: excluded: step]`)  Default values for the start location, stop location, and step sizes will be used if these values are omitted. Below we give some examples of slicing. 
 
@@ -172,6 +188,10 @@ electrons[5:2:-1]
 >2. Use print statements to check your answers.
 >3. Discuss any misunderstandings with a peer.
 >4. Now use list slicing to extract every third element of the list in the cell above starting at the beginning.
+
+```{python}
+# Python Code Here!
+```
 
 ## Tests for Inclusion  
  
@@ -196,7 +216,7 @@ numbers = [5,6,3,1,2]
 
 ## List Methods
 
-Lists have a collection of methods (or functions) for accomplishing routine tasks.  Some of the more common list methods are given below.  All of the methods given will modify the original list (except `copy()`).  As a reminder, methods only work on the object type that they were designed for (lists in this case) and they are called by appending the method name to the variable you want it to operate on. (i.e. `myList.clear()`) 
+Lists have a collection of methods (or functions) for accomplishing routine tasks.  Some of the more common list methods are given below.  All of the methods given will modify the original list (except `copy()`).  As a reminder, methods only work on the object type that they were designed for (lists in this case) and they are called by appending the method name to the variable you want it to operate on. (e.g. `myList.clear()`) 
 
 
 | Method | Description|
@@ -223,8 +243,8 @@ Lists have a collection of methods (or functions) for accomplishing routine task
 >2. Remove the first two elements from this list.
 >3. Insert the removed elements so they appear just after the entry for Helium.
 >4. Find the index location for "Ethyl Alcohol".
->5. Use the `remove` method to remove the entry for "Granite" and its associated speed.
->6. Use the `extend` method to append an entry for the speed of sound for "Steel" which is 5790 m/s.
+>5. Use the `remove` method twice to remove the entry for "Granite" and its associated speed.
+>6. Use the `extend` method twice to append an entry for the speed of sound for "Steel", which is 5790 m/s.
 
 
 ```{python}
@@ -371,7 +391,7 @@ fibonacci = [1,1,2,3,5,8,13]
 5. (Projectile Motion)  Below you will find a nested list containing the x-y coordinates for a home run baseball hit. Answer the following questions about the baseball's trajectory:
 
     1. How many x-y pairs are in the list?
-    2. How far did the baseball go before it hit the ground. 
+    2. Find the horizontal distance between the launch and landing point for the projectile.
     3. How far had the baseball traveled horizontally when it reached its max height?  To answer this question, follow the steps below:
         1. Use list comprehension to extract the x and y coordinates of the baseball into separate lists.  Call these lists `x` and `y`.
         2. Use the `index` and `max` functions to find the index corresponding to the maximum value in the list of y-coordinates.  This is the max height of the baseball.

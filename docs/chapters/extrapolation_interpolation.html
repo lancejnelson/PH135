@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditional Execution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -325,11 +325,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p><a href="https://lancejnelson.github.io/PH135/jupyter/extrapolation_interpolation.ipynb">Jupyter Notebook</a></p>
 <p>By now we should be comfortable with representing mathematical functions on discrete grids. For example, the plot below is the location of a projectile as it flies through the air at 11 discrete points in time (red dots). There will be times when we want to find good values of a function <em>between</em> grid points (blue dot) or <em>beyond</em> the last grid point (green dot). The former is called interpolation and the latter is called extrapolation. In this chapter we will learn how to do both.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="extrapolation_interpolation_files/figure-html/cell-2-output-1.png" width="579" height="404" class="figure-img"></p>
+<p><img src="extrapolation_interpolation_files/figure-html/cell-2-output-1.png" width="579" height="411" class="figure-img"></p>
 <p></p><figcaption class="figure-caption">The trajectory of a particle at a discrete set of times.</figcaption><p></p>
 </figure>
 </div>
@@ -338,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="linear-interpolation-and-extrapolation" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="linear-interpolation-and-extrapolation"><span class="header-section-number">16.1</span> Linear Interpolation and Extrapolation</h2>
 <p>The simplest way to estimate function values is to assume that the function is linear in the neighborhood of the data points. Using the fact that two points define a straight line will allow us to write a linear approximation to the function. For example, suppose that we have function values <span class="math inline">\((x_1,y_1)\)</span> and <span class="math inline">\((x_2,y_2)\)</span>, as shown in the figure below.</p>
-<div class="cell quarto-layout-panel" data-execution_count="3">
+<div class="cell quarto-layout-panel" data-execution_count="2">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -401,7 +401,7 @@ x_1 - {y_1 (x_2 - x_1)\over y_2 - y_1} &amp;= x \\
 <section id="quadratic-interpolation-and-extrapolation" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="quadratic-interpolation-and-extrapolation"><span class="header-section-number">16.2</span> Quadratic Interpolation and Extrapolation</h2>
 <p>A fancier technique for finding values between and beyond grid points is to use a parabola instead of a line. It takes three data points to define a parabola, so we need to start with the function values <span class="math inline">\((x_1,y_1)\)</span>, <span class="math inline">\((x_2,y_2)\)</span>, and <span class="math inline">\((x_3,y_3)\)</span>, as shown in the figure below.</p>
-<div class="cell quarto-layout-panel" data-execution_count="4">
+<div class="cell quarto-layout-panel" data-execution_count="3">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -440,13 +440,13 @@ y(x_3 +  {1\over 2}h) =  {1\over 8}(3 y_1 - 10 y_2 + 15y_3)
 <section id="an-example" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="an-example"><span class="header-section-number">16.3</span> An Example</h2>
 <p>Let’s take the example of the projectile that was mentioned at the beginning of this chapter (shown below again). The red dots are the known data points and let’s try to estimate the height of the projectile between the 3rd and 4th data points in the set (the blue dot) using both linear and quadratic methods.</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
-<p><img src="extrapolation_interpolation_files/figure-html/cell-5-output-1.png" width="579" height="404"></p>
+<p><img src="extrapolation_interpolation_files/figure-html/cell-5-output-1.png" width="579" height="411"></p>
 </div>
 </div>
 <p>Let’s evaluate (<a href="#eq-linear-interp">Equation&nbsp;<span>16.2</span></a>) and (<a href="#eq-quadratic-interpOne">Equation&nbsp;<span>16.6</span></a>) to perform this interpolation in the cell below.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sin,cos,pi</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> <span class="dv">30</span></span>
@@ -465,7 +465,7 @@ y(x_3 +  {1\over 2}h) =  {1\over 8}(3 y_1 - 10 y_2 + 15y_3)
 </div>
 </div>
 <p>Notice that the linear and quadratic interpolations are close to the same number but they aren’t equal; we wouldn’t really expect them to be. Deciding which interpolation method is the best choice is a case-by-case decision. For this case, I would favor the quadratic interpolation since the trajectory is more parabolic than linear. Now let’s use the extrapolation formulas to estimate the projectile’s height past the last data point. For the linear case, the second-to-last data point is playing the role of <span class="math inline">\((x_1,y_1)\)</span> and the last data point is playing the role of <span class="math inline">\((x_2,y_2)\)</span>. For the quadratic case, the third-to-last data point is playing the role of <span class="math inline">\((x_1,y_1)\)</span>, the second-to-last data point is playing the role of <span class="math inline">\((x_2,y_2)\)</span>, and the last data point is playing the role of <span class="math inline">\((x_3,y_3)\)</span>. Best to use negative indices to index the data arrays for this case.</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sin,cos,pi</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> <span class="dv">30</span></span>
@@ -484,7 +484,7 @@ y(x_3 +  {1\over 2}h) =  {1\over 8}(3 y_1 - 10 y_2 + 15y_3)
 </div>
 </div>
 <p>Now the quadratic and the linear extrapolations differ pretty significantly. The linear version is a better value in this case due to the very course grid being used here. Finally, let’s use (<a href="#eq-zero-linear">Equation&nbsp;<span>16.4</span></a>) to estimate the landing location for the projectile.</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sin,cos,pi</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> <span class="dv">30</span></span>
@@ -496,7 +496,7 @@ y(x_3 +  {1\over 2}h) =  {1\over 8}(3 y_1 - 10 y_2 + 15y_3)
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>xRange <span class="op">=</span> x[<span class="op">-</span><span class="dv">2</span>] <span class="op">-</span> y[<span class="op">-</span><span class="dv">2</span>] <span class="op">*</span> (x[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> x[<span class="op">-</span><span class="dv">2</span>])<span class="op">/</span>(y[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> y[<span class="op">-</span><span class="dv">2</span>])</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xRange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>93.52444507627928</code></pre>
+<pre><code>93.52444507627926</code></pre>
 </div>
 </div>
 </section>

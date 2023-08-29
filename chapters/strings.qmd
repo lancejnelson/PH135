@@ -51,6 +51,10 @@ f = b * c
 >4. What do you think will happen if you multiplied a string and a float?  Guess and then see if you're right.
 >5. Add comments for you to refer back to later.
 
+```{python}
+# Python Code Here!
+```
+
 If you want to know the length of a string, you can use the `len()` function
 
 ```{python}
@@ -116,6 +120,10 @@ The structure of the stuff inside of the curly braces is `{variable:formatcode}`
 >1. Modify the print statement above so that the float variables are given 8 total spaces with only 1 number after the decimal being displayed.
 >2. Modify the print statement above so that the speed of light is displayed with 3 numbers after the decimal place.
 
+```{python}
+# Python Code Here!
+```
+
 
 ## Indexing and Slicing
 
@@ -131,7 +139,7 @@ The structure of the stuff inside of the curly braces is `{variable:formatcode}`
 To access a single character from a string, place the desired index in square brackets after the name of the string.
 
 ```{python}
-seq = "MSLFKIRMPI"
+seq = "MSLFKIRMPE"
 seq[0]
 ```
 
@@ -154,6 +162,10 @@ seq[-1]
 >1. Access the 5th character in the peptide sequence above.
 >2. Access the character that is 3rd from the end in the peptide sequence above.
 
+```{python}
+# Python Code Here!
+```
+
 Indexing only provides a single character, but it is common to want a series of characters from a string.  *Slicing* allows us to grab a section of a string. Slicing is performed by specifying start and stop indices separated by a colon in the square brackets.  One important detail worth mentioning: the character at the starting index is included in the slice while the character located at the final index *is not* included in the slice.
 
 ```{python}
@@ -173,6 +185,7 @@ You can also use negative indices when slicing.  This is especially helpful when
 ```{python}
 file = "data.txt"
 ext = file[-3:]
+print(ext)
 ```
 
 Finally, we can adjust the step size in the slice.  That is, we can ask for every other character in the string by setting a step size of 2.  The structure of the slice is [start,stop,step].
@@ -234,6 +247,9 @@ a.endswith("p")
 >1. Use well-placed print statements to determine what each string method does.
 >2. Add comments next to each method for future reference.
 >
+```{python}
+# Python Code Here!
+```
 
 
 

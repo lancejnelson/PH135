@@ -69,7 +69,7 @@ It is also a good practice to make variable names meaningful. For example, in th
 # Good Variable Names
 mass_kg = 1.6
 light_speed = 3.0e8
-E = mass_kg * light_speed**2
+energy = mass_kg * light_speed**2
 
 
 # Poor Variable Names
@@ -104,6 +104,11 @@ h = a / b # Produces a ???
 >1. For each of the mathematical operations above guess what type of number the result will be.
 >2. Use `print` statements to verify your guesses and formulate a general rule that you can rely on.  (Tip, the `type()` function will tell you what kind of number a variable is.)
 
+```{python}
+# Python Code Here!
+```
+
+
 Integers and floats can be inter-converted to each other using the `int()` and `float()` functions.
 
 ```{python}
@@ -137,6 +142,9 @@ f = c**4
 >2. Guess what type of number you expect the result to produce (int or float) and then check yourself?
 >3. Add comments next to each line (Use `#` to start a comment) explaining that operation. 
 
+```{python}
+# Python Code Here!
+```
 
 
 
@@ -175,6 +183,10 @@ a /= 3
 >2. Add an appropriately-place `print` statement to see if you were correct.
 >3. If you were wrong, pow-wow with your neighbor until you understand.
 
+```{python}
+# Python Code Here!
+```
+
 ### Compound Assignment
 
 At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it's own line of code, but if there are a lot of variables, this can begin to clutter your code a little.  An alternative is to assign multiple variables on a single line.  In the code below, we assign the atomic mass of the first three elements.
@@ -189,6 +201,10 @@ H, He, Li = 1.01, 4.00, 5.39
 >
 >1. Use print statements to verify that each variable was assigned it's own value.
 >2. Add assignments for the atomic masses of the next three elements on the periodic table.
+
+```{python}
+# Python Code Here!
+```
 
 ### Large numbers
 
@@ -207,7 +223,7 @@ If your number is very large or very small ( $20-30$ zeros), you would probably 
 
 $$ 1.38 \times 10^{-23}$$ 
 
-We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below)  This is super handy for very large and very small number.  (Numbers of both variety show up frequently in physics!)
+We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below)  This is super handy for very large and very small numbers.  (Numbers of both variety show up frequently in physics!)
 
 ```{python}
 kB = 1.38e-23
@@ -218,7 +234,7 @@ kB = 1.38e-23
 In addition to basic mathematical functions, python contains several mathematical *functions*.  As in mathematics, a function has a name (e.g. *f*) and the arguments are places inside of the parenthesis after the name.  The *argument* is any value or piece of information fed into the function.  In the case below, *f* requires a single argument *x*.
 $$f(x)$$
 
-In the cell below, you will find several useful math equations.
+In the cell below, you will find several useful Python functions.
 
 ```{python}
 abs(-5.5)
@@ -229,7 +245,7 @@ round(-5.51)
 str(3.2)
 ```
 
-In addition to Python's native collection of mathematical functions, there is also a `math` module with more mathematical functions.  Think of a module as an add-on or tool pack for Python just like a library.  The `math` module comes with every installation of python and can be *imported* (i.e. activated) using the `import math` command. After the module has been imported, any function in the module is called using `math.function()` where `function` is the name of the function.  Here is a list of commonly-used function inside the `math module`:
+In addition to Python's native collection of mathematical functions, there is also a `math` module with more mathematical functions.  Think of a module as an add-on or tool pack for Python just like a library.  The `math` module comes with every installation of python and can be *imported* (i.e. activated) using the `import math` command. After the module has been imported, any function in the module is called using `math.function()` where `function` is the name of the function.  Here is a list of commonly-used functions inside the `math module`:
 
 ```{python}
 import math
@@ -259,6 +275,10 @@ math.pow(2,8)
 >1. Use print statements to figure out what each function in the code cell above does.   Pay special attention to trigonometric function.  Do these functions expect the argument to be in radians or degrees? 
 >2. Add comments to remind yourself for later.
 
+```{python}
+# Python Code Here!
+```
+
 
 There are other ways to import functions from modules. If you only want to use a single function inside the module, you can selectively import it using `from`, as shown below.
 
@@ -283,19 +303,21 @@ radians(4)
 
 ## Exercises
 
-1. Calculate the distance from the point $(-48,56)$ to the point $(23,81)$ 1- using the `math.hypot()` function and then 2- using the following distance equation: $$ d = \sqrt{\Delta x^2 + \Delta y^2}$$ Print out the result and check your answer with your neighbor's answer.
+1. Most (or all) of you have use Pythagorean's theorem to calculate the hypotenuse of a right triangle. The theorem states taht $a^2 + b^2 = c^2$ for a right triangle, where $a$ and $b$ are the lengths of the sides forming the right angle and $c$ is the length of the hypotenuse.  There is a Python function called `hypot` (found in a library called `math`) that will perform this calculation for your.  Calculate the distance from the point $(-48,56)$ to the point $(23,81)$ using 
+    1. Pythogorean's theorem
+    2. The Python function `hypot`. To learn how to use the hypot function, visit the following [documentation page](https://docs.python.org/3/library/math.html) and search for the explanation for the `hypot` function.  Learning to read and understand online documentation is a skill that you you should develop.
+    
+Print out the result and check your answer with your neighbor's answer.
 
 ```{python}
-
-
+# Python Code Here!
 ```
 
 
 2. Solve the quadratic equation using the quadratic function below for $a = 1$, $b = 2$, and $c = 1$. $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$ Print out the result and check your answer with a classmate.
 
 ```{python}
-
-
+# Python Code Here!
 ```
 
 
@@ -304,8 +326,7 @@ The unit AU is called an astronomical unit of length and is defined to be the av
 where $1 \text{ lightyear} = 9.5 \times 10^{12}$ km.  The constant $G$ is called the gravitational constant and has the value: $$ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}$$  Calculate the mass of the sun and display your result using a print statement.  You should find a value of $M_\text{Sun} = 2.01 \times 10^{30}$ kg
 
 ```{python}
-
-
+# Python Code Here!
 ```
 
 4. (Projectile Motion)  The range of a projectile is given by the equation:$$ d = {2 v^2 \cos \theta \sin \theta \over g}$$
@@ -337,8 +358,7 @@ where
 
 
 ```{python}
-
-
+# Python Code Here!
 ```
 
 6. In Einstein's special theory of relativity, the momentum of an object with mass $m$ (in kg) and velocity $v$ (in m/s) is given by:$$ p = m v \gamma$$ where $$\gamma = {1\over \sqrt{1 - {v^2\over c^2}}}$$ with $c = 3 \times 10^8$ m/s
@@ -348,6 +368,5 @@ where
     3. Repeat for the following speeds: ${1\over 2}$ the speed of light, ${3\over 4}$ the speed of light, and ${7\over 8}$ the speed of light.  Repeat the comparison to the classical value.
 
 ```{python}
-
-
+# Python Code Here!
 ```

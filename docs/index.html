@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  <a href="./chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditional Execution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks"> <span class="header-section-number">1.3</span> Jupyter Notebooks</a>
   <ul class="collapse">
   <li><a href="#notebook-structure" id="toc-notebook-structure" class="nav-link" data-scroll-target="#notebook-structure"> <span class="header-section-number">1.3.1</span> Notebook Structure</a></li>
-  <li><a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"> <span class="header-section-number">1.3.2</span> Latex</a></li>
+  <li><a href="#mathrmlatex" id="toc-mathrmlatex" class="nav-link" data-scroll-target="#mathrmlatex"> <span class="header-section-number">1.3.2</span> <span class="math inline">\(\mathrm{\LaTeX}\)</span></a></li>
   <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"> <span class="header-section-number">1.3.3</span> Tables</a></li>
   <li><a href="#navigating-jupyter-notebooks" id="toc-navigating-jupyter-notebooks" class="nav-link" data-scroll-target="#navigating-jupyter-notebooks"> <span class="header-section-number">1.3.4</span> Navigating Jupyter Notebooks</a></li>
   </ul></li>
@@ -382,18 +382,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vi <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>vf <span class="op">=</span> vi <span class="op">+</span> a <span class="op">*</span> dt</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Markdown cells are designed to contain explanatory information about what is happening inside of the code cells. They can contain text, math equations, and images. Markdown cells support markdown, html, and Latex (for generating pretty math equations).</p>
+<p>Markdown cells are designed to contain explanatory information about what is happening inside of the code cells. They can contain text, math equations, and images. Markdown cells support markdown, html, and <span class="math inline">\(\mathrm{\LaTeX}\)</span> (for generating pretty math equations).</p>
 <p>Both markdown and code cells can be executed by either selecting <strong>Run Selected Cells</strong> in the <strong>Run</strong> menu, by clicking the <strong>Play</strong> icon at the top of the notebook, or by using the <strong>Shift-Return</strong> shortcut when your cursor is in the desired cell.</p>
 </section>
-<section id="latex" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="latex"><span class="header-section-number">1.3.2</span> Latex</h3>
+<section id="mathrmlatex" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="mathrmlatex"><span class="header-section-number">1.3.2</span> <span class="math inline">\(\mathrm{\LaTeX}\)</span></h3>
 <p>Often you will want to include math equations as part of your explanation/text. Below is an example of what your math should and should not look like.</p>
 <ul>
 <li><span class="math inline">\(|\vec{v}| = \sqrt{v_x^2 + v_y^2}\)</span> (like this)<br>
 </li>
 <li>v = sqrt(vx^2 + vy^2) (not like this)</li>
 </ul>
-<p>To make your math equations look like the first example, you must enclose your math equation in “$$”, one pair at the beginnning of the equation and one pair at the end. To generate the math symbols that often show up in equations, you’ll need to know the correct syntax. A table of commonly used math symbols is given below.</p>
+<p>To make your math equations look like the first example, you must enclose your math equation in “$$”, one pair at the beginnning of the equation and one pair at the end. Enclosing your expression in double dollar signs will put the expression on its own line. To place the expression in the middle of a sentence (inline) you’ll need to enclose the expression in single dollar signs. To generate the math symbols that often show up in equations, you’ll need to know the correct syntax. A table of commonly used math symbols is given below.</p>
 <table class="table">
 <colgroup>
 <col style="width: 32%">
@@ -404,7 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="header">
 <th>Math symbol</th>
 <th>Example</th>
-<th>Latex syntax</th>
+<th><span class="math inline">\(\mathrm{\LaTeX}\)</span> syntax</th>
 </tr>
 </thead>
 <tbody>
@@ -430,8 +430,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="odd">
 <td>Fractions</td>
-<td><span class="math inline">\({a \over b}\)</span></td>
-<td><code>{a \over b}</code></td>
+<td><span class="math inline">\(\frac{a}{b}\)</span></td>
+<td><code>\frac{a}{b}</code></td>
 </tr>
 <tr class="even">
 <td>Vectors</td>
@@ -460,12 +460,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>You can include greek letters in your expressions if you know the corresponding syntax. The table below shows some of the more common greek letters used in physics.</p>
+<p>You can include Greek letters in your expressions if you know the corresponding syntax. The table below shows some of the more common Greek letters used in physics.</p>
 <table class="table">
 <thead>
 <tr class="header">
 <th>Greek Letter</th>
-<th>Latex syntax</th>
+<th><span class="math inline">\(\mathrm{\LaTeX}\)</span> syntax</th>
 </tr>
 </thead>
 <tbody>
@@ -603,10 +603,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Execute the cell using <code>shift</code> + <code>enter</code>. Observe the output.</li>
 <li>Create another cell just below the code cell you just created.</li>
 <li>Turn it into a text/markdown cell if it isn’t already.</li>
-<li>Using Latex syntax, write the equation from the table that you used to peform the calculation.</li>
+<li>Using <span class="math inline">\(\mathrm{\LaTeX}\)</span> syntax, write the equation from the table that you used to peform the calculation.</li>
 <li>“Execute” the cell and observe the new output.</li>
 </ol></li>
-<li><p>Recreate the first three columns of your top 10 favorite physical constants found <a href="https://en.wikipedia.org/wiki/List_of_physical_constants">here</a> (same table as given in exercise 1). Pick constants that have greek letters and fun mathematical equations associated with them.</p></li>
+<li><p>Recreate the first three columns of your top 10 favorite physical constants found <a href="https://en.wikipedia.org/wiki/List_of_physical_constants">here</a> (same table as given in exercise 1). Pick constants that have Greek letters and fun mathematical equations associated with them.</p></li>
 </ol>
 
 

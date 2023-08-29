@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditionals</span></a>
+  <a href="../chapters/booleans.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boolean Variables and Conditional Execution</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -422,7 +422,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good Variable Names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mass_kg <span class="op">=</span> <span class="fl">1.6</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>light_speed <span class="op">=</span> <span class="fl">3.0e8</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>E <span class="op">=</span> mass_kg <span class="op">*</span> light_speed<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>energy <span class="op">=</span> mass_kg <span class="op">*</span> light_speed<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Poor Variable Names</span></span>
@@ -449,24 +449,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>print</code> statements to verify your guesses and formulate a general rule that you can rely on. (Tip, the <code>type()</code> function will tell you what kind of number a variable is.)</li>
 </ol>
 </blockquote>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Integers and floats can be inter-converted to each other using the <code>int()</code> and <code>float()</code> functions.</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">3.0</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">3.0</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>4.0</code></pre>
 </div>
 </div>
 <p>The distinction between floats and ints is often a minor detail. Occasionally, a function will require that an argument be a float or an int but usually you won’t have to worry about which one you use.</p>
 <p>Below you will find some other common mathematical operations that can be performed on numerical variables.</p>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a<span class="op">/</span>b  </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> a<span class="op">//</span>b</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> a <span class="op">%</span> b</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> a <span class="op">*</span> b</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> c<span class="op">**</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> a<span class="op">/</span>b  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> a<span class="op">//</span>b</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> a <span class="op">%</span> b</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> a <span class="op">*</span> b</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> c<span class="op">**</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p><strong>To Do:</strong></p>
 <ol type="1">
@@ -476,20 +477,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add comments next to each line (Use <code>#</code> to start a comment) explaining that operation.</li>
 </ol>
 </blockquote>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="augmented-assignment" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="augmented-assignment"><span class="header-section-number">2.2.1</span> Augmented Assignment</h3>
 <p>Augmented assignment is a shortened way to make a simple modification to a variable. For example, if we want to increase the value of a variable by 10, one way to do it would be like this.</p>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is certainly not difficult, but it does involve typing the variable twice which becomes cumbersome as your variable name gets longer. Alternatively, we can accomplish the same thing with the <code>+=</code> operator.</p>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Augmented assignment can be used with addition, subtraction, multiplication, and division as shown in the code cell below.</p>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">7</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">3</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">*=</span> <span class="dv">4</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">/=</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">3</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">*=</span> <span class="dv">4</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">/=</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p><strong><em>To Do:</em></strong></p>
 <ol type="1">
@@ -498,11 +500,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>If you were wrong, pow-wow with your neighbor until you understand.</li>
 </ol>
 </blockquote>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="compound-assignment" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="compound-assignment"><span class="header-section-number">2.2.2</span> Compound Assignment</h3>
 <p>At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it’s own line of code, but if there are a lot of variables, this can begin to clutter your code a little. An alternative is to assign multiple variables on a single line. In the code below, we assign the atomic mass of the first three elements.</p>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>H, He, Li <span class="op">=</span> <span class="fl">1.01</span>, <span class="fl">4.00</span>, <span class="fl">5.39</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>H, He, Li <span class="op">=</span> <span class="fl">1.01</span>, <span class="fl">4.00</span>, <span class="fl">5.39</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <blockquote class="blockquote">
 <p><strong><em>To Do:</em></strong></p>
 <ol type="1">
@@ -510,63 +513,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add assignments for the atomic masses of the next three elements on the periodic table.</li>
 </ol>
 </blockquote>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="large-numbers" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="large-numbers"><span class="header-section-number">2.2.3</span> Large numbers</h3>
 <p>Sometimes you find yourself working with large numbers in your calculation. Maybe your calculation involves the use of ten billion, which has 10 zeros in it. It can be difficult to look at all of those zeros with no commas to help break it up. In those cases, you can use an underscore (<code>_</code>) in place of the comma, as shown below.</p>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10000000000</span> <span class="co"># This is tough to look at.</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10_000_000_000</span>  <span class="co"># This is easy to read</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>myLargeFloat <span class="op">=</span> <span class="fl">5000000.6</span> <span class="co"># This is tough to read</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>myLargeFloat <span class="op">=</span> <span class="fl">5_000_000.6</span> <span class="co"># This is easy to read</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10000000000</span> <span class="co"># This is tough to look at.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10_000_000_000</span>  <span class="co"># This is easy to read</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>myLargeFloat <span class="op">=</span> <span class="fl">5000000.6</span> <span class="co"># This is tough to read</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>myLargeFloat <span class="op">=</span> <span class="fl">5_000_000.6</span> <span class="co"># This is easy to read</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="very-large-numbers" class="level3" data-number="2.2.4">
 <h3 data-number="2.2.4" class="anchored" data-anchor-id="very-large-numbers"><span class="header-section-number">2.2.4</span> Very Large Numbers</h3>
 <p>If your number is very large or very small ( <span class="math inline">\(20-30\)</span> zeros), you would probably rather not have to type all of the zeros at all, even if you can break it up with the underscores. For example, the Boltzmann constant, which comes up in thermodynamics, has a value equal to</p>
 <p><span class="math display">\[ 1.38 \times 10^{-23}\]</span></p>
-<p>We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below) This is super handy for very large and very small number. (Numbers of both variety show up frequently in physics!)</p>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>kB <span class="op">=</span> <span class="fl">1.38e-23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below) This is super handy for very large and very small numbers. (Numbers of both variety show up frequently in physics!)</p>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>kB <span class="op">=</span> <span class="fl">1.38e-23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="python-functions" class="level3" data-number="2.2.5">
 <h3 data-number="2.2.5" class="anchored" data-anchor-id="python-functions"><span class="header-section-number">2.2.5</span> Python functions</h3>
 <p>In addition to basic mathematical functions, python contains several mathematical <em>functions</em>. As in mathematics, a function has a name (e.g.&nbsp;<em>f</em>) and the arguments are places inside of the parenthesis after the name. The <em>argument</em> is any value or piece of information fed into the function. In the case below, <em>f</em> requires a single argument <em>x</em>.</p>
 <p><span class="math display">\[f(x)\]</span></p>
-<p>In the cell below, you will find several useful math equations.</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">abs</span>(<span class="op">-</span><span class="fl">5.5</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">2</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">5.6</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">1.26e-6</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(<span class="op">-</span><span class="fl">5.51</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="fl">3.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the cell below, you will find several useful Python functions.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">abs</span>(<span class="op">-</span><span class="fl">5.5</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">2</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">5.6</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">1.26e-6</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(<span class="op">-</span><span class="fl">5.51</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="fl">3.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.26e-06</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>'3.2'</code></pre>
 </div>
 </div>
-<p>In addition to Python’s native collection of mathematical functions, there is also a <code>math</code> module with more mathematical functions. Think of a module as an add-on or tool pack for Python just like a library. The <code>math</code> module comes with every installation of python and can be <em>imported</em> (i.e.&nbsp;activated) using the <code>import math</code> command. After the module has been imported, any function in the module is called using <code>math.function()</code> where <code>function</code> is the name of the function. Here is a list of commonly-used function inside the <code>math module</code>:</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">4</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>math.ceil(<span class="fl">4.3</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>math.cos(<span class="fl">1.5</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>math.sin(<span class="fl">1.5</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>math.tan(<span class="fl">3.14</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>math.asin(<span class="dv">1</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>math.acos(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>math.atan(<span class="dv">2</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>math.degrees(<span class="fl">6.28</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>math.e</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>math.exp(<span class="dv">5</span>)</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">4</span>)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>math.log(<span class="dv">200</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>math.log10(<span class="dv">1000</span>)</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>math.radians(<span class="dv">360</span>)</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>math.pi</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>,<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<p>In addition to Python’s native collection of mathematical functions, there is also a <code>math</code> module with more mathematical functions. Think of a module as an add-on or tool pack for Python just like a library. The <code>math</code> module comes with every installation of python and can be <em>imported</em> (i.e.&nbsp;activated) using the <code>import math</code> command. After the module has been imported, any function in the module is called using <code>math.function()</code> where <code>function</code> is the name of the function. Here is a list of commonly-used functions inside the <code>math module</code>:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">4</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>math.ceil(<span class="fl">4.3</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>math.cos(<span class="fl">1.5</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>math.sin(<span class="fl">1.5</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>math.tan(<span class="fl">3.14</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>math.asin(<span class="dv">1</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>math.acos(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>math.atan(<span class="dv">2</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>math.degrees(<span class="fl">6.28</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>math.e</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>math.exp(<span class="dv">5</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>math.factorial(<span class="dv">4</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>math.log(<span class="dv">200</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>math.log10(<span class="dv">1000</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>math.radians(<span class="dv">360</span>)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>math.pi</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>math.<span class="bu">pow</span>(<span class="dv">2</span>,<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>256.0</code></pre>
 </div>
 </div>
@@ -577,11 +581,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add comments to remind yourself for later.</li>
 </ol>
 </blockquote>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are other ways to import functions from modules. If you only want to use a single function inside the module, you can selectively import it using <code>from</code>, as shown below.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> radians</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>radians(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> radians</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>radians(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>0.06981317007977318</code></pre>
 </div>
 </div>
@@ -605,21 +610,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercises" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.4</span> Exercises</h2>
 <ol type="1">
-<li><p>Calculate the distance from the point <span class="math inline">\((-48,56)\)</span> to the point <span class="math inline">\((23,81)\)</span> 1- using the <code>math.hypot()</code> function and then 2- using the following distance equation: <span class="math display">\[ d = \sqrt{\Delta x^2 + \Delta y^2}\]</span> Print out the result and check your answer with your neighbor’s answer.</p></li>
-<li><p>Solve the quadratic equation using the quadratic function below for <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span>, and <span class="math inline">\(c = 1\)</span>. <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span> Print out the result and check your answer with a classmate.</p></li>
-<li><p>(Solar Mass) The mass of the sun can be calculated using the following formula:<span class="math display">\[ M_\text{sun} = {4 \pi^2 (1 \text{ AU})^3\over G (1 \text{ yr})^2}\]</span><br>
-The unit AU is called an astronomical unit of length and is defined to be the average distance between the sun and earth. <span class="math display">\[ 1 \text{ AU} = 1.58\times 10^{-5} \text{ light years}\]</span> where <span class="math inline">\(1 \text{ lightyear} = 9.5 \times 10^{12}\)</span> km. The constant <span class="math inline">\(G\)</span> is called the gravitational constant and has the value: <span class="math display">\[ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}\]</span> Calculate the mass of the sun and display your result using a print statement. You should find a value of <span class="math inline">\(M_\text{Sun} = 2.01 \times 10^{30}\)</span> kg</p></li>
+<li>Most (or all) of you have use Pythagorean’s theorem to calculate the hypotenuse of a right triangle. The theorem states taht <span class="math inline">\(a^2 + b^2 = c^2\)</span> for a right triangle, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the lengths of the sides forming the right angle and <span class="math inline">\(c\)</span> is the length of the hypotenuse. There is a Python function called <code>hypot</code> (found in a library called <code>math</code>) that will perform this calculation for your. Calculate the distance from the point <span class="math inline">\((-48,56)\)</span> to the point <span class="math inline">\((23,81)\)</span> using
+<ol type="1">
+<li>Pythogorean’s theorem</li>
+<li>The Python function <code>hypot</code>. To learn how to use the hypot function, visit the following <a href="https://docs.python.org/3/library/math.html">documentation page</a> and search for the explanation for the <code>hypot</code> function. Learning to read and understand online documentation is a skill that you you should develop.</li>
+</ol></li>
+</ol>
+<p>Print out the result and check your answer with your neighbor’s answer.</p>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Solve the quadratic equation using the quadratic function below for <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span>, and <span class="math inline">\(c = 1\)</span>. <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span> Print out the result and check your answer with a classmate.</li>
+</ol>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>(Solar Mass) The mass of the sun can be calculated using the following formula:<span class="math display">\[ M_\text{sun} = {4 \pi^2 (1 \text{ AU})^3\over G (1 \text{ yr})^2}\]</span><br>
+The unit AU is called an astronomical unit of length and is defined to be the average distance between the sun and earth. <span class="math display">\[ 1 \text{ AU} = 1.58\times 10^{-5} \text{ light years}\]</span> where <span class="math inline">\(1 \text{ lightyear} = 9.5 \times 10^{12}\)</span> km. The constant <span class="math inline">\(G\)</span> is called the gravitational constant and has the value: <span class="math display">\[ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}\]</span> Calculate the mass of the sun and display your result using a print statement. You should find a value of <span class="math inline">\(M_\text{Sun} = 2.01 \times 10^{30}\)</span> kg</li>
+</ol>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
 <li><p>(Projectile Motion) The range of a projectile is given by the equation:<span class="math display">\[ d = {2 v^2 \cos \theta \sin \theta \over g}\]</span> or the equivalent expression:<span class="math display">\[ d = {v^2  \sin 2 \theta \over g}\]</span> where <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span>, <span class="math inline">\(\theta\)</span> is the launch angle, and <span class="math inline">\(v\)</span> is the launch speed.</p>
 <ol type="1">
 <li>Using a launch angle of 60<span class="math inline">\(^\circ\)</span> and a launch speed of <span class="math inline">\(40\)</span> m/s, verify that both expressions above give the same result for the range.</li>
 <li>Now pick one of the equations above and use trial and error to determine the angle that gives maximum range.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">40</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
-<li><p>(Rydberg’s constant) Rydberg’s constant (<span class="math inline">\(R_\infty\)</span>) is a physical constant in Rydberg’s formula which was used to predict the spectrum of light emitted by a heavy atom. Rydberg’s constant is given by: <span class="math display">\[R_\infty = {m_e e^4 \over 8 \epsilon_0^2 h^3 c}\]</span><br>
-where</p>
+<li>(Rydberg’s constant) Rydberg’s constant (<span class="math inline">\(R_\infty\)</span>) is a physical constant in Rydberg’s formula which was used to predict the spectrum of light emitted by a heavy atom. Rydberg’s constant is given by: <span class="math display">\[R_\infty = {m_e e^4 \over 8 \epsilon_0^2 h^3 c}\]</span><br>
+where
 <ul>
 <li><span class="math inline">\(m_e = 9.109 \times 10^{-31}\)</span> kg is the mass of an electron.</li>
 <li><span class="math inline">\(e = 1.602 \times 10^{-19}\)</span> C is the charge of an electron/proton.</li>
@@ -627,7 +646,10 @@ where</p>
 <li><span class="math inline">\(h = 6.626 \times 10^{-34}\)</span> J Hz is the Planck constant.</li>
 <li><span class="math inline">\(c = 3 \times 10^8\)</span> m/s is the speed of light.</li>
 </ul>
-<p>These constants show up all over in physics. In the cell below write some code that assigns the constants to variables and then use the variables to calculate Rydberg’s constant. Use a print statement to display the result. The result should be: <span class="math inline">\(R_\infty = 10961656.2162\)</span> (in m<span class="math inline">\(^{-1}\)</span>)</p></li>
+These constants show up all over in physics. In the cell below write some code that assigns the constants to variables and then use the variables to calculate Rydberg’s constant. Use a print statement to display the result. The result should be: <span class="math inline">\(R_\infty = 10961656.2162\)</span> (in m<span class="math inline">\(^{-1}\)</span>)</li>
+</ol>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="6" type="1">
 <li><p>In Einstein’s special theory of relativity, the momentum of an object with mass <span class="math inline">\(m\)</span> (in kg) and velocity <span class="math inline">\(v\)</span> (in m/s) is given by:<span class="math display">\[ p = m v \gamma\]</span> where <span class="math display">\[\gamma = {1\over \sqrt{1 - {v^2\over c^2}}}\]</span> with <span class="math inline">\(c = 3 \times 10^8\)</span> m/s</p>
 <ol type="1">
 <li>Calculate the momentum of an object with mass <span class="math inline">\(m = 0.14\)</span> kg and speed <span class="math inline">\(v = 50\)</span> m/s. Then compare to the classical expression for momentum: <span class="math inline">\(p = mv\)</span>.</li>
@@ -636,6 +658,7 @@ where</p>
 <li>Repeat for the following speeds: <span class="math inline">\({1\over 2}\)</span> the speed of light, <span class="math inline">\({3\over 4}\)</span> the speed of light, and <span class="math inline">\({7\over 8}\)</span> the speed of light. Repeat the comparison to the classical value.</li>
 </ol></li>
 </ol>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
