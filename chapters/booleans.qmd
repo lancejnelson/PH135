@@ -51,10 +51,10 @@ If you're not that interested, just know that when you define a float
 in Python, the number that is stored in the computer is not
 *exactly* the number that you think it is.  This can cause
 problems when you are comparing two numbers that you think should be
-equal but actually aren't equal in the computer.[^Decimal] The code below illustrates this problem.
+equal but actually aren't equal in the computer.[^decimal] The code below illustrates this problem.
 
 
-[^Decimal]: There is a
+[^decimal]:There is a
   library called `Decimal` that will fix a lot of these
   problems.  
 

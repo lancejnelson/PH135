@@ -289,6 +289,43 @@ elevator_data.query("time > 0.008 and gFz > 1")
 
 ```
 
+### Special Characters in Column Name
+Often you will find that your column labels will contain spaces and/or other special characters in them. To correctly specify the column label in these cases, you must enclose the name in graves accents (It's located above the tab key on your keyboard.). For example, if your column label was " time-s" instead of just "time" like in the example above, you could use the query function like this:
+
+
+```{python}
+
+from pandas import DataFrame
+from numpy import transpose
+
+time = [0.007,0.008,0.008,0.009,0.009,0.009,0.01,0.014,0.015,0.017]
+gFx = [-0.0056,0.007,0,0.0054,-0.0015,0.0037,-0.002,0.009,0.0012,-0.0115]
+gFy = [-0.0046,0.0024,0.0059,-0.0022,-0.0056,-0.002,-0.002,-0.0025,-0.0037,-0.002]
+gFz = [1.012,1.0022,1.0039,1.0032,1.0042,0.9951,1.002,1.0159,1.01,1.0012]
+elevator_data = DataFrame(transpose([time,gFx,gFy,gFz]),columns = [" time-s", "gFx","gFy", "gFz"],index = ["A","B","C","D","E","F","G","H","J","K"])
+
+elevator_data.query("` time-s` > 0.008 and gFz > 1")
+
+```
+
+### Using Query to match strings
+
+Often your dataframe will contain strings as the data instead of numbers. If you are trying to use `query` to find dataframe entries that contain a specified string, you'll have enclose the boolean expression in single quotes ('') and enclose the string you are trying to match in double quotes ("").  As an example, imagine a dataframe very similar to the one used in the previous example, but with an additional column that specifies whether the object
+
+
+```{python}
+
+from pandas import DataFrame
+from numpy import transpose
+
+dataDict = {" time-s":[0.007,0.008,0.008,0.009,0.009,0.009,0.01,0.014,0.015,0.017], "gFx":[-0.0056,0.007,0,0.0054,-0.0015,0.0037,-0.002,0.009,0.0012,-0.0115],"gFy":[-0.0046,0.0024,0.0059,-0.0022,-0.0056,-0.002,-0.002,-0.0025,-0.0037,-0.002],"gFz":[1.012,1.0022,1.0039,1.0032,1.0042,0.9951,1.002,1.0159,1.01,1.0012], "Here":["Yes","Yes","No","No","Yes","No","Yes","No","Yes","No"]}
+
+elevator_data = DataFrame(dataDict,index = ["A","B","C","D","E","F","G","H","J","K"])
+
+elevator_data.query('` time-s` > 0.008 and Here == "No"')
+
+```
+
 
 >**_To Do:_**
 >
@@ -337,15 +374,17 @@ elevator_data["a_mag"]  = sqrt( (elevator_data[["gFx", "gFy", "gFz"]]**2).sum(ax
 
 ### Adding a new row
 
-A row can be added to a dataframe with the `append()` function.  The argument to this function must be either i) another dataframe or ii) a dictionary.  Let's see examples of both.
+To add a single (or multiple) rows to a dataframe you should use the  `concat()` function (short for concatenate). This function will join multiple dataframes into one.  Below is an example of the usage.
 
 ```{python}
-from pandas import DataFrame
-elevator_data.append({"time":0.02,"gFx":-0.028,"gFy":0.018,"gFz":1.028},ignore_index = True)  # Append using a dictionary.
+from pandas import DataFrame,concat
+
+to_add = DataFrame({" time-s":0.02,"gFx":-0.028,"gFy":0.018,"gFz":1.028},index = ["L"]) # Build the dataframe to be added.
+final = concat([elevator_data,to_add])  # Append using a dictionary.
 
 elevator_data2 = DataFrame({"time":[0.02,0.025],"gFx":[-0.028,-0.022],"gFy":[0.018,-0.012],"gFz":[1.028,1.042]})
 
-elevator_data.append(elevator_data2)
+final2 = concat([elevator_data,to_add,elevator_data2]) #Combine all three data frames into one.
 
 ```
 
@@ -371,7 +410,7 @@ elevator_data.hist()
 To make a scatter plot of two columns in your dataframe, use `dataframe.plot.scatter()`. The `x` and `y` keyword arguments should be used to specify which columns to plot.  
 
 ```{python}
-elevator_data.plot.scatter(x = "time", y = "gFz")
+elevator_data.plot.scatter(x = " time-s", y = "gFz")
 ```
 
 You can also plot a single column vs. the row labels using the `plot` function
@@ -383,7 +422,7 @@ elevator_data["gFz"].plot()
 You can also use this function to plot a single row vs the column labels.
 
 ```{python}
-elevator_data.iloc[2].plot()
+elevator_data.iloc[2][[" time-s","gFx","gFy","gFz"]].plot()
 ```
 
 
