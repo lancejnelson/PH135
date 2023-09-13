@@ -451,7 +451,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Integers and floats can be inter-converted to each other using the <code>int()</code> and <code>float()</code> functions.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">3.0</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -536,7 +536,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In addition to basic mathematical functions, python contains several mathematical <em>functions</em>. As in mathematics, a function has a name (e.g.&nbsp;<em>f</em>) and the arguments are places inside of the parenthesis after the name. The <em>argument</em> is any value or piece of information fed into the function. In the case below, <em>f</em> requires a single argument <em>x</em>.</p>
 <p><span class="math display">\[f(x)\]</span></p>
 <p>In the cell below, you will find several useful Python functions.</p>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">abs</span>(<span class="op">-</span><span class="fl">5.5</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">2</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">5.6</span>)</span>
@@ -551,7 +551,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>In addition to Python’s native collection of mathematical functions, there is also a <code>math</code> module with more mathematical functions. Think of a module as an add-on or tool pack for Python just like a library. The <code>math</code> module comes with every installation of python and can be <em>imported</em> (i.e.&nbsp;activated) using the <code>import math</code> command. After the module has been imported, any function in the module is called using <code>math.function()</code> where <code>function</code> is the name of the function. Here is a list of commonly-used functions inside the <code>math module</code>:</p>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">4</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>math.ceil(<span class="fl">4.3</span>)</span>
@@ -583,7 +583,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are other ways to import functions from modules. If you only want to use a single function inside the module, you can selectively import it using <code>from</code>, as shown below.</p>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> radians</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>radians(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
@@ -610,7 +610,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercises" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.4</span> Exercises</h2>
 <ol type="1">
-<li>Most (or all) of you have use Pythagorean’s theorem to calculate the hypotenuse of a right triangle. The theorem states taht <span class="math inline">\(a^2 + b^2 = c^2\)</span> for a right triangle, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the lengths of the sides forming the right angle and <span class="math inline">\(c\)</span> is the length of the hypotenuse. There is a Python function called <code>hypot</code> (found in a library called <code>math</code>) that will perform this calculation for your. Calculate the distance from the point <span class="math inline">\((-48,56)\)</span> to the point <span class="math inline">\((23,81)\)</span> using
+<li>Most (or all) of you have use Pythagorean’s theorem to calculate the hypotenuse of a right triangle. The theorem states that the lengths of a right triangle are related like this <span class="math inline">\(a^2 + b^2 = c^2\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the lengths of the sides forming the right angle and <span class="math inline">\(c\)</span> is the length of the hypotenuse. There is a Python function called <code>hypot</code> (found in a library called <code>math</code>) that will perform this calculation for your. Calculate the distance from the point <span class="math inline">\((-48,56)\)</span> to the point <span class="math inline">\((23,81)\)</span> using
 <ol type="1">
 <li>Pythogorean’s theorem</li>
 <li>The Python function <code>hypot</code>. To learn how to use the hypot function, visit the following <a href="https://docs.python.org/3/library/math.html">documentation page</a> and search for the explanation for the <code>hypot</code> function. Learning to read and understand online documentation is a skill that you you should develop.</li>
@@ -619,12 +619,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Print out the result and check your answer with your neighbor’s answer.</p>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
-<li>Solve the quadratic equation using the quadratic function below for <span class="math inline">\(a = 1\)</span>, <span class="math inline">\(b = 2\)</span>, and <span class="math inline">\(c = 1\)</span>. <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span> Print out the result and check your answer with a classmate.</li>
+<li>Equations involing quadratic polynomials,like the one shown below, appear in science frequently.</li>
 </ol>
+<p><span class="math display">\[ 5x^2 + 2x - 1 = 0\]</span></p>
+<p>You may remember that the solution to this equation is given by the quadratic formula</p>
+<p><span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}\]</span></p>
+<p>Solve the quadratic equation given above and print off the results. (There are two answers.) Then check with a classmate to verify that your answers match.</p>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>(Solar Mass) The mass of the sun can be calculated using the following formula:<span class="math display">\[ M_\text{sun} = {4 \pi^2 (1 \text{ AU})^3\over G (1 \text{ yr})^2}\]</span><br>
-The unit AU is called an astronomical unit of length and is defined to be the average distance between the sun and earth. <span class="math display">\[ 1 \text{ AU} = 1.58\times 10^{-5} \text{ light years}\]</span> where <span class="math inline">\(1 \text{ lightyear} = 9.5 \times 10^{12}\)</span> km. The constant <span class="math inline">\(G\)</span> is called the gravitational constant and has the value: <span class="math display">\[ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}\]</span> Calculate the mass of the sun and display your result using a print statement. You should find a value of <span class="math inline">\(M_\text{Sun} = 2.01 \times 10^{30}\)</span> kg</li>
+The unit AU is called an astronomical unit of length and is defined to be the average distance between the sun and earth. <span class="math display">\[ 1 \text{ AU} = 1.58\times 10^{-5} \text{ light years}\]</span> where <span class="math inline">\(1 \text{ lightyear} = 9.5 \times 10^{15}\)</span> m. The constant <span class="math inline">\(G\)</span> is called the gravitational constant and has the value: <span class="math display">\[ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}\]</span> Calculate the mass of the sun (in kg) and display your result using a print statement. You should find a value of <span class="math inline">\(M_\text{Sun} = 2.01 \times 10^{30}\)</span> kg.</li>
 </ol>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">
