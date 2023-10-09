@@ -592,7 +592,10 @@ The distance is 7.2560.</code></pre>
 <li>Use the <code>zip</code> function to combine the list of friction coefficients with the list of travel distances.</li>
 <li>Use a <code>print</code> statement to verify that you did it correctly.</li>
 </ol></li>
-<li><p>In quantum mechanics you will learn that the energy of an electron can’t just be any old value, but can only be certain discrete values. For the hydrogen atom, the allowed energy levels for the electron (in units of electron-volts) are given by <span class="math display">\[E(n) = {-m_e e^3 \over 32 \pi^2 \epsilon_0^2 \hbar^2 n^2}\]</span> where <span class="math inline">\(n\)</span> must be an integer and the other constants are</p>
+</ol>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>In quantum mechanics you will learn that the energy of an electron can’t just be any old value, but can only be certain discrete values. For the hydrogen atom, the allowed energy levels for the electron (in units of electron-volts) are given by <span class="math display">\[E(n) = {-m_e e^3 \over 32 \pi^2 \epsilon_0^2 \hbar^2 n^2}\]</span> where <span class="math inline">\(n\)</span> must be an integer and the other constants are
 <ul>
 <li><span class="math inline">\(m_e = 9.109 \times 10^{-31}\)</span> kg is the mass of an electron.</li>
 <li><span class="math inline">\(e = 1.602 \times 10^{-19}\)</span> C is the fundamental.</li>
@@ -606,12 +609,12 @@ The distance is 7.2560.</code></pre>
 <li>Use list comprehension together with the function you built in part 1 to build a list containing the 15 lowest-energy levels for the hydrogen atom.</li>
 </ol></li>
 </ol>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>me <span class="op">=</span> <span class="fl">9.109e-31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>me <span class="op">=</span> <span class="fl">9.109e-31</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
 <li>Max Planck discovered that <strong>all</strong> objects emit a spectrum of radiation and that the intensity of the spectrum depends on the object’s temperature. The equation for the intensity of the emitted light is <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where
 <ul>
 <li><span class="math inline">\(c = 3.0 \times 10^8\)</span> m/s is the speed of light.</li>
-<li><span class="math inline">\(h = 6.26 \times 10^34\)</span> m<span class="math inline">\(^2\)</span> kg /s is Plank’s constant.</li>
+<li><span class="math inline">\(h = 6.26 \times 10^{-34}\)</span> m<span class="math inline">\(^2\)</span> kg /s is Plank’s constant.</li>
 <li><span class="math inline">\(k_B = 1.38 \times 10^{-23}\)</span> m<span class="math inline">\(^2\)</span>kg s<span class="math inline">\(^{-2}\)</span> K<span class="math inline">\(^{-1}\)</span> is the Boltzmann constant.</li>
 <li>T is temperature in Kelvins.</li>
 <li><span class="math inline">\(\lambda\)</span> is wavelength in meters.</li>
@@ -623,6 +626,9 @@ The distance is 7.2560.</code></pre>
 </li>
 <li>The moon emits strongest in the infrared region of the spectrum (<span class="math inline">\(\lambda &gt; 750\)</span> nm) which our eyes are not able to see. The only reason we can see the moon is because it reflects light from the sun. Recalculate the intensity of light from the moon for the following infrared wavelengths: [6000 nm, 7500 nm, 9000 nm, 10000 nm, 12000 nm]. How do these intensities compare to the sun’s light?</li>
 </ol></li>
+</ol>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
 <li>Write a function that calculates the area of a chosen, two-dimensional geometric shape from the list below. The function should take <strong>one</strong> required argument that is a string and specifies which shape is being requested. The side lengths of the shape should be passed in as optional (keyword) arguments. Test your code out on a few shapes to verify that it is working.</li>
 </ol>
 <p><span class="math display">\[A_\text{square} = a^2  ~~\text{(square)}\]</span></p>
@@ -632,7 +638,7 @@ The distance is 7.2560.</code></pre>
 <p><span class="math display">\[A_\text{parallelogram} =  b \times h  ~~\text{(parallelogram)}\]</span></p>
 <p><span class="math display">\[A_\text{pentagon} =  {1\over 4} \sqrt{5(5 + 2 \sqrt{5})} a^2  ~~\text{(pentagon)}\]</span></p>
 <p><span class="math display">\[A_\text{hexagon} =  {3 \sqrt{3}\over 2} a^2  ~~\text{(hexagon)}\]</span></p>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="5" type="1">
 <li>Write a function that calculates the volume of a chosen three-dimensional geometric shape from the list below. The function should take <strong>one</strong> required argument that is a string and specifies which shape is being requested. The relevant lengths of the shape should be passed in as optional (keyword) arguments. Test your code out on a few shapes to verify that it is working.</li>
 </ol>
@@ -642,7 +648,7 @@ The distance is 7.2560.</code></pre>
 <p><span class="math display">\[V_\text{cuboid} =  a\times b \times c  ~~\text{(cuboid)}\]</span></p>
 <p><span class="math display">\[V_\text{pyramid} =  {l \times w \times h\over 3}  ~~\text{(pyramid)}\]</span></p>
 <p><span class="math display">\[V_\text{cone} =  \pi r^2 {h \over 3}  ~~\text{(cone)}\]</span></p>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

@@ -364,6 +364,10 @@ quad(lambda x: sin(pi * x)**2,0,0.4 )
     5. Use a `print` statement to verify that you did it correctly.
 
 
+```{python}
+# Solution here.
+```
+
 
 2. In quantum mechanics you will learn that the energy of an electron can't just be any old value, but can only be certain discrete values.  For the hydrogen atom, the allowed energy levels for the electron (in units of electron-volts) are given by $$E(n) = {-m_e e^3 \over 32 \pi^2 \epsilon_0^2 \hbar^2 n^2}$$  where $n$ must be an integer and the other constants are
     - $m_e = 9.109 \times 10^{-31}$ kg is the mass of an electron.
@@ -383,7 +387,7 @@ me = 9.109e-31
 
 3. Max Planck discovered that **all** objects emit a spectrum of radiation and that the intensity of the spectrum depends on the object's temperature.  The equation for the intensity of the emitted light is $$ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}$$ where
     - $c = 3.0 \times 10^8$ m/s is the speed of light.
-    - $h = 6.26 \times 10^34$ m$^2$ kg /s is Plank's constant.
+    - $h = 6.26 \times 10^{-34}$ m$^2$ kg /s is Plank's constant.
     - $k_B = 1.38 \times 10^{-23}$ m$^2$kg s$^{-2}$ K$^{-1}$ is the Boltzmann constant.
     - T is temperature in Kelvins.
     - $\lambda$ is wavelength in meters.
@@ -392,6 +396,12 @@ me = 9.109e-31
     2. The temperature of the sun is approximately $5780$ K and it emits strongly in the visible region of the spectrum. Use the function you built in part 1 to calculate the intensity of light emitted by the sun at the following wavelengths: [250 nm, 500 nm, 750 nm, 1000 nm, 1500 nm] ("nm" is short for nano-meters or $\times 10^{-9}$ meters). Use list comprehension to build a list of these intensities. Comment on the trend that you notice.
     3. The coldest temperature ever measured in our solar system was $25$ K at the bottom of a lunar crater during "night" time. That's -410$^\circ$ F.. Yowza! However, during "day" time, the temperature of the moon is about $400$ K.   Compute the intensity of daytime light emitted by the moon for the same wavelengths given in part 2. As before, use list comprehension to put these intensities into a list. How do these intensities compare to the sun's?  
     4. The moon emits strongest in the infrared region of the spectrum ($\lambda > 750$ nm) which our eyes are not able to see. The only reason we can see the moon is because it reflects light from the sun.  Recalculate the intensity of light from the moon for the following infrared wavelengths: [6000 nm, 7500 nm, 9000 nm, 10000 nm, 12000 nm].  How do these intensities compare to the sun's light? 
+
+
+```{python}
+# Solution here.
+```
+
 
 4. Write a function that calculates the area of a chosen, two-dimensional geometric shape from the list below.  The function should take **one** required argument that is a string and specifies which shape is being requested.  The side lengths of the shape should be passed in as optional (keyword) arguments.  Test your code out on a few shapes to verify that it is working.
 
