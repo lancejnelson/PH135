@@ -209,7 +209,7 @@ then use `sympy` to solve the equation and verify that the answer are the same.
 Answer: You should find that the zero is located at $\approx 2.2257$  
 Hint: The derivative of this function is:
 $$
-y'(x) = 24 x^2 - 20 x - 4
+y'(x) = 24 x^2 - 30 x - 4
 $$
 ```{python}
 # Code Here

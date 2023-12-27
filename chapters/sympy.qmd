@@ -30,12 +30,13 @@ $0.8660254$ is an approximate result; it's very close to the true value but not 
 from sympy import cos,pi,init_printing
 init_printing(use_unicode = True)
 
-cos(pi/6)
+a=cos(pi/6)
+display(a)
 
 ```
 
 
-The `init_printing(use_unicode=True)` function call tells sympy to display mathematical expressions using "pretty" formatting.  Fraction appear with the numerator on top of the denominator,  powers are displayed as superscripts, and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions.  For example, $\sqrt{8} = 2 \sqrt{2}$ and sympy automatically performs this simplification for us:
+The `init_printing(use_unicode=True)` function call tells sympy to display mathematical expressions using "pretty" formatting.  Fractions appear with the numerator on top of the denominator,  powers are displayed as superscripts, and other mathematical symbols are rendered to make the mathematical expression look right. Sympy can even simplify expressions.  For example, $\sqrt{8} = 2 \sqrt{2}$ and sympy automatically performs this simplification for us:
 
 ```{python}
 from sympy import sqrt
@@ -58,7 +59,7 @@ N(sqrt(8))
 ## Forming Mathematical Expressions
 
 ### Defining Symbols (Mathematical Variables)
-A common equation that comes up in physics is quadratic function with constant coefficients $$ax^2 + bx + c$$. To form this expression, we must first define the variables that appear in the expression: `x`, `a`, `b`, and `c`. The `Symbol` function (case sensitive) can be used to define these **mathematical** variables. The argument to the `Symbol` function should be a string containing the desired name of the variable. 
+A common equation that comes up in physics is quadratic function with constant coefficients $$ax^2 + bx + c.$$  To form this expression, we must first define the variables that appear in the expression: `x`, `a`, `b`, and `c`. The `Symbol` function (case sensitive) can be used to define these **mathematical** variables. The argument to the `Symbol` function should be a string containing the desired name of the variable. 
 
 ```{python}
 from sympy import Symbol
@@ -83,7 +84,7 @@ x,a,b,c
 A mathematical expression, which is composed of multiple mathematical variables (symbols), can now be created using the python variables that we just created
 
 ```{python}
-from sympy import Symbol
+from sympy import symbols
 x,a,b,c = symbols("x a b c")
 expression = a * x**2 + b * x + c
 expression
@@ -129,9 +130,10 @@ simplify(expression)
 ```{python}
 from sympy import symbols,cos,sin,simplify
 x,y,z = symbols("x y z")
-simplify(x**2 * z + 4 * x *y*z + 4*y**2*z)
-simplify(cos(x)**2 + sin(x)**2)
-
+a = simplify(x**2 * z + 4 * x *y*z + 4*y**2*z)
+b = simplify(cos(x)**2 + sin(x)**2)
+display(a)
+display(b)
 ```
 
 When `simplify` doesn't do what you were hoping, you'll have to think a little bit harder about how you want to simplify your expression. The functions described in the rest of this section will help you in your choice.
@@ -147,9 +149,10 @@ expand(expression)
 ```{python}
 from sympy import symbols,expand
 x = symbols("x")
-expand((x + 2) * (x - 3))
-expand((x+3)**2)
-
+a = expand((x + 2) * (x - 3))
+b = expand((x+3)**2)
+display(a)
+display(b)
 ```
 
 
@@ -165,7 +168,7 @@ expand((x + 1)*(x - 2) - (x - 1)*x)
 
 ### The `factor` function
 
-The `factor` function does the opposite of `expand`, taking a canonical polynomial and attempting to factor it into its irreducible parts.  For example, factoring the equation below $$x^3 - x^2 + x -1$$ will produce $$(x-1)(x^2 + 1)$$
+The `factor` function does the opposite of `expand`, taking a canonical polynomial and attempting to factor it into its irreducible parts.  For example, factoring the expression below $$x^3 - x^2 + x -1$$ will produce $$(x-1)(x^2 + 1)$$
 
 
 ```{python}

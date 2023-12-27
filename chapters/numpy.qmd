@@ -434,7 +434,7 @@ print(d)
 
 
 ### Arrays of Different Dimensions
-When a mathematical operation between two arrays of different dimensions is attempted, Python has to figure out how to make them have the same shape before performing the operation. *Broadcasting* refers to the set of rules used for operations like this.  To handled arrays with different dimensions, NumPy pads or clones the array with fewer dimensions to make it have the same dimensions as the larger array. For example, what would happen if you attempted this operation:
+When a mathematical operation between two arrays of different dimensions is attempted, Python has to figure out how to make them have the same shape before performing the operation. *Broadcasting* refers to the set of rules used for operations like this.  To handle arrays with different dimensions, NumPy pads or clones the array with fewer dimensions to make it have the same dimensions as the larger array. For example, what would happen if you attempted this operation:
 
 $$
 \begin{pmatrix}
@@ -895,7 +895,7 @@ We can find the position and velocity vectors of the boat after the wind has die
 
 
 10. The $\cos()$ function can be written as an infinite sum:  $$ \cos(x) = 1 - {x^2 \over 2!} + {x^4 \over 4!} - {x^6 \over 6!} + \dots = \sum_{n = 0}^\infty {(-1)^n x^{2n} \over (2n)!}$$. (As it turns out, any function can be written as a sum like this.)
-    1. Make an array of integer $n$ values from $0 \rightarrow 100$.
+    1. Make an array of integer $n$ values from $0 \rightarrow 10$.
     2. Using a single line of code, generate the terms in the sum for $x = \pi$. Note: `scipy.special` has a `factorial` function that will work on arrays.  
     3. Use `cumsum` to evaluate the sum.
     4. Interpret the results and verify that as you include more terms in the sum the approximation to $\cos(x)$ gets better and better.

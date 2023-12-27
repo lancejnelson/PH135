@@ -21,7 +21,7 @@ from matplotlib import pyplot as plt
 
 ```
 
-The `%matplotlib inline` statement is a Jupyter notebook command. It tells Jupyter to display any plots generated directly in the notebook instead of in a separate window.  If you use matplotlib in another environment, you should remove this line and instead place `plt.show()` af the plot commands.
+The `%matplotlib inline` statement is a Jupyter notebook command. It tells Jupyter to display any plots generated directly in the notebook instead of in a separate window.  If you use matplotlib in another environment, you should remove this line and instead place `plt.show()` after the plot commands.
 
 ## Plotting Functions of a Single Variable
  In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. If you want to plot a function, the list of x coordinates should be chosen to be a dense array of points spanning the function's domain and the list of y coordinates should be the function values at those points. A good choice for generating the x-coordinates is either `linspace` or `arange` from NumPy. Let's consider an example. The function shown below is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance
@@ -259,7 +259,7 @@ plt.title("Lennard-Jones Potential")
 ```
 
 ### Plot Legends
-Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, you must first use the keyword argument `label` to each `plot` command to specify each plot's label.  To add the legend, use the command `pyplot.ledend()`.  An example is given below:
+Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, each plot must be a separate command.  In each plot command, the keyword argument `label` should be used to specify the plot's label.  To add the legend, use the command `pyplot.ledend()` after the plot commands.  An example is given below:
 
 ```{python}
 from matplotlib import pyplot as plt
@@ -312,6 +312,30 @@ plt.figure()
 plt.semilogy(x,y)
 
 ```
+### Scatter Plots
+We have already generated scatter plots using the `plot` function but you can also use the `scatter` command to do the same thing.  The only other additional functionality with `scatter` is the ability to specify the color, shape, and size of each plot marker individually.
+
+
+
+```{python}
+from matplotlib import pyplot as plt
+%matplotlib inline
+from numpy import linspace,log
+
+d = [5.8e10,1.9e11,1.5e11,2.3e11,7.8e11,1.4e12,2.9e12,4.5e12]
+#d = [1,2,3,4,5,6,7,8]
+T = [0.241,0.615,1,1.88,11.9,29.5,84,165]
+mass = [3.2e23,4.9e24,6e24,6.4e23,1.9e27,5.7e26,8.7e25,1e26]
+
+plt.figure()
+plt.scatter(d,T,c = mass,s= 50)
+plt.xlabel("Orbital Distance from Sun")
+plt.ylabel("Length of day (in earth days)")
+plt.title("Length of day for planets in our solar system (color indicates mass)")
+plt.colorbar()
+
+```
+
 
 ### Bar Plots
 
@@ -336,7 +360,7 @@ plt.title("Length of day for planets in our solar system")
 
 ```
 
-Notice the optional argument `tick_labels` used to add labels to the bars.  If that were left off, the bars would be labeled using the numbers supplied.  Other optional arguments that are available for the `bar` command are given below.
+Notice the optional argument `tick_label` used to add labels to the bars.  If that were left off, the bars would be labeled using the numbers supplied.  Other optional arguments that are available for the `bar` command are given below.
 
 
 | Argument | Description|
@@ -346,7 +370,7 @@ Notice the optional argument `tick_labels` used to add labels to the bars.  If t
 | `xerr`| X error bar|
 | `yerr`| Y error bar |
 | `capsize`| size of caps on error bars |
-:A Few Common `bar` keyword arguments
+: A Few Common `bar` keyword arguments
 
 
 ### Errorbar Plots
@@ -370,30 +394,6 @@ plt.errorbar(x,y,linestyle = '-.', marker = 'o',markersize = 3,yerr=y_error,caps
 
 The `linestyle`, `marker`, and `markersize` arguments work with this plot type also.
 
-
-### Scatter Plots
-We have already generated scatter plots using the `plot` function but you can also use the `scatter` command to do the same thing.  The only other additional functionality with `scatter` is the ability to specify the color, shape, and size of each plot marker individually.
-
-
-
-```{python}
-from matplotlib import pyplot as plt
-%matplotlib inline
-from numpy import linspace,log
-
-d = [5.8e10,1.9e11,1.5e11,2.3e11,7.8e11,1.4e12,2.9e12,4.5e12]
-#d = [1,2,3,4,5,6,7,8]
-T = [0.241,0.615,1,1.88,11.9,29.5,84,165]
-mass = [3.2e23,4.9e24,6e24,6.4e23,1.9e27,5.7e26,8.7e25,1e26]
-
-plt.figure()
-plt.scatter(d,T,c = mass,s= 50)
-plt.xlabel("Orbital Distance from Sun")
-plt.ylabel("Length of day (in earth days)")
-plt.title("Length of day for planets in our solar system (color indicates mass)")
-plt.colorbar()
-
-```
 
 
 ### Histograms
@@ -493,7 +493,7 @@ ax2.set_xlabel("Separation Distance")
 ax2.set_ylabel("Energy")
 ax2.set_title("Lennard-Jones Potential")
 ```
-Pay close attention to the `add_subplot` function.  `ax1=add_subplot(1,2,1)` will generate a $1$ x $2$ grid of plots and `ax1` will correspond plot at the 1st location. Below is an example of a more advanced array of plots.  Pay close attention to the `add_subplot` functions until you understand. 
+Pay close attention to the `add_subplot` function.  `ax1=add_subplot(1,2,1)` will generate a $1$ x $2$ grid of plots and `ax1` will correspond to the plot at the 1st location. Below is an example of a more advanced array of plots. 
 
 ```{python}
 from matplotlib import pyplot as plt
@@ -555,7 +555,7 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
 7. How do you control the size of the plot window (i.e. zoom in or out.)
 8. How do you plot multiple plots on the **same** figure?
 9. List the other types of plots discussed in this chapter.
-10. How do you make multi-figure plot? Give an example showing the functions that should be used.
+10. How do you make a multi-figure plot? Give an example showing the functions that should be used.
 11. Where can you find the account of Abinadi?
 
 ## Exercises
@@ -584,7 +584,7 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
      2. Use `numpy.linspace` to generate a grid of 500 $\lambda$ values from $0.1 \times 10^{-6} \rightarrow 3 \times 10^{-6}$ m.
      3. Call your vectorized function for $T = 5780$ K (temperature of the sun), producing a list of intensities.
      4. Plot intensity vs. $\lambda$ .  
-     5. Repeat steps 4 and 5 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
+     5. Repeat steps 3 and 4 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
      6. Add a legend to the figure. Use the temperatures as the labels.
      7. Go [here](https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html) and compare your results with the plots there to make sure you did it right.
 
@@ -600,13 +600,13 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
 # Python code here
 ```
 
-4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. Set `bins = 200` to make 200, equally-spaced bins on the histogram.  The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
+4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column. Set `bins = 200` to make 200, equally-spaced bins on the histogram.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
 
 ```{python}
 # Python code here
 ```
 
-5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta\Delta t $$ $$ y(t) = y_i + v_i \sin \theta \Delta t + {1\over 2} a \Delta t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + a \Delta t$$  Place the following plots on a 3 x 2 grid for $0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, first column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
+5. The position and velocity coordinates for a projectile launched at angle $\theta$ are given by: $$x(t) = x_i + v_i \cos \theta t $$ $$ y(t) = y_i + v_i \sin \theta  t + {1\over 2} a  t^2$$ $$v_x(t) = v_i \cos \theta$$ $$v_y(t) = v_i \sin \theta + g  t$$ where $g = -9.8$ m/s$^2$.  Place the following plots on a 3 x 2 grid for $0 < t < 5.5$ seconds: $x$ vs $y$ (first row, spans both columns), $x$ vs $t$ (second row, first column), $y$ vs $t$(second row, second column), $v_x$ vs $t$(third row, first column), and $v_y$ vs $t$(third row, second column). Make sure that all of the plots have titles and axes labels.  Use the following initial conditions: $$v_i = 60 \text{ m/s}$$ $$\theta = 22^\circ$$ $$x_i = 0 \text{ m}$$ $$y_i = 15 \text{ m}$$ 
 
 ```{python}
 # Python code here

@@ -101,8 +101,8 @@ print(Y)
 >**_To Do:_**
 >
 >1. Examine all three sets of output from the cell above until you understand the differences.
->2. What happens when you add a third argument to `mgrid`?
->3. What happens if the third argument is imaginary (i.e. `10j`)?
+>2. What happens when you add a third index to `mgrid`?
+>3. What happens if the third index is imaginary (i.e. `10j`)?
 
 
 All three-dimensional plots will require that you first use `meshgrid` or `mgrid` to generate a grid over the two-dimensional domain.
@@ -117,7 +117,7 @@ You've already seen an example of a surface plot above.  A similar plot can be g
 
 ```{python}
 from numpy import arange,meshgrid,cos,exp,pi,mgrid
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 
 x=arange(-2,2,0.1)
 y=arange(-1.5,1.5,0.1)
@@ -126,11 +126,12 @@ X,Y=meshgrid(x,y)
 
 F=cos(pi/2*X)*exp(-Y**2)
 
-ax=pyplot.axes(projection='3d')
+ax=plt.axes(projection='3d')
 ax.plot_wireframe(X,Y,F)
-pyplot.xlabel('x')
-pyplot.ylabel('y')
-pyplot.show()
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('y')
+plt.show()
 ```
 
 
@@ -141,7 +142,7 @@ Python generates contour plots very similarly to surface plots. Instead of using
 
 ```{python}
 from numpy import arange,meshgrid,cos,exp,pi,mgrid
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 
 x=arange(-2,2,0.1)
 y=arange(-1.5,1.5,0.1)
@@ -150,11 +151,11 @@ X,Y=meshgrid(x,y)
 
 F=cos(pi/2*X)*exp(-Y**2)
 
-ax=pyplot.axes(projection='3d')
+ax=plt.axes()
 ax.contour(X,Y,F)
-pyplot.xlabel('x')
-pyplot.ylabel('y')
-pyplot.show()
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
 ```
 
 ### The `levels` keyword argument
@@ -163,7 +164,7 @@ The keyword argument `levels` can be added to the function call to specify which
 
 ```{python}
 from numpy import arange,meshgrid,cos,exp,pi,mgrid
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 
 x=arange(-2,2,0.1)
 y=arange(-1.5,1.5,0.1)
@@ -172,11 +173,11 @@ X,Y=meshgrid(x,y)
 
 F=cos(pi/2*X)*exp(-Y**2)
 
-ax=pyplot.axes(projection='3d')
+ax=plt.axes()
 ax.contour(X,Y,F,levels = 5)
-pyplot.xlabel('x')
-pyplot.ylabel('y')
-pyplot.show()
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
 ```
 
 
@@ -191,11 +192,11 @@ X,Y=meshgrid(x,y)
 
 F=cos(pi/2*X)*exp(-Y**2)
 
-ax=pyplot.axes(projection='3d')
+ax=plt.axes(projection='3d')
 ax.contour(X,Y,F,levels = [-0.5,0.25,0.75])
-pyplot.xlabel('x')
-pyplot.ylabel('y')
-pyplot.show()
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
 ```
 
 
@@ -223,7 +224,7 @@ pyplot.show()
 
 ```
 
-Often, the lengths of these vectors will be large and that makes it hard to look at the graphic. One option for improving this is to force all of the vectors to have length $1$ and then color the vector according to the true length.  To set the color of the arrows, add a fifth argument to the function that contains the vector lengths. You can then add the keyword argument `cmap` to specify the color spectrum to use. My favorite is `gist_rainbow` but there are other [here](https://matplotlib.org/stable/tutorials/colors/colormaps.html). 
+Often, the lengths of these vectors will be large and that makes it hard to look at the graphic. One option for improving this is to force all of the vectors to have length $1$ and then color the vector according to the true length.  To set the color of the arrows, add a fifth argument to the function that contains the vector lengths. You can then add the keyword argument `cmap` to specify the color spectrum to use. My favorite is `gist_rainbow` but there are others [here](https://matplotlib.org/stable/tutorials/colors/colormaps.html). 
 
 
 
@@ -257,7 +258,7 @@ Often you will want to see how a plot evolves over time. Maybe you are plotting 
 #| eval: false
 #| 
 from numpy import arange,sin,cos
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 %matplotlib
 
 t=0
@@ -312,7 +313,7 @@ while t < 10:
 ```
 
 
-4. (Extra Credit) The angle of impact for a projectile launched with initial speed $v$, launch angle $\theta$, and initial height $y_i$ is given by: $$ \phi = \tan^{-1} \left( {\sqrt{v^2 \sin^2\theta + 2 g y_0} \over v \cos \theta} \right) $$  Plot the impact angle as a function of $v$ and $\theta$ ($\phi(v,\theta)$) for $0 < v_i < 50$ m/s and $0 < \theta < 90^\circ$ and $y_i = 10$ m.   Then write a single sentence summarizing the results of the plot.
+4. (Extra Credit) The angle of impact for a projectile launched with initial speed $v$, launch angle $\theta$, and initial height $y_0$ is given by: $$ \phi = \tan^{-1} \left( {\sqrt{v^2 \sin^2\theta + 2 g y_0} \over v \cos \theta} \right) $$  Plot the impact angle as a function of $v$ and $\theta$ ($\phi(v,\theta)$) for $0 < v_i < 50$ m/s and $0 < \theta < 90^\circ$ and $y_i = 10$ m.   Then write a single sentence summarizing the results of the plot.
 
 ```{python}
 # Python code here
