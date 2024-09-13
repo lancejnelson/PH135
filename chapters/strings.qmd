@@ -236,6 +236,7 @@ a.isdigit()
 a.lstrip("s")
 a.rstrip("g")
 a.split("s")
+a.replace("sss","ggg")
 a.startswith("s")
 a.endswith("p")
 
@@ -307,3 +308,41 @@ alloys = "Cu,W,Mg,betaSn,Indium,alphaAs,alphaHg,Cu,AuCu,CuPt,AB2,MoPt2,AB2,AB3,A
 
 
 ```
+
+4. In the cell below, you will find a very long string containing a random sequence of numbers (spelled out) selected from the numbers 1-10. Use string methods to add all of the numbers up.
+
+
+```{python}
+numberString = "eight-six-four-ten-two-seven-five-four-three-ten-one-nine-seven-five-five-one-seven-nine-two-six-three-three-four-one-eight-five-five-ten-three-one-nine-three-nine-two-four-eight-three-nine-nine-four-eight-two-one-two-three-nine-five-six-three-seven-one-eight-four-seven-nine-three-seven-nine-five-eight-ten-two-two-four-ten-eight-four-three-ten-ten-three-two-ten-nine-five-eight-three-nine-eight-four-six-three-one-five-ten-two-one-one-three-three-five-ten-eight-six-five-six-three-one-three-seven-five-five-five-nine-four-one-eight-eight-eight-five-two-eight-two-two-three-five-nine-three-seven-seven-five-eight-ten-one-seven-one-nine-four-one-five-six-seven-three-three-nine-four-six-two-three-eight-eight-four-ten-two-six-one-five-five-nine-one-four-eight-six-six-four-five-five-two-four-one-two-five-eight-seven-seven-four-three-one-eight-four-three-one-two-ten-five-four-one-two-seven-nine-four-three-eight-four-six-ten-nine-two-four-eight-ten-two-two-nine-one-eight-three-seven-ten-two-three-ten-three-three-ten-six-one-ten-four-ten-nine-nine-six-six-one-two-nine-four-two-nine-nine-seven-two-nine-three-five-three-one-three-four-three-two-six-six-six-three-six-four-seven-two-ten-five-one-one-three-five-one-seven-six-two-four-one-five-two-seven-three-seven-five-five-two-one-ten-six-one-ten-eight-five-ten-ten-three-nine-two-seven-two-four-four-nine-three-two-three-two-ten-six-two-seven-two-four-eight-three-ten-two-four-three-nine-three-one-seven-ten-ten-three-five-two-four-eight-nine-five-ten-one-seven-eight-three-four-ten-one-nine-six-one-four-two-ten-eight-three-two-four-three-seven-three-nine-seven-four-five-one-nine-seven-two-eight-eight-six-three-five-three-six-five-four-five-one-nine-two-ten-four-three-three-five-ten-eight-one-two-five-seven-three-two-ten-six-four-six-nine-eight-three-eight-nine-one-two-eight-six-six-four-three-six-ten-two-three-ten-four-three-six-one-five-four-six-one-seven-five-five-eight-five-seven-six-nine-two-two-eight-six-three-four-seven-seven-eight-two-six-five-two-five-seven-three-seven-six-two-eight-eight-ten-nine-eight-six-eight-four-five-two-seven-four-six-one-eight-six-six-four-one-nine-three-seven-six-ten-four-five-one-one-seven-seven-eight-two-nine-seven-eight-six-six-seven-nine-three-one-one-nine-nine-seven-seven-three-one-six-four-ten-five-four-three-ten-nine-eight-ten-nine-ten-ten-one-seven-nine-two-one-seven-two-eight-four-five-five-three-three-two-six-eight-nine-four-four-one-six-six-five-two-two-six-four-two-ten-two-six-ten-two-five-four-one-eight-three-eight-nine-ten-seven-eight-five-six-one-seven-eight-seven-four-four-six-eight-six-five-ten-eight-eight-two-six-five-five-nine-six-ten-six-three-six-one-four-eight-one-two-ten-eight-four-seven-seven-nine-seven-four-two-five-two-eight-ten-seven-one-eight-six-five-five-nine-ten-four-three-eight-three-eight-five-ten-ten-six-eight-seven-one-seven-seven-one-three-ten-seven-three-one-five-eight-seven-nine-eight-six-eight-five-ten-five-five-ten-three-two-two-one-six-four-one-six-seven-six-ten-four-eight-three-five-nine-ten-eight-nine-nine-ten-nine-six-two-one-eight-six-ten-eight-two-five-two-four-three-nine-nine-eight-five-three-four-eight-four-five-eight-one-six-two-nine-eight-eight-eight-four-three-eight-three-four-eight-ten-seven-five-three-one-four-three-seven-three-six-seven-one-four-ten-seven-six-four-two-nine-six-four-six-three-one-nine-three-nine-eight-five-six-nine-four-nine-three-four-six-nine-five-nine-three-seven-nine-one-one-ten-five-five-six-one-one-six-one-seven-six-seven-four-seven-two-two-six-one-six-ten-nine-eight-two-one-four-ten-four-three-three-three-three-ten-five-six-six-four-four-four-six-two-two-three-eight-ten-five-ten-ten-two-two-eight-nine-seven-six-three-nine-six-ten-five-one-three-one-six-eight-seven-five-ten-five-three-five-seven-one-three-one-six-five-seven-six-two-one-three-five-four-six-eight-four-nine-nine-eight-eight-three-five-eight-six-five-one-six-five-ten-five-five-four-nine-seven-two-four-six-ten-four-two-ten-ten-six-eight-ten-three-four-five-five-five-five-eight-five-six-six-ten-eight-one-nine-three-four-three-eight-five-seven-six-seven-six-seven-one-one-three-three-three-six-three-three-nine-eight-seven-five-five-ten-six-five-eight-seven-six-six-ten-one-three-four-seven-ten-five-eight-four-eight-seven-four-four-five-four-nine-one-two-ten-two-nine-nine-five-six-two-eight-nine-six-two-two-five-nine-eight-seven-six-five-one-two-one-six-four-nine-seven-eight-eight-nine-four-seven-ten-five-ten-ten-two-nine-seven-one-three-seven-two-seven-five-four-two-six-two-nine-five-nine-five-five-eight-nine-three-four-ten-two-five-ten-three-six-five-nine-two-four-two-nine-five-one-five-six-one-one-nine-seven-five-six-three-seven-nine-five-eight-two-nine-one-ten-ten-eight-seven-three-one-nine-three-one-ten-one-nine-ten-five-one-three-eight-six-two-ten-four-four-seven-five-two-two-ten-ten-five-six-three-ten-four"
+
+```
+
+
+5. In the cell below, you will find a very long string containing a random sequence of numbers (spelled out) selected from the numbers 2-4. Use string methods to **multiply** all of the numbers up.
+
+```{python}
+numbersString = "two-three-three-three-two-four-three-three-two-three-two-three-four-four-three-four-three-two-four-four-four-four-two-two-three-three-four-four-two-four-three-three-two-three-three-three-two-two-three-three-four-two-three-four-two-two-two-four-three-four-two-two-three-three-two-four-two-two-three-two-two-three-three-two-four-three-three-two-two-three-four-four-four-four-two-two-four-three-two-three-four-two-four-four-four-three-three-three-two-four-three-three-two-four-three-four-four-four-four-two-three-four-two-three-three-three-four-four-two-two-two-two-four-two-two-three-four-three-two-three-three-two-four-two-four-three-three-four-two-two-three-four-three-three-two-three-four-four-two-four-four-four-three-two-four-two-three-four-four-four-four-two-two-two-four-four-four-two-two-three-three-four-three-two-four-four-four-four-two-two-two-two-three-two-three-two-three-four-three-three-two-three-four-two-three-three-three-two-three-two-four-two-three-three-two-two-two-three-two-two-four-three-four-two-two-three-four-two-four-two-two-three-four-four-four-four-four-two-four-four-three-two-four-two-three-two-three-four-two-two-two-three-four-four-four-two-two-two-four-two-three-three-three-three-three-two-three-two-two-four-three-four-four-three-three-four-three-two-two-four-three-two-four-two-two-four-two-three-two-two-two-two-three-three-two-three-three-four-three-three-three-two-three-four-two-two-three-two-four-two-two-two-three-two-two-three-three-two-two-two-two-two-two-four-two-three-three-four-four-three-two-three-two-two-four-two-three-two-two-three-four-three-four-three-four-four-two-four-three-three-three-two-four-three-four-three-four-three-four-four-two-two-four-three-two-three-three-four-four-four-two-two-two-two-four-four-four-three-four-four-three-two-two-two-two-two-two-three-three-three-three-three-four-three-four-four-three-three-two-three-four-two-three-three-two-three-three-two-four-three-four-two-two-three-two-two-three-four-three-two-four-three-four-two-two-four-two-three-four-two-two-three-three-two-three-three-four-three-three-two-two-two-four-two-three-four-three-two-two-two-four-four-four-two-three-three-two-three-two-two-two-three-four-three-four-three-four-three-two-two-four-four-two-two-four-three-three-two-three-four-two-two-two-three-two-four-two-four-three-two-three-two-three-three-three-four-two-four-four-three-three-two-three-three-four-two-two-four-four-three-three-two-two-four-three-four-three-three-three"
+
+```
+
+6. In the cell below, you will find several variables containing various physical constants.  Create f-strings that contain a description of the constant and it's value.  For example, for the first variable, you should create a string that looks like: "Mass of the Earth: 5.98 x 10^24 kg". Note that you must use the variable given when creating the string; You can't just read the value from the variable and type it in by hand.
+  1. Use string methods to replace the "e" in the variable with " x 10^"
+  2. The units for each number is included in the comments. Include this unit in the string. 
+
+```{physics}
+massEarth = 5.98e24 # kilograms
+radiusEarth = 6.37e6 # meters
+couloumbConstant = 8.99e9 # N m^2/C^2
+planksConstant = 6.63e-34 # J s
+massElectron = 9.11e-31  # kilograms
+speedLight = 3.0e8 # m/s
+gravitationalConstant = 6.67e-11 # N m^2/kg^2
+fundCharge = 1.602e-19 # Coulombs
+idealGasConstant = 8.314 # J/(mol Kelvin)
+standardAtmosphere = 1.013e5 # Pascals
+boltzmannConstant = 1.38e-23 # J/K
+massProton = 1.6726e-27 # kg
+
+
+```
+
