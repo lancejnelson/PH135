@@ -329,7 +329,7 @@ numbersString = "two-three-three-three-two-four-three-three-two-three-two-three-
   1. Use string methods to replace the "e" in the variable with " x 10^"
   2. The units for each number is included in the comments. Include this unit in the string. 
 
-```{physics}
+```{python}
 massEarth = 5.98e24 # kilograms
 radiusEarth = 6.37e6 # meters
 couloumbConstant = 8.99e9 # N m^2/C^2
