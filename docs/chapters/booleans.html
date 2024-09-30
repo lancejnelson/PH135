@@ -582,22 +582,16 @@ Did not find Matis in the string</code></pre>
 <section id="exercises" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">4.4</span> Exercises</h2>
 <ol type="1">
-<li><p>(Escape Velocity) The escape velocity is the speed needed for an object to completely escape the gravitational pull of a planet. The expression for escape velocity is <span class="math display">\[ v_\text{escape} = \sqrt{2 G M_p \over r}\]</span> where <span class="math inline">\(G = 6.67 \times 10^{-11}\)</span>, <span class="math inline">\(M_p\)</span> is the mass of the planet you are trying to escape from, and <span class="math inline">\(r\)</span> is the radius of the planet.</p>
+<li><p>A transcendental equation is one that cannot be solved using paper and pencil techniques (All the stuff you learned in algebra class). The following equation is an example of a transcendental equation: <span class="math inline">\({\sin(x)\over x} = 0.3\)</span></p>
 <ol type="1">
-<li>Construct an <code>if</code>-<code>else</code> code block that checks to see if a guessed speed is bigger or smaller than the escape velocity of Jupiter. The code block should print an appropriate message about the guessed velocity. Jupiter has a mass of <span class="math inline">\(M = 1.90 \times 10^{27}\)</span> kg and a radius of <span class="math inline">\(r = 6.99 \times 10^7\)</span> meters.</li>
-<li>Modify your guess until both branches of your <code>if</code>-<code>else</code> trigger.</li>
-<li>Repeat for Earth. Earth has a mass of <span class="math inline">\(M = 5.98 \times 10^{24}\)</span> kg and a radius of <span class="math inline">\(r = 6.37 \times 10^6\)</span> meters.</li>
+<li>Write an <code>if</code>-<code>else</code> code block that checks to see if a guessed <code>x</code> value is a solution to this equation. Do not use the <code>==</code> operator but rather check to see if the absolute value of the difference is less than <span class="math inline">\(1 \times 10^-4\)</span>. Each block of the <code>if</code>-<code>else</code> should print an appropriate sentence indicating whether the guessed value is a solution or not. The <code>else</code> block should also print off the absolute value of the difference so you know how far off your guess was.</li>
+<li>Now use guess and check to find a value for <code>x</code> that is a solution to this equation.</li>
 </ol></li>
-</ol>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> <span class="fl">6.67e-11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li>(Thermoelectrics) A thermoelectric is a material that converts thermal energy into electrical energy and much research is devoted to finding new materials that exhibit this behavior. Good thermoelectrics tend to be materials with high electrical conducitivity (<span class="math inline">\(\sigma &gt; 7 \times 10^5~\Omega^{-1} \text{m}^{-1}\)</span> ) <strong>and</strong> low thermal conductivity (<span class="math inline">\(\kappa&lt; 2.0\)</span> W/ m K ). Write an <code>if</code>-<code>else</code> code block that checks to see if a material’s electrical conductivity is above the threshold <strong>and</strong> its thermal conductivity is below the threshold. Then choose some values for the conductivities and test your <code>if</code>-<code>else</code> block.</li>
+<li><p>(Thermoelectrics) A thermoelectric is a material that converts thermal energy into electrical energy. and much research is devoted to finding new materials that exhibit this behavior. Good thermoelectrics tend to be materials with high electrical conducitivity (<span class="math inline">\(\sigma &gt; 7 \times 10^5~\Omega^{-1} \text{m}^{-1}\)</span> ) <strong>and</strong> low thermal conductivity (<span class="math inline">\(\kappa&lt; 2.0\)</span> W/ m K ). Write an <code>if</code>-<code>else</code> code block that checks to see if a material’s electrical conductivity is above the threshold <strong>and</strong> its thermal conductivity is below the threshold. Then choose some values for the conductivities and test your <code>if</code>-<code>else</code> block.</p></li>
 </ol>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">0</span>     <span class="co"># Electrical Conductivity</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>kappa <span class="op">=</span> <span class="dv">0</span>    <span class="co"># Thermal Conductivity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="dv">0</span>     <span class="co"># Electrical Conductivity</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>kappa <span class="op">=</span> <span class="dv">0</span>    <span class="co"># Thermal Conductivity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Alloys are often represented by a string containing the elements in the alloy and the relative number of atoms for each element. For example, “Cu2Au” (Copper-2-Gold) means that the alloy is made of copper and gold and there are two copper atoms for every gold atom. Write some python code that calculates the total number of atoms in an alloy. The code should include a print statement to display the result. Then check your code on the alloys in the table below. You can assume that all elements have two-character symbols even though that isn’t true; we won’t consider any one-character symbols in this problem.</li>
@@ -630,7 +624,7 @@ Did not find Matis in the string</code></pre>
 </tbody>
 </table>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>alloy <span class="op">=</span> <span class="st">"CaIn2"</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>alloy <span class="op">=</span> <span class="st">"CaIn2"</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>The quadratic equation has two solutions and they can be positive, negative, or complex. Often the complex and/or negative solutions are not relavant/meaningful. Write an <code>if/elif/else</code> block of code that checks what type of solutions will result and only displays the real, positive solution(s) if they exist. If there is no positive solution, the code should display a message indicating such. Then check your code with the values given below. As a reminder, here is the quadratic equation: <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span></li>
@@ -639,7 +633,7 @@ Did not find Matis in the string</code></pre>
 <p><code>a = 1, b = -3, c = 2</code> (two positive solutions)</p>
 <p><code>a = 1, b = -3, c = -2</code> (one positive solution and one negative solution)</p>
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
 <li><p>(Triangle Classification) There is a simple criteria to determine whether a triangle can be formed from a set of specified side lengths. The criteria states that the sum of any two sides must be larger than the third side. This criteria must be satisified for all possible combinations of two sides if the triangle is to be valid. If the triangle is valid, the angles can be found by first using the law of cosines to find the first two angles <span class="math display">\[c^2 = a^2 + b^2 - 2 a b \cos(C)\]</span> and then choosing the third angle so that the sum of the three angles add up to <span class="math inline">\(180^\circ\)</span>.</p>
@@ -651,11 +645,11 @@ Did not find Matis in the string</code></pre>
 </ol></li>
 </ol>
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos,pi</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#a = # Side length 1</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#b = # Side length 1</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#c = # Side length 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos,pi</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#a = # Side length 1</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#b = # Side length 1</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#c = # Side length 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

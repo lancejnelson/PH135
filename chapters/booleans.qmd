@@ -239,29 +239,26 @@ It is worth noting that `else` statements are not required. If you leave the `el
 8. Recite Helaman 5:12.
 
 ## Exercises
+1. A transcendental equation is one that cannot be solved using paper and pencil techniques (All the stuff you learned in algebra class). The following equation is an example of a  transcendental equation: ${\sin(x)\over x} = 0.3$
 
-1. (Escape Velocity)  The escape velocity is the speed needed for an object to completely escape the gravitational pull of a planet. The expression for escape velocity is $$ v_\text{escape} = \sqrt{2 G M_p \over r}$$ where $G = 6.67 \times 10^{-11}$, $M_p$ is the mass of the planet you are trying to escape from, and $r$ is the radius of the planet.
-
-    1. Construct an `if`-`else` code block that checks to see if a guessed speed is bigger or smaller than the escape velocity of Jupiter. The code block should print an appropriate message about the guessed velocity.  Jupiter has a mass of $M = 1.90 \times 10^{27}$ kg and a radius of $r = 6.99 \times 10^7$ meters.
-    2. Modify your guess until both branches of your `if`-`else` trigger.
-    3. Repeat for Earth. Earth has a mass of $M = 5.98 \times 10^{24}$ kg and a radius of $r = 6.37 \times 10^6$ meters.
+    1. Write an `if`-`else` code block that checks to see if a guessed `x` value is a solution to this equation.  Do not use the `==` operator but rather check to see if the absolute value of the difference is less than $1 \times 10^-4$.  Each block of the `if`-`else` should print an appropriate sentence indicating whether the guessed value is a solution or not. The `else` block should also print off the absolute value of the difference so you know how far off your guess was.
+    2. Now use guess and check to find a value for `x` that is a solution to this equation.
 
 
-    ```{python}
-    #| eval: true
-    G = 6.67e-11
-    ```
+```{python}
+#| eval: true
 
 
-2. (Thermoelectrics)  A thermoelectric is a material that converts thermal energy into electrical energy and much research is devoted to finding new materials that exhibit this behavior.  Good thermoelectrics tend to be materials with high electrical conducitivity ($\sigma > 7 \times 10^5~\Omega^{-1} \text{m}^{-1}$ ) **and** low thermal conductivity ($\kappa< 2.0$ W/ m K ).  Write an `if`-`else` code block that checks to see if a material's electrical conductivity is above the threshold **and** its thermal conductivity is below the threshold.  Then choose some values for the conductivities and test your `if`-`else` block.
+```
 
 
-    ```{python}
-    sigma = 0     # Electrical Conductivity
-    kappa = 0    # Thermal Conductivity
+2. (Thermoelectrics)  A thermoelectric is a material that converts thermal energy into electrical energy.   and much research is devoted to finding new materials that exhibit this behavior.  Good thermoelectrics tend to be materials with high electrical conducitivity ($\sigma > 7 \times 10^5~\Omega^{-1} \text{m}^{-1}$ ) **and** low thermal conductivity ($\kappa< 2.0$ W/ m K ).  Write an `if`-`else` code block that checks to see if a material's electrical conductivity is above the threshold **and** its thermal conductivity is below the threshold.  Then choose some values for the conductivities and test your `if`-`else` block.
 
 
-    ```
+```{python}
+sigma = 0     # Electrical Conductivity
+kappa = 0    # Thermal Conductivity
+```
 
 
 3. Alloys are often represented by a string containing the elements in the alloy and the relative number of atoms for each element. For example, "Cu2Au" (Copper-2-Gold) means that the alloy is made of copper and gold and there are two copper atoms for every gold atom.  Write some python code that calculates the total number of atoms in an alloy.  The code should include a print statement to display the result.  Then check your code on the alloys in the table below. You can assume that all elements have two-character symbols even though that isn't true; we won't consider any one-character symbols in this problem.
