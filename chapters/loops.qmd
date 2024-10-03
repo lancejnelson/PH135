@@ -29,15 +29,15 @@ for i in [3,2,1,9.9]:
 
  This would be equivalent to the following code:
 
- ```{python}
- thesum = 0
+```{python}
+thesum = 0
 
- thesum = thesum + 3
- thesum = thesum + 2
- thesum = thesum + 1
- thesum = thesum + 9.9
+thesum = thesum + 3
+thesum = thesum + 2
+thesum = thesum + 1
+thesum = thesum + 9.9
  
- ```
+```
 
 which isn't that much longer than using a loop.  However, as the list gets longer and/or the mathematical operations being performed get more complex the second method would get unreasonably long.
 

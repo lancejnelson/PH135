@@ -584,7 +584,7 @@ Did not find Matis in the string</code></pre>
 <ol type="1">
 <li><p>A transcendental equation is one that cannot be solved using paper and pencil techniques (All the stuff you learned in algebra class). The following equation is an example of a transcendental equation: <span class="math inline">\({\sin(x)\over x} = 0.3\)</span></p>
 <ol type="1">
-<li>Write an <code>if</code>-<code>else</code> code block that checks to see if a guessed <code>x</code> value is a solution to this equation. Do not use the <code>==</code> operator but rather check to see if the absolute value of the difference is less than <span class="math inline">\(1 \times 10^-4\)</span>. Each block of the <code>if</code>-<code>else</code> should print an appropriate sentence indicating whether the guessed value is a solution or not. The <code>else</code> block should also print off the absolute value of the difference so you know how far off your guess was.</li>
+<li>Write an <code>if</code>-<code>else</code> code block that checks to see if a guessed <code>x</code> value is a solution to this equation. Do not use the <code>==</code> operator but rather check to see if the absolute value of the difference is less than <span class="math inline">\(1 \times 10^{-3}\)</span>. Each block of the <code>if</code>-<code>else</code> should print an appropriate sentence indicating whether the guessed value is a solution or not. The <code>else</code> block should also print off the absolute value of the difference so you know how far off your guess was.</li>
 <li>Now use guess and check to find a value for <code>x</code> that is a solution to this equation.</li>
 </ol></li>
 <li><p>(Thermoelectrics) A thermoelectric is a material that converts thermal energy into electrical energy. and much research is devoted to finding new materials that exhibit this behavior. Good thermoelectrics tend to be materials with high electrical conducitivity (<span class="math inline">\(\sigma &gt; 7 \times 10^5~\Omega^{-1} \text{m}^{-1}\)</span> ) <strong>and</strong> low thermal conductivity (<span class="math inline">\(\kappa&lt; 2.0\)</span> W/ m K ). Write an <code>if</code>-<code>else</code> code block that checks to see if a material’s electrical conductivity is above the threshold <strong>and</strong> its thermal conductivity is below the threshold. Then choose some values for the conductivities and test your <code>if</code>-<code>else</code> block.</p></li>
@@ -627,7 +627,7 @@ Did not find Matis in the string</code></pre>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>alloy <span class="op">=</span> <span class="st">"CaIn2"</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
-<li>The quadratic equation has two solutions and they can be positive, negative, or complex. Often the complex and/or negative solutions are not relavant/meaningful. Write an <code>if/elif/else</code> block of code that checks what type of solutions will result and only displays the real, positive solution(s) if they exist. If there is no positive solution, the code should display a message indicating such. Then check your code with the values given below. As a reminder, here is the quadratic equation: <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span></li>
+<li>The quadratic equation has two solutions and they can be positive, negative, or complex. Often the complex and/or negative solutions are not relavant/meaningful. Write an <code>if/elif/else</code> block of code that only prints the positive solutions to the quadratic equation. If there are no positive solutions or if both solutions are complex, your code should display a message indicating such. Use f-strings in your print statements. If there is no positive solution, the code should display a message indicating such. Then check your code with the values given below. As a reminder, here is the quadratic equation: <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  \]</span></li>
 </ol>
 <p><code>a = 2, b = 3, c = 8</code> (no real solutions)</p>
 <p><code>a = 1, b = -3, c = 2</code> (two positive solutions)</p>
@@ -648,8 +648,8 @@ Did not find Matis in the string</code></pre>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arccos,pi</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#a = # Side length 1</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#b = # Side length 1</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#c = # Side length 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#b = # Side length 2</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#c = # Side length 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
