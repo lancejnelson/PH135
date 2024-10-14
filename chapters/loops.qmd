@@ -368,10 +368,10 @@ Hint/Answer: The 10th fibonacci number that is a multiple of 5 is: 12,586,269,02
 ```
 
 
-3. A prime number is not the product of two smaller numbers. (i.e it is only evenly divisible by itself and 1) 
-    
-    1. Use a `for` loop to generate a list containing the first 100 prime numbers.
-    2. Use a `while` loop to generate a list containing the first 100 prime numbers.
+3. (Prime numbers) A prime number is a number that is not the product of two smaller numbers except $1$. (i.e it is only evenly divisible by itself and $1$) To determine whether a number ($n$) is prime, check to see if the number is divisible by **every integer** starting at $1$ and ending at $\sqrt{n}$ (rounded up). If the number is divisible by even one of these integers, you know the number isn't prime.
+
+    1. Write a `for` loop that determines whether a specified number is prime or not. Try your loop out on the following numbers: $75$, $71$, and $91$.
+    2. Now enclose your `for` loop from step 1 in another `for` loop to find all of the prime numbers less than $500$. Put all of these numbers in a list. Hint: You should find that there are $95$ prime numbers less than $500$
 
 
 ```{python}

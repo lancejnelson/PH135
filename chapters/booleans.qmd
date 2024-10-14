@@ -241,7 +241,7 @@ It is worth noting that `else` statements are not required. If you leave the `el
 ## Exercises
 1. A transcendental equation is one that cannot be solved using paper and pencil techniques (All the stuff you learned in algebra class). The following equation is an example of a  transcendental equation: ${\sin(x)\over x} = 0.3$
 
-    1. Write an `if`-`else` code block that checks to see if a guessed `x` value is a solution to this equation.  Do not use the `==` operator but rather check to see if the absolute value of the difference is less than $1 \times 10^-4$.  Each block of the `if`-`else` should print an appropriate sentence indicating whether the guessed value is a solution or not. The `else` block should also print off the absolute value of the difference so you know how far off your guess was.
+    1. Write an `if`-`else` code block that checks to see if a guessed `x` value is a solution to this equation.  Do not use the `==` operator but rather check to see if the absolute value of the difference is less than $1 \times 10^{-3}$.  Each block of the `if`-`else` should print an appropriate sentence indicating whether the guessed value is a solution or not. The `else` block should also print off the absolute value of the difference so you know how far off your guess was.
     2. Now use guess and check to find a value for `x` that is a solution to this equation.
 
 
@@ -280,7 +280,7 @@ alloy = "CaIn2"
 ```
 
 
-4. The quadratic equation has two solutions and they can be positive, negative, or complex.  Often the complex and/or negative solutions are not relavant/meaningful.  Write an `if/elif/else` block of code that checks what type of solutions will result and only displays the real, positive solution(s) if they exist.  If there is no positive solution, the code should display a message indicating such.  Then check your code with the values given below. As a reminder, here is the quadratic equation: $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
+4. The quadratic equation has two solutions and they can be positive, negative, or complex.  Often the complex and/or negative solutions are not relavant/meaningful.  Write an `if/elif/else` block of code that only prints the positive solutions to the quadratic equation. If there are no positive solutions or if both solutions are complex, your code should display a message indicating such. Use f-strings in your print statements. If there is no positive solution, the code should display a message indicating such.  Then check your code with the values given below. As a reminder, here is the quadratic equation: $$ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}  $$
 
 
 `a = 2, b = 3, c = 8` (no real solutions)
@@ -308,7 +308,7 @@ alloy = "CaIn2"
 from numpy import arccos,pi
 
 #a = # Side length 1
-#b = # Side length 1
-#c = # Side length 1
+#b = # Side length 2
+#c = # Side length 3
 
 ```
