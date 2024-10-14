@@ -345,7 +345,7 @@ Finally, the `pass` statement does nothing.  Seriously!!  It is merely a place h
 9. Where is the account of Jesus walking on the water?
 
 ## Exercises
-1. Use a loop to construct a list containing the first 10 fibonacci numbers  that are multiples of $5$. (The modulo operator (`%`) is a good and efficient way to see if a number is a multiple of another.)
+1. Use a loop to construct a list containing the first 10 fibonacci numbers that are multiples of $5$. (The modulo operator (`%`) is a good and efficient way to see if a number is a multiple of another.)
 
 Hint/Answer: The 10th fibonacci number that is a multiple of 5 is: 12,586,269,025
 
@@ -368,23 +368,32 @@ Hint/Answer: The 10th fibonacci number that is a multiple of 5 is: 12,586,269,02
 ```
 
 
-3. In the cell below you will find three lists containing the masses, lengths, and radii for a collection of cylinders.  The moment of inertia for each cylinder can be calculated as $$ I = {1\over 4} M R^2 + {1\over 12} M L^2$$.  
-
-    1. Use a loop to iterate over these lists and calculate the moment of inertia for each one.  Store the calculated values in a new list.  You should use the `enumerate` function on this problem.
-    2. Calculate the largest, smallest, and average of the calculated values
+3. A prime number is not the product of two smaller numbers. (i.e it is only evenly divisible by itself and 1) 
+    
+    1. Use a `for` loop to generate a list containing the first 100 prime numbers.
+    2. Use a `while` loop to generate a list containing the first 100 prime numbers.
 
 
 ```{python}
-from numpy.random import uniform
-mass = uniform(3,8,1000)
-radius = uniform(0.5,1.2,1000)
-length = uniform(0.8,3,1000)
-
+# Python code here
 
 
 ```
 
-4. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = -{m g \over c}$$
+4. The greatest common divisor (GCD) of two numbers is the greatest positive integer that divides each of the numbers. For example, the GCD of $30$ and $20$ is $10$ (i.e. There is no number greater than $10$ that divides both $30$ and $20$).  One algorithm for finding this number is called Euclid's algorithm.  The process for Euclid's algorithm is as follows: (as long as both numbers are not negative.)
+
+    - Find the remainder of dividing the larger number by the smaller number.
+    - Replace the larger number with the number found in step 1.
+    - Repeat this process until both numbers are equal, at which point you have found the GCD.
+
+    1. Use a `while` loop to find the GCD of $105$ and $252$.  You may want to find the GCD of smaller numbers first to verify that your code is working.
+    2. The least common multiple (LCM) of two numbers is the smallest number that two or more numbers can divide evenly. For example, the LCM of $6$ and $4$ is $12$ (i.e. There is no number smaller than $12$ that is also a multiple of both $6$ and $4$). The LCM can be found from the GCD using the following expression: $LCM(a,b) = {a \times b\over GCD(a,b)}$. Calculate the LCM of $105$ and $252$.
+
+```{python}
+#Code here.
+```
+
+5. An object that is dropped/thrown from a high altitude and allowed to fall through the air will experience a drag force that is opposite its motion.  Because of that drag force, the velocity of the particle will not increase forever, but instead approach a constant velocity (called terminal velocity).  The function that describes the velocity of the particle as a function of time is given by $$ v(t) = -{mg \over c} + \left( {m g \over c} + v_0\right) e^{-c t \over m}$$ and the terminal velocity is given by $$v_t = -{m g \over c}$$
 where $m$ is the mass of the projectile, $c$ is the drag constant, $g= 9.8$ m/s$^2$ is the acceleration due to gravity, $v_0$ is the initial velocity of the particle, and $t$ is time. 
 
     1. Use a while loop to calculate the velocity of the particle at $0.1$ second time intervals, starting at $t = 0$.
@@ -404,7 +413,7 @@ v0=0
 ```
 
 
-5. In the cell below you will find a dictionary containing the mass(in kg) and diameter of the planets in our solar system.  Use a loop to iterate over this dictionary and calculate the acceleration due to gravity at the surface of the planet. $$ g = {G M \over R^2}$$.  Then add this value to the list for each planet. Print the dictionary when you are done to verify that each dictionary entry is a list with three elements.
+6. In the cell below you will find a dictionary containing the mass(in kg) and diameter of the planets in our solar system.  Use a loop to iterate over this dictionary and calculate the acceleration due to gravity at the surface of the planet. $$ g = {G M \over R^2}$$.  Then add this value to the list for each planet. Print the dictionary when you are done to verify that each dictionary entry is a list with three elements.
 
 
 ```{python}
