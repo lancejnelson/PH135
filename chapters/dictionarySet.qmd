@@ -275,7 +275,7 @@ print(elements[2])
 ```
 
 
-2. (Unit Conversions) Unit conversions show up all over in physics and if you don't have the conversion factors memorized you may find yourself constantly looking them up. Construct a dictionary that contains many of the most useful unit conversions, including those shown below.  You are free to choose the key names to be whatever makes most sense to you. I've given a few examples in the code cell below to get you started. $$ 1 \text{ kilometer} = 1000 \text{ meters}$$ $$ 1 \text{ inch} = 2.54 \text{ centimeters}$$ $$ 1 \text{ mile} = 1.609 \text{ kilometers}$$ $$ 1 \text{ mph} = 0.447 \text{ m/s}$$ $$ 1 \text{ u} = 1.661 \times 10^{-27} \text{ kg}$$ $$ 1 \text{ electron-volt} = 1.602 \times 10^{-19} \text{ Joules}$$ $$ 1 \text{ day} = 24 \text{ hours}$$ $$ 1 \text{ radian} = 57.3^\circ$$ $$ 1 \text{ rev} = 2\pi \text{ radians}$$
+2. (Unit Conversions) Unit conversions show up all over in physics and if you don't have the conversion factors memorized you may find yourself constantly looking them up. Construct a dictionary that contains many of the most useful unit conversions, including those shown below.  You are free to choose the key names to be whatever makes most sense to you. I've given a few examples in the code cell below to get you started. $$ 1 \text{ kilometer} = 1000 \text{ meters}$$ $$ 1 \text{ meter} = 100 \text{ centimeters}$$ $$ 1 \text{ inch} = 2.54 \text{ centimeters}$$ $$ 1 \text{ mile} = 1.609 \text{ kilometers}$$ $$ 1 \text{ mph} = 0.447 \text{ m/s}$$ $$ 1 \text{ u} = 1.661 \times 10^{-27} \text{ kg}$$ $$ 1 \text{ electron-volt} = 1.602 \times 10^{-19} \text{ Joules}$$ $$ 1 \text{ day} = 24 \text{ hours}$$ $$ 1 \text{ radian} = 57.3^\circ$$ $$ 1 \text{ rev} = 2\pi \text{ radians}$$
 
 
 Once the dictionary is created use it to perform the following conversions:
@@ -293,7 +293,7 @@ conversions = {"km-to-m": 1000, "in-to-cm": 2.54 }
 ```
 
 
-3. [Here](https://nssdc.gsfc.nasa.gov/planetary/factsheet/) you will find a table containing planetary information.  Pick your top three favorite planets and make one dictionary for each planet.  The keys in the dictionary should be the row label from the table (or a shortened version of that label) and the item value should be the number in the table.  Once the dictionaries are created, verify that you can extract values from them as you would expect. 
+3. [Here](https://nssdc.gsfc.nasa.gov/planetary/factsheet/) you will find a table containing planetary information.  Pick your top three favorite planets and make one dictionary for each planet.  The keys in the dictionary should be the row label from the table (or a shortened version of that label) and the item value should be the number in the table. Pick 10 rows in the table to put in your dictionary. Once the dictionaries are created, verify that you can extract values from them as you would expect. 
 
 
 ```{python}
@@ -318,6 +318,10 @@ conversions = {"km-to-m": 1000, "in-to-cm": 2.54 }
     2. Use the dictionaries to add up the polynomials.
     3. Print the result to screen.
 
+```{python}
+# Python code here.
+```
+
 
 6. (Prime Factorization)  Prime factorization is a way to represent a number as a product of it's prime factors.  For example, the prime factorization of $50$ is $2 \times 5 \times 5$. This factorization can be represented in a dictionary by placing the prime number as the dictionary keys and the values as the number of times that prime appears in the factorization. For our example of $50$, this dictionary would be `{2:1,5:2}`.
 
@@ -325,3 +329,6 @@ conversions = {"km-to-m": 1000, "in-to-cm": 2.54 }
     2. Now write some code to calculate the original numbers from their dictionary representation.
 
 
+```{python}
+# Python code here.
+```
