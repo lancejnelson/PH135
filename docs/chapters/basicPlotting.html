@@ -767,7 +767,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>&lt;matplotlib.legend.Legend at 0x11a614650&gt;</code></pre>
+<pre><code>&lt;matplotlib.legend.Legend at 0x11954fbf0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="basicPlotting_files/figure-html/cell-10-output-2.png" width="598" height="449"></p>
@@ -821,7 +821,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Length of day for planets in our solar system (color indicates mass)"</span>)</span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x11a69e2d0&gt;</code></pre>
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x1193a42c0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="basicPlotting_files/figure-html/cell-12-output-2.png" width="581" height="449"></p>
@@ -1103,7 +1103,7 @@ Follow the steps below to plot this function for several different temperatures:
 <ol type="1">
 <li>Copy the function that you made previously into the cell below. (or build it from scratch)</li>
 <li>Use <code>numpy.linspace</code> to generate a grid of 500 <span class="math inline">\(\lambda\)</span> values from <span class="math inline">\(0.1 \times 10^{-6} \rightarrow 3 \times 10^{-6}\)</span> m.</li>
-<li>Call your vectorized function for <span class="math inline">\(T = 5780\)</span> K (temperature of the sun), producing a list of intensities.</li>
+<li>Use list comprehension to produce a list of intensities for the <span class="math inline">\(\lambda\)</span> values generated in step 2. Use <span class="math inline">\(T = 5780\)</span> K (temperature of the sun).</li>
 <li>Plot intensity vs.&nbsp;<span class="math inline">\(\lambda\)</span> .<br>
 </li>
 <li>Repeat steps 3 and 4 for <span class="math inline">\(T = 4500\)</span> K. You should have two plots on the same figure. Choose the line style and color to be different than the first plot.</li>

@@ -582,7 +582,7 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
    Follow the steps below to plot this function for several different temperatures:  
      1. Copy the function that you made previously into the cell below. (or build it from scratch)
      2. Use `numpy.linspace` to generate a grid of 500 $\lambda$ values from $0.1 \times 10^{-6} \rightarrow 3 \times 10^{-6}$ m.
-     3. Call your vectorized function for $T = 5780$ K (temperature of the sun), producing a list of intensities.
+     3. Use list comprehension to produce a list of intensities for the $\lambda$ values generated in step 2. Use $T = 5780$ K (temperature of the sun).
      4. Plot intensity vs. $\lambda$ .  
      5. Repeat steps 3 and 4 for $T = 4500$ K.  You should have two plots on the same figure. Choose the line style and color to be different than the first plot.
      6. Add a legend to the figure. Use the temperatures as the labels.
