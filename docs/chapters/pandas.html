@@ -1388,12 +1388,26 @@ Name: A, dtype: float64</code></pre>
 <li>Make the name of the planet be the row label.</li>
 <li>Write this dataframe to a csv file.</li>
 </ol></li>
-<li>In homework problem 2 from the chapter on I/O, you calculated the moment of inertia for 1000 different objects.
+</ol>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>In homework problem 2 from the chapter on I/O, you calculated the moment of inertia for 1000 different objects. I’ve copied the code from that homework problem below
 <ol type="1">
-<li>Create a dataframe out of the mass, radius, length, and inertia data. The dataframe should have four columns and 1000 rows.</li>
+<li>Create a dataframe out of the mass, radius, length, and inertia arrays. The dataframe should have four columns and 1000 rows.</li>
 <li>Use <code>describe</code> to get a summary of the data.</li>
 <li>Write the data to a .csv file and inspect the file to ensure that you did it correctly.</li>
 </ol></li>
+</ol>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>length <span class="op">=</span> normal(<span class="dv">2</span>,<span class="fl">.2</span>,<span class="dv">1000</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
 <li>In homework problem 3 from the chapter on I/O, you read planetary data into a .csv file using <code>genfromtxt</code>.
 <ol type="1">
 <li>Read the same file into a dataframe using <code>read_csv</code>. Let the name of the planets be the row label and the physical property be the column label.</li>
@@ -1415,6 +1429,9 @@ Hints:
 <li>For part 8 use <code>query</code>. To include the space in the column names, enclose the name in backticks “`”. (i.e.&nbsp;” <code>Inclination</code> &gt; 0.04”)</li>
 </ol></li>
 </ol>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
