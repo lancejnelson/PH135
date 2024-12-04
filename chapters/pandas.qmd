@@ -463,7 +463,7 @@ Depending on the type of data you are working with, there is a good argument for
 
 ## Exercises
 1. In homework problem 3 from the chapter on dictionaries and sets, you built a dictionary containing planetary information for your top three favorite planets.  
-   1. Create a dataframe from this dictionary.
+   1. Create a single dataframe that contains this information in it.  The columns should be the properties of the planets and the rows should be the planets.
    2. Make the name of the planet be the row label.
    3. Write this dataframe to a csv file.
 
@@ -491,15 +491,15 @@ radius = normal(1,.1,1000)
    2. The sixth column contains the acceleration due to gravity for all of the planets in units of m/s$^2$.  Recalculate these values to be in terms of earth's value ($g = 9.78$ m/s$^2$) and modify the sixth column.
    3. The seventh column contains the orbital period for all of the planets in units of earth years.  Recalculate these values to be in earth days and modify that column accordingly. 
    4. Add a new column labeled "Surface Temperature" that contains the surface temperature for each planet in Kelvins as given [here](https://solarsystem.nasa.gov/resources/681/solar-system-temperatures/).
-   5. Add a new row for a hypothetical planet ("planet X") and set its physical properties equal to the average of the other 9 planets that are already in the dataframe.
+   5. Add a new row for a hypothetical planet ("planet X") and set its physical properties equal to the average of the other 9 planets that are already in the dataframe. Set the index for this row to be "Planet X".
    6. Determine which planets have an acceleration due to gravity that is less than earth's value ($9.8 $ m/s$^2$)
    7. Determine which planets have an eccentricity that is greater than $0.04$.
    8. Determine which planet(s) have an inclination greater than $1.5^\circ$ **and** have 10 or more satellites.
-   9. Write the a .csv file containing the following columns in the dataframe: "Name", "SurfaceGravity", "OrbitalPeriod", and "Satellites".
+   9. Write a .csv file containing the following columns in the dataframe: "Name", "SurfaceGravity", "OrbitalPeriod", and "Satellites".
    10. Write the entire dataframe to a separate file.  
 
    Hints:  
-      1. For part 5 you will want to use `describe` to generate a dataframe of summary statistics. Then use `append` to add the row labeled "mean" to your original planetary database. Then use `rename` to rename that row from `mean` to `Planet X`.  
+      1. For part 5 you will want to use `describe` to generate a dataframe of summary statistics. Then use `concat` to add the row labeled "mean" to your original planetary database. Then use `rename` to rename that row from `mean` to `Planet X`.  
       2. The column label for the acceleration due to gravity start with a space: " SurfaceGravity" not "SurfaceGravity".
       3. For part 8 use `query`.  To include the space in the column names, enclose the name in backticks "\`". (i.e. " ` Inclination` > 0.04")
 
