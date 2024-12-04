@@ -501,7 +501,7 @@ radius = normal(1,.1,1000)
    Hints:  
       1. For part 5 you will want to use `describe` to generate a dataframe of summary statistics. Then use `concat` to add the row labeled "mean" to your original planetary database. Then use `rename` to rename that row from `mean` to `Planet X`.  
       2. The column label for the acceleration due to gravity start with a space: " SurfaceGravity" not "SurfaceGravity".
-      3. For part 8 use `query`.  To include the space in the column names, enclose the name in backticks "\`". (i.e. " ` Inclination` > 0.04")
+      3. For part 8 use `query`.  To include the space in the column names, enclose the name in backticks "\`". (i.e. " \` Inclination\` > 0.04")
 
 ```{python}
  # Python code here
