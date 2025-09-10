@@ -245,7 +245,7 @@ round(-5.51)
 str(3.2)
 ```
 
-In addition to Python's native collection of mathematical functions, there is also a `math` module with more mathematical functions.  Think of a module as an add-on or tool pack for Python just like a library.  The `math` module comes with every installation of python and can be *imported* (i.e. activated) using the `import math` command. After the module has been imported, any function in the module is called using `math.function()` where `function` is the name of the function.  Here is a list of commonly-used functions inside the `math module`:
+In addition to Python's native collection of mathematical functions, there is also a `math` module with more mathematical functions.  Think of a module as an add-on or tool pack for Python just like a library.  The `math` module comes with every installation of python and can be *imported* (i.e. activated) using the `import math` command. After the module has been imported, any function in the module is called using `math.function()` where `function` is the name of the function.  Below is a list of commonly-used functions inside the `math module`.  Carefully look at each of them and guess what they mean.
 
 ```{python}
 import math
@@ -288,18 +288,132 @@ radians(4)
 ```
 
 
-## Flash Cards
-1. What are the rules for naming variables in Python?
-2. When will a mathematical calculation produce a float?
-3. When will a mathematical calculation produce an int?
-4. What is the best way to increase/decrease the value of a variable by a multiplicative factor (multiply it by a number)?
-5. What is the best way to increase/decrease the value of a variable by an additive constant (add a number to it)?
-6. When assigning large numbers to variables, what character can replace the "," to separate the numbers into groups of three?
-7. How do you use scientific notation to assign a very large number to a variable?
-8. When using a trig function ($\sin \theta$, $\cos \theta$, $\tan \theta$), the number that is passed in must have what units?
-9. What does the `math.radians` function do?
-10. Where can you find King Benjamin's address to his people?
+## Errors In Python 
+When you are learning to write code, you will inevitably run into errors. Seeing a block of red text can be intimidating at first, but it's important to remember that errors are not failures; they are helpful signs. The error message is simply Python's way of telling you that it couldn't understand your instructions and often gives you a very specific clue about what went wrong.
 
+Learning to read these messages is a fundamental skill that will turn you into a more effective programmer. Let's look at some of the most common errors you will encounter on your journey.
+
+
+
+
+### Syntax Error
+
+A `SyntaxError` is the most common type of error for beginners. It means you have broken a grammar rule of the Python language. Just like a sentence in English needs correct punctuation to make sense, a line of Python code needs correct syntax.
+
+\textbf{Common Cause}: Missing punctuation, like a colon :, a parenthesis ), or a quotation mark ".
+
+In the example below, we forget to close the parentheses for the print function.
+
+```{python}
+#| error: true
+
+# We are trying to print a message, but we forgot the closing parenthesis.
+print("This line has a syntax error"
+```
+
+### Indentation Error
+Python is unique because it uses whitespace (specifically, the spaces at the beginning of a line) to group code together. An `IndentationError` means that the spacing in your code is not correct or consistent.
+
+\textbf{Common Cause}: Forgetting to indent code that belongs inside a loop, function, or if statement.
+
+
+
+```{python}
+#| error: true
+
+# The line below should be indented, because it belongs inside the for loop.
+for i in range(5):
+print(i)
+```
+
+You can also get an `IndentationError` if there are multiple lines indented but their indentation levels are not consistent, as shown below.
+
+
+```{python}
+#| error: true
+
+# Indentation error because the lines in the loop are not all indented
+# to the same position
+for i in range(10):
+    print(i)
+     print(i**2)
+
+```
+
+### NameError
+A `NameError` occurs when you try to use a variable or function that Python doesn't recognize.
+
+\textbf{Common Cause}: A typo in a variable name or trying to use a variable before you have assigned it a value.
+
+```{python}
+#| error: true
+
+# We create a variable called 'initial_velocity'.
+initial_velocity = 20
+
+# But then we make a typo when trying to print it. Python doesn't know what 'initial_velocite' is.
+print(initial_velocite)
+```
+
+Since Python executes code sequentially: the first line gets executed first, then the second line, etc., you can get a `NameError` if you try to use a variable before it is defined, as shown below.
+```{python}
+#| error: true
+dx = 5.22
+
+v = dx/dt  # A NameError occurs at this line because dt is not yet defined.
+
+dt = 0.4
+
+
+```
+
+
+### TypeError
+A `TypeError` means you are trying to do an operation with a data type that doesn't support it. It's like trying to add a word to a number—it just doesn't make sense.
+
+\textbf{Common Cause}: Trying to combine incompatible types, like adding a string and an integer.
+
+
+```{python}
+#| error: true
+
+# You can't directly add a number (an integer) to a word (a string).
+# Python doesn't know if you mean to do math or combine text.
+message = "The answer is: " + 5
+
+```
+
+### IndexError
+An `IndexError` happens when you try to access an item in a list using an index that is out of bounds.
+
+\textbf{Common Cause}: Forgetting that list indices start at 0. For a list of 3 items, the only valid indices are 0, 1, and 2.
+
+```{python}
+#| error: true
+
+# This list has three items.
+planets = ["Mercury", "Venus", "Earth"]
+
+# The valid indices are 0, 1, and 2.
+# By asking for index 3, we are asking for a fourth item that doesn't exist.
+print(planets[3])
+
+```
+
+
+### FileNotFoundError
+This is a very common error when you start working with data. It simply means that you are trying to open a file that Python cannot find at the location you specified.
+
+\textbf{Common Cause}: A typo in the filename or the file not being in the same folder as your script.
+
+```{python}
+#| error: true
+
+# Python will look in the current folder for a file with this name.
+# If it can't find it, it will raise this error.
+with open("data_that_does_not_exist.csv") as f:
+    print(f.read())
+```
 
 ## Exercises
 
