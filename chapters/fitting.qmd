@@ -8,7 +8,7 @@ execute:
 
 # Curve Fitting
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb) . 
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/fitting.ipynb) . 
 
 
 Often in science you will gather data as a way to explore the relationship between two physical quantities and/or to validate your theories.  For example, perhaps you are interested how the amount of fertilizer applied to your tomato plants affect the final size of the fruit. Or maybe you want to know how a planet's distance from the sun affects it's orbital period. Investigating these kinds of questions are the very essence of science and great scientific discoveries begin with simple questions posed by curious minds.  As a brief reminder, the steps to the scientific process are:  

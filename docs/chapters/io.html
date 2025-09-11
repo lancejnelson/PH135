@@ -540,7 +540,7 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/io.ipynb">Jupyter Notebook</a></p>
+<p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/io.ipynb">Jupyter Notebook</a></p>
 <p>Up to now, we have been working with computer-generated or manually typed data sets. Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis. Most data files are <em>text</em> files, but there is a large variety of these that differ mostly in the way the information is formatted. The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file. For example, a <em>.csv</em> file (short for comma-separated values) has commas to separate the information.</p>
 <section id="the-os-module" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="the-os-module"><span class="header-section-number">10.1</span> The <code>os</code> module</h2>
@@ -576,7 +576,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>In the cell below, we show the usage of these functions.</p>
-<div class="cell" data-execution_count="1">
+<div id="b2335b88" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os <span class="im">import</span> getcwd,chdir,listdir</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>currentdir <span class="op">=</span> getcwd()  </span>
@@ -605,7 +605,7 @@ window.Quarto = {
 5, 25
 6, 36
 7, 49</code></pre>
-<div class="cell" data-execution_count="2">
+<div id="893ce735" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> <span class="bu">file</span>.readlines() <span class="co"># Read the file into a list of strings, one string for each line in the file.</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> lines:  <span class="co"># Iterate over the list of strings.</span></span>
@@ -635,7 +635,7 @@ window.Quarto = {
 </div>
 </div>
 <p>You can see how each line gets read separately and printed off. But this isn’t super useful yet because we’d probably like to have the numbers stored in lists for our forthcoming analysis. We can fix this by creating some empty lists and appending the appropriate values as they are read in.</p>
-<div class="cell" data-execution_count="3">
+<div id="aa68a417" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> []</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -655,7 +655,7 @@ window.Quarto = {
 </div>
 <p>Now the data from the file is saved in Python lists and our analysis can proceed.</p>
 <p>One final note: if all you ned to do is read the first few lines of a file, the <code>readline()</code> function can be used (not <code>readlines()</code>) and each call to this function will read the next line in the file.</p>
-<div class="cell" data-execution_count="4">
+<div id="4adf18b8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(<span class="st">"squares.csv"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lineOne <span class="op">=</span> <span class="bu">file</span>.readline()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lineTwo <span class="op">=</span> <span class="bu">file</span>.readline()</span>
@@ -666,7 +666,7 @@ window.Quarto = {
 <section id="using-numpys-genfromtxt-function" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="using-numpys-genfromtxt-function"><span class="header-section-number">10.2.2</span> Using NumPy’s <code>genfromtxt</code> function</h3>
 <p>If the data file is highly structured (every line looks the same, separator character is consistent across the file, etc) then NumPy’s <code>genfromtxt</code> function can read the data very efficiently into something called an array. The <code>genfromtxt</code> function requires only one argument (the file name) with another optional argument (<code>delimiter</code>) that is typically included to specify the character used to separate the data. Below is an example for using this function to read in the .csv data we have been working with.</p>
-<div class="cell" data-execution_count="5">
+<div id="6489b575" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
@@ -687,7 +687,7 @@ window.Quarto = {
 </div>
 </div>
 <p>The data from the file is stored in something called a 2D numpy array which is similar to a nested list. It’s best to think of a 2D numpy array as having rows and columns, and to index them the desired row and column must be provided. We can index these arrays similar to how we index nested lists but instead of using multiple sets of brackets ([]), simply place the desired row and column number in a single set of brackets, as shown in the cell below. Use a colon (:) to select an entire row or column.</p>
-<div class="cell" data-execution_count="6">
+<div id="d3fb302c" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
@@ -706,7 +706,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Another useful feature of arrays is that you can do math with them and the mathematical operations are performed on every number in the array automatically. This is in contrast to lists which cannot be used to perform mathematical operations. See the example in the cell below:</p>
-<div class="cell" data-execution_count="7">
+<div id="72a2b2e2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.genfromtxt(<span class="st">'squares.csv'</span>,delimiter <span class="op">=</span> <span class="st">","</span>)</span>
@@ -814,7 +814,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>In this case you must open the file you want to write through and write each line of the file one by one. This requires that you use a loop to iterate over the data. An example is given below.</p>
-<div class="cell" data-execution_count="8">
+<div id="8195fa97" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Earth"</span>,<span class="st">"Moon"</span>,<span class="st">"Mars"</span>,<span class="st">"Venus"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>,<span class="st">"Pluto"</span>,<span class="st">"Jupiter"</span>,<span class="st">"Sun"</span>]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>[<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -832,7 +832,7 @@ window.Quarto = {
 <section id="the-writelines-function" class="level3" data-number="10.3.2">
 <h3 data-number="10.3.2" class="anchored" data-anchor-id="the-writelines-function"><span class="header-section-number">10.3.2</span> The <code>writelines</code> function</h3>
 <p>If the data you are wanting to write to file is already in a list of strings, the <code>writelines()</code> function can be used once to write all of the lines in the file.</p>
-<div class="cell" data-execution_count="9">
+<div id="c3af069f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Planet   g (m/s^2)"</span>,<span class="st">"------------------"</span>, <span class="st">"Earth   9.8"</span>,<span class="st">"Moon   1.6"</span>,<span class="st">"Mars   3.7"</span>,<span class="st">"Venus  8.83"</span>,<span class="st">"Saturn   11.2"</span>,<span class="st">"Uranus   10.5"</span>,<span class="st">"Neptune   13.3"</span>,<span class="st">"Pluto   0.61"</span>,<span class="st">"Jupiter   24.5"</span>,<span class="st">"Sun   275"</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>f<span class="op">=</span> <span class="bu">open</span>(<span class="st">"planets.txt"</span>,<span class="st">"w"</span>)</span>
@@ -846,7 +846,7 @@ window.Quarto = {
 <section id="the-with-statement" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="the-with-statement"><span class="header-section-number">10.4</span> The <code>with</code> statement</h2>
 <p>Forgetting to close a file that you are writing to can be problematic so you should always include the <code>close()</code> function when you are done. If you are worried about forgetting it, you can use a <code>with</code> block that will automatically close the file once the block terminates. An example is given below:</p>
-<div class="cell" data-execution_count="10">
+<div id="bf83fbc6" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Earth"</span>,<span class="st">"Moon"</span>,<span class="st">"Mars"</span>,<span class="st">"Venus"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>,<span class="st">"Pluto"</span>,<span class="st">"Jupiter"</span>,<span class="st">"Sun"</span>]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>g<span class="op">=</span>[<span class="fl">9.8</span>,<span class="fl">1.6</span>,<span class="fl">3.7</span>,<span class="fl">8.83</span>,<span class="fl">11.2</span>,<span class="fl">10.5</span>,<span class="fl">13.3</span>,<span class="fl">0.61</span>,<span class="fl">24.5</span>,<span class="dv">275</span>]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -927,7 +927,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="11">
+<div id="96a5df9d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> savetxt</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span>[[<span class="fl">6.37</span>,<span class="fl">59.8</span>,<span class="fl">9.8</span>],[<span class="fl">1.74</span>,<span class="fl">0.736</span>,<span class="fl">1.6</span>],[<span class="fl">3.38</span>,<span class="fl">6.42</span>,<span class="fl">3.7</span>],[<span class="fl">6.07</span>,<span class="fl">48.8</span>,<span class="fl">8.83</span>],[<span class="fl">58.2</span>,<span class="dv">5680</span>,<span class="fl">11.2</span>],[<span class="fl">23.5</span>,<span class="dv">868</span>,<span class="fl">10.5</span>],[<span class="fl">22.7</span>,<span class="dv">1030</span>,<span class="fl">13.3</span>],[<span class="fl">1.15</span>,<span class="fl">.131</span>,<span class="fl">0.61</span>],[<span class="fl">69.8</span>,<span class="dv">19000</span>,<span class="fl">24.5</span>],[<span class="dv">696</span>,<span class="dv">19890000</span>,<span class="dv">275</span>]]</span>
@@ -935,7 +935,7 @@ window.Quarto = {
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>savetxt(<span class="st">"planetsData.txt"</span>,data,fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>fmt</code> keyword argument can be be added to specify how to format the data. If the data is stored in separate one-dimensional arrays, you can pack them into a single list(tuple) when using the <code>savetxt</code> function and it will write each data set to its own line in the file.</p>
-<div class="cell" data-execution_count="12">
+<div id="26ebe038" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> [<span class="fl">6.37</span>,<span class="fl">1.74</span>,<span class="fl">3.38</span>,<span class="fl">6.07</span>,<span class="fl">58.2</span>,<span class="fl">23.5</span>,<span class="fl">22.7</span>,<span class="fl">1.15</span>,<span class="fl">69.8</span>,<span class="dv">696</span>]</span>
@@ -945,7 +945,7 @@ window.Quarto = {
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>np.savetxt(<span class="st">"planetsDataTwo.txt"</span>,(radius,mass,g),fmt <span class="op">=</span> <span class="st">"</span><span class="sc">%5.2e</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In this example, radius, mass, and g will be written to file in seperate rows. If you’d like them to be writen in separate columns, you must use <code>np.transpose</code> to flip the array before writing it to file, as shown below:</p>
-<div class="cell" data-execution_count="13">
+<div id="b797b1ec" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> [<span class="fl">6.37</span>,<span class="fl">1.74</span>,<span class="fl">3.38</span>,<span class="fl">6.07</span>,<span class="fl">58.2</span>,<span class="fl">23.5</span>,<span class="fl">22.7</span>,<span class="fl">1.15</span>,<span class="fl">69.8</span>,<span class="dv">696</span>]</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">59.8</span>,<span class="fl">0.736</span>,<span class="fl">6.42</span>,<span class="fl">48.8</span>,<span class="dv">5680</span>,<span class="dv">868</span>,<span class="dv">1030</span>,<span class="fl">0.131</span>,<span class="dv">19000</span>,<span class="dv">19890000</span>]</span>
@@ -1008,13 +1008,13 @@ window.Quarto = {
 <section id="exercises" class="level2" data-number="10.6">
 <h2 data-number="10.6" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.6</span> Exercises</h2>
 <ol type="1">
-<li><p><a href="https://lancejnelson.github.io/PH135/files/polynomial.txt">This file</a> contains the coefficients of <span class="math inline">\(100\)</span> second-order polynomials. Each line in the file represents a single second order polynomial: <span class="math inline">\(y = a x^2 + b x+ c\)</span> with the first number equal to <span class="math inline">\(a\)</span>, the second equal to <span class="math inline">\(b\)</span> and the third equal to <span class="math inline">\(c\)</span>.</p>
+<li><p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/polynomial.txt">This file</a> contains the coefficients of <span class="math inline">\(100\)</span> second-order polynomials. Each line in the file represents a single second order polynomial: <span class="math inline">\(y = a x^2 + b x+ c\)</span> with the first number equal to <span class="math inline">\(a\)</span>, the second equal to <span class="math inline">\(b\)</span> and the third equal to <span class="math inline">\(c\)</span>.</p>
 <ol type="1">
 <li>Use any method of your choosing to read this file into python.</li>
 <li>Use a loop (I’ll let you decide what kind of loop to use) to evaluate each polynomial at <span class="math inline">\(x = 2.5\)</span> and add them all up. Hint: You should find that the sum of all of the polynomials is <span class="math inline">\(5285\)</span>.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="14">
+<div id="151d006b" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
@@ -1025,7 +1025,7 @@ window.Quarto = {
 <li>Repeat exercise 2 but using the <code>numpy.savetxt</code> function. Open the file and inspect it to verify that you did it right.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="15">
+<div id="c242d103" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> normal</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> normal(<span class="dv">5</span>,<span class="fl">.5</span>,<span class="dv">1000</span>)</span>
@@ -1033,7 +1033,7 @@ window.Quarto = {
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> normal(<span class="dv">1</span>,<span class="fl">.1</span>,<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
-<li><a href="https://lancejnelson.github.io/PH135/files/planets.csv">This file</a> contains planetary data for all of the planets in our solar system formatted as a “.csv” file.
+<li><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/planets.csv">This file</a> contains planetary data for all of the planets in our solar system formatted as a “.csv” file.
 <ol type="1">
 <li>Download the file and move it to a location on your computer that you are familiar with.</li>
 <li>Read the file using the <code>open</code> and <code>readlines</code> functions.</li>
@@ -1043,11 +1043,11 @@ window.Quarto = {
 </ol>
 Tip: You’ll need to use the <code>skip_header</code> and <code>usecols</code> keyword arguments to tell <code>genfromtxt</code> to skip the first row and column.</li>
 </ol>
-<div class="cell" data-execution_count="16">
+<div id="6bc0d6be" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
-<li><a href="https://lancejnelson.github.io/PH135/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this:<br>
+<li><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/OUTCAR.static">This file</a> contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside. Reading this file is definitely a job for <code>open</code> and <code>readlines</code> rather than <code>numpy.genfromtxt()</code>. Periodically in this file there are lines that look like this:<br>
 <code>free energy     TOTEN =             -72.3092 eV</code><br>
 and you need to extract the numbers from all of these lines. Use the following steps to build a list containing these numbers:
 <ol type="1">
@@ -1063,7 +1063,7 @@ When you have built the list of energies, determine:
 <li>The minimum and maximum energies in your list.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="17">
+<div id="befea2af" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

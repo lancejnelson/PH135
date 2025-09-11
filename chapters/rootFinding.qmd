@@ -8,7 +8,7 @@ execute:
 
 # Root Finding and Optimization Algorithms
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/rootFinding.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/rootFinding.ipynb)
 
 Often in science, we find ourselves wanting to do one of the following: (See figure below) 
 
@@ -47,7 +47,7 @@ The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into
    
 
 ## Bisection  
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://lancejnelson.github.io/PH135/figures/Bisection_method.png){width=60%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Bisection_method.png){width=60%}
 
 The bisection method finds the roots of a function by iteratively narrowing the interval where the zero is found until the interval becomes sufficiently small. If you want to find the location where the function equals something other than zero, you can simply rearrange the function until a zero appears on the right hand side of the equation and proceed with bisection on the new function.  To begin the bisection method, the user must choose an interval wherein the function zero is guaranteed to be found.  The midpoint of the interval is then found and a new, narrower interval is chosen.  By repeating this process until the interval becomes sufficiently small, the algorithm eventually finds the location where the function is equal to zero.  The steps to the algorithm are as follows:  
 
@@ -69,7 +69,7 @@ $$
 
 
 ## Newton's Method
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://lancejnelson.github.io/PH135/figures/Newtons_method.png){width=60%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Newtons_method.png){width=60%}
 
 Newton's method uses the slope of the function to estimate a better approximation to the function's zero.  To understand how we can use the slope to approximate the zero, first let's write down an approximation to the slope of a function $f(x)$. 
 
@@ -112,7 +112,7 @@ If the function of interest has multiple zeros (like the cosine function we did 
 
 
 ## Fixed-Point Iteration
-![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://lancejnelson.github.io/PH135/figures/Fixed_Point.png){width=60%}
+![Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Fixed_Point.png){width=60%}
 
 Fixed-point iteration is another algorithm for finding function zeros. To begin, the function of interest must be rearranged to look similar to the function below.
 $$

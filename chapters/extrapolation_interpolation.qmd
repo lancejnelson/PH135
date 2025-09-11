@@ -8,7 +8,7 @@ execute:
 
 # Extrapolation and Interpolation
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/extrapolation_interpolation.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/extrapolation_interpolation.ipynb)
 
 By now we should be comfortable with representing mathematical functions on discrete grids. For example, the plot below is the location of a projectile as it flies through the air at 11 discrete points in time (red dots).  There will be times when we want to find good values of a function _between_ grid points (blue dot) or _beyond_ the last grid point (green dot).  The former is called interpolation and the latter is called extrapolation. In this chapter we will learn how to do both.
 
@@ -305,7 +305,7 @@ y = [0, 15.80525077308171, 27.532112618141245, 35.45860314481743, 39.97307745470
 
 ```
 
-2. [This file](https://lancejnelson.github.io/PH135/files/carbondata.txt) contains worldwide carbon emission data from 1958 to 2017. 
+2. [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/carbondata.txt) contains worldwide carbon emission data from 1958 to 2017. 
     1. Read the data file using any method of your choosing.
     2. Plot the data so you can see what it looks like.
     3. Use linear extrapolation to predict what carbon emissions will be in the year 2030.  
@@ -321,7 +321,7 @@ y = [0, 15.80525077308171, 27.532112618141245, 35.45860314481743, 39.97307745470
 ```
 
 
-3. [This file](https://lancejnelson.github.io/PH135/files/temperatureData.txt) contains the change in average global temperature from 1958 to 2017. 
+3. [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/temperatureData.txt) contains the change in average global temperature from 1958 to 2017. 
     1. Read the data file using any method of your choosing.
     2. Plot the data so you can see what it looks like.
     3. Use linear extrapolation to predict what average global temperature change will be in the year 2030 if this trend continues.  

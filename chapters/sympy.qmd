@@ -7,7 +7,7 @@ execute:
 ---
 
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/sympy.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/sympy.ipynb)
 
 # The `sympy` module
 `Sympy` (pronounced "sim-pie") is short for symbolic python and can be used to do symbolic math calculations. You may be familiar with other symbolic math packages like Mathematica or Maple.  Python's sympy package will do all of the same things that they will do and it's nice to not have to switch between two different coding languages.

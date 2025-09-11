@@ -9,7 +9,7 @@ execute:
 
 # Basic Plotting
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/basicPlotting.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/basicPlotting.ipynb)
 
 
 Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong.... it’s worth way more than that if
@@ -560,7 +560,7 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
 
 ## Exercises
 1. If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:$$ y(x) = \left({\sin x\over x}\right)^2$$    
-  ![Single Slit Diffraction](https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg)
+  ![Single Slit Diffraction](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Diffraction_of_a_single_slit.jpg)
    
    Plot this function from $-20 < x < 20$. Then make the following customizations to the plots:  
      1. Set the color of the line to be green.
@@ -594,13 +594,13 @@ Also notice the `set_xlim`, `set_ylim`, `set_xlabel` etc methods that were used 
 ```
 
 
-3. [This file](https://lancejnelson.github.io/PH135/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of speed vs. altitude.  Add axes labels and plot labels to your plot.
+3. [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/HART.csv) contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART).  The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively.  Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of speed vs. altitude.  Add axes labels and plot labels to your plot.
 
 ```{python}
 # Python code here
 ```
 
-4. [This file](https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column. Set `bins = 200` to make 200, equally-spaced bins on the histogram.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
+4. [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/Earthquakes.csv.zip) contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes.  Read the file and plot a histogram of this column. Set `bins = 200` to make 200, equally-spaced bins on the histogram.  Then write a single statement summarizing what this plot is communicating to you.  Note: The file is zipped so you'll need to unzip it before you can read it in.
 
 ```{python}
 # Python code here

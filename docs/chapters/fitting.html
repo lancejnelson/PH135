@@ -530,7 +530,7 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/fitting.ipynb">Jupyter Notebook</a> .</p>
+<p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/fitting.ipynb">Jupyter Notebook</a> .</p>
 <p>Often in science you will gather data as a way to explore the relationship between two physical quantities and/or to validate your theories. For example, perhaps you are interested how the amount of fertilizer applied to your tomato plants affect the final size of the fruit. Or maybe you want to know how a planet’s distance from the sun affects it’s orbital period. Investigating these kinds of questions are the very essence of science and great scientific discoveries begin with simple questions posed by curious minds. As a brief reminder, the steps to the scientific process are:<br>
 1. Formulate a question.<br>
 2. Form a hypothesis.<br>
@@ -580,7 +580,7 @@ v_f &amp;= v_i - a \Delta t\\
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="1">
+<div id="48bf8abd" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>Text(0.5, 1.0, 'Skid time vs initial speed')</code></pre>
 </div>
@@ -598,7 +598,7 @@ v_f &amp;= v_i - a \Delta t\\
 <p>The next thing to do is to find the line that passes through the data points as close as possible. When the fit function is a polynomial , we can use the <code>polyfit</code> function from numpy. This function takes three argument: the independent data set, the dependent data set, and the order of the polynomial</p>
 <pre><code>polyfit(x,y,order)</code></pre>
 <p>The <code>polyfit</code> function returns a list of numbers containing the function parameters for the best fit function.</p>
-<div class="cell" data-execution_count="2">
+<div id="63217b89" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> polyfit</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -615,7 +615,7 @@ v_f &amp;= v_i - a \Delta t\\
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0.20971747 0.21840032]
-0.48656326406696404</code></pre>
+0.4865632640669638</code></pre>
 </div>
 </div>
 <p>In this case, <span class="math inline">\(0.2097\)</span> is the slope of the best-fit function and <span class="math inline">\(0.2184\)</span> is the y-intercept of the best fit function. Remembering our theory from above, we notice that the slope of this fit function can be used to calculate the coefficient of friction between the rubber tires and the roadway. <span class="math display">\[
@@ -624,7 +624,7 @@ m &amp;= {1\over \mu g}\\
 \mu &amp;= {1\over m g}
 \end{align*}
 \]</span> It is often useful to plot the fit function on top of the data to verify that it really matches the data.</p>
-<div class="cell" data-execution_count="3">
+<div id="debb26a4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> polyfit,linspace</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -675,7 +675,7 @@ m &amp;= {1\over \mu g}\\
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.plot(vDense,tDenseQuadratic,<span class="st">'b'</span>,lw <span class="op">=</span> <span class="dv">3</span>)</span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Error: </span><span class="sc">{</span>errorQuadratic<span class="sc">:1.3f}</span><span class="ss">"</span>)</span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-execution_count="4" data-layout-ncol="2">
+<div id="b421f0ef" class="cell quarto-layout-panel" data-execution_count="4" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="fitting_files/figure-html/cell-5-output-1.png" class="img-fluid" width="558"></p>
@@ -690,7 +690,7 @@ m &amp;= {1\over \mu g}\\
 <section id="other-functions-for-curve-fitting." class="level2" data-number="17.2">
 <h2 data-number="17.2" class="anchored" data-anchor-id="other-functions-for-curve-fitting."><span class="header-section-number">17.2</span> Other functions for curve fitting.</h2>
 <p>If the fit function is a polynomial, <code>polyfit</code> is a great choice but there are times when the hypothesized functions is not a polynomial. In cases like this, the function <code>scipy.optimize.curve_fit</code> should work. As an example, let’s say that you have the following intensity vs.&nbsp;wavelength data.</p>
-<div class="cell" data-execution_count="5">
+<div id="00618091" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -700,7 +700,7 @@ m &amp;= {1\over \mu g}\\
 </div>
 </div>
 <p>If you suspected that the fit function looked like this <span class="math display">\[I(\lambda) = a \lambda^{-5} {1\over \exp{b\over \lambda} - 1}\]</span>, you could find the values of a and b that made the function fit the data like this:</p>
-<div class="cell" data-execution_count="6">
+<div id="af19844e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> exp,log</span>
@@ -721,7 +721,7 @@ m &amp;= {1\over \mu g}\\
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.plot(wavelength,intensity,<span class="st">'r.'</span>,ms <span class="op">=</span> <span class="dv">13</span>)</span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.plot(wDense,iDense,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(array([ 1.21509047, 10.32796789]), array([[0.00225532, 0.0038109 ],
+<pre><code>(array([ 1.21509047, 10.32796788]), array([[0.00225532, 0.0038109 ],
        [0.0038109 , 0.00717859]]))</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -767,7 +767,7 @@ m &amp;= {1\over \mu g}\\
 <span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>plt.plot(wDense,iDenseTwo,<span class="st">'k'</span>,lw <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Error: </span><span class="sc">{</span>errorTwo<span class="sc">:1.3e}</span><span class="ss">"</span>)</span>
 <span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-execution_count="7" data-layout-ncol="2">
+<div id="37ee7142" class="cell quarto-layout-panel" data-execution_count="7" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="fitting_files/figure-html/cell-8-output-1.png" class="img-fluid" width="604"></p>
@@ -833,7 +833,7 @@ m &amp;= {1\over \mu g}\\
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="8">
+<div id="830a8510" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
@@ -901,7 +901,7 @@ m &amp;= {1\over \mu g}\\
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="9">
+<div id="579c2410" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
@@ -938,7 +938,7 @@ m &amp;= {1\over \mu g}\\
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="10">
+<div id="c549d045" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
@@ -979,7 +979,7 @@ T(V) = {C\over V^{\gamma -1}}
 <li>Plot the best-fit function on top of the data.</li>
 <li>Calculate gamma. The value of gamma is an indication of what type of gas is present in the cylinder. <span class="math inline">\(\gamma = 1.4\)</span> for a diatomic gas and <span class="math inline">\(\gamma = 1.67\)</span> for a monatomic gas.</li>
 </ol>
-<div class="cell" data-execution_count="11">
+<div id="7d30851c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

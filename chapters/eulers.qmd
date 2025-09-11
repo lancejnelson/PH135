@@ -8,7 +8,7 @@ execute:
 
 # Euler's Method
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/eulers.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/eulers.ipynb)
 
 
 In PH121 you will learn(or have already learned) how the position, velocity, and acceleration of an object are related to one another.  One of the more challenging cases occurs when the acceleration of the object is not constant.  The acceleration could vary with position, velocity, or time.  In these cases, you may not be able to use calculus to find the position and/or velocity of an object. Instead, you'll have to repeatedly use these equations 

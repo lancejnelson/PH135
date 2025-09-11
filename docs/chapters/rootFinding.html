@@ -528,14 +528,14 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/rootFinding.ipynb">Jupyter Notebook</a></p>
+<p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/rootFinding.ipynb">Jupyter Notebook</a></p>
 <p>Often in science, we find ourselves wanting to do one of the following: (See figure below)</p>
 <ol type="1">
 <li>Solve an equation for a specified variable.</li>
 <li>Find the zeros of a function (equivalent to solving an equation that is equal to zero).</li>
 <li>Find the extrema (maxima or minima) of a function.</li>
 </ol>
-<div class="cell" data-execution_count="1">
+<div id="fb959f83" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -558,7 +558,7 @@ The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into
 <h2 data-number="15.1" class="anchored" data-anchor-id="bisection"><span class="header-section-number">15.1</span> Bisection</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Bisection_method.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Bisection_method.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption>Used with permission from: https://commons.wikimedia.org/wiki/File:Bisection_method.svg</figcaption>
 </figure>
 </div>
@@ -573,7 +573,7 @@ The solutions to this equation are $-1$ and ${1\over 2}$. Try plugging them into
 <p>In the code cell below, try to use the bisection method to solve the following equation. <span class="math display">\[
 y(x) = 5 x^2 - 3x - 2 = 0
 \]</span></p>
-<div class="cell" data-execution_count="2">
+<div id="c34fc8cb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -581,7 +581,7 @@ y(x) = 5 x^2 - 3x - 2 = 0
 <h2 data-number="15.2" class="anchored" data-anchor-id="newtons-method"><span class="header-section-number">15.2</span> Newton’s Method</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Newtons_method.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Newtons_method.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption>Used with permission from: https://commons.wikimedia.org/wiki/File:Newton_iteration.svg</figcaption>
 </figure>
 </div>
@@ -601,7 +601,7 @@ x_{n+1} = x_n - {f(x_n)\over f'(x_n)}
 <p><span class="math display">\[
 y(x) = \cos(x) = 0
 \]</span></p>
-<div class="cell" data-execution_count="3">
+<div id="cd49f1ea" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">2.3</span></span>
@@ -620,7 +620,7 @@ y(x) = \cos(x) = 0
 <h2 data-number="15.3" class="anchored" data-anchor-id="fixed-point-iteration"><span class="header-section-number">15.3</span> Fixed-Point Iteration</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/Fixed_Point.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Fixed_Point.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption>Used with permission from: https://commons.wikimedia.org/wiki/File:Cosine_fixed_point.svg</figcaption>
 </figure>
 </div>
@@ -632,7 +632,7 @@ y(x) = x - \cos(x) = 0
 \]</span></p>
 <p>If the function cannot be manipulated to look like the form above, it is not a good candidate for the fixed-point iteration method. Once the equation is in this form, the user must choose an initial guess for the zero just as with the other algorithms. The algorithm then proceeds by using the initial guess to evaluate the right hand side of the equation. This process repeats with the new guess always being used to evaluate the function until <span class="math inline">\(|x - \cos(x)|\)</span> is sufficiently small. The equation given above is an example of a transcendental equation, or an equation that cannot be solved using algebraic techniques. No matter how hard you try, you’ll never come up with an expression that solves this equation.</p>
 <p>The code cell below shows the fixed-point iteration algorithm used to find the zeros of the function mentioned above: <span class="math inline">\(x = \cos(x)\)</span></p>
-<div class="cell" data-execution_count="4">
+<div id="7449b3a1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
@@ -648,7 +648,7 @@ y(x) = x - \cos(x) = 0
 x = (x+{5\over 2})^{1\over 3}
 \]</span></p>
 <p>And the fixed-point iteration algorithm can now be used to solve for <span class="math inline">\(x\)</span>:</p>
-<div class="cell" data-execution_count="5">
+<div id="bbdac3c1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
@@ -670,7 +670,7 @@ y(x) = 5 x^3 - 2x^2 - 8 x + 2
 y'(x) = 15 x^2 - 4 x - 8
 \]</span></p>
 <p>And then used fixed-point iteration, or any of the other methods discussed, to solve this equation for <span class="math inline">\(x\)</span>:</p>
-<div class="cell" data-execution_count="6">
+<div id="7f9f7a43" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
@@ -691,7 +691,7 @@ y'(x) = 15 x^2 - 4 x - 8
 <ol type="1">
 <li>Use the bisection method to find the zeros of the function <span class="math display">\[ y(x) = 8x^3 - 15 x^2 - 4 x + 5\]</span> Hint: This function has three zeros; one in the region [-1,0], one in the region [0,1] and another in the region [1.5,2.5]</li>
 </ol>
-<div class="cell" data-execution_count="7">
+<div id="546a9718" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
@@ -701,19 +701,19 @@ Hint: The derivative of this function is: <span class="math display">\[
 y'(x) = 24 x^2 - 30 x - 4
 \]</span></li>
 </ol>
-<div class="cell" data-execution_count="8">
+<div id="555f21cd" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Use fixed-point iteration to solve the following equation<span class="math display">\[\left({1\over 2}\right)^x = x^2\]</span></li>
 </ol>
-<div class="cell" data-execution_count="9">
+<div id="9dc30239" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>Use Newton’s method to solve the following equation <span class="math display">\[e^x = \cos(x)\]</span> Note: This function has three solutions; one in the region [-5,-4], one in the region [-2,-1] and another in the region [-1,1]. See if you can find all of them by varying your initial guess.</li>
 </ol>
-<div class="cell" data-execution_count="10">
+<div id="f12ab146" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
@@ -725,7 +725,7 @@ y'(x) = 20 x \cos(\sqrt{x}) - 5 x^{3/2} \sin(\sqrt{x})
 <p><span class="math display">\[
 y''(x) = 20 \cos(\sqrt{x}) - {5\over 2} x \cos(\sqrt{x}) - {35\over 2} \sqrt{x} \sin(\sqrt{x})
 \]</span></p>
-<div class="cell" data-execution_count="11">
+<div id="78d728ad" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code Here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

@@ -9,7 +9,7 @@ execute:
 
 # File I/O (Input/Output)
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/io.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/io.ipynb)
 
 
 Up to now, we have been working with computer-generated or manually typed data sets.  Often in a scientific setting your data will be stored in a file and you will need to read the contents of the file into Python so you can perform an analysis.  Most data files are *text* files, but there is a large variety of these that differ mostly in the way the information is formatted.   The file extension (i.e., the 3 or 4 letters after the period at the end of a file name) specifies the formatting of the file.  For example, a *.csv* file (short for comma-separated values) has commas to separate the information.
@@ -324,7 +324,7 @@ Other optional arguments that can be used with the `savetxt` function are given 
 10. Where are the sacrament prayers located? (They are found in more than one location)
 
 ## Exercises
-1. [This file](https://lancejnelson.github.io/PH135/files/polynomial.txt) contains the coefficients of $100$ second-order polynomials.  Each line in the file represents a single second order polynomial: $y = a x^2 + b x+ c$ with the first number equal to $a$, the second equal to $b$ and the third equal to $c$.  
+1. [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/polynomial.txt) contains the coefficients of $100$ second-order polynomials.  Each line in the file represents a single second order polynomial: $y = a x^2 + b x+ c$ with the first number equal to $a$, the second equal to $b$ and the third equal to $c$.  
 
     1. Use any method of your choosing to read this file into python.
     2. Use a loop (I'll let you decide what kind of loop to use) to evaluate each polynomial at $x = 2.5$ and add them all up.  Hint: You should find that the sum of all of the polynomials is $5285$.
@@ -355,7 +355,7 @@ radius = normal(1,.1,1000)
 ```
 
 
-3.  [This file](https://lancejnelson.github.io/PH135/files/planets.csv) contains planetary data for all of the planets in our solar system formatted as a ".csv" file.  
+3.  [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/planets.csv) contains planetary data for all of the planets in our solar system formatted as a ".csv" file.  
     1. Download the file and move it to a location on your computer that you are familiar with. 
     2. Read the file using the `open` and `readlines` functions.
     3. Repeat exercise 2 using `numpy.genfromtxt()`.
@@ -371,7 +371,7 @@ radius = normal(1,.1,1000)
 
 
 
-4. [This file](https://lancejnelson.github.io/PH135/files/OUTCAR.static) contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside.  Reading this file is definitely a job for `open` and `readlines` rather than `numpy.genfromtxt()`.  Periodically in this file there are lines that look like this:  
+4. [This file](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/OUTCAR.static) contains the output from a quantum mechanical calculation on a Cobalt-based alloy. The file is pretty large and the data is not well-structured at all even though there is valuable information inside.  Reading this file is definitely a job for `open` and `readlines` rather than `numpy.genfromtxt()`.  Periodically in this file there are lines that look like this:  
 `  free energy     TOTEN =             -72.3092 eV`  
 and you need to extract the numbers from all of these lines.  Use the following steps to build a list containing these numbers:  
     1. Use the `open` and `readlines` functions to read this file into a list of strings.

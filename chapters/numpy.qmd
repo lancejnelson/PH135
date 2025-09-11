@@ -9,7 +9,7 @@ execute:
 
 # The `numpy` module
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/numpy.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/numpy.ipynb)
 
 
 Numpy (short for "numerical python" and pronounced "num"-"pie") is a popular Python library that is heavily used in the scientific/mathematical community.  So much so that numpy is typically included as part of the standard bundle of libraries that comes with your Python installation.  The functions inside numpy will allow you to solve problems with less effort and will produce faster-executing code.  

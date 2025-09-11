@@ -8,7 +8,7 @@ execute:
 # Boolean Variables and Conditional Execution
 
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/booleans.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/booleans.ipynb)
 
 ## Boolean Variables
 

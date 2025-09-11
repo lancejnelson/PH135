@@ -8,7 +8,7 @@ execute:
 
 # Advanced Plotting
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/advancedPlotting.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/advancedPlotting.ipynb)
 
 
 In this chapter you will learn how to plot functions of more than one variable $F(x,y)$. Functions like this can be visualized by making a contour plots (like a topographic map) or by displaying the function value as height above the $x-y$ plane like a perspective drawing. You can also display vector-valued function $\mathbf{F}(x,y)$ using vector field plots.
@@ -73,7 +73,7 @@ print(Y)
 ```
 These two arrays provide a set of x-y coordinate pair that span the domain, as illustrated in the figure.
 
-![meshgrid](https://lancejnelson.github.io/PH135/figures/figMeshGrid.png)
+![meshgrid](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/figMeshGrid.png)
 
 Numpy also has a command called `mgrid` which is similar to `meshgrid` but does the conversion to two dimensions the other way around. As an example, inspect the output in the cell below.
 

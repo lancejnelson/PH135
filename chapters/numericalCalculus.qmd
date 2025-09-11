@@ -8,7 +8,7 @@ execute:
 
 # Numerical Calculus
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/numericalCalculus.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/numericalCalculus.ipynb)
 
 If you have taken a calculus class, you probably know what a derivative and anti-derivative are and how to calculate them. (If you haven't taken calculus, you will understand these concepts soon.)  The techniques that you learned in calculus class are called analytical methods, which means that  the derivative (or anti-derivative) are calculated using pencil, paper, and some mathematical rules to guide you.  In this chapter, we will explore how to find the derivative (or anti-derivative) of a discrete set of data rather than a continuous function.  
 
@@ -107,7 +107,7 @@ plt.show()
 Pay special attention to this line: `yprime = (y[2:] - y[:-2])/(2 * dt)`. By slicing the array of function values carefully, I can calculate the center-difference derivative for all points in the data set simultaneously. (see figure below)  Also note that when using the center difference formula, you are unable to calculate the slope at the endpoints of the dataset.  Hence, your array of slope values is two shorter than your original list.  When I plot the derivative, the time array has to be trimmed to get the slopes to match up correctly with times.
 
 
-![Illustration of center-difference derivative on a discrete grid. Using array slicing the slope can be calculated at all points simultaneously.](https://lancejnelson.github.io/PH135/figures/centerdifference.png){width=50%}
+![Illustration of center-difference derivative on a discrete grid. Using array slicing the slope can be calculated at all points simultaneously.](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/centerdifference.png){width=50%}
 
 Here is another example for a dataset that exhibits a few more features.  Take a second to verify that the blue function is giving the slope of the red function.
 

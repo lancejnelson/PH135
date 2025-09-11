@@ -544,9 +544,9 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/basicPlotting.ipynb">Jupyter Notebook</a></p>
+<p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/basicPlotting.ipynb">Jupyter Notebook</a></p>
 <p>Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong…. it’s worth way more than that if you do it right. When making plots of functions on a computer it is important to remember that computers don’t plot functions, rather they plot individual points. Only when you connect those points does the image look like the function you are used to seeing. In this chapter we will use a library called <code>matplotlib</code> for plotting. More specifically, we will import the <code>pyplot</code> function inside of <code>matplotlib</code>. It is customary to use <code>plt</code> as an alias for <code>pyplot</code>.</p>
-<div class="cell" data-execution_count="1">
+<div id="b31ed721" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -556,7 +556,7 @@ window.Quarto = {
 <p>In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. If you want to plot a function, the list of x coordinates should be chosen to be a dense array of points spanning the function’s domain and the list of y coordinates should be the function values at those points. A good choice for generating the x-coordinates is either <code>linspace</code> or <code>arange</code> from NumPy. Let’s consider an example. The function shown below is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance</p>
 <p><span class="math display">\[ E = 4\sigma\left[ \left({\epsilon\over r} \right)^{12} - \left({\epsilon\over r} \right)^{6}\right]\]</span></p>
 <p>Let’s plot this function from <span class="math inline">\(0.9\)</span> to <span class="math inline">\(4.0\)</span>.</p>
-<div class="cell" data-execution_count="2">
+<div id="46d14100" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -716,7 +716,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Here is the plot from above with some of these keyword arguments added.</p>
-<div class="cell" data-execution_count="3">
+<div id="b2900c77" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -738,7 +738,7 @@ window.Quarto = {
 <section id="labeling-plots" class="level3" data-number="11.1.2">
 <h3 data-number="11.1.2" class="anchored" data-anchor-id="labeling-plots"><span class="header-section-number">11.1.2</span> Labeling Plots</h3>
 <p>All good plots have axes labels and a title and you can add them to a matplotlib plot using the <code>xlabel()</code>, <code>ylabel()</code>, and <code>title()</code> functions which are placed on their own line after the <code>plot</code> command.</p>
-<div class="cell" data-execution_count="4">
+<div id="8d0135d7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -766,7 +766,7 @@ window.Quarto = {
 <section id="greek-letters" class="level3" data-number="11.1.3">
 <h3 data-number="11.1.3" class="anchored" data-anchor-id="greek-letters"><span class="header-section-number">11.1.3</span> Greek Letters</h3>
 <p>In physics, Greek letters get used all the time and you may find yourself wanting to use one in a plot title or axes label. This can be accomplished by placing an <code>r</code> in front of the title string and then placing the name of the greek variable inside of <code>$</code> with a backslash in front of it. This is better illustrated with an example.</p>
-<div class="cell" data-execution_count="5">
+<div id="29ca21c9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -874,7 +874,7 @@ window.Quarto = {
 <section id="controlling-the-axes" class="level3" data-number="11.1.4">
 <h3 data-number="11.1.4" class="anchored" data-anchor-id="controlling-the-axes"><span class="header-section-number">11.1.4</span> Controlling the Axes</h3>
 <p>By default, matplotlib will size the plot window to include all of the points. If you want to zoom in our out, you can do so with the <code>xlim</code> and <code>ylim</code> functions. These functions should be placed after the plot command on their own line just like the label commands.</p>
-<div class="cell" data-execution_count="6">
+<div id="c7e95049" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -904,7 +904,7 @@ window.Quarto = {
 <section id="overlaying-plots" class="level3" data-number="11.1.5">
 <h3 data-number="11.1.5" class="anchored" data-anchor-id="overlaying-plots"><span class="header-section-number">11.1.5</span> Overlaying Plots</h3>
 <p>Often you will want to plot more than one set of data on the same set of axes. This can be accomplished two ways. The first way is to call the <code>plot</code> function twice in the same Jupyter notebook cell. Matplotlib will automatically place the plots on the same figure and scale it appropriately. Below you will find a plot of the Lennard-Jones potential for two choices of the parameters <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
-<div class="cell" data-execution_count="7">
+<div id="7248e783" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -938,7 +938,7 @@ window.Quarto = {
 </div>
 </div>
 <p>The other way to overlay plots is to include both sets of data into a single <code>plot</code> command.</p>
-<div class="cell" data-execution_count="8">
+<div id="1964cb33" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -974,7 +974,7 @@ window.Quarto = {
 <section id="plot-legends" class="level3" data-number="11.1.6">
 <h3 data-number="11.1.6" class="anchored" data-anchor-id="plot-legends"><span class="header-section-number">11.1.6</span> Plot Legends</h3>
 <p>Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, each plot must be a separate command. In each plot command, the keyword argument <code>label</code> should be used to specify the plot’s label. To add the legend, use the command <code>pyplot.ledend()</code> after the plot commands. An example is given below:</p>
-<div class="cell" data-execution_count="9">
+<div id="090f8db5" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -997,13 +997,10 @@ window.Quarto = {
 <span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Energy"</span>)</span>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Lennard-Jones Potential"</span>)</span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>&lt;matplotlib.legend.Legend at 0x11954fbf0&gt;</code></pre>
-</div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="basicPlotting_files/figure-html/cell-10-output-2.png" width="598" height="449" class="figure-img"></p>
+<p><img src="basicPlotting_files/figure-html/cell-10-output-1.png" width="598" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1016,18 +1013,18 @@ window.Quarto = {
 <section id="logarithmic-plots" class="level3" data-number="11.2.1">
 <h3 data-number="11.2.1" class="anchored" data-anchor-id="logarithmic-plots"><span class="header-section-number">11.2.1</span> Logarithmic Plots</h3>
 <p>Sometimes the function being plotted increases or decreases by many orders of magnitude and a normal linear plot would not be particularly useful. Logarithmic plots can be made with the use of the <code>semilogx</code>, <code>semilogy</code>, or <code>loglog</code> functions depending on which axes you want to be on a logarithmic scale. Consider the first plot produced below. Notice that it rises from <span class="math inline">\(0\)</span> at <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(10^{45}\)</span> at <span class="math inline">\(x = 100\)</span>. Plotting this function with the y-axis scaled logarithmically will smooth out the plot and make it easier to analyze.</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,exp</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">200</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> exp(x)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>plt.figure() </span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>plt.semilogy(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5aa349e7" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,exp</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">200</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> exp(x)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.figure() </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>plt.semilogy(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1047,29 +1044,26 @@ window.Quarto = {
 <section id="scatter-plots" class="level3" data-number="11.2.2">
 <h3 data-number="11.2.2" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">11.2.2</span> Scatter Plots</h3>
 <p>We have already generated scatter plots using the <code>plot</code> function but you can also use the <code>scatter</code> command to do the same thing. The only other additional functionality with <code>scatter</code> is the ability to specify the color, shape, and size of each plot marker individually.</p>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="fl">5.8e10</span>,<span class="fl">1.9e11</span>,<span class="fl">1.5e11</span>,<span class="fl">2.3e11</span>,<span class="fl">7.8e11</span>,<span class="fl">1.4e12</span>,<span class="fl">2.9e12</span>,<span class="fl">4.5e12</span>]</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#d = [1,2,3,4,5,6,7,8]</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> [<span class="fl">0.241</span>,<span class="fl">0.615</span>,<span class="dv">1</span>,<span class="fl">1.88</span>,<span class="fl">11.9</span>,<span class="fl">29.5</span>,<span class="dv">84</span>,<span class="dv">165</span>]</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">3.2e23</span>,<span class="fl">4.9e24</span>,<span class="fl">6e24</span>,<span class="fl">6.4e23</span>,<span class="fl">1.9e27</span>,<span class="fl">5.7e26</span>,<span class="fl">8.7e25</span>,<span class="fl">1e26</span>]</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.scatter(d,T,c <span class="op">=</span> mass,s<span class="op">=</span> <span class="dv">50</span>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Orbital Distance from Sun"</span>)</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Length of day (in earth days)"</span>)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Length of day for planets in our solar system (color indicates mass)"</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x1193a42c0&gt;</code></pre>
-</div>
+<div id="14d8055f" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="fl">5.8e10</span>,<span class="fl">1.9e11</span>,<span class="fl">1.5e11</span>,<span class="fl">2.3e11</span>,<span class="fl">7.8e11</span>,<span class="fl">1.4e12</span>,<span class="fl">2.9e12</span>,<span class="fl">4.5e12</span>]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#d = [1,2,3,4,5,6,7,8]</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> [<span class="fl">0.241</span>,<span class="fl">0.615</span>,<span class="dv">1</span>,<span class="fl">1.88</span>,<span class="fl">11.9</span>,<span class="fl">29.5</span>,<span class="dv">84</span>,<span class="dv">165</span>]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="fl">3.2e23</span>,<span class="fl">4.9e24</span>,<span class="fl">6e24</span>,<span class="fl">6.4e23</span>,<span class="fl">1.9e27</span>,<span class="fl">5.7e26</span>,<span class="fl">8.7e25</span>,<span class="fl">1e26</span>]</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>plt.scatter(d,T,c <span class="op">=</span> mass,s<span class="op">=</span> <span class="dv">50</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Orbital Distance from Sun"</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Length of day (in earth days)"</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Length of day for planets in our solar system (color indicates mass)"</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="basicPlotting_files/figure-html/cell-12-output-2.png" width="581" height="449" class="figure-img"></p>
+<p><img src="basicPlotting_files/figure-html/cell-12-output-1.png" width="581" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1078,20 +1072,20 @@ window.Quarto = {
 <section id="bar-plots" class="level3" data-number="11.2.3">
 <h3 data-number="11.2.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">11.2.3</span> Bar Plots</h3>
 <p>A bar plot and a scatter plot are quite similar except that instead of a plot marker indicating the associated value, the height of the bar represents the value. You can make a bar plot using the <code>bar</code> function inside of <code>pyplot</code>.</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#d = [5.8e10,1.9e11,1.5e11,2.3e11,7.8e11,1.4e12,2.9e12,4.5e12]</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> [<span class="fl">0.241</span>,<span class="fl">0.615</span>,<span class="dv">1</span>,<span class="fl">1.88</span>,<span class="fl">11.9</span>,<span class="fl">29.5</span>,<span class="dv">84</span>,<span class="dv">165</span>]</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>plt.bar(d,T,tick_label <span class="op">=</span> [<span class="st">"Mercury"</span>,<span class="st">"Venus"</span>,<span class="st">"Earth"</span>,<span class="st">"Mars"</span>,<span class="st">"Jupyter"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>])</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Planet Name"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Length of day (in earth days)"</span>)</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Length of day for planets in our solar system"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="78861db8" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#d = [5.8e10,1.9e11,1.5e11,2.3e11,7.8e11,1.4e12,2.9e12,4.5e12]</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> [<span class="fl">0.241</span>,<span class="fl">0.615</span>,<span class="dv">1</span>,<span class="fl">1.88</span>,<span class="fl">11.9</span>,<span class="fl">29.5</span>,<span class="dv">84</span>,<span class="dv">165</span>]</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.bar(d,T,tick_label <span class="op">=</span> [<span class="st">"Mercury"</span>,<span class="st">"Venus"</span>,<span class="st">"Earth"</span>,<span class="st">"Mars"</span>,<span class="st">"Jupyter"</span>,<span class="st">"Saturn"</span>,<span class="st">"Uranus"</span>,<span class="st">"Neptune"</span>])</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Planet Name"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Length of day (in earth days)"</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Length of day for planets in our solar system"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>Text(0.5, 1.0, 'Length of day for planets in our solar system')</code></pre>
 </div>
@@ -1139,25 +1133,22 @@ window.Quarto = {
 <section id="errorbar-plots" class="level3" data-number="11.2.4">
 <h3 data-number="11.2.4" class="anchored" data-anchor-id="errorbar-plots"><span class="header-section-number">11.2.4</span> Errorbar Plots</h3>
 <p>To make plots with error bars use matplotlilb’s <code>errorbar</code> function. You can choose to add error bars on the x or y axis using the keyword arguments <code>xerr</code> and <code>yerr</code>.</p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> arange(<span class="dv">0</span>,<span class="dv">8</span>,<span class="fl">0.5</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>x_err <span class="op">=</span> <span class="fl">0.05</span> <span class="co"># Same error for all points</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>y_error <span class="op">=</span> <span class="dv">2</span> <span class="co"># Different error for each point</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.errorbar(x,y,linestyle <span class="op">=</span> <span class="st">'-.'</span>, marker <span class="op">=</span> <span class="st">'o'</span>,markersize <span class="op">=</span> <span class="dv">3</span>,yerr<span class="op">=</span>y_error,capsize <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;ErrorbarContainer object of 3 artists&gt;</code></pre>
-</div>
+<div id="89138b17" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> arange(<span class="dv">0</span>,<span class="dv">8</span>,<span class="fl">0.5</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>x_err <span class="op">=</span> <span class="fl">0.05</span> <span class="co"># Same error for all points</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>y_error <span class="op">=</span> <span class="dv">2</span> <span class="co"># Different error for each point</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.errorbar(x,y,linestyle <span class="op">=</span> <span class="st">'-.'</span>, marker <span class="op">=</span> <span class="st">'o'</span>,markersize <span class="op">=</span> <span class="dv">3</span>,yerr<span class="op">=</span>y_error,capsize <span class="op">=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="basicPlotting_files/figure-html/cell-14-output-2.png" width="566" height="411" class="figure-img"></p>
+<p><img src="basicPlotting_files/figure-html/cell-14-output-1.png" width="566" height="411" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1167,17 +1158,17 @@ window.Quarto = {
 <section id="histograms" class="level3" data-number="11.2.5">
 <h3 data-number="11.2.5" class="anchored" data-anchor-id="histograms"><span class="header-section-number">11.2.5</span> Histograms</h3>
 <p>Histograms display bars representing the frequency of values in a given data set. Unlike bar plots, the width of the bar is meaningful since the each bar represents the number of x-values that fall within a range given by the width of the bar. A histogram can be constructed using the <code>hist</code> function. There is only one required argument, which is the data set. Some commonly used keyword arguments are <code>bins</code> which specifies how many equally-spaced groups (called <em>bins</em>) to generate and <code>edgecolor</code> which can be used to specify the color of the bar’s edges.</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>densities <span class="op">=</span> [<span class="fl">0.00009</span>,<span class="fl">0.000178</span>,<span class="fl">0.00125</span>,<span class="fl">0.001251</span>,<span class="fl">0.001293</span>,<span class="fl">0.001977</span>,<span class="fl">0.534</span>,<span class="fl">0.810</span>,<span class="fl">0.900</span>,<span class="fl">0.920</span>,<span class="fl">0.998</span>,<span class="fl">1.000</span>,<span class="fl">1.03</span>,<span class="fl">1.03</span>,<span class="fl">1.25</span>,<span class="fl">1.600</span>,<span class="fl">1.7</span>,<span class="fl">2.6</span>,<span class="fl">2.7</span>,<span class="fl">3.5</span>,<span class="fl">5.515</span>,<span class="fl">7.8</span>,<span class="fl">7.8</span>,<span class="fl">8.6</span>,<span class="fl">8.5</span>,<span class="fl">11.3</span>,<span class="dv">13</span>,<span class="fl">13.6</span>,<span class="fl">18.7</span>,<span class="fl">19.3</span>,<span class="fl">21.4</span>,<span class="fl">22.4</span>,<span class="fl">22.6</span>]</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.hist(densities,bins <span class="op">=</span> <span class="dv">5</span>,edgecolor <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Material Densities"</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="vs">r"Histogram of Material Densities </span><span class="kw">(</span><span class="vs">g/cm</span><span class="dv">$^</span><span class="vs">3</span><span class="dv">$</span><span class="kw">)</span><span class="vs">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3936d4fb" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>densities <span class="op">=</span> [<span class="fl">0.00009</span>,<span class="fl">0.000178</span>,<span class="fl">0.00125</span>,<span class="fl">0.001251</span>,<span class="fl">0.001293</span>,<span class="fl">0.001977</span>,<span class="fl">0.534</span>,<span class="fl">0.810</span>,<span class="fl">0.900</span>,<span class="fl">0.920</span>,<span class="fl">0.998</span>,<span class="fl">1.000</span>,<span class="fl">1.03</span>,<span class="fl">1.03</span>,<span class="fl">1.25</span>,<span class="fl">1.600</span>,<span class="fl">1.7</span>,<span class="fl">2.6</span>,<span class="fl">2.7</span>,<span class="fl">3.5</span>,<span class="fl">5.515</span>,<span class="fl">7.8</span>,<span class="fl">7.8</span>,<span class="fl">8.6</span>,<span class="fl">8.5</span>,<span class="fl">11.3</span>,<span class="dv">13</span>,<span class="fl">13.6</span>,<span class="fl">18.7</span>,<span class="fl">19.3</span>,<span class="fl">21.4</span>,<span class="fl">22.4</span>,<span class="fl">22.6</span>]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>plt.hist(densities,bins <span class="op">=</span> <span class="dv">5</span>,edgecolor <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Material Densities"</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="vs">r"Histogram of Material Densities </span><span class="kw">(</span><span class="vs">g/cm</span><span class="dv">$^</span><span class="vs">3</span><span class="dv">$</span><span class="kw">)</span><span class="vs">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>Text(0.5, 1.0, 'Histogram of Material Densities (g/cm$^3$)')</code></pre>
 </div>
@@ -1190,17 +1181,17 @@ window.Quarto = {
 </div>
 </div>
 <p>Here we have used <code>bins = 5</code> which will produce a histogram with <span class="math inline">\(5\)</span> equal-size bins. Alternatively, we can specify the exact locations of all the bin edges by placing them in a list.</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>densities <span class="op">=</span> [<span class="fl">0.00009</span>,<span class="fl">0.000178</span>,<span class="fl">0.00125</span>,<span class="fl">0.001251</span>,<span class="fl">0.001293</span>,<span class="fl">0.001977</span>,<span class="fl">0.534</span>,<span class="fl">0.810</span>,<span class="fl">0.900</span>,<span class="fl">0.920</span>,<span class="fl">0.998</span>,<span class="fl">1.000</span>,<span class="fl">1.03</span>,<span class="fl">1.03</span>,<span class="fl">1.25</span>,<span class="fl">1.600</span>,<span class="fl">1.7</span>,<span class="fl">2.6</span>,<span class="fl">2.7</span>,<span class="fl">3.5</span>,<span class="fl">5.515</span>,<span class="fl">7.8</span>,<span class="fl">7.8</span>,<span class="fl">8.6</span>,<span class="fl">8.5</span>,<span class="fl">11.3</span>,<span class="dv">13</span>,<span class="fl">13.6</span>,<span class="fl">18.7</span>,<span class="fl">19.3</span>,<span class="fl">21.4</span>,<span class="fl">22.4</span>,<span class="fl">22.6</span>]</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.hist(densities,bins <span class="op">=</span> [<span class="dv">0</span>,<span class="fl">2.5</span>,<span class="dv">5</span>,<span class="fl">7.5</span>,<span class="dv">10</span>,<span class="fl">12.5</span>,<span class="dv">15</span>,<span class="fl">17.5</span>,<span class="dv">20</span>,<span class="fl">22.5</span>],edgecolor <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Material Densities"</span>)</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="vs">r"Histogram of Material Densities </span><span class="kw">(</span><span class="vs">g/cm</span><span class="dv">$^</span><span class="vs">3</span><span class="dv">$</span><span class="kw">)</span><span class="vs">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="91b3078b" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>densities <span class="op">=</span> [<span class="fl">0.00009</span>,<span class="fl">0.000178</span>,<span class="fl">0.00125</span>,<span class="fl">0.001251</span>,<span class="fl">0.001293</span>,<span class="fl">0.001977</span>,<span class="fl">0.534</span>,<span class="fl">0.810</span>,<span class="fl">0.900</span>,<span class="fl">0.920</span>,<span class="fl">0.998</span>,<span class="fl">1.000</span>,<span class="fl">1.03</span>,<span class="fl">1.03</span>,<span class="fl">1.25</span>,<span class="fl">1.600</span>,<span class="fl">1.7</span>,<span class="fl">2.6</span>,<span class="fl">2.7</span>,<span class="fl">3.5</span>,<span class="fl">5.515</span>,<span class="fl">7.8</span>,<span class="fl">7.8</span>,<span class="fl">8.6</span>,<span class="fl">8.5</span>,<span class="fl">11.3</span>,<span class="dv">13</span>,<span class="fl">13.6</span>,<span class="fl">18.7</span>,<span class="fl">19.3</span>,<span class="fl">21.4</span>,<span class="fl">22.4</span>,<span class="fl">22.6</span>]</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>plt.hist(densities,bins <span class="op">=</span> [<span class="dv">0</span>,<span class="fl">2.5</span>,<span class="dv">5</span>,<span class="fl">7.5</span>,<span class="dv">10</span>,<span class="fl">12.5</span>,<span class="dv">15</span>,<span class="fl">17.5</span>,<span class="dv">20</span>,<span class="fl">22.5</span>],edgecolor <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Material Densities"</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="vs">r"Histogram of Material Densities </span><span class="kw">(</span><span class="vs">g/cm</span><span class="dv">$^</span><span class="vs">3</span><span class="dv">$</span><span class="kw">)</span><span class="vs">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>Text(0.5, 1.0, 'Histogram of Material Densities (g/cm$^3$)')</code></pre>
 </div>
@@ -1216,16 +1207,16 @@ window.Quarto = {
 <section id="polar-plots" class="level3" data-number="11.2.6">
 <h3 data-number="11.2.6" class="anchored" data-anchor-id="polar-plots"><span class="header-section-number">11.2.6</span> Polar Plots</h3>
 <p>In a polar plot instead of providing <span class="math inline">\((x,y)\)</span> coordinates, you provide <span class="math inline">\((r,\theta)\)</span> coordinates, where <span class="math inline">\(r\)</span> is the radial distance from the origin and <span class="math inline">\(\theta\)</span> is the angular location on the unit circle.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,pi,sin</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">4</span> <span class="op">*</span> pi,<span class="dv">150</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> sin(<span class="dv">2</span><span class="op">*</span> theta)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>plt.polar(theta,r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="47353dbd" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,pi,sin</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> linspace(<span class="dv">0</span>,<span class="dv">4</span> <span class="op">*</span> pi,<span class="dv">150</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> sin(<span class="dv">2</span><span class="op">*</span> theta)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>plt.polar(theta,r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1241,37 +1232,37 @@ window.Quarto = {
 <p>To generate multiple, independent plots in the same figure a few more lines of code are necessary to specify how you want the plots arranged. We start with the <code>figure</code> function which generates the canvas upon which the plots will appear. Assign this object to a variable so you can refer to it later. To create each subplot, the <code>fig.add_subplot(rows,columns, plot_number)</code> function is used. There are three arguments to this function; the first two indicate the shape of the grid and the third indicates which position on the grid this plot will be assigned.</p>
 <pre><code>fig.add_subplot(rows,columns,plot_location)</code></pre>
 <p>After the axes object has been created, we can call the <code>plot</code> function again, and a plot will be generated at its location. Here is an example that will generate two plots side by side.</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>ax1.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>ax2.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d4aa3bc2" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>ax1.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>ax2.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>Text(0.5, 1.0, 'Lennard-Jones Potential')</code></pre>
 </div>
@@ -1284,46 +1275,46 @@ window.Quarto = {
 </div>
 </div>
 <p>Pay close attention to the <code>add_subplot</code> function. <code>ax1=add_subplot(1,2,1)</code> will generate a <span class="math inline">\(1\)</span> x <span class="math inline">\(2\)</span> grid of plots and <code>ax1</code> will correspond to the plot at the 1st location. Below is an example of a more advanced array of plots.</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>ax1.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>ax2.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>ax3.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
-<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>ax3.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
-<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>ax3.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
-<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
-<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">"Energy"</span>)</span>
-<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
-<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2d206e8b" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> linspace(<span class="fl">0.9</span>,<span class="dv">4</span>,<span class="dv">50</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>sigmaOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>epsilonOne <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>sigmaTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>epsilonTwo <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>energyOne <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaOne<span class="op">*</span> ((epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonOne<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>energyTwo <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> sigmaTwo <span class="op">*</span> ((epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">12</span> <span class="op">-</span> (epsilonTwo<span class="op">/</span>r)<span class="op">**</span><span class="dv">6</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>ax1.plot(r,energyOne,marker <span class="op">=</span> <span class="st">'+'</span>,color <span class="op">=</span> <span class="st">'k'</span>)</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">0.5</span>,<span class="fl">3.0</span>)</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">1.5</span>,<span class="dv">5</span>)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>ax2.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>ax3.plot(r,energyTwo,marker <span class="op">=</span> <span class="st">'o'</span>,color <span class="op">=</span> <span class="st">'r'</span>)</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>ax3.set_xlim(<span class="fl">0.5</span>,<span class="fl">4.0</span>)</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>ax3.set_ylim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="st">"Separation Distance"</span>)</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">"Energy"</span>)</span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">"Lennard-Jones Potential"</span>)</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1354,7 +1345,7 @@ window.Quarto = {
 <h2 data-number="11.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">11.5</span> Exercises</h2>
 <ol type="1">
 <li><p>If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:<span class="math display">\[ y(x) = \left({\sin x\over x}\right)^2\]</span><br>
-<img src="https://lancejnelson.github.io/PH135/figures/Diffraction_of_a_single_slit.jpg" class="img-fluid" alt="Single Slit Diffraction"></p>
+<img src="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Diffraction_of_a_single_slit.jpg" class="img-fluid" alt="Single Slit Diffraction"></p>
 <p>Plot this function from <span class="math inline">\(-20 &lt; x &lt; 20\)</span>. Then make the following customizations to the plots:</p>
 <ol type="1">
 <li>Set the color of the line to be green.</li>
@@ -1362,8 +1353,8 @@ window.Quarto = {
 <li>Add the following title to the plot: “Single-Slit diffraction pattern”</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c5e47a5d" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where
@@ -1386,32 +1377,32 @@ Follow the steps below to plot this function for several different temperatures:
 <li>Go <a href="https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html">here</a> and compare your results with the plots there to make sure you did it right.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9702e922" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
-<li><a href="https://lancejnelson.github.io/PH135/files/HART.csv">This file</a> contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART). The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively. Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of speed vs.&nbsp;altitude. Add axes labels and plot labels to your plot.</li>
+<li><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/HART.csv">This file</a> contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART). The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively. Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of speed vs.&nbsp;altitude. Add axes labels and plot labels to your plot.</li>
 </ol>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d9c7a58a" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
-<li><a href="https://lancejnelson.github.io/PH135/files/Earthquakes.csv.zip">This file</a> contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes. Read the file and plot a histogram of this column. Set <code>bins = 200</code> to make 200, equally-spaced bins on the histogram. Then write a single statement summarizing what this plot is communicating to you. Note: The file is zipped so you’ll need to unzip it before you can read it in.</li>
+<li><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/Earthquakes.csv.zip">This file</a> contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes. Read the file and plot a histogram of this column. Set <code>bins = 200</code> to make 200, equally-spaced bins on the histogram. Then write a single statement summarizing what this plot is communicating to you. Note: The file is zipped so you’ll need to unzip it before you can read it in.</li>
 </ol>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ce0120fb" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
 <li>The position and velocity coordinates for a projectile launched at angle <span class="math inline">\(\theta\)</span> are given by: <span class="math display">\[x(t) = x_i + v_i \cos \theta t \]</span> <span class="math display">\[ y(t) = y_i + v_i \sin \theta  t + {1\over 2} a  t^2\]</span> <span class="math display">\[v_x(t) = v_i \cos \theta\]</span> <span class="math display">\[v_y(t) = v_i \sin \theta + g  t\]</span> where <span class="math inline">\(g = -9.8\)</span> m/s<span class="math inline">\(^2\)</span>. Place the following plots on a 3 x 2 grid for <span class="math inline">\(0 &lt; t &lt; 5.5\)</span> seconds: <span class="math inline">\(x\)</span> vs <span class="math inline">\(y\)</span> (first row, spans both columns), <span class="math inline">\(x\)</span> vs <span class="math inline">\(t\)</span> (second row, first column), <span class="math inline">\(y\)</span> vs <span class="math inline">\(t\)</span>(second row, second column), <span class="math inline">\(v_x\)</span> vs <span class="math inline">\(t\)</span>(third row, first column), and <span class="math inline">\(v_y\)</span> vs <span class="math inline">\(t\)</span>(third row, second column). Make sure that all of the plots have titles and axes labels. Use the following initial conditions: <span class="math display">\[v_i = 60 \text{ m/s}\]</span> <span class="math display">\[\theta = 22^\circ\]</span> <span class="math display">\[x_i = 0 \text{ m}\]</span> <span class="math display">\[y_i = 15 \text{ m}\]</span></li>
 </ol>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b7f318c0" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
 <li>(Extra Credit) The 7th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred each year from 1973 to 2021. (The horizontal axis is year and the vertical axis is the number of earthquakes.)</li>
 </ol>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fce374a7" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

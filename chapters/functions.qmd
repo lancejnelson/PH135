@@ -9,7 +9,7 @@ execute:
 
 # Functions
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/functions.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/functions.ipynb)
 
 
 We have already been using functions here and there but in this chapter we will introduce them formally and get into the details.  A function encapsulates a block of code designed to perform a specific task or set of tasks.  To perform the task correctly, most functions require that you provide some information (called arguments) when you call them.  To call a function you type the name of the function followed by the needed arguments enclosed in parenthesis (`()`). 

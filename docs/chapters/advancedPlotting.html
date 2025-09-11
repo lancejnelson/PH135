@@ -533,12 +533,12 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/advancedPlotting.ipynb">Jupyter Notebook</a></p>
+<p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/advancedPlotting.ipynb">Jupyter Notebook</a></p>
 <p>In this chapter you will learn how to plot functions of more than one variable <span class="math inline">\(F(x,y)\)</span>. Functions like this can be visualized by making a contour plots (like a topographic map) or by displaying the function value as height above the <span class="math inline">\(x-y\)</span> plane like a perspective drawing. You can also display vector-valued function <span class="math inline">\(\mathbf{F}(x,y)\)</span> using vector field plots.</p>
 <section id="making-2-d-grids" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="making-2-d-grids"><span class="header-section-number">12.1</span> Making 2-D Grids</h2>
 <p>When plotting a function of one variable, recall that the first step was to use <code>linspace</code> or <code>arange</code> to construct a grid of points spanning the domain of the function. For a function of two variables the domain is two-dimensional and hence the grid will also need to be two-dimensional. In other words, we need to construct a set of x-y pairs that spans the two-dimensional domain. We can do this using <code>numpy.meshgrid</code> and <code>numpy.mgrid</code>. Let’s see an example and then explain the pieces. Below you will find some code to plot the function: <span class="math display">\[f(x,y) = \cos({\pi \over 2} x) \exp(-y^2)\]</span> (see the code comments)</p>
-<div class="cell" data-execution_count="1">
+<div id="64385565" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,meshgrid,cos,exp,pi,mgrid</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#from mpl_toolkits.mplot3d import Axes3D  #&lt;- You need this to make 3D plots</span></span>
@@ -577,11 +577,11 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>Let’s break down this block of code one piece at a time. First, notice that anytime you want a 3 dimensional plot, you have to create a three-dimensional set of axes with the following command</p>
-<div class="cell" data-execution_count="2">
+<div id="31b0a786" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ax<span class="op">=</span>pyplot.axes(projection<span class="op">=</span><span class="st">'3d'</span>)  <span class="co"># Set the axes to be 3 dimensional</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, <code>meshgrid</code> turns the one-dimensional arrays <code>x</code> and <code>y</code> into two-dimensional arrays <code>X</code> and <code>Y</code>. As an example, inspect the output from the cell below:</p>
-<div class="cell" data-execution_count="3">
+<div id="d7107e4e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> meshgrid</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>]</span>
@@ -599,12 +599,12 @@ window.Quarto = {
 <p>These two arrays provide a set of x-y coordinate pair that span the domain, as illustrated in the figure.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://lancejnelson.github.io/PH135/figures/figMeshGrid.png" class="img-fluid figure-img"></p>
+<p><img src="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/figMeshGrid.png" class="img-fluid figure-img"></p>
 <figcaption>meshgrid</figcaption>
 </figure>
 </div>
 <p>Numpy also has a command called <code>mgrid</code> which is similar to <code>meshgrid</code> but does the conversion to two dimensions the other way around. As an example, inspect the output in the cell below.</p>
-<div class="cell" data-execution_count="4">
+<div id="1460d808" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> mgrid</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>X,Y <span class="op">=</span> mgrid[<span class="dv">1</span>:<span class="dv">4</span>,<span class="dv">4</span>:<span class="dv">6</span>]</span>
@@ -695,7 +695,7 @@ window.Quarto = {
 <section id="surface-plots" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="surface-plots"><span class="header-section-number">12.2</span> Surface Plots</h2>
 <p>You’ve already seen an example of a surface plot above. A similar plot can be generated by replacing <code>plot_surface</code> with <code>plot_wireframe</code>. This plot looks similar to the surface plot shown above. See the cell below for an example.</p>
-<div class="cell" data-execution_count="5">
+<div id="c720d265" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,meshgrid,cos,exp,pi,mgrid</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -724,7 +724,7 @@ window.Quarto = {
 <section id="contour-plots" class="level2" data-number="12.3">
 <h2 data-number="12.3" class="anchored" data-anchor-id="contour-plots"><span class="header-section-number">12.3</span> Contour Plots</h2>
 <p>Python generates contour plots very similarly to surface plots. Instead of using <code>plot_surface</code> or <code>plot_wireframe</code>, the function <code>contour</code> is used. Look at the example below.</p>
-<div class="cell" data-execution_count="6">
+<div id="36946430" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,meshgrid,cos,exp,pi,mgrid</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -751,7 +751,7 @@ window.Quarto = {
 <section id="the-levels-keyword-argument" class="level3" data-number="12.3.1">
 <h3 data-number="12.3.1" class="anchored" data-anchor-id="the-levels-keyword-argument"><span class="header-section-number">12.3.1</span> The <code>levels</code> keyword argument</h3>
 <p>The keyword argument <code>levels</code> can be added to the function call to specify which (or how many) contours are displayed. If <code>levels = n</code> where <code>n</code> is an integer, the <code>contour</code> function will plot <code>n</code> contours. If <code>levels = [a,b,c]</code> then the <code>contour</code> function will lines of constant value equal to the values specified. The code block below gives a few examples.</p>
-<div class="cell" data-execution_count="7">
+<div id="835e2ae7" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,meshgrid,cos,exp,pi,mgrid</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -775,7 +775,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
+<div id="1feb1fc7" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,meshgrid,cos,exp,pi,mgrid</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -804,7 +804,7 @@ window.Quarto = {
 <section id="vector-field-plots" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="vector-field-plots"><span class="header-section-number">12.4</span> Vector-Field Plots</h2>
 <p>In electricity and magnetism you’ll encounter functions that produce a vector (<span class="math inline">\(\mathbf{F}(x,y)\)</span>) instead of a number(<span class="math inline">\(F(x,y)\)</span>) like you may be used to. In other words, instead of associating a number with every (x,y) pair, a vector <span class="math inline">\((f_x,f_y)\)</span> is associated with each pair. You can plot a vector field using the <code>quiver</code> function, which takes four required arguments. The first two are the output from <code>meshgrid</code> just as with the other plots we have done. The third and fourth arguments are the components of the vectors at each (x,y) pair. Below is an example of how to plot the following vector-valued function <span class="math display">\[\mathbf{B} = (-y/(x^2 + y^2),x/(x^2 + y^2))\]</span></p>
-<div class="cell" data-execution_count="9">
+<div id="3a4b7455" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange, meshgrid,sqrt,log</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> arange(<span class="op">-</span><span class="fl">5.25</span>,<span class="fl">5.25</span>,<span class="fl">0.5</span>) <span class="co"># define the x and y grids (avoid (0,0))</span></span>
@@ -829,7 +829,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Often, the lengths of these vectors will be large and that makes it hard to look at the graphic. One option for improving this is to force all of the vectors to have length <span class="math inline">\(1\)</span> and then color the vector according to the true length. To set the color of the arrows, add a fifth argument to the function that contains the vector lengths. You can then add the keyword argument <code>cmap</code> to specify the color spectrum to use. My favorite is <code>gist_rainbow</code> but there are others <a href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">here</a>.</p>
-<div class="cell" data-execution_count="10">
+<div id="ff7b93a9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange, meshgrid,sqrt,log</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> arange(<span class="op">-</span><span class="fl">5.25</span>,<span class="fl">5.25</span>,<span class="fl">0.5</span>) <span class="co"># define the x and y grids (avoid (0,0))</span></span>
@@ -858,7 +858,7 @@ window.Quarto = {
 <section id="animations" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="animations"><span class="header-section-number">12.5</span> Animations</h2>
 <p>Often you will want to see how a plot evolves over time. Maybe you are plotting the waveform on a string and you want to see how it changes in time. Animations can be built by repeatedly constructing a new plot and then waiting before you clear the canvas and plot again. Look at the example below to see how to do this:</p>
-<div class="cell" data-execution_count="11">
+<div id="38f4cf8c" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange,sin,cos</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib</span>
@@ -901,25 +901,25 @@ window.Quarto = {
 <ol type="1">
 <li>Plot the following function from <span class="math inline">\(-5 &lt; x,y &lt; 5\)</span> <span class="math display">\[ f(x,y) = {\sin (x y)\over x^2 + y^2}\]</span></li>
 </ol>
-<div class="cell" data-execution_count="12">
+<div id="3d0fc031" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Make a contour plot of the function from problem 1. The contours you plot should be where <span class="math inline">\(f(x,y) = -0.25, 0, 0.25\)</span>.</li>
 </ol>
-<div class="cell" data-execution_count="13">
+<div id="d1ac8eec" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>The range of a projectile launched on level ground is given by: <span class="math display">\[ R = {v_i^2 \sin(2 \theta)\over g}\]</span> where <span class="math inline">\(v_i\)</span> is the launch speed, <span class="math inline">\(\theta\)</span> is the launch angle, and <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span> is the acceleration due to gravity. Plot <span class="math inline">\(R(v_i,\theta)\)</span> for <span class="math inline">\(0 &lt; v_i &lt; 50\)</span> m/s and <span class="math inline">\(0 &lt; \theta &lt; 90^\circ\)</span>. Now write a single sentence summarizing the results of the plot.</li>
 </ol>
-<div class="cell" data-execution_count="14">
+<div id="8b47ed53" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>(Extra Credit) The angle of impact for a projectile launched with initial speed <span class="math inline">\(v\)</span>, launch angle <span class="math inline">\(\theta\)</span>, and initial height <span class="math inline">\(y_0\)</span> is given by: <span class="math display">\[ \phi = \tan^{-1} \left( {\sqrt{v^2 \sin^2\theta + 2 g y_0} \over v \cos \theta} \right) \]</span> Plot the impact angle as a function of <span class="math inline">\(v\)</span> and <span class="math inline">\(\theta\)</span> (<span class="math inline">\(\phi(v,\theta)\)</span>) for <span class="math inline">\(0 &lt; v_i &lt; 50\)</span> m/s and <span class="math inline">\(0 &lt; \theta &lt; 90^\circ\)</span> and <span class="math inline">\(y_i = 10\)</span> m. Then write a single sentence summarizing the results of the plot.</li>
 </ol>
-<div class="cell" data-execution_count="15">
+<div id="aba2b64b" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

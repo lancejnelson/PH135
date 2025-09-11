@@ -544,15 +544,15 @@ window.Quarto = {
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="creating-a-dictionary"><span class="header-section-number">6.1.1</span> Creating a Dictionary</h3>
 <p>A dictionary is a multi-element object just like a list or tuple but instead of connecting each element to an integer index value, a keyword is used. Dictionaries allow you to access data without knowing anything about the order of the items. For example, maybe you want to store the orbital radius of all the planets in the solar system. Using a dictionary you can associate the name of the planet with its orbital radius. A string containing the planet’s name could serve as the key and the associated radius as the value.</p>
 <p>Dictionaries are built using curly braces (<code>{}</code>) instead of square brackets (lists) or parentheses (tuples). Each item in the dictionary is a <code>key:value</code> pair and the items are separated by commas just like lists. Below is an example</p>
-<div class="cell" data-execution_count="1">
+<div id="2daffd30" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>orbitalRadii <span class="op">=</span> {<span class="st">"Mercury"</span>:<span class="fl">0.39</span>, <span class="st">"Venus"</span>:<span class="fl">0.72</span>, <span class="st">"Earth"</span>:<span class="fl">1.0</span>, <span class="st">"Mars"</span>:<span class="fl">1.5</span>,<span class="st">"Jupiter"</span>:<span class="fl">5.2</span>,<span class="st">"Saturn"</span>:<span class="fl">9.5</span>, <span class="st">"Uranus"</span>:<span class="fl">19.2</span>,<span class="st">"Neptune"</span>:<span class="fl">30.1</span>, <span class="st">"Pluto"</span>: <span class="fl">39.5</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The keys don’t have to be strings, but can be any data type. For example, maybe you’d like the keys to be the orbital radii of the planets and the values to be the associated orbital period (in Earth days).</p>
-<div class="cell" data-execution_count="2">
+<div id="e2f9ad17" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>radiiandPeriod <span class="op">=</span> {<span class="fl">0.39</span>: <span class="dv">88</span>, <span class="fl">0.72</span>: <span class="fl">224.7</span> , <span class="fl">1.0</span>: <span class="fl">365.2</span> , <span class="fl">1.5</span>: <span class="dv">687</span> ,<span class="fl">5.2</span>: <span class="dv">4331</span> ,<span class="fl">9.5</span>: <span class="dv">10_747</span> , <span class="fl">19.2</span>: <span class="dv">30_589</span> ,<span class="fl">30.1</span>: <span class="dv">59_800</span> ,<span class="fl">39.5</span>: <span class="dv">90_560</span> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Accessing an element of a dictionary is done with square brackets (<code>[]</code>) just like lists, but instead of placing an integer index the key value is used.</p>
-<div class="cell" data-execution_count="3">
+<div id="f8558899" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>orbitalRadii <span class="op">=</span> {<span class="st">"Mercury"</span>:<span class="fl">0.39</span>, <span class="st">"Venus"</span>:<span class="fl">0.72</span>, <span class="st">"Earth"</span>:<span class="fl">1.0</span>, <span class="st">"Mars"</span>:<span class="fl">1.5</span>,<span class="st">"Jupiter"</span>:<span class="fl">5.2</span>,<span class="st">"Saturn"</span>:<span class="fl">9.5</span>, <span class="st">"Uranus"</span>:<span class="fl">19.2</span>,<span class="st">"Neptune"</span>:<span class="fl">30.1</span>, <span class="st">"Pluto"</span>: <span class="fl">39.5</span>}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>jupiterRadius <span class="op">=</span> orbitalRadii[<span class="st">"Jupiter"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -565,7 +565,7 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>Additional <code>key:value</code> pairs can be added to an existing dictionary by calling the key and assigning it to a value</p>
-<div class="cell" data-execution_count="4">
+<div id="1904d2e5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>orbitalRadii <span class="op">=</span> {<span class="st">"Mercury"</span>:<span class="fl">0.39</span>, <span class="st">"Venus"</span>:<span class="fl">0.72</span>, <span class="st">"Earth"</span>:<span class="fl">1.0</span>, <span class="st">"Mars"</span>:<span class="fl">1.5</span>,<span class="st">"Jupiter"</span>:<span class="fl">5.2</span>,<span class="st">"Saturn"</span>:<span class="fl">9.5</span>, <span class="st">"Uranus"</span>:<span class="fl">19.2</span>,<span class="st">"Neptune"</span>:<span class="fl">30.1</span>, <span class="st">"Pluto"</span>: <span class="fl">39.5</span>}</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>orbitalRadii[<span class="st">"Moon"</span>] <span class="op">=</span> <span class="fl">0.384</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -574,7 +574,7 @@ window.Quarto = {
 <section id="keys-items-and-values-methods" class="level3 page-columns page-full" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="keys-items-and-values-methods"><span class="header-section-number">6.1.2</span> <code>keys</code>, <code>items</code> and <code>values</code> methods</h3>
 <p>Three dictionary methods are so heavily used that they are worth mentioning here. The <code>keys</code> method will return a list<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of all keys that are present in the dictionary. The <code>values</code> method will return a list of all values present in the list and the <code>items</code> method will return a nested list containing all key:value pairs.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Actually it produces an iterator that can be used in conjunction with a loop. If you want a list you must use the <code>list</code> function.</p></div></div><div class="cell" data-execution_count="5">
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Actually it produces an iterator that can be used in conjunction with a loop. If you want a list you must use the <code>list</code> function.</p></div></div><div id="efdc8772" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>orbitalRadii <span class="op">=</span> {<span class="st">"Mercury"</span>:<span class="fl">0.39</span>, <span class="st">"Venus"</span>:<span class="fl">0.72</span>, <span class="st">"Earth"</span>:<span class="fl">1.0</span>, <span class="st">"Mars"</span>:<span class="fl">1.5</span>,<span class="st">"Jupiter"</span>:<span class="fl">5.2</span>,<span class="st">"Saturn"</span>:<span class="fl">9.5</span>, <span class="st">"Uranus"</span>:<span class="fl">19.2</span>,<span class="st">"Neptune"</span>:<span class="fl">30.1</span>, <span class="st">"Pluto"</span>: <span class="fl">39.5</span>}</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>vals <span class="op">=</span> orbitalRadii.values()</span>
@@ -592,7 +592,7 @@ window.Quarto = {
 <section id="other-useful-dictionary-methods" class="level3" data-number="6.1.3">
 <h3 data-number="6.1.3" class="anchored" data-anchor-id="other-useful-dictionary-methods"><span class="header-section-number">6.1.3</span> Other useful dictionary methods</h3>
 <p>There are a few other useful dictionary methods worth mentioning and I’ll place them in the cell below so that you can investigate what they do.</p>
-<div class="cell" data-execution_count="6">
+<div id="9cd29efb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>orbitalRadii <span class="op">=</span> {<span class="st">"Mercury"</span>:<span class="fl">0.39</span>, <span class="st">"Venus"</span>:<span class="fl">0.72</span>, <span class="st">"Earth"</span>:<span class="fl">1.0</span>, <span class="st">"Mars"</span>:<span class="fl">1.5</span>,<span class="st">"Jupiter"</span>:<span class="fl">5.2</span>,<span class="st">"Saturn"</span>:<span class="fl">9.5</span>, <span class="st">"Uranus"</span>:<span class="fl">19.2</span>,<span class="st">"Neptune"</span>:<span class="fl">30.1</span>, <span class="st">"Pluto"</span>: <span class="fl">39.5</span>}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>radii <span class="op">=</span> {<span class="st">"Moon"</span>:<span class="fl">0.384</span>, <span class="st">"Venus"</span>: <span class="fl">0.71</span>}</span>
@@ -620,7 +620,7 @@ window.Quarto = {
 <section id="creating-a-set" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="creating-a-set"><span class="header-section-number">6.2.1</span> Creating a Set</h3>
 <p>Sets are created using curly braces (<code>{}</code>) just like dictionaries but instead of placing <code>key:value</code> pairs inside, single values are used. Any repeated elements will be automatically deleted when the set is created.</p>
-<div class="cell" data-execution_count="7">
+<div id="a7852bd6" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mySet <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
@@ -631,21 +631,21 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>The <code>set</code> function can be used to turn a list or tuple into a set and any repeated elements will be deleted. This can be a handy way to remove unwanted duplicates from a list.</p>
-<div class="cell" data-execution_count="8">
+<div id="a55c58b0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>elements <span class="op">=</span> [<span class="st">"H"</span>, <span class="st">"He"</span>, <span class="st">"Ne"</span>, <span class="st">"He"</span>, <span class="st">"N"</span>, <span class="st">"Ag"</span>, <span class="st">"Pt"</span>, <span class="st">"Ag"</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mySet <span class="op">=</span> <span class="bu">set</span>(elements)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mySet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'Ne', 'H', 'Ag', 'Pt', 'N', 'He'}</code></pre>
+<pre><code>{'H', 'He', 'N', 'Ag', 'Pt', 'Ne'}</code></pre>
 </div>
 </div>
 </section>
 <section id="modifying-a-set" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="modifying-a-set"><span class="header-section-number">6.2.2</span> Modifying a set</h3>
 <p>Elements can be added to a set using the <code>add</code> and/or <code>update</code> methods. The <code>add</code> method will add a single element to the set and <code>update</code> will allow you to add more than one element.</p>
-<div class="cell" data-execution_count="9">
+<div id="a21e3c09" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>elements <span class="op">=</span> {<span class="st">"H"</span>, <span class="st">"He"</span>, <span class="st">"Ne"</span>, <span class="st">"He"</span>, <span class="st">"N"</span>, <span class="st">"Ag"</span>, <span class="st">"Pt"</span>, <span class="st">"Ag"</span>}</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>elements.add(<span class="st">"Au"</span>)</span>
@@ -662,7 +662,7 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>Elements can be removed from a set using the <code>remove</code> and/or <code>discard</code> methods. The difference between these methods is very subtle. They will both remove an element, but the <code>remove</code> method will throw an error if the element you are attempting to remove isn’t in the set. <code>discard</code> won’t throw an error even if the element isn’t present. The <code>clear</code> method will remove all entries from the set.</p>
-<div class="cell" data-execution_count="10">
+<div id="93d94082" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>elements <span class="op">=</span> {<span class="st">"H"</span>, <span class="st">"He"</span>, <span class="st">"Ne"</span>, <span class="st">"He"</span>, <span class="st">"N"</span>, <span class="st">"Ag"</span>, <span class="st">"Pt"</span>, <span class="st">"Ag"</span>}</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>elements.remove(<span class="st">"H"</span>)</span>
@@ -682,7 +682,7 @@ window.Quarto = {
 <section id="union" class="level4" data-number="6.2.3.1">
 <h4 data-number="6.2.3.1" class="anchored" data-anchor-id="union"><span class="header-section-number">6.2.3.1</span> Union</h4>
 <p>The union of two sets is the set of all unique elements between both sets. The union of two sets can be found using the <code>|</code> operator.</p>
-<div class="cell" data-execution_count="11">
+<div id="21d2867c" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fibonacci <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">34</span>,<span class="dv">55</span>,<span class="dv">89</span>,<span class="dv">147</span>,<span class="dv">236</span>}</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>triangles <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">45</span>, <span class="dv">55</span>, <span class="dv">66</span>, <span class="dv">78</span>, <span class="dv">91</span>, <span class="dv">105</span>, <span class="dv">120</span>, <span class="dv">136</span>, <span class="dv">153</span>, <span class="dv">171</span>, <span class="dv">190</span>}</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -692,7 +692,7 @@ window.Quarto = {
 <section id="intersection" class="level4" data-number="6.2.3.2">
 <h4 data-number="6.2.3.2" class="anchored" data-anchor-id="intersection"><span class="header-section-number">6.2.3.2</span> Intersection</h4>
 <p>The intersection of two sets is the set of elements that are common to both sets. The intersection of two sets can be found using the <code>&amp;</code> operator</p>
-<div class="cell" data-execution_count="12">
+<div id="411d9b6f" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fibonacci <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">34</span>,<span class="dv">55</span>,<span class="dv">89</span>,<span class="dv">147</span>,<span class="dv">236</span>}</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>triangles <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">45</span>, <span class="dv">55</span>, <span class="dv">66</span>, <span class="dv">78</span>, <span class="dv">91</span>, <span class="dv">105</span>, <span class="dv">120</span>, <span class="dv">136</span>, <span class="dv">153</span>, <span class="dv">171</span>, <span class="dv">190</span>}</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -702,7 +702,7 @@ window.Quarto = {
 <section id="difference-and-symmetric-difference" class="level4" data-number="6.2.3.3">
 <h4 data-number="6.2.3.3" class="anchored" data-anchor-id="difference-and-symmetric-difference"><span class="header-section-number">6.2.3.3</span> Difference and Symmetric Difference</h4>
 <p>And finally, the difference of two sets is the set of elements that are found in one set but not in the other. The difference of two sets can be found using the <code>-</code> operator. Note that <code>A - B</code> will produce a different set than <code>B - A</code>. <code>A- B</code> will produce a set with all of the elements from set <code>A</code> that are not in set <code>B</code>. <code>B - A</code> will do just the opposite, forming a set with all the elements from set <code>B</code> that are not in set <code>A</code>. If you want the set of elements that are in <code>A</code> <strong>and</strong> <code>B</code> but not in both (kind of like the opposite of intersection) then you want the symmetric difference operator (<code>^</code>)</p>
-<div class="cell" data-execution_count="13">
+<div id="d0658590" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fibonacci <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">13</span>,<span class="dv">21</span>,<span class="dv">34</span>,<span class="dv">55</span>,<span class="dv">89</span>,<span class="dv">147</span>,<span class="dv">236</span>}</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>triangles <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">45</span>, <span class="dv">55</span>, <span class="dv">66</span>, <span class="dv">78</span>, <span class="dv">91</span>, <span class="dv">105</span>, <span class="dv">120</span>, <span class="dv">136</span>, <span class="dv">153</span>, <span class="dv">171</span>, <span class="dv">190</span>}</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -719,7 +719,7 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>As a final point you should note that set elements cannot be extracted using square brackets like you can with lists and tuples. It’s just not allowed. However, you can iterate over sets even though there is no guarantee about the order they will come in. We’ll see what it means to iterate when we study loops.</p>
-<div class="cell" data-execution_count="14">
+<div id="60b02053" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>elements<span class="op">=</span> {<span class="st">"Li"</span>,<span class="st">"Be"</span>,<span class="st">"B"</span>, <span class="st">"C"</span>,<span class="st">"N"</span>, <span class="st">"O"</span>,<span class="st">"F"</span>, <span class="st">"Ne"</span>}</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(elements[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -750,7 +750,7 @@ window.Quarto = {
 <li><p>(Physical Constants) The field of physics is filled with experimental constants. In fact, you’ll use some of them so frequently throughout your undergraduate experience that you’ll end up memorizing them. Until then it could be useful to store some of these constants in a dictionary for easy reference. Choose at least 15 constants from the following <a href="https://en.wikipedia.org/wiki/List_of_physical_constants">website</a> and build a dictionary of them. Make sure that the following constants are in your list: <span class="math inline">\(k_B\)</span>, <span class="math inline">\(\hbar\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(\epsilon_0\)</span>. You are free to choose the names of the keys to be anything that makes good sense to you.</p>
 <p>Then use your dictionary to calculate the following values <span class="math display">\[\sigma = {\pi^2 k_B^4 \over 60 \hbar^3 c^2} \text{ (Stefan-Boltzmann constant)}\]</span> <span class="math display">\[\alpha = {e^2 \over 4 \pi \epsilon_0 \hbar c}  \text{ (fine-structure constant)}\]</span></p></li>
 </ol>
-<div class="cell" data-execution_count="15">
+<div id="e3eb496f" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
@@ -764,13 +764,13 @@ window.Quarto = {
 <li><span class="math inline">\(3500\)</span> inches to meters.</li>
 <li><span class="math inline">\(5.8\)</span> m<span class="math inline">\(^3\)</span> to cm<span class="math inline">\(^3\)</span>.</li>
 </ol>
-<div class="cell" data-execution_count="16">
+<div id="05bf64f4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>conversions <span class="op">=</span> {<span class="st">"km-to-m"</span>: <span class="dv">1000</span>, <span class="st">"in-to-cm"</span>: <span class="fl">2.54</span> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li><a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">Here</a> you will find a table containing planetary information. Pick your top three favorite planets and make one dictionary for each planet. The keys in the dictionary should be the row label from the table (or a shortened version of that label) and the item value should be the number in the table. Pick 10 rows in the table to put in your dictionary. Once the dictionaries are created, verify that you can extract values from them as you would expect.</li>
 </ol>
-<div class="cell" data-execution_count="17">
+<div id="1d1293cf" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
@@ -781,7 +781,7 @@ window.Quarto = {
 <li>The smallest value.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="18">
+<div id="2b027bc6" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
@@ -792,7 +792,7 @@ window.Quarto = {
 <li>Print the result to screen.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="19">
+<div id="e891fb34" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
@@ -802,7 +802,7 @@ window.Quarto = {
 <li>Now write some code to calculate the original numbers from their dictionary representation.</li>
 </ol></li>
 </ol>
-<div class="cell" data-execution_count="20">
+<div id="a541471f" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

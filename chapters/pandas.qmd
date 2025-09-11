@@ -8,7 +8,7 @@ execute:
 
 # Pandas
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/pandas.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/pandas.ipynb)
 
 
 Pandas is a Python package built to work with spreadsheet-like data, and it is very good at its job.  Pandas stores data in something called a "dataframe". A dataframe is simply data stored in rows and columns. As an example, here is some sample data taken by an accelerometer sitting on an elevator floor:
@@ -48,7 +48,7 @@ Every dataframe has labels attached to its columns and rows.  In this example, t
 A dataframe can be initiated in many ways but the most common are: from file, from a dictionary, and from an array or list.  We'll discuss each way separately.
 
 ### Reading from a .csv file.
-The most-used function from the pandas module is `read_csv` which is used to read a csv-formatted file into a data frame. To use it, simply call the `pandas.read_csv` function and pass in the path to the .csv file. ([Here](https://lancejnelson.github.io/PH135/files/elevator.csv) is a link to the file.)
+The most-used function from the pandas module is `read_csv` which is used to read a csv-formatted file into a data frame. To use it, simply call the `pandas.read_csv` function and pass in the path to the .csv file. ([Here](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/elevator.csv) is a link to the file.)
 
 ```{python}
 from pandas import read_csv

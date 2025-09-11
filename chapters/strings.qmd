@@ -9,7 +9,7 @@ execute:
 
 # Strings
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/strings.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/strings.ipynb)
 
 
 Another commonly-used type of data is a string of characters known simply as *strings*.  Strings can contain a variety of characters including letters, numbers, and symbols.  
