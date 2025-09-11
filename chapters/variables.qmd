@@ -8,7 +8,7 @@ toc: true
 
 # Variables and Numbers 
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/variables.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/variables.ipynb)
 
 ## Variables
 
