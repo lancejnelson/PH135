@@ -240,6 +240,9 @@ a.replace("sss","ggg")
 a.startswith("s")
 a.endswith("p")
 
+separator = ","
+separator.join(["hydrogen", "nitrogen", "oxygen"])
+
 ```
 
 
@@ -254,95 +257,6 @@ a.endswith("p")
 
 
 
-## Flash Cards
-1. What is the index value of the sixth character in a string?
-2. What happens when you "add" two strings together?
-3. What happens when you multiply two strings together?
-4. What happens when you multiply a string by an integer?
-5. What happens when you multiply a string by a float?
-6. What function will tell you how many characters are in a string?
-7. Give two ways that you could slice out the **first 4 characters in a string**.
-8. Give two ways that you could slice out the **last 4 characters in a string**.
-9. What string method would you use to see if a string contains only numbers and characters, but no symbols?
-10. What does the string method `split()` do?
-11. What does the string method `find()` do?
-12. Explain how to print a sentence with a variable inserted in the middle?
-13. What format code should be used to display a variable as a **float with 8 total spaces and 2 numbers after the decimal**?
-14. What format code should be used to display a variable in **scientific notation with 6 total spaces and 2 numbers after the decimal**?
-15. Where is the parable of the wheat and the tares found? 
 
 
-
-## Exercises
-
-
-1. In the cell below you will find a string containing the name of a PNG file. (i.e. name always ends in ".png").  
-    i) Remove the ".png" extension from the string **using a string method**.
-    ii) Remove the ".png" extension from the string **using slicing.**
-
-```{python}
-file = "physics.png"
-
-```
-
-
-2. (Lightning Strike) The dielectric strength of air determines how likely it is for lightning to strike and this value varies with the humidity (moisture content) of the air.  In the cell below, you will find a string that contains the dielectric strength of air for three different humidity levels.  **Use string methods** to extract the three dielectric constant values. Then calculate 
-    1. the difference between the largest and smallest values.
-    2. The average of the three values.
-
-
-```{python}
-dielectricBreakdownAir = "dry:15847,moderate:8523,wet:7864"
-
-
-```
-
-
-3. Below you will find a string containing all experimentally known alloys (compounds formed by combining two or more elements on the periodic table) represented using the elements first discovered to exhibit that crystal structure (or "prototypes").
-
-    1. Use string methods to find the number of alloys containing Aluminum (symbol: Al).
-    2. Is there a crystal structure with the designation "CaC2" (Calcium Carbide) in the list?  How about "Fe2Ag"?
-    3. Use string methods to calculate the percentage of the alloys listed that have gold in them (symbol Au). 
-```{python}
-alloys = "Cu,W,Mg,betaSn,Indium,alphaAs,alphaHg,Cu,AuCu,CuPt,AB2,MoPt2,AB2,AB3,AB3,A2B2,AB3,A2B2,AB3,A2B2,Al3Ti,AuCu3,AB3,A2B2,W,W,gamma-IrV,CsCl,AB2,AB2,MoSi2,AB3,AB3,A2B2,AB3,A2B2,AB3,gamma-CuTi,AB3,A2B2,CuTi3,AlFe3/BiF3,NaTl,Mg,WC,AB3,CuTe,AuCd,A2B2,AB3,AB3,A2B2,AB5,A4B2,A4B2,A4B2,A2B4,A3B3,A3B3,AB5,A4B2,A4B2,A4B2,A2B4,A3B3,A3B3,AB5,A2B4,A2B4,AB5,A2B4,A2B4,A3B3,AB5,A2B4,A3B3,A2B4,A2B4,A3B3,MgZn2,Fe3C,Cu2Mg,Cr3Si,Ni3Sn,ZrSi2,CrB,ITl,FeSi,CdTi,InTh,SeTl,NaCl,BaAl4,CaCu5,ThMn12,Fe2P,Co2Si,Th3P4,AlB2,ZnS,ZnS,NiAs,Mn5Si3,Cr3Si,Cu2Sb,MoSi2,Al2Cu,Cd58Y13,Co3V,Pu3Al,CrFe,NbPd3,Ni3Ti,CaIn2,ThSi2,CaC2,AuBe5,W5Si3,La2O3,BFe,FeS2,Bi2Te3,Ti3Cu4,FeS2,CdI2,Cd3Y,Ni2In,Ni2Si,betaCu3Ti,Al3Zr,FeS2,GdSi2(1.4),MoNi4,CuZr2,alphaReO3,PbO/PbS,Indium,betaSn,alphaAs,CuPt7,NbNi8,V4Zn5,MgNi2,alphaGa,alphaMn,betaMn,gammaSe,graphite,alphaPa,betaU,alphaNp,betaNp,alphaHg,Ga4Ti5,Al2Zr3,Al3Zr4,Al3Zr2,NaZn13,CaB6,Al3Ni2,Ga4Ni(Ga3.62Ni0.97),Ga3Pt5,Ga9Ni13,Ga4Ni3,Ga2Hf,C6Mn23,Cu8Hf3,Ni10Zr7,Hg2Pt,B4Mg,B7Mg,Ge3Rh5,In4Ti3,V7.49Sb9,Li3B14,LiB3,LiB-MS1,LiB-MS2,Re24Ti5,Ni7Zr2,Pt11Zr9,Au4Zr,Hf54Os17,CrSi2,Ag51Gd14.o3.t0,Ag51Gd14.o3.t1,Ag51Gd14.o3.t2,Ag51Gd14.o2.t3,Ag51Gd14.o2.t4,Ag51Gd14.o2.t5,Ag51Gd14.o2.t6,Ag51Gd14.o1.t7,Ag51Gd14.o1.t8,Ag51Gd14.o1.t9,Zn22Zr,As2Ti,Ge10Ho11,Ir3Zr5,CaCl2,CFe4,C2Mn5,C3Mn7,Fe3Th7,F3Fe,F3Fe,NiTi,Ag2O,etaAg2Zn,AlCl3,AlF3,alphaAl2O3,Al12W,Ag2Se,AlPd,AlSb,Cu5Zn8,BaPb3,Hf3Sc*-h321,Hf5Sc-h51,BiHf2-134,Hf5Pb-f63,HfPd5,Re25Zr21,B11_3,B11_3',Z3,Z3',Al13Co4,eta,D8_11,Al9Co2,Pd4Se,NaCd2,Er3Ru2,Pt3Sr7,Ir4Sc11,Ru25Y44,RuZn6,NbRu-Beta'',delta(CdNi),Cd2Ce,Hg2U,InMg2,Cd3Er,CdMg3,CeNi3,CoSc3,Pb3Sr,PuNi3,YZn3,Co2Y2*,Sc2Zr*,Mo3Ti*-81,MoTi*-80,ReTi2*-81,Hf2Tl*-6,Be2Zn*-65,Re3Ru*-124,Cu2.82P,Mg2Au,BiF3,Al12Mg17,MgAu3-x,MgAu3+x,Mg2Cu,Mg2Ga,MgGa2,Mg5Ga2,Mg2Ga5,MgGa,Mg3Hg,Mg3In,Mg44Rh7,CaF2,Al3Ir,Mn23Th6,Mg2Zn11,Mg4Zn7,Mg3Ru2,Au2V,Sr9Mg38,CrFe,Rh13Sc57,Fe7W6,AuSn2,Bi2Pd,Bi2Pd5,Bi3Ni,Bi3Y5,Bi4Rh,BiMn3,BiPd3,BiTi2,CoSb2,Cu7Hg6,Hg2K,Ir2Zn11,Ni3P,KP15,Pu28Zr,B12U,TiZn16,Rh2Y3,Rh3Pu5,alpha-SV3,IrTa,Ge4Sm5,Cl2Pb,NbPt3,Hg4Pt,Pd4Pu3,Er3Ni2,Pd2Ti,Pd5Ti3,Pd3Ti2,Hg5Mn2,Pu3Pd5,Ga2Zr,FeP4_mP30,FeP4_mS40,In3Ir,Fe6Ge5,Fe3Ga4,Al6Mn,AsFe,CoSn,As3Co,Im-3m,Pm-3m,P6/mmm,Pm-3n,Fe6.5Ge4-ideal(Fe14Ge8),Fe6.5Ge4-part(Fe13Ge8),Al8Cr5,Co5Ge7,E2_1,beta-NW2,alpha-MoS2,D8_5r,Na13Cl12v7,alpha-N2,alpha-N2p,beta-N2,epsilon-N2,gamma-N2,WN2_194af,Ag2Te,C1,C19,C4,C7,WN2_187fg,WN2_194de,Hagg_N4W6,MoO3,O3W,P3Tc,WN4_164ad,B4W,P4Re,B8_1v2,B8_1v2p,Na4Cl3v1,C4W3,S3U4,O5Nb2,B8_1v3,Na7Cl6_v3,Na7Cl8v1,B8_1v1,B8_1v1p,Na1Cl1v2,Na3Cl3v2,B8_1v2pp,B3v2,Na7Cl7v2,B1,NTa,NbO,NbS,Hagg_NW2,Mo2N,NV2,NW2_Pearson,beta-W,Ge8Mn11,NaTe3,NaTe,Sb3Sr2,SrAs3,La2Sb,Ga5Tm3,B6Si1,B2Zr1,B12Y1,B2Mg1,B4La1,B1Ni1,B1Mo2,As1B1,B4Cr3,B1Pu1,B2V3,B2Zr1,B3V2,B4Ce1,B6Fe23,B1Tc1,B1Pt1,B2Re1,B2Ru1,B5W2,B1Fe1,B1Mo1,B1Re3,B3Ru2,B1Ni3,B3Ru7,B1Tc1,B1Be2,B2Nb1,B1Rh1,B1Tc1,B1Tc1,B2Li2,B4Cr1,B4Mn1,B1Fe2,B1Fe2,B1Fe2,B1Pd2,B1Pt2,B1Ti2,B2Mo1,B2Sc1,B4Mo2,B4Mn3,B4Nb3,B5W2,B1Co1,B1Fe3,B1Li1,B1Mn1,B2Li2,B3Mo1,B3Re1,B3Ru2,B4Cr1,B4Fe1,B4Mo1,B6Ta5,B11Li1,B11Li1,B11Li1,B11Li1,B11Li1,B1Cr2,B1Rh2,B2Fe1,B2W1,B12Sc1,B2Pd5,B3Ni4,B3Ni4,B5Mo2,B5W2,B12Si3,B1Co3,B1Pd3,B4Mn4,B2Mo1,B4Rh5,B4W1,B4W1,B9Li1,B20Na3,B3Ni4,B3Si1,B8Ru11,Cu,Cu,W,W,Mg,Mg,NaCl,CsCl,ZnS,ZnS,WC,C1Ti1,C1Si1,C2U1,C3Pr2,C1W1,C1Sc1,C60K6,C1Y2,C2Ca1,C1Fe3,C4Sc3,Ba1C2,C1Nb2,C1Mo2,C2Th1,C2Rb2,C5Y4,C19Sc15,Be2C1,C2Os1,C2Li2,C2Os1,C1V2,C7Ho4,C6Cr23,Ba1C2,C1Mo2,C1Sc2,C2Re1,C2Re1,C1Nb1,C1Nb1,C1Os1,C1Ru1,C1Sc1,C1Si1,C1Fe4,C1Fe4,B1C5,B1C5,C1Co2,C1Fe2,C1Fe2,C1Re2,C2Ca1,C2Ca1,C2Ir1,C2Ir1,C2Mg1,C2Re1,C2Si1,C2Th1,C2Th1,C2Th1,Al4C3,As4C3,C3Nb4,B1C7,B1C7,B1C7,B1C7,B1C7,C1Fe3,C1Fe3,C1Mo1,C1Ni3,C1Os1,C1Re1,C1Si1,C1W2,C8Cs1,C1Fe4,C1Si1,C1Si1,C2Cr3,C3Mg2,C4Ir1,C4Ir1,C4Ir1,C5Nb6,B1C5,B1C5,C1Fe2,C1Mo1,C1Mo2,C1Nb2,C1Nb2,C1Si1,C1Ti2,C2Ca1,C2Ca1,C2Ca1,C2Cs2,C2Na1,C5Ti8,C1Si1,C2Fe5,C2Fe5,C2Fe5,C2Mn5,C2Mn5,C3Sc4,C6Eu1,C6Yb1,B13C2,B4C1,C1Cr3,C1Fe3,C1Fe3,C1Fe3,C1Si1,C1Si1,C1Ti1,C2Cs2,C2K2,C2Na2,C3Ir1,C3Ir5,C1Si1,C8K1,C8Rb1,C1Si1,C2Cr3,C2Cr3,C3Fe7,C3Os2,C4Ir1,C7Ir3,C7Lu4,Ba1C2,C1Mn6,C1Si1,C6Mn23,C1Si1,C2K2,C5V6,C1Si1,C5Ir4,C1Si1,C3Os2,C1Si1,C7Ho4,C0.88V1,C7V8,C7V8,C7V8,C19Er15,Ba3C60,C60Sr3,AlCu2Mn-Heusler,AlCu2Mn-Heusler-tet*%,Cu1Li2Sn1-antiHeusler,Cu1Li2Sn1-antiHeusler-tet*%,AlCu2Mn-Heusler,AlCu2Mn-Heusler-tet*%,Cu1Li2Sn1-antiHeusler,Cu1Li2Sn1-antiHeusler-tet*%,C1b,C1b,Co1Ge1Mn1_ICSD_52968,Co1Ge1Mn1_ICSD_623495,Co3Ge1Mn2_ICSD_52972,Cl1La1Se1_ICSD_425686,Co2Si1_ICSD_44858,C15b,As2Ce1Pd2,SQS_L12,Al1F6K2Na1_ICSD_6027,Cf,Te,Po,C,alpha-Pu,C,beta-Pu,O2,P,Se,Se,H,C,alpha-Np,alpha-U,alpha-Ga,P,I2,S,gamma-Pu,Si,beta-Np,B,beta-U,N2,CrFe,C,Cl2,In,Pa,Si,C,Sn,S,Se,S,B,B,Po,Hg,As,C,O2,Sm,Sc,C,gamma-HgSn6-10,Mg,La,C,C,C,N2,C,C,N2,Si,Mn,Mn,Li,Po,Si,Cu,Si,C,W,FeS2,P2I4,H2S,SiO2,Mo8P5,FeNi,H2S,As2Ba,epsilon-WO3,Rh2Ga9,SiO2,alpha-P3N5,H3Cl,delta-PdCl2,H3Cl,LiSn,NiTi,Au5Mn2,AuTe2,AlCl3,H2S,ZrO2,gamma-PdCl2,alpha-C7H8,B2Pd5,SiO2,H3Cl,CuO,alpha-Ag2Se,BaS3,Ag2Se,H3Cl,SiO2,Ta2H,FeS,H3S,CdTe,H2S,beta-SeO2,TlP5,AuTe2,ZrO2,FeS2,kappa-Al2O3,CoAs,FeSb2,HgBr2,HCl,Au2V,Ta3S2,CeTe3,PdSn2,PtSn4,W3O10,BN,GeS2,AsGa,beta-Ta2O5,AuCd,GaCl2,Sr2Bi3,GeAs2,Rh5Ge3,Sb2O3,TlF,alpha-PdCl2,CaCl2,etaFe2C,FeS2,TiCu3,CuTe,Rh2S3,WO3,beta-C7H8,TiO2,CdSb,Benzene,Cr3C2,Co2Si,HgCl2,PbCl2,SrH2,Sb2S3,C3Cr7,epsilon-NiAl3,MgB4,MoO3,Fe3C,GeS,MnP,FeB,SnS,FeAs,ZrSi2,MnAl6,CrB,H2S,Ga3Pt5,CdPt3,alpha-IrV,H3S,beta-ThI3,alpha-FeSe,alpha-PbO,PdSn4,TlF,TiSi2,Mn2B,Ta3B4,MoPt2,ReSi2,SiS2,KHg2,Al4U,Cs3P7,H2S,beta-NbO2,GeSe2,Ni3P,Ti2Ge3,PdS,SrBr2,Ti3P,Ti5Te4,Ni4Mo,ThCl4,alpha-NbO2,SiO2,SiO2,CdAs2,Gd3Al2,NbTe4,Co5Ge7,GeP,Sr5Si3,NbAs,MnF2,VN,BaS3,SeO3,Pd4Se,Rh3P2,HgI2,Ru2Sn3,beta-Bi2O3,RuIn3,Ir3Ga5,RbGa3,GaSb,CuTi3,CuAu,NbTe4,PtPb4,Si2U3,ThB4,Cu2Sb,PbO,gamma-CuTi,Ba5Si3,PtS,beta-V3S,SeO2,TiO2,beta-BeO,Zn3P2,ZrO2,HgI2,Mn12Th,ThH2,Al3Zr,Al3Ti,V4Zn5,Al4Ba,Pt8Ti,MoSi2,Hg2Cl2,Al2Cu,W5Si3,Cr5B3,SiU3,SeTl,In2S3,TiO2,alpha-ThSi2,Ga2Hf,Mn3O4,MoB,NbP,MoS2,IrGe4,ZnTe,AgZn,beta-PdCl2,BiI3,C8H8,PdAl,Ti3O,Fe2P,CrCl3,SiO2,CrCl3,HgS,Ni3S2,AlF3,CdI2,CuI,beta-CuI,beta-RuCl3,Bi2O3,alpha-Si3N4,H3S,Cr5Al8,SiC,CSi,NiS,NV2,La2O3,Al3Ni2,CdI2,deltaH^II-NW2,H3Ho,Cu3P,Bi2Te3,Al4C3,B5Mo2,CaC6,Fe7W6,CuPt,Al2O3,alpha-Al2S3,Al2S3,PI3,beta-Si3N4,Er3Ru2,UCl3,SiO2,AuF3,AuF3,Mg2Ni,SiO2,CrSi2,beta-SiO2,Fe3C,CrFe3NiSn5,Cu3P,beta-RuCl3,Na3As,Fe3Th7,SiC,BN,ZnS,SiC,Re3N,WC,Fe2P,Li2Sb,alpha-Sm3Ge5,FeS,Cu2Te,Li3N,AlB2,CaCu5,CoSn,AlPO4,Mn5Si3,SiO2,Ni3Ti,Ni3Sn,W2B5,Co2Al5,MgZn2,MgNi2,CaIn2,Ni2In,MoS2,Na3As,CMo,CuS,NiAs,BN,AsTi,Ga4Ni,NH3,CO,FeSi,CoU,Mg2Zn11,Al12W,CoAs3,FeS2,CuCl,Pd17Se15,PH3,SiO2,SrSi2,gamma-Cu9Al4,Fe4C,AuBe5,ZnS,SiF4,Cu5Zn8,Cu15Si4,Pu2C3,Th3P4,ReO3,CaB6,BaHg11,Cu3Au,CsCl,NbO,Cr3Si,Cu2O,UB12,Th6Mn23,Cr23C6,Ca7Ge,CaF2,BiF3,NaCl,NaZn13,SiO2,Cu2Mg,Co3O4,CTi2,NiTi2,NaTl,TeO6H6,Sb2Tl7,gamma-Fe3Zn10,H3S,Pt3O4,beta-Hg4Pt,Ir3Ge7,Ga4Ni3,AsKSe2,Pb(Zr0.52Ti0.48)O3,AuAgTe2,KClO3,[Sc,Y]2Si2O7,AgAuTe4,AlPS4,CeRu2B2,NaFeS2,BPS4,CoAsS,Bi5Nb3O15,CuBrSe3,AsCu3S4,Re2O5[SO4]2,AsK3S4,TiAl2Br8,V2MoO8,Li2Si2O5,C2CeNi,VPCl9,K2CdPb,MnGa2Sb2,TiFeSi,La2NiO4,alpha-Tl2TeO3,TaNiTe2,CuBrSe3,BiGaO3,CNCl,FeOCl,Mg2SiO4,CuFe2S3,CuSbS2,CaTiO3,BaSO4,KFe2S3,La43Ni17Mg5,SrCuO2,MgSiO3,MgO4S,CaSO4,MgB2C2,SrAl2Se4,Al2CuIr,HoCuP2,NbPS,LaRhC2,Sr2As2O7,TlZn2Sb2,CdAl2S4,BPO4,ThBC,Na5Fe3F14,Li2MoF6,ThBC,Ta2Se8I,Pb(Zr0.52Ti0.48)O3,Ce3Si6N11,gamma-MgNiSn,Ba5In4Bi5,Tl4HgI6,BaGe2As2,LaPtSi,Be[BH4]2,alpha-CuAlCl4,KAu4Sn2,CuFeS2,HoCoGa5,CaCuO2,Nb4CoSi,KCeSe4,BiAl2S4,K2SnCl6,FeCu2Al7,PbFCl,CuBi2O4,AgUF6,ZnSb2O4,CeCo4B4,(La,Ba)2CuO4,ZrSiO4,PPrS4,Ta3Al4O13[OH],ScRh6P4,gamma-Ag3SI,FePSe3,Be2SiO4,FeTiO3,Ag5Pb2O6,COS,LiNbO3,CuNiSb2,CrNiS2,SmSI,PrNiO3,KBO2,LiNbO3,CaCO3,K2Ta4O9F4,Al[PO4],Sr[S2O6][H2O]4,Sr[S2O6][H2O]4,Fe12Zr2P7,GdSI,Nb7Ru6B8,Mg[NH],Fe3Te3Tl,AuCN,Al[PO4],KNiCl3,Al5C3N,BaPtSb,LiScI3,BaSi4O9,AlB4Mg,Al9Mn3Si,AlN3Ti4,AlCCr2,LiBC,PrRu4P12,Cu2Fe[CN]6,NaClO3,NiSSb,KSbO3,KB6H6,Rb3AsSe16,Mg32(Al,Zn)49,Ca3Al2O6,AlLi3N2,(Mn,Fe)2O3,F6KP,Te[OH]6,Ca3PI3,Ag3AuTe2,Cu3S4V,Cu3AsS4,AgAsMg,Ag3[PO4],Ca3Al2O6,CaTiO3,Ce5Mo3O16,K2PtCl6,Cr9Fe16Ni7,CrFe18Ni8,AlCu2Mn,Eu2Ir2O7,Al2MgO4,Fe3W3C,CrFe12Ni3,CrFe4Ni3,CaFeO6Si2,Na2MgAlF7,Ca4Al6O16S,YBa2Cu3O7-x,alpha-RbPr[MoO4]2,CsPr[MoO4]2,KCNS,KAg[CO3],BaCr2Ru4O12,MgB2O(OH)6,C17FeO4Pt,Na4Ti2Si8O22[H2O]4,NaGdCu2F8,Ba2TiSi2O8,NaZn[OH]3,Ca2MgSi2O7,Cu2FeS4Sn,CaRbFe4As4,AsCuSiZr,Rb2TiCu2Se4,YbBaCo4O7,KAg(CN)2,pi-FeMg3Al8Si6,pi-FeMg3Al9Si5,Be3Al2Si6O18,MgB12H12[H2O]12,LiMgAuSn,Mg3B7ClO13,CrFe11MoNi3,CrFe2525Ni6,CuCrCl5[NH3]6,Co3Al2Si3O12,Cu8(Fe,Zn)3Sn2S12,BaCu4[VO][PO4]4,AsPh4CeS8P4Me8,NaCa3[CO3]2F3[H2O],Na3Co(CO3)2Cl,Na6Mg2(SO4)(CO3)4,Cs2ZnFe[CN]6,AB,A5B11,AB3,AB3,A3B13,A3B5,AB7,Cu2(Zn,Fe)SnS4"
-
-
-```
-
-4. In the cell below, you will find a very long string containing a random sequence of numbers (spelled out) selected from the numbers 1-10. Use string methods to add all of the numbers up.
-
-
-```{python}
-numbersString = "eight-six-four-ten-two-seven-five-four-three-ten-one-nine-seven-five-five-one-seven-nine-two-six-three-three-four-one-eight-five-five-ten-three-one-nine-three-nine-two-four-eight-three-nine-nine-four-eight-two-one-two-three-nine-five-six-three-seven-one-eight-four-seven-nine-three-seven-nine-five-eight-ten-two-two-four-ten-eight-four-three-ten-ten-three-two-ten-nine-five-eight-three-nine-eight-four-six-three-one-five-ten-two-one-one-three-three-five-ten-eight-six-five-six-three-one-three-seven-five-five-five-nine-four-one-eight-eight-eight-five-two-eight-two-two-three-five-nine-three-seven-seven-five-eight-ten-one-seven-one-nine-four-one-five-six-seven-three-three-nine-four-six-two-three-eight-eight-four-ten-two-six-one-five-five-nine-one-four-eight-six-six-four-five-five-two-four-one-two-five-eight-seven-seven-four-three-one-eight-four-three-one-two-ten-five-four-one-two-seven-nine-four-three-eight-four-six-ten-nine-two-four-eight-ten-two-two-nine-one-eight-three-seven-ten-two-three-ten-three-three-ten-six-one-ten-four-ten-nine-nine-six-six-one-two-nine-four-two-nine-nine-seven-two-nine-three-five-three-one-three-four-three-two-six-six-six-three-six-four-seven-two-ten-five-one-one-three-five-one-seven-six-two-four-one-five-two-seven-three-seven-five-five-two-one-ten-six-one-ten-eight-five-ten-ten-three-nine-two-seven-two-four-four-nine-three-two-three-two-ten-six-two-seven-two-four-eight-three-ten-two-four-three-nine-three-one-seven-ten-ten-three-five-two-four-eight-nine-five-ten-one-seven-eight-three-four-ten-one-nine-six-one-four-two-ten-eight-three-two-four-three-seven-three-nine-seven-four-five-one-nine-seven-two-eight-eight-six-three-five-three-six-five-four-five-one-nine-two-ten-four-three-three-five-ten-eight-one-two-five-seven-three-two-ten-six-four-six-nine-eight-three-eight-nine-one-two-eight-six-six-four-three-six-ten-two-three-ten-four-three-six-one-five-four-six-one-seven-five-five-eight-five-seven-six-nine-two-two-eight-six-three-four-seven-seven-eight-two-six-five-two-five-seven-three-seven-six-two-eight-eight-ten-nine-eight-six-eight-four-five-two-seven-four-six-one-eight-six-six-four-one-nine-three-seven-six-ten-four-five-one-one-seven-seven-eight-two-nine-seven-eight-six-six-seven-nine-three-one-one-nine-nine-seven-seven-three-one-six-four-ten-five-four-three-ten-nine-eight-ten-nine-ten-ten-one-seven-nine-two-one-seven-two-eight-four-five-five-three-three-two-six-eight-nine-four-four-one-six-six-five-two-two-six-four-two-ten-two-six-ten-two-five-four-one-eight-three-eight-nine-ten-seven-eight-five-six-one-seven-eight-seven-four-four-six-eight-six-five-ten-eight-eight-two-six-five-five-nine-six-ten-six-three-six-one-four-eight-one-two-ten-eight-four-seven-seven-nine-seven-four-two-five-two-eight-ten-seven-one-eight-six-five-five-nine-ten-four-three-eight-three-eight-five-ten-ten-six-eight-seven-one-seven-seven-one-three-ten-seven-three-one-five-eight-seven-nine-eight-six-eight-five-ten-five-five-ten-three-two-two-one-six-four-one-six-seven-six-ten-four-eight-three-five-nine-ten-eight-nine-nine-ten-nine-six-two-one-eight-six-ten-eight-two-five-two-four-three-nine-nine-eight-five-three-four-eight-four-five-eight-one-six-two-nine-eight-eight-eight-four-three-eight-three-four-eight-ten-seven-five-three-one-four-three-seven-three-six-seven-one-four-ten-seven-six-four-two-nine-six-four-six-three-one-nine-three-nine-eight-five-six-nine-four-nine-three-four-six-nine-five-nine-three-seven-nine-one-one-ten-five-five-six-one-one-six-one-seven-six-seven-four-seven-two-two-six-one-six-ten-nine-eight-two-one-four-ten-four-three-three-three-three-ten-five-six-six-four-four-four-six-two-two-three-eight-ten-five-ten-ten-two-two-eight-nine-seven-six-three-nine-six-ten-five-one-three-one-six-eight-seven-five-ten-five-three-five-seven-one-three-one-six-five-seven-six-two-one-three-five-four-six-eight-four-nine-nine-eight-eight-three-five-eight-six-five-one-six-five-ten-five-five-four-nine-seven-two-four-six-ten-four-two-ten-ten-six-eight-ten-three-four-five-five-five-five-eight-five-six-six-ten-eight-one-nine-three-four-three-eight-five-seven-six-seven-six-seven-one-one-three-three-three-six-three-three-nine-eight-seven-five-five-ten-six-five-eight-seven-six-six-ten-one-three-four-seven-ten-five-eight-four-eight-seven-four-four-five-four-nine-one-two-ten-two-nine-nine-five-six-two-eight-nine-six-two-two-five-nine-eight-seven-six-five-one-two-one-six-four-nine-seven-eight-eight-nine-four-seven-ten-five-ten-ten-two-nine-seven-one-three-seven-two-seven-five-four-two-six-two-nine-five-nine-five-five-eight-nine-three-four-ten-two-five-ten-three-six-five-nine-two-four-two-nine-five-one-five-six-one-one-nine-seven-five-six-three-seven-nine-five-eight-two-nine-one-ten-ten-eight-seven-three-one-nine-three-one-ten-one-nine-ten-five-one-three-eight-six-two-ten-four-four-seven-five-two-two-ten-ten-five-six-three-ten-four"
-
-```
-
-
-5. In the cell below, you will find a very long string containing a random sequence of numbers (spelled out) selected from the numbers 2-4. Use string methods to **multiply** all of the numbers up.
-
-```{python}
-numbersString = "two-three-three-three-two-four-three-three-two-three-two-three-four-four-three-four-three-two-four-four-four-four-two-two-three-three-four-four-two-four-three-three-two-three-three-three-two-two-three-three-four-two-three-four-two-two-two-four-three-four-two-two-three-three-two-four-two-two-three-two-two-three-three-two-four-three-three-two-two-three-four-four-four-four-two-two-four-three-two-three-four-two-four-four-four-three-three-three-two-four-three-three-two-four-three-four-four-four-four-two-three-four-two-three-three-three-four-four-two-two-two-two-four-two-two-three-four-three-two-three-three-two-four-two-four-three-three-four-two-two-three-four-three-three-two-three-four-four-two-four-four-four-three-two-four-two-three-four-four-four-four-two-two-two-four-four-four-two-two-three-three-four-three-two-four-four-four-four-two-two-two-two-three-two-three-two-three-four-three-three-two-three-four-two-three-three-three-two-three-two-four-two-three-three-two-two-two-three-two-two-four-three-four-two-two-three-four-two-four-two-two-three-four-four-four-four-four-two-four-four-three-two-four-two-three-two-three-four-two-two-two-three-four-four-four-two-two-two-four-two-three-three-three-three-three-two-three-two-two-four-three-four-four-three-three-four-three-two-two-four-three-two-four-two-two-four-two-three-two-two-two-two-three-three-two-three-three-four-three-three-three-two-three-four-two-two-three-two-four-two-two-two-three-two-two-three-three-two-two-two-two-two-two-four-two-three-three-four-four-three-two-three-two-two-four-two-three-two-two-three-four-three-four-three-four-four-two-four-three-three-three-two-four-three-four-three-four-three-four-four-two-two-four-three-two-three-three-four-four-four-two-two-two-two-four-four-four-three-four-four-three-two-two-two-two-two-two-three-three-three-three-three-four-three-four-four-three-three-two-three-four-two-three-three-two-three-three-two-four-three-four-two-two-three-two-two-three-four-three-two-four-three-four-two-two-four-two-three-four-two-two-three-three-two-three-three-four-three-three-two-two-two-four-two-three-four-three-two-two-two-four-four-four-two-three-three-two-three-two-two-two-three-four-three-four-three-four-three-two-two-four-four-two-two-four-three-three-two-three-four-two-two-two-three-two-four-two-four-three-two-three-two-three-three-three-four-two-four-four-three-three-two-three-three-four-two-two-four-four-three-three-two-two-four-three-four-three-three-three"
-
-```
-
-6. In the cell below, you will find several variables containing various physical constants.  Create f-strings that contain a description of the constant and it's value.  For example, for the first variable, you should create a string that looks like: "Mass of the Earth: 5.98 x 10^24 kg". Note that you must use the variable given when creating the string; You can't just read the value from the variable and type it in by hand.
-    1. Use string methods to replace the "e" in the variable with " x 10^"
-    2. The units for each number is included in the comments. Include this unit in the string. 
-
-```{python}
-massEarth = 5.98e24 # kilograms
-radiusEarth = 6.37e6 # meters
-couloumbConstant = 8.99e9 # N m^2/C^2
-planksConstant = 6.63e-34 # J s
-massElectron = 9.11e-31  # kilograms
-speedLight = 3.0e8 # m/s
-gravitationalConstant = 6.67e-11 # N m^2/kg^2
-fundCharge = 1.602e-19 # Coulombs
-idealGasConstant = 8.314 # J/(mol Kelvin)
-standardAtmosphere = 1.013e5 # Pascals
-boltzmannConstant = 1.38e-23 # J/K
-massProton = 1.6726e-27 # kg
-
-
-```
 

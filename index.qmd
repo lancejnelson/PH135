@@ -7,7 +7,7 @@ execute:
 # Python and Jupyter Notebooks
 
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/intro.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/intro.ipynb)
 
 ## Python
 
