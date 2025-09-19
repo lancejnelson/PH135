@@ -518,7 +518,6 @@ window.Quarto = {
   <li><a href="#indexerror" id="toc-indexerror" class="nav-link" data-scroll-target="#indexerror"><span class="header-section-number">2.3.5</span> IndexError</a></li>
   <li><a href="#filenotfounderror" id="toc-filenotfounderror" class="nav-link" data-scroll-target="#filenotfounderror"><span class="header-section-number">2.3.6</span> FileNotFoundError</a></li>
   </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.4</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -550,7 +549,7 @@ window.Quarto = {
 <h2 data-number="2.1" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.1</span> Variables</h2>
 <p>When performing mathematical operations, it is often desirable to store the values in <em>variables</em> for later use instead of manually typing them back in each time you need to use them. This will reduce effort because small changes to variables can automatically propagate through your calculations.</p>
 <p>Attaching a value to a variable is called <em>assignment</em> and is performed using the equal sign (=), as demonstrated in the cell below:</p>
-<div id="bf9d6a88" class="cell" data-execution_count="2">
+<div id="c8432d64" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">5.0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -634,14 +633,14 @@ window.Quarto = {
 <li>What does Python do if you try to define a variable using a name that is not allowed?</li>
 </ol>
 </blockquote>
-<div id="ef1c21f9" class="cell" data-execution_count="3">
+<div id="f296347c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my1variable <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="er">stvariables</span> <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>a big constant <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>a_big_constant <span class="op">=</span> <span class="fl">1e8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is also a good practice to make variable names meaningful. For example, in the cell below we calculate <span class="math inline">\(E = mc^2\)</span> using two choices for variable assignments. In one case, it is easy to determine what the calculation is and in the other it isn’t.</p>
-<div id="e9815bff" class="cell" data-execution_count="4">
+<div id="48f1d9fe" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good Variable Names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mass_kg <span class="op">=</span> <span class="fl">1.6</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>light_speed <span class="op">=</span> <span class="fl">3.0e8</span></span>
@@ -659,7 +658,7 @@ window.Quarto = {
 <h2 data-number="2.2" class="anchored" data-anchor-id="numbers-integers-and-floats"><span class="header-section-number">2.2</span> Numbers: Integers and Floats</h2>
 <p>There are two types of numbers in Python - floats and integers. <em>Floats</em>, short for “floating point numbers,” are values with decimals in them. They may be either whole or non-whole numbers such as 3.0 or 1.2, but there is always a decimal point. <em>Integers</em> are whole numbers with no decimal point such as 2 or 53.</p>
 <p>Mathematical operations that only use integers <em>and</em> evaluate to a whole number will generate an integers (except for division). All other situations will generate a float. See the example cell below.</p>
-<div id="4d8d4fd2" class="cell" data-execution_count="5">
+<div id="d2ed8609" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">24</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="fl">0.3</span></span>
@@ -675,11 +674,11 @@ window.Quarto = {
 <li>Use <code>print</code> statements to verify your guesses and formulate a general rule that you can rely on. (Tip, the <code>type()</code> function will tell you what kind of number a variable is.)</li>
 </ol>
 </blockquote>
-<div id="3532d312" class="cell" data-execution_count="6">
+<div id="0dd6b566" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Integers and floats can be inter-converted to each other using the <code>int()</code> and <code>float()</code> functions.</p>
-<div id="aefe6213" class="cell" data-execution_count="7">
+<div id="437c0e1b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">3.0</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -688,7 +687,7 @@ window.Quarto = {
 </div>
 <p>The distinction between floats and ints is often a minor detail. Occasionally, a function will require that an argument be a float or an int but usually you won’t have to worry about which one you use.</p>
 <p>Below you will find some other common mathematical operations that can be performed on numerical variables.</p>
-<div id="07227138" class="cell" data-execution_count="8">
+<div id="861a6df5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b </span>
@@ -707,23 +706,23 @@ window.Quarto = {
 <li>Add comments next to each line (Use <code>#</code> to start a comment) explaining that operation.</li>
 </ol>
 </blockquote>
-<div id="d6de44a6" class="cell" data-execution_count="9">
+<div id="70ffab90" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="augmented-assignment" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="augmented-assignment"><span class="header-section-number">2.2.1</span> Augmented Assignment</h3>
 <p>Augmented assignment is a shortened way to make a simple modification to a variable. For example, if we want to increase the value of a variable by 10, one way to do it would be like this.</p>
-<div id="cec07073" class="cell" data-execution_count="10">
+<div id="04b921e8" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is certainly not difficult, but it does involve typing the variable twice which becomes cumbersome as your variable name gets longer. Alternatively, we can accomplish the same thing with the <code>+=</code> operator.</p>
-<div id="287fa435" class="cell" data-execution_count="11">
+<div id="334a8d64" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Augmented assignment can be used with addition, subtraction, multiplication, and division as shown in the code cell below.</p>
-<div id="bf26b429" class="cell" data-execution_count="12">
+<div id="cf5115c2" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">3</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">-=</span> <span class="dv">1</span></span>
@@ -738,14 +737,14 @@ window.Quarto = {
 <li>If you were wrong, pow-wow with your neighbor until you understand.</li>
 </ol>
 </blockquote>
-<div id="c0ab7c85" class="cell" data-execution_count="13">
+<div id="7fead948" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="compound-assignment" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="compound-assignment"><span class="header-section-number">2.2.2</span> Compound Assignment</h3>
 <p>At the beginning of a program or calculation, it is often necessary to define a set of variables. Each variable may get it’s own line of code, but if there are a lot of variables, this can begin to clutter your code a little. An alternative is to assign multiple variables on a single line. In the code below, we assign the atomic mass of the first three elements.</p>
-<div id="b1458fe9" class="cell" data-execution_count="14">
+<div id="aacf1da0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>H, He, Li <span class="op">=</span> <span class="fl">1.01</span>, <span class="fl">4.00</span>, <span class="fl">5.39</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
@@ -755,14 +754,14 @@ window.Quarto = {
 <li>Add assignments for the atomic masses of the next three elements on the periodic table.</li>
 </ol>
 </blockquote>
-<div id="a2a7431d" class="cell" data-execution_count="15">
+<div id="acac1e07" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="large-numbers" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="large-numbers"><span class="header-section-number">2.2.3</span> Large numbers</h3>
 <p>Sometimes you find yourself working with large numbers in your calculation. Maybe your calculation involves the use of ten billion, which has 10 zeros in it. It can be difficult to look at all of those zeros with no commas to help break it up. In those cases, you can use an underscore (<code>_</code>) in place of the comma, as shown below.</p>
-<div id="179d0961" class="cell" data-execution_count="16">
+<div id="08b84e9d" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10000000000</span> <span class="co"># This is tough to look at.</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>myLargeNumber <span class="op">=</span> <span class="dv">10_000_000_000</span>  <span class="co"># This is easy to read</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -775,7 +774,7 @@ window.Quarto = {
 <p>If your number is very large or very small ( <span class="math inline">\(20-30\)</span> zeros), you would probably rather not have to type all of the zeros at all, even if you can break it up with the underscores. For example, the Boltzmann constant, which comes up in thermodynamics, has a value equal to</p>
 <p><span class="math display">\[ 1.38 \times 10^{-23}\]</span></p>
 <p>We can avoid typing all those zeros by using scientific notation when defining the variable. (see example below) This is super handy for very large and very small numbers. (Numbers of both variety show up frequently in physics!)</p>
-<div id="d36fdd5f" class="cell" data-execution_count="17">
+<div id="83371b3f" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>kB <span class="op">=</span> <span class="fl">1.38e-23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -783,7 +782,7 @@ window.Quarto = {
 <h3 data-number="2.2.5" class="anchored" data-anchor-id="python-functions"><span class="header-section-number">2.2.5</span> Python functions</h3>
 <p>In addition to basic mathematical functions, python contains several mathematical <em>functions</em>. As in mathematics, a function has a name (e.g.&nbsp;<em>f</em>) and the arguments are places inside of the parenthesis after the name. The <em>argument</em> is any value or piece of information fed into the function. In the case below, <em>f</em> requires a single argument <em>x</em>. <span class="math display">\[f(x)\]</span></p>
 <p>In the cell below, you will find several useful Python functions.</p>
-<div id="d1df0d13" class="cell" data-execution_count="18">
+<div id="dd14f0b5" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">abs</span>(<span class="op">-</span><span class="fl">5.5</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="dv">2</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="fl">5.6</span>)</span>
@@ -798,7 +797,7 @@ window.Quarto = {
 </div>
 </div>
 <p>In addition to Python’s native collection of mathematical functions, there is also a <code>math</code> module with more mathematical functions. Think of a module as an add-on or tool pack for Python just like a library. The <code>math</code> module comes with every installation of python and can be <em>imported</em> (i.e.&nbsp;activated) using the <code>import math</code> command. After the module has been imported, any function in the module is called using <code>math.function()</code> where <code>function</code> is the name of the function. Below is a list of commonly-used functions inside the <code>math module</code>. Carefully look at each of them and guess what they mean.</p>
-<div id="b03c4e4b" class="cell" data-execution_count="19">
+<div id="79787e15" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>math.sqrt(<span class="dv">4</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>math.ceil(<span class="fl">4.3</span>)</span>
@@ -828,11 +827,11 @@ window.Quarto = {
 <li>Add comments to remind yourself for later.</li>
 </ol>
 </blockquote>
-<div id="50b4846e" class="cell" data-execution_count="20">
+<div id="47abbaff" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are other ways to import functions from modules. If you only want to use a single function inside the module, you can selectively import it using <code>from</code>, as shown below.</p>
-<div id="7533324a" class="cell" data-execution_count="21">
+<div id="22a8e478" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> radians</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>radians(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
@@ -850,7 +849,7 @@ window.Quarto = {
 <p>A <code>SyntaxError</code> is the most common type of error for beginners. It means you have broken a grammar rule of the Python language. Just like a sentence in English needs correct punctuation to make sense, a line of Python code needs correct syntax.</p>
 <p>: Missing punctuation, like a colon :, a parenthesis ), or a quotation mark “.</p>
 <p>In the example below, we forget to close the parentheses for the print function.</p>
-<div id="ac13529b" class="cell" data-execution_count="22">
+<div id="f4b0c6ce" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We are trying to print a message, but we forgot the closing parenthesis.</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This line has a syntax error"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -868,7 +867,7 @@ window.Quarto = {
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="indentation-error"><span class="header-section-number">2.3.2</span> Indentation Error</h3>
 <p>Python is unique because it uses whitespace (specifically, the spaces at the beginning of a line) to group code together. An <code>IndentationError</code> means that the spacing in your code is not correct or consistent.</p>
 <p>: Forgetting to indent code that belongs inside a loop, function, or if statement.</p>
-<div id="7ed95bd1" class="cell" data-execution_count="23">
+<div id="f0255032" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The line below should be indented, because it belongs inside the for loop.</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -883,7 +882,7 @@ window.Quarto = {
 </div>
 </div>
 <p>You can also get an <code>IndentationError</code> if there are multiple lines indented but their indentation levels are not consistent, as shown below.</p>
-<div id="4bd0dc35" class="cell" data-execution_count="24">
+<div id="69614070" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Indentation error because the lines in the loop are not all indented</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to the same position</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
@@ -904,7 +903,7 @@ window.Quarto = {
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="nameerror"><span class="header-section-number">2.3.3</span> NameError</h3>
 <p>A <code>NameError</code> occurs when you try to use a variable or function that Python doesn’t recognize.</p>
 <p>: A typo in a variable name or trying to use a variable before you have assigned it a value.</p>
-<div id="289c6b6b" class="cell" data-execution_count="25">
+<div id="875db097" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We create a variable called 'initial_velocity'.</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>initial_velocity <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -924,7 +923,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Since Python executes code sequentially: the first line gets executed first, then the second line, etc., you can get a <code>NameError</code> if you try to use a variable before it is defined, as shown below.</p>
-<div id="e16954f0" class="cell" data-execution_count="26">
+<div id="95e43aa2" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> <span class="fl">5.22</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> dx<span class="op">/</span>dt  <span class="co"># A NameError occurs at this line because dt is not yet defined.</span></span>
@@ -948,7 +947,7 @@ window.Quarto = {
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="typeerror"><span class="header-section-number">2.3.4</span> TypeError</h3>
 <p>A <code>TypeError</code> means you are trying to do an operation with a data type that doesn’t support it. It’s like trying to add a word to a number—it just doesn’t make sense.</p>
 <p>: Trying to combine incompatible types, like adding a string and an integer.</p>
-<div id="3c709ac8" class="cell" data-execution_count="27">
+<div id="32109576" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can't directly add a number (an integer) to a word (a string).</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Python doesn't know if you mean to do math or combine text.</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">"The answer is: "</span> <span class="op">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -970,7 +969,7 @@ window.Quarto = {
 <h3 data-number="2.3.5" class="anchored" data-anchor-id="indexerror"><span class="header-section-number">2.3.5</span> IndexError</h3>
 <p>An <code>IndexError</code> happens when you try to access an item in a list using an index that is out of bounds.</p>
 <p>: Forgetting that list indices start at 0. For a list of 3 items, the only valid indices are 0, 1, and 2.</p>
-<div id="120a6839" class="cell" data-execution_count="28">
+<div id="334a127e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This list has three items.</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>planets <span class="op">=</span> [<span class="st">"Mercury"</span>, <span class="st">"Venus"</span>, <span class="st">"Earth"</span>]</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -996,7 +995,7 @@ window.Quarto = {
 <h3 data-number="2.3.6" class="anchored" data-anchor-id="filenotfounderror"><span class="header-section-number">2.3.6</span> FileNotFoundError</h3>
 <p>This is a very common error when you start working with data. It simply means that you are trying to open a file that Python cannot find at the location you specified.</p>
 <p>: A typo in the filename or the file not being in the same folder as your script.</p>
-<div id="d77cf30e" class="cell" data-execution_count="29">
+<div id="0ed32140" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python will look in the current folder for a file with this name.</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># If it can't find it, it will raise this error.</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data_that_does_not_exist.csv"</span>) <span class="im">as</span> f:</span>
@@ -1024,76 +1023,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="exercises" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.4</span> Exercises</h2>
-<ol type="1">
-<li>Most (or all) of you have use Pythagorean’s theorem to calculate the hypotenuse of a right triangle. The theorem states that the lengths of a right triangle are related like this <span class="math inline">\(a^2 + b^2 = c^2\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the lengths of the sides forming the right angle and <span class="math inline">\(c\)</span> is the length of the hypotenuse. There is a Python function called <code>hypot</code> (found in a library called <code>math</code>) that will perform this calculation for your. Calculate the distance from the point <span class="math inline">\((-48,56)\)</span> to the point <span class="math inline">\((23,81)\)</span> using
-<ol type="1">
-<li>Pythogorean’s theorem</li>
-<li>The Python function <code>hypot</code>. To learn how to use the hypot function, visit the following <a href="https://docs.python.org/3/library/math.html">documentation page</a> and search for the explanation for the <code>hypot</code> function. Learning to read and understand online documentation is a skill that you you should develop.</li>
-</ol></li>
-</ol>
-<p>Print out the result and check your answer with your neighbor’s answer.</p>
-<div id="44f76c7a" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Equations involing quadratic polynomials,like the one shown below, appear in science frequently.</li>
-</ol>
-<p><span class="math display">\[ 5x^2 + 2x - 1 = 0\]</span></p>
-<p>You may remember that the solution to this equation is given by the quadratic formula <span class="math display">\[ x = {- b \pm \sqrt{b^2 - 4 a c} \over 2a}\]</span> Solve the quadratic equation given above and print off the results. (There are two answers.) Then check with a classmate to verify that your answers match.</p>
-<div id="a71532e4" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li>(Solar Mass) The mass of the sun can be calculated using the following formula:<span class="math display">\[ M_\text{sun} = {4 \pi^2 (1 \text{ AU})^3\over G (1 \text{ yr})^2}\]</span><br>
-The unit AU is called an astronomical unit of length and is defined to be the average distance between the sun and earth. <span class="math display">\[ 1 \text{ AU} = 1.58\times 10^{-5} \text{ light years}\]</span> where <span class="math inline">\(1 \text{ lightyear} = 9.5 \times 10^{15}\)</span> m. The constant <span class="math inline">\(G\)</span> is called the gravitational constant and has the value: <span class="math display">\[ G = 6.674 \times 10^{-11} \text{ m}^3 \text{ kg}^{-1}\text{ s}^{-1}\]</span> Calculate the mass of the sun (in kg) and display your result using a print statement. You should find a value of <span class="math inline">\(M_\text{Sun} = 2.01 \times 10^{30}\)</span> kg.</li>
-</ol>
-<div id="15fbade1" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
-<li><p>(Projectile Motion) The range of a projectile is given by the equation:<span class="math display">\[ d = {2 v^2 \cos \theta \sin \theta \over g}\]</span> or the equivalent expression:<span class="math display">\[ d = {v^2  \sin 2 \theta \over g}\]</span> where <span class="math inline">\(g = 9.8\)</span> m/s<span class="math inline">\(^2\)</span>, <span class="math inline">\(\theta\)</span> is the launch angle, and <span class="math inline">\(v\)</span> is the launch speed.</p>
-<ol type="1">
-<li>Using a launch angle of 60<span class="math inline">\(^\circ\)</span> and a launch speed of <span class="math inline">\(40\)</span> m/s, verify that both expressions above give the same result for the range.</li>
-<li>Now pick one of the equations above and use trial and error to determine the angle that gives maximum range.</li>
-</ol></li>
-</ol>
-<div id="cb6a5fe2" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">40</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> <span class="fl">9.8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="1">
-<li>(Rydberg’s constant) Rydberg’s constant (<span class="math inline">\(R_\infty\)</span>) is a physical constant in Rydberg’s formula which was used to predict the spectrum of light emitted by a heavy atom. Rydberg’s constant is given by: <span class="math display">\[R_\infty = {m_e e^4 \over 8 \epsilon_0^2 h^3 c}\]</span><br>
-where
-<ul>
-<li><span class="math inline">\(m_e = 9.109 \times 10^{-31}\)</span> kg is the mass of an electron.</li>
-<li><span class="math inline">\(e = 1.602 \times 10^{-19}\)</span> C is the charge of an electron/proton.</li>
-<li><span class="math inline">\(\epsilon_0 = 8.854 \times 10^{-12}\)</span> C V<span class="math inline">\(^{-1}\)</span> m<span class="math inline">\(^{-1}\)</span> is the electrical constant.</li>
-<li><span class="math inline">\(h = 6.626 \times 10^{-34}\)</span> J Hz is the Planck constant.</li>
-<li><span class="math inline">\(c = 3 \times 10^8\)</span> m/s is the speed of light.</li>
-</ul>
-These constants show up all over in physics. In the cell below write some code that assigns the constants to variables and then use the variables to calculate Rydberg’s constant. Use a print statement to display the result. The result should be: <span class="math inline">\(R_\infty = 10961656.2162\)</span> (in m<span class="math inline">\(^{-1}\)</span>)</li>
-</ol>
-<div id="d6685ab7" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="6" type="1">
-<li><p>In Einstein’s special theory of relativity, the momentum of an object with mass <span class="math inline">\(m\)</span> (in kg) and velocity <span class="math inline">\(v\)</span> (in m/s) is given by:<span class="math display">\[ p = m v \gamma\]</span> where <span class="math display">\[\gamma = {1\over \sqrt{1 - {v^2\over c^2}}}\]</span> with <span class="math inline">\(c = 3 \times 10^8\)</span> m/s</p>
-<ol type="1">
-<li>Calculate the momentum of an object with mass <span class="math inline">\(m = 0.14\)</span> kg and speed <span class="math inline">\(v = 50\)</span> m/s. Then compare to the classical expression for momentum: <span class="math inline">\(p = mv\)</span>.</li>
-<li>Now calculate the momentum of an object with mass <span class="math inline">\(m = 0.14\)</span> kg and whose speed is <span class="math inline">\({1 \over 4}\)</span> the speed of light. Repeat the comparison to the classical value.<br>
-</li>
-<li>Repeat for the following speeds: <span class="math inline">\({1\over 2}\)</span> the speed of light, <span class="math inline">\({3\over 4}\)</span> the speed of light, and <span class="math inline">\({7\over 8}\)</span> the speed of light. Repeat the comparison to the classical value.</li>
-</ol></li>
-</ol>
-<div id="840953c2" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python Code Here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
