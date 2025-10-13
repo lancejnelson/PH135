@@ -531,18 +531,18 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://lancejnelson.github.io/PH135/jupyter/loops.ipynb">Jupyter Notebook</a></p>
+<p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/loops.ipynb">Jupyter Notebook</a></p>
 <p><em>Loops</em> allow programs to rerun the same block of code multiple times. This might seem like a funny thing to want to do but it turns out that there are many important tasks that are repetitive in nature (perhaps with small changes for each successive repetition). A loop provides a succinct and efficient way to perform tasks of this nature.</p>
 <section id="for-loops" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">7.1</span> <code>for</code> loops</h2>
 <p>The <code>for</code> loop is probably the most common loop you will encounter and is a good choice when you know beforehand exactly what things you want to loop over. Here is an example of a <code>for</code> loop that is used to add up the elements of a list.</p>
-<div id="c8e05ce0" class="cell" data-execution_count="1">
+<div id="3d7eb8ec" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="fl">9.9</span>]: </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    thesum <span class="op">+=</span> i</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This would be equivalent to the following code:</p>
-<div id="021b8aad" class="cell" data-execution_count="2">
+<div id="9ba0b4a2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> thesum <span class="op">+</span> <span class="dv">3</span></span>
@@ -561,7 +561,7 @@ window.Quarto = {
 </ol>
 </blockquote>
 <p>You can iterate over <code>range</code> objects and strings using <code>for</code> loops.</p>
-<div id="5d8aba01" class="cell" data-execution_count="3">
+<div id="a42e86f4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="st">'Physics'</span>, <span class="st">'is'</span>,<span class="st">'so'</span>,<span class="st">'fun'</span>]: <span class="co"># Iterate over a list of strings</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -571,7 +571,7 @@ so
 fun</code></pre>
 </div>
 </div>
-<div id="c443f297" class="cell" data-execution_count="4">
+<div id="1da94d49" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">50</span>,<span class="dv">3</span>):  <span class="co">#Generates a list from 5 -&gt; 50 with a step size of 3</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -594,7 +594,7 @@ fun</code></pre>
 </div>
 <p>These examples are so simple that you might wonder when a loop might actually be useful to you. Let’s see if we can build a loop to calculate the following sum</p>
 <p><span id="eq-sum"><span class="math display">\[ \sum_{n=1}^{1000} {1\over n^2} \tag{7.1}\]</span></span></p>
-<div id="db0ab7c5" class="cell" data-execution_count="5">
+<div id="b6ccc458" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>theSum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">1000</span>):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    theSum <span class="op">=</span> theSum <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>n<span class="op">**</span><span class="dv">2</span></span>
@@ -604,7 +604,7 @@ fun</code></pre>
 </div>
 </div>
 <p>Here, <code>n</code> is being assigned the values <code>1,2,3,4....1000</code>, one by one, until it gets all the way to 1000. Each time through the loop, <code>n</code> is different and the expression <code>1/n**2</code> evaluates to a new value. The variable <code>theSum</code> is updated each time through to be the running total of all calculations performed thus far. Here’s another example of a loop used to calculate the value of <span class="math inline">\(20!\)</span>:</p>
-<div id="978f0b42" class="cell" data-execution_count="6">
+<div id="29437843" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>theProduct <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">21</span>):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    theProduct <span class="op">=</span> theProduct <span class="op">*</span> n <span class="co">#Multiply theProduct by n</span></span>
@@ -614,7 +614,7 @@ fun</code></pre>
 </div>
 </div>
 <p>Remember that the range function creates a list starting at <span class="math inline">\(1\)</span>, going up to <span class="math inline">\(21\)</span> but not including it. The math library has a function called <code>factorial</code> that does the same thing. Let’s use it to check our answer:</p>
-<div id="6a32b54c" class="cell" data-execution_count="7">
+<div id="f766a73e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> factorial</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>factorial(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -626,7 +626,7 @@ fun</code></pre>
 <p>Often when using loops, we only want a block of code to execute when some condition is satisfied. We can use boolean logic inside of the loop to accomplish this. For example, let’s write a loop to compute the following sum:</p>
 <p><span class="math display">\[ \sum_{{n\over 5} \in \text{ Int and } {n\over 3} \in \text{ Int}} {1\over n^2} \]</span></p>
 <p>which is similar to the one we did above, but this time we only want to include terms where <span class="math inline">\(n\)</span> is a perfect multiple of both 5 and 3. To check to see if <code>n</code> is a perfect multiple of a number we can calculate the modulo (remainder after division) using the <code>%</code> operator and check that it is equal to zero.</p>
-<div id="f573d4e6" class="cell" data-execution_count="8">
+<div id="97450888" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>theSum <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">1000</span>):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> n <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
@@ -655,7 +655,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 <section id="zipping" class="level4" data-number="7.1.2.1">
 <h4 data-number="7.1.2.1" class="anchored" data-anchor-id="zipping"><span class="header-section-number">7.1.2.1</span> Zipping</h4>
 <p>The simplest way to iterate over two lists simultaneously is to combine both lists into a single, iterable object and iterate over it once. The <code>zip</code> function does just that by merging two lists or tuples into a nested list</p>
-<div id="c651aa36" class="cell" data-execution_count="9">
+<div id="4012b8cf" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>AN <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">12</span>]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -686,7 +686,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 <section id="enumeration" class="level4" data-number="7.1.2.2">
 <h4 data-number="7.1.2.2" class="anchored" data-anchor-id="enumeration"><span class="header-section-number">7.1.2.2</span> Enumeration</h4>
 <p>A close relative to <code>zip</code> is <code>enumerate</code> which zips a list to <em>the index value for that list</em> (read that last statement again). It also returns a “single use” object that can be iterated over.</p>
-<div id="3656d89d" class="cell" data-execution_count="10">
+<div id="edea50d9" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>AN <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">12</span>]</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -714,7 +714,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 <section id="list-comprehension" class="level3" data-number="7.1.3">
 <h3 data-number="7.1.3" class="anchored" data-anchor-id="list-comprehension"><span class="header-section-number">7.1.3</span> List Comprehension</h3>
 <p>It is fairly common to use a <code>for</code> loop to populate a list with a sequence of numbers.</p>
-<div id="36995275" class="cell" data-execution_count="11">
+<div id="3c893f4f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> []</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
@@ -726,7 +726,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 </div>
 </div>
 <p>This entire process can be compressed down into a single line by expressing the <code>for</code> loop in square brackets. This is known as <em>list comprehension</em>. The code below will generate the list as above.</p>
-<div id="ae32edd2" class="cell" data-execution_count="12">
+<div id="dff99f90" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -734,7 +734,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 </div>
 </div>
 <p>List comprehension can take a little time to get used to but it is well worth it. It saves both time and space and makes code less cluttered. You can even add boolean expressions to your conditionals for further control of the final result.</p>
-<div id="97635745" class="cell" data-execution_count="13">
+<div id="e111199b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>) <span class="cf">if</span> i <span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>]  <span class="co"># Include only the evens.</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -750,7 +750,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 <section id="while-loops" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="while-loops"><span class="header-section-number">7.2</span> <code>while</code> Loops</h2>
 <p>Logic can be combined with loops using something called a <code>while</code> loop. A <code>while</code> loop is a good choice when you don’t know beforehand exactly how many iterations of the loop will be executed but rather want the loop to continue to execute until some condition is met. As an example, notice that in <a href="#eq-sum" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>, the terms in the sum get progressively smaller as <span class="math inline">\(n\)</span> gets bigger. It doesn’t make sense to continue adding to the sum once the terms get very small. Let’s compute this sum by looping until the fraction <span class="math inline">\({1 \over n^2}\)</span> become smaller than <span class="math inline">\(1 \times 10^{-2}\)</span>.</p>
-<div id="9197e71f" class="cell" data-execution_count="14">
+<div id="d9142a52" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>term <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Load the first term in the sum</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> term  <span class="co"># Initialize the sum</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span>     <span class="co"># Set a counter</span></span>
@@ -770,7 +770,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 </blockquote>
 <p><code>while</code> loops should be used with caution because you can easily write a <em>faulty termination condition</em> and inadvertently write a loop that runs forever. This happens because your termination condition was never met. An example of this is given below.</p>
 <p>Warning: Do not execute the code block below!!</p>
-<div id="745c43c0" class="cell" data-execution_count="15">
+<div id="47f4944e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> x <span class="op">!=</span> <span class="dv">10</span>:</span>
@@ -816,7 +816,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 </tbody>
 </table>
 <p>The <code>break</code> statement is useful when you want to completely stop a loop early. Here is our sum loop rewritten with a <code>break</code> statement added to stop the loop after 1000 iterations.</p>
-<div id="54a3ec3a" class="cell" data-execution_count="16">
+<div id="a45a55cb" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>term <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Load the first term in the sum</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> term  <span class="co"># Initialize the sum</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span>     <span class="co"># Set a counter</span></span>
@@ -832,7 +832,7 @@ mass = [1,4,7,9,11,12]</code></pre>
 </div>
 </div>
 <p>The <code>continue</code> statement is similar to <code>break</code> except that instead of stopping the loop, it only stops the current iteration of the loop. All code below the <code>continue</code> statement will be skipped and the next iteration will begin. For example, if you wanted to do the sum from equation ?? but only include those terms for which n is a multiple of 3, it could be done like this:</p>
-<div id="e650c522" class="cell" data-execution_count="17">
+<div id="ea303e6f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>term <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Load the first term in the sum</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> term  <span class="co"># Initialize the sum</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span>     <span class="co"># Set a counter</span></span>

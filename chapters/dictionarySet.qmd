@@ -10,7 +10,7 @@ execute:
 # Dictionaries and Sets
 
 
-[Jupyter Notebook](https://lancejnelson.github.io/PH135/jupyter/dictionarySet.ipynb)
+[Jupyter Notebook](https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/dictionarySet.ipynb)
 
 ## Dictionaries
 

@@ -516,8 +516,6 @@ window.Quarto = {
   <li><a href="#polar-plots" id="toc-polar-plots" class="nav-link" data-scroll-target="#polar-plots"><span class="header-section-number">11.2.6</span> Polar Plots</a></li>
   </ul></li>
   <li><a href="#multifigure-plots" id="toc-multifigure-plots" class="nav-link" data-scroll-target="#multifigure-plots"><span class="header-section-number">11.3</span> Multifigure Plots</a></li>
-  <li><a href="#flashcards" id="toc-flashcards" class="nav-link" data-scroll-target="#flashcards"><span class="header-section-number">11.4</span> Flashcards</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">11.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -546,7 +544,7 @@ window.Quarto = {
 
 <p><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/jupyter/basicPlotting.ipynb">Jupyter Notebook</a></p>
 <p>Creating plots is an important task in science and engineering. The old adage “A picture is worth a thousand words!” is wrong…. it’s worth way more than that if you do it right. When making plots of functions on a computer it is important to remember that computers don’t plot functions, rather they plot individual points. Only when you connect those points does the image look like the function you are used to seeing. In this chapter we will use a library called <code>matplotlib</code> for plotting. More specifically, we will import the <code>pyplot</code> function inside of <code>matplotlib</code>. It is customary to use <code>plt</code> as an alias for <code>pyplot</code>.</p>
-<div id="b31ed721" class="cell" data-execution_count="2">
+<div id="d0525d71" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -556,7 +554,7 @@ window.Quarto = {
 <p>In order to make a plot, matplotlib needs lists of the x and y coordinates for the points that are going to be plotted. If you want to plot a function, the list of x coordinates should be chosen to be a dense array of points spanning the function’s domain and the list of y coordinates should be the function values at those points. A good choice for generating the x-coordinates is either <code>linspace</code> or <code>arange</code> from NumPy. Let’s consider an example. The function shown below is called the Lennard-Jones equation and it gives the energy of two atoms interacting as a function of separation distance</p>
 <p><span class="math display">\[ E = 4\sigma\left[ \left({\epsilon\over r} \right)^{12} - \left({\epsilon\over r} \right)^{6}\right]\]</span></p>
 <p>Let’s plot this function from <span class="math inline">\(0.9\)</span> to <span class="math inline">\(4.0\)</span>.</p>
-<div id="46d14100" class="cell" data-execution_count="3">
+<div id="0ae2e15b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -716,7 +714,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Here is the plot from above with some of these keyword arguments added.</p>
-<div id="b2900c77" class="cell" data-execution_count="4">
+<div id="6d82ae4a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -738,7 +736,7 @@ window.Quarto = {
 <section id="labeling-plots" class="level3" data-number="11.1.2">
 <h3 data-number="11.1.2" class="anchored" data-anchor-id="labeling-plots"><span class="header-section-number">11.1.2</span> Labeling Plots</h3>
 <p>All good plots have axes labels and a title and you can add them to a matplotlib plot using the <code>xlabel()</code>, <code>ylabel()</code>, and <code>title()</code> functions which are placed on their own line after the <code>plot</code> command.</p>
-<div id="8d0135d7" class="cell" data-execution_count="5">
+<div id="c28e7760" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -766,7 +764,7 @@ window.Quarto = {
 <section id="greek-letters" class="level3" data-number="11.1.3">
 <h3 data-number="11.1.3" class="anchored" data-anchor-id="greek-letters"><span class="header-section-number">11.1.3</span> Greek Letters</h3>
 <p>In physics, Greek letters get used all the time and you may find yourself wanting to use one in a plot title or axes label. This can be accomplished by placing an <code>r</code> in front of the title string and then placing the name of the greek variable inside of <code>$</code> with a backslash in front of it. This is better illustrated with an example.</p>
-<div id="29ca21c9" class="cell" data-execution_count="6">
+<div id="881cfacc" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -874,7 +872,7 @@ window.Quarto = {
 <section id="controlling-the-axes" class="level3" data-number="11.1.4">
 <h3 data-number="11.1.4" class="anchored" data-anchor-id="controlling-the-axes"><span class="header-section-number">11.1.4</span> Controlling the Axes</h3>
 <p>By default, matplotlib will size the plot window to include all of the points. If you want to zoom in our out, you can do so with the <code>xlim</code> and <code>ylim</code> functions. These functions should be placed after the plot command on their own line just like the label commands.</p>
-<div id="c7e95049" class="cell" data-execution_count="7">
+<div id="4d5f04c9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -904,7 +902,7 @@ window.Quarto = {
 <section id="overlaying-plots" class="level3" data-number="11.1.5">
 <h3 data-number="11.1.5" class="anchored" data-anchor-id="overlaying-plots"><span class="header-section-number">11.1.5</span> Overlaying Plots</h3>
 <p>Often you will want to plot more than one set of data on the same set of axes. This can be accomplished two ways. The first way is to call the <code>plot</code> function twice in the same Jupyter notebook cell. Matplotlib will automatically place the plots on the same figure and scale it appropriately. Below you will find a plot of the Lennard-Jones potential for two choices of the parameters <span class="math inline">\(\sigma\)</span> and <span class="math inline">\(\epsilon\)</span>.</p>
-<div id="7248e783" class="cell" data-execution_count="8">
+<div id="2d43a475" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -938,7 +936,7 @@ window.Quarto = {
 </div>
 </div>
 <p>The other way to overlay plots is to include both sets of data into a single <code>plot</code> command.</p>
-<div id="1964cb33" class="cell" data-execution_count="9">
+<div id="c3539ad2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -974,7 +972,7 @@ window.Quarto = {
 <section id="plot-legends" class="level3" data-number="11.1.6">
 <h3 data-number="11.1.6" class="anchored" data-anchor-id="plot-legends"><span class="header-section-number">11.1.6</span> Plot Legends</h3>
 <p>Often when your figure contains more than one plot, it is helpful to include a plot legend to label the plots. To add a legend, each plot must be a separate command. In each plot command, the keyword argument <code>label</code> should be used to specify the plot’s label. To add the legend, use the command <code>pyplot.ledend()</code> after the plot commands. An example is given below:</p>
-<div id="090f8db5" class="cell" data-execution_count="10">
+<div id="b7c6a639" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -1013,7 +1011,7 @@ window.Quarto = {
 <section id="logarithmic-plots" class="level3" data-number="11.2.1">
 <h3 data-number="11.2.1" class="anchored" data-anchor-id="logarithmic-plots"><span class="header-section-number">11.2.1</span> Logarithmic Plots</h3>
 <p>Sometimes the function being plotted increases or decreases by many orders of magnitude and a normal linear plot would not be particularly useful. Logarithmic plots can be made with the use of the <code>semilogx</code>, <code>semilogy</code>, or <code>loglog</code> functions depending on which axes you want to be on a logarithmic scale. Consider the first plot produced below. Notice that it rises from <span class="math inline">\(0\)</span> at <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(10^{45}\)</span> at <span class="math inline">\(x = 100\)</span>. Plotting this function with the y-axis scaled logarithmically will smooth out the plot and make it easier to analyze.</p>
-<div id="5aa349e7" class="cell" data-execution_count="11">
+<div id="c1066b8a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,exp</span>
@@ -1044,7 +1042,7 @@ window.Quarto = {
 <section id="scatter-plots" class="level3" data-number="11.2.2">
 <h3 data-number="11.2.2" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">11.2.2</span> Scatter Plots</h3>
 <p>We have already generated scatter plots using the <code>plot</code> function but you can also use the <code>scatter</code> command to do the same thing. The only other additional functionality with <code>scatter</code> is the ability to specify the color, shape, and size of each plot marker individually.</p>
-<div id="14d8055f" class="cell" data-execution_count="12">
+<div id="2a479511" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
@@ -1072,7 +1070,7 @@ window.Quarto = {
 <section id="bar-plots" class="level3" data-number="11.2.3">
 <h3 data-number="11.2.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">11.2.3</span> Bar Plots</h3>
 <p>A bar plot and a scatter plot are quite similar except that instead of a plot marker indicating the associated value, the height of the bar represents the value. You can make a bar plot using the <code>bar</code> function inside of <code>pyplot</code>.</p>
-<div id="78861db8" class="cell" data-execution_count="13">
+<div id="9534d978" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -1133,7 +1131,7 @@ window.Quarto = {
 <section id="errorbar-plots" class="level3" data-number="11.2.4">
 <h3 data-number="11.2.4" class="anchored" data-anchor-id="errorbar-plots"><span class="header-section-number">11.2.4</span> Errorbar Plots</h3>
 <p>To make plots with error bars use matplotlilb’s <code>errorbar</code> function. You can choose to add error bars on the x or y axis using the keyword arguments <code>xerr</code> and <code>yerr</code>.</p>
-<div id="89138b17" class="cell" data-execution_count="14">
+<div id="3e8de06e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> arange</span>
@@ -1158,7 +1156,7 @@ window.Quarto = {
 <section id="histograms" class="level3" data-number="11.2.5">
 <h3 data-number="11.2.5" class="anchored" data-anchor-id="histograms"><span class="header-section-number">11.2.5</span> Histograms</h3>
 <p>Histograms display bars representing the frequency of values in a given data set. Unlike bar plots, the width of the bar is meaningful since the each bar represents the number of x-values that fall within a range given by the width of the bar. A histogram can be constructed using the <code>hist</code> function. There is only one required argument, which is the data set. Some commonly used keyword arguments are <code>bins</code> which specifies how many equally-spaced groups (called <em>bins</em>) to generate and <code>edgecolor</code> which can be used to specify the color of the bar’s edges.</p>
-<div id="3936d4fb" class="cell" data-execution_count="15">
+<div id="0a8ae732" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
@@ -1181,7 +1179,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Here we have used <code>bins = 5</code> which will produce a histogram with <span class="math inline">\(5\)</span> equal-size bins. Alternatively, we can specify the exact locations of all the bin edges by placing them in a list.</p>
-<div id="91b3078b" class="cell" data-execution_count="16">
+<div id="4ed8b548" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,log</span>
@@ -1207,7 +1205,7 @@ window.Quarto = {
 <section id="polar-plots" class="level3" data-number="11.2.6">
 <h3 data-number="11.2.6" class="anchored" data-anchor-id="polar-plots"><span class="header-section-number">11.2.6</span> Polar Plots</h3>
 <p>In a polar plot instead of providing <span class="math inline">\((x,y)\)</span> coordinates, you provide <span class="math inline">\((r,\theta)\)</span> coordinates, where <span class="math inline">\(r\)</span> is the radial distance from the origin and <span class="math inline">\(\theta\)</span> is the angular location on the unit circle.</p>
-<div id="47353dbd" class="cell" data-execution_count="17">
+<div id="3cf3672a" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,pi,sin</span>
@@ -1232,7 +1230,7 @@ window.Quarto = {
 <p>To generate multiple, independent plots in the same figure a few more lines of code are necessary to specify how you want the plots arranged. We start with the <code>figure</code> function which generates the canvas upon which the plots will appear. Assign this object to a variable so you can refer to it later. To create each subplot, the <code>fig.add_subplot(rows,columns, plot_number)</code> function is used. There are three arguments to this function; the first two indicate the shape of the grid and the third indicates which position on the grid this plot will be assigned.</p>
 <pre><code>fig.add_subplot(rows,columns,plot_location)</code></pre>
 <p>After the axes object has been created, we can call the <code>plot</code> function again, and a plot will be generated at its location. Here is an example that will generate two plots side by side.</p>
-<div id="d4aa3bc2" class="cell" data-execution_count="18">
+<div id="3781d1c3" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -1275,7 +1273,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Pay close attention to the <code>add_subplot</code> function. <code>ax1=add_subplot(1,2,1)</code> will generate a <span class="math inline">\(1\)</span> x <span class="math inline">\(2\)</span> grid of plots and <code>ax1</code> will correspond to the plot at the 1st location. Below is an example of a more advanced array of plots.</p>
-<div id="2d206e8b" class="cell" data-execution_count="19">
+<div id="099669fd" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> linspace,sqrt</span>
@@ -1324,86 +1322,6 @@ window.Quarto = {
 </div>
 </div>
 <p>Also notice the <code>set_xlim</code>, <code>set_ylim</code>, <code>set_xlabel</code> etc methods that were used to customize each individual plot. There are a host of other methods available for further customization. <a href="https://matplotlib.org/stable/api/axes_api.html#subplots">This</a> website has a comprehensive list of them.</p>
-</section>
-<section id="flashcards" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="flashcards"><span class="header-section-number">11.4</span> Flashcards</h2>
-<ol type="1">
-<li>Describe how to make a simple, no frills plot of a function. Give a short example.</li>
-<li>How do you modify your plot style to be a red dashed line with triangle markers?</li>
-<li>What is the <code>ms</code> keyword argument used for when plotting?</li>
-<li>How do you add axes labels to a plot?</li>
-<li>How do you add a title to a plot?</li>
-<li>How do you insert greek letters into a plot title or axes label?</li>
-<li>How do you control the size of the plot window (i.e.&nbsp;zoom in or out.)</li>
-<li>How do you plot multiple plots on the <strong>same</strong> figure?</li>
-<li>List the other types of plots discussed in this chapter.</li>
-<li>How do you make a multi-figure plot? Give an example showing the functions that should be used.</li>
-<li>Where can you find the account of Abinadi?</li>
-</ol>
-</section>
-<section id="exercises" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">11.5</span> Exercises</h2>
-<ol type="1">
-<li><p>If you were to shine a laser through a very narrow slit, you would see a pattern very similar to the one shown below. The function that describes this light pattern is called a sinc function:<span class="math display">\[ y(x) = \left({\sin x\over x}\right)^2\]</span><br>
-<img src="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/figures/Diffraction_of_a_single_slit.jpg" class="img-fluid" alt="Single Slit Diffraction"></p>
-<p>Plot this function from <span class="math inline">\(-20 &lt; x &lt; 20\)</span>. Then make the following customizations to the plots:</p>
-<ol type="1">
-<li>Set the color of the line to be green.</li>
-<li>Add axes labels to the plot. The x-label should be “Location” and the y-label should by “Intensity”.</li>
-<li>Add the following title to the plot: “Single-Slit diffraction pattern”</li>
-</ol></li>
-</ol>
-<div id="c5e47a5d" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Max Planck discovered that all objects emit a spectrum of light and the intensity of that spectrum is given by the following function (we did this in a previous homework problem) <span class="math display">\[ I(\lambda) = {2 \pi h c^2 \over \lambda^5} {1\over e^{hc \over \lambda k_BT} - 1}\]</span> where
-<ul>
-<li><span class="math inline">\(c = 3.0 \times 10^8\)</span> m/s is the speed of light.</li>
-<li><span class="math inline">\(h = 6.26 \times 10^{-34}\)</span> m<span class="math inline">\(^2\)</span> kg /s is Plank’s constant.</li>
-<li><span class="math inline">\(k_B = 1.38 \times 10^{-23}\)</span> m<span class="math inline">\(^2\)</span>kg s<span class="math inline">\(^{-2}\)</span> K<span class="math inline">\(^{-1}\)</span> is the Boltzmann constant.</li>
-<li>T is temperature in Kelvins.</li>
-<li><span class="math inline">\(\lambda\)</span> is wavelength in meters.</li>
-</ul>
-Follow the steps below to plot this function for several different temperatures:
-<ol type="1">
-<li>Copy the function that you made previously into the cell below. (or build it from scratch)</li>
-<li>Use <code>numpy.linspace</code> to generate a grid of 500 <span class="math inline">\(\lambda\)</span> values from <span class="math inline">\(0.1 \times 10^{-6} \rightarrow 3 \times 10^{-6}\)</span> m.</li>
-<li>Use list comprehension to produce a list of intensities for the <span class="math inline">\(\lambda\)</span> values generated in step 2. Use <span class="math inline">\(T = 5780\)</span> K (temperature of the sun).</li>
-<li>Plot intensity vs.&nbsp;<span class="math inline">\(\lambda\)</span> .<br>
-</li>
-<li>Repeat steps 3 and 4 for <span class="math inline">\(T = 4500\)</span> K. You should have two plots on the same figure. Choose the line style and color to be different than the first plot.</li>
-<li>Add a legend to the figure. Use the temperatures as the labels.</li>
-<li>Go <a href="https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html">here</a> and compare your results with the plots there to make sure you did it right.</li>
-</ol></li>
-</ol>
-<div id="9702e922" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/HART.csv">This file</a> contains telemetry data for a weather balloon that was launched by the BYU-Idaho High Altitude Research Team (HART). The 5th and 7th columns in the file contain the speed and altitude of the balloon respectively. Read the data file and extract the speed and altitude of the balloon into lists or arrays. Then make a scatter plot of speed vs.&nbsp;altitude. Add axes labels and plot labels to your plot.</li>
-</ol>
-<div id="d9c7a58a" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
-<li><a href="https://raw.githubusercontent.com/lancejnelson/PH135/refs/heads/master/files/Earthquakes.csv.zip">This file</a> contains worldwide earthquake data from the years 1973 to 2021. The fourth column in the file contains the magnitude of the earthquakes. Read the file and plot a histogram of this column. Set <code>bins = 200</code> to make 200, equally-spaced bins on the histogram. Then write a single statement summarizing what this plot is communicating to you. Note: The file is zipped so you’ll need to unzip it before you can read it in.</li>
-</ol>
-<div id="ce0120fb" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="1">
-<li>The position and velocity coordinates for a projectile launched at angle <span class="math inline">\(\theta\)</span> are given by: <span class="math display">\[x(t) = x_i + v_i \cos \theta t \]</span> <span class="math display">\[ y(t) = y_i + v_i \sin \theta  t + {1\over 2} a  t^2\]</span> <span class="math display">\[v_x(t) = v_i \cos \theta\]</span> <span class="math display">\[v_y(t) = v_i \sin \theta + g  t\]</span> where <span class="math inline">\(g = -9.8\)</span> m/s<span class="math inline">\(^2\)</span>. Place the following plots on a 3 x 2 grid for <span class="math inline">\(0 &lt; t &lt; 5.5\)</span> seconds: <span class="math inline">\(x\)</span> vs <span class="math inline">\(y\)</span> (first row, spans both columns), <span class="math inline">\(x\)</span> vs <span class="math inline">\(t\)</span> (second row, first column), <span class="math inline">\(y\)</span> vs <span class="math inline">\(t\)</span>(second row, second column), <span class="math inline">\(v_x\)</span> vs <span class="math inline">\(t\)</span>(third row, first column), and <span class="math inline">\(v_y\)</span> vs <span class="math inline">\(t\)</span>(third row, second column). Make sure that all of the plots have titles and axes labels. Use the following initial conditions: <span class="math display">\[v_i = 60 \text{ m/s}\]</span> <span class="math display">\[\theta = 22^\circ\]</span> <span class="math display">\[x_i = 0 \text{ m}\]</span> <span class="math display">\[y_i = 15 \text{ m}\]</span></li>
-</ol>
-<div id="b7f318c0" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="6" type="1">
-<li>(Extra Credit) The 7th column in the Earthquakes data file contains the date of the earthquake. Write a code to plot the number of earthquakes that occurred each year from 1973 to 2021. (The horizontal axis is year and the vertical axis is the number of earthquakes.)</li>
-</ol>
-<div id="fce374a7" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 
 
 </section>
